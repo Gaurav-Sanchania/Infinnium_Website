@@ -1,0 +1,1099 @@
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+.active-link {
+  color: #38bdf8; /* Highlight active link */
+}
+
+.header-bg {
+  background-color: black;
+  transition: background-color 0.3s ease;
+}
+
+.header-bg-scrolled {
+  background-color: white !important; /* White background when scrolled */
+}
+
+  .header-bg-scrolled svg path[fill="white"] {
+    fill: #000 !important;
+  }
+
+  /* Change text color for all header elements when scrolled */
+  .header-bg-scrolled,
+  .header-bg-scrolled a {
+    color: #444444 !important; /* Dark green color for text */
+  }
+
+    .header-bg-scrolled span after_scroll {
+      color: #444444;
+    }
+
+    /* Change hover states when scrolled */
+    .header-bg-scrolled a:hover {
+      color: #000000 !important; /* Use your brand's orange color for hover */
+    }
+
+#header {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.heading_wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 10rem; /* Adjust this based on the longest word */
+}
+
+#phrase-container {
+  text-align: left;
+  font-size: 4rem;
+  color: #e65a4e;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Custom font styles */
+.custom-heading {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+.custom-subheading {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/* Image Hover Zoom-In/Zoom-Out Effect */
+.blog-img {
+  transition: transform 0.3s ease-in-out;
+}
+
+  .blog-img:hover {
+    transform: scale(1.05); /* Zoom in the image */
+  }
+
+/* Underline Effect for View All Link */
+.view-all {
+  text-decoration: underline;
+}
+
+/* Background Animation */
+#particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Button styling hero section button 1*/
+.circle-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px; /* Ensure it's circular */
+  height: 50px;
+  background-color: #e65a4e;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+  .circle-button:hover {
+    transform: scale(1.1);
+    background-color: #d54a40; /* Slightly darker on hover */
+  }
+
+/* Arrow Rotation (↗) */
+.arrow-icon {
+  transform: rotate(-45deg); /* Rotating right arrow to upper-right */
+  display: inline-block;
+}
+
+/* From Uiverse.io by cssbuttons-io 1*/
+/*button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}*/
+
+.unique_btn {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button.learn-more {
+  position: relative;
+  /*  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;*/
+  width: 12rem;
+  height: auto;
+}
+
+  button.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    border: 2px solid #e66f51;
+    border-radius: 1.625rem;
+  }
+
+    button.learn-more .circle .icon {
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background: #fff;
+    }
+
+      button.learn-more .circle .icon.arrow {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        left: 0.525rem;
+        width: 1.125rem;
+        height: 0.125rem;
+        background: none;
+      }
+
+        /* button.learn-more .circle .icon.arrow::before {
+position: absolute;
+content: "";
+top: -0.29rem;
+right: 0.1924rem;
+width: 0.625rem;
+height: 0.625rem;
+border-top: 0.125rem solid #fff;
+border-right: 0.125rem solid #fff;
+transform: rotate(45deg);
+} */
+        button.learn-more .circle .icon.arrow::before {
+          position: absolute;
+          content: "";
+          top: -0.29rem;
+          right: 0.0625rem;
+          width: 0.625rem;
+          height: 0.625rem;
+          border-top: 0.125rem solid #fff;
+          border-right: 0.125rem solid #fff;
+          transform: rotate(45deg);
+        }
+
+  button.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    /* text-transform: uppercase; */
+  }
+
+button:hover .circle {
+  width: 100%;
+}
+
+  button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+  }
+
+button:hover .button-text {
+  color: #fff;
+  border: #e65a4e;
+}
+
+/* .socket {
+width: 400px;
+height: 400px;
+position: absolute;
+left: 50%;
+margin-left: -200px;
+top: 50%;
+margin-top: -200px;
+} */
+
+.hex-brick {
+  background: #000000;
+  width: 60px;
+  height: 34px;
+  position: absolute;
+  top: 10px;
+  animation-name: fade00;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: fade00;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  /* padding: 1rem; */
+}
+
+.h2 {
+  transform: rotate(60deg);
+  -webkit-transform: rotate(60deg);
+}
+
+.h3 {
+  transform: rotate(-60deg);
+  -webkit-transform: rotate(-60deg);
+}
+
+.gel {
+  height: 60px;
+  width: 60px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.center-gel {
+  margin-left: -30px;
+  margin-top: -30px;
+  animation: none !important;
+  transform: scale(1) !important;
+  /* height: 10rem;
+width: 10rem; */
+}
+
+  /* .center-gel {
+background: white !important;
+} */
+
+  .center-gel .hex-brick {
+    animation: none !important;
+    background: #ffffff !important; /* Set static color matching animation start color */
+  }
+
+  .center-gel i {
+    display: none !important;
+  }
+
+  /* Add this CSS to style the SVG */
+  /* Style your SVG */
+  .center-gel svg {
+    pointer-events: none;
+    width: 250px;
+    height: 250px;
+  }
+
+/* .center-gel svg {
+pointer-events: none;
+width: 80px;
+height: 80px;
+} */
+
+.r1,
+.r2,
+.r3 {
+  animation-name: pulse00;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: pulse00;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.c1 {
+  margin-left: -94px;
+  margin-top: -30px;
+}
+
+.c2 {
+  margin-left: -62px;
+  margin-top: -86px;
+}
+
+.c3 {
+  margin-left: 2px;
+  margin-top: -86px;
+}
+
+.c4 {
+  margin-left: 34px;
+  margin-top: -30px;
+}
+
+.c5 {
+  margin-left: -62px;
+  margin-top: 26px;
+}
+
+.c6 {
+  margin-left: 2px;
+  margin-top: 26px;
+}
+
+.c7 {
+  margin-left: -126px;
+  margin-top: -86px;
+}
+
+.c8 {
+  margin-left: 66px;
+  margin-top: -86px;
+}
+
+.c9 {
+  margin-left: -30px;
+  margin-top: 82px;
+}
+
+.c10 {
+  margin-left: -126px;
+  margin-top: 26px;
+}
+
+.c11 {
+  margin-left: 66px;
+  margin-top: 26px;
+}
+
+.c12 {
+  margin-left: -30px;
+  margin-top: -142px;
+}
+
+.c13 {
+  margin-left: -94px;
+  margin-top: -142px;
+}
+
+.c14 {
+  margin-left: 34px;
+  margin-top: -142px;
+}
+
+.c15 {
+  margin-left: -94px;
+  margin-top: 82px;
+}
+
+.c16 {
+  margin-left: 34px;
+  margin-top: 82px;
+}
+
+.c17 {
+  margin-left: -158px;
+  margin-top: -30px;
+}
+
+.c18 {
+  margin-left: 98px;
+  margin-top: -30px;
+}
+
+.c19 {
+  margin-left: -126px;
+  margin-top: -198px;
+}
+
+.c20 {
+  margin-left: 66px;
+  margin-top: -198px;
+}
+
+.c21 {
+  margin-left: 2px;
+  margin-top: -198px;
+}
+
+.c22 {
+  margin-left: -62px;
+  margin-top: -198px;
+}
+
+.c23 {
+  margin-left: -126px;
+  margin-top: 138px;
+}
+
+.c24 {
+  margin-left: 66px;
+  margin-top: 138px;
+}
+
+.c25 {
+  margin-left: 2px;
+  margin-top: 138px;
+}
+
+.c26 {
+  margin-left: -62px;
+  margin-top: 138px;
+}
+
+.c28 {
+  margin-left: -190px;
+  margin-top: -86px;
+}
+
+.c29 {
+  margin-left: -190px;
+  margin-top: 26px;
+}
+
+.c30 {
+  margin-left: 98px;
+  margin-top: 82px;
+}
+
+.c31 {
+  margin-left: -158px;
+  margin-top: -142px;
+}
+
+.c32 {
+  margin-left: -222px;
+  margin-top: -30px;
+}
+
+.c33 {
+  margin-left: 130px;
+  margin-top: -86px;
+}
+
+.c34 {
+  margin-left: 130px;
+  margin-top: 26px;
+}
+
+.c35 {
+  margin-left: -158px;
+  margin-top: 82px;
+}
+
+.c36 {
+  margin-left: 98px;
+  margin-top: -142px;
+}
+
+.c37 {
+  margin-left: 162px;
+  margin-top: -30px;
+}
+
+.r1 {
+  animation-name: pulse00;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.2s;
+  -webkit-animation-name: pulse00;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 0.2s;
+}
+
+.r2 {
+  animation-name: pulse00;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.4s;
+  -webkit-animation-name: pulse00;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 0.4s;
+}
+
+.r3 {
+  animation-name: pulse00;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.6s;
+  -webkit-animation-name: pulse00;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 0.6s;
+}
+
+.r1 > .hex-brick {
+  animation-name: fade00;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.2s;
+  -webkit-animation-name: fade00;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 0.2s;
+}
+
+.r2 > .hex-brick {
+  animation-name: fade00;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.4s;
+  -webkit-animation-name: fade00;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 0.4s;
+}
+
+.r3 > .hex-brick {
+  animation-name: fade00;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.6s;
+  -webkit-animation-name: fade00;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 0.6s;
+}
+
+@keyframes pulse00 {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(0.01);
+    transform: scale(0.01);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes fade00 {
+  0% {
+    background: #252525;
+  }
+
+  50% {
+    background: #000000;
+  }
+
+  100% {
+    background: #252525;
+  }
+}
+
+.gel i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: #ffffff; /* Icon color */
+  font-size: 28px;
+  opacity: 0.9;
+}
+
+/* Add these CSS animations for area of experties */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Hover Effects */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+  .service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #2a9d8e;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  }
+
+    .service-card:hover::before {
+      width: 100%;
+    }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-card {
+    animation: none;
+    opacity: 1;
+  }
+
+  .service-card {
+    transition: none;
+  }
+}
+
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+  .feature-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e76f51;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  }
+
+    .feature-card:hover::before {
+      width: 100%;
+    }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-card {
+    animation: none;
+    opacity: 1;
+  }
+
+  .feature-card {
+    transition: none;
+  }
+}
+
+/* Add page load animation styles for our product section */
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-product {
+  animation: slideUpFadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+.product-grid {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-product {
+    animation: none;
+    opacity: 1;
+  }
+
+  .product-grid {
+    opacity: 1;
+  }
+}
+
+/* Add page load animation styles for about us section */
+.count-up {
+  visibility: visible;
+}
+
+  .count-up.visible {
+    visibility: visible;
+  }
+
+/* Add page load animation styles for what we do section */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+  .animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+/* Divider Animation */
+.divider-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s ease-out;
+}
+
+  .divider-line.animated {
+    transform: scaleX(1);
+  }
+
+/* Hover Effects */
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+/* Before scroll: header has the "header-bg" class */
+#header.header-bg svg .cls-1 {
+  fill: #ffffff !important;
+}
+
+/* After scroll: header has the "header-bg-scrolled" class */
+#header.header-bg-scrolled svg .cls-1 {
+  fill: #234653 !important;
+}
+/* Mobile Sidebar styles */
+.mobile-sidebar {
+  transform: translateX(100%);
+}
+
+  .mobile-sidebar.active {
+    transform: translateX(0);
+  }
+/* From Uiverse.io by JaydipPrajapati1910 */
+.common {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #e76f51;
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: #000000;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
+
+  .common span {
+    margin: 10px;
+  }
+
+  .common::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: "";
+    border-radius: 50%;
+    display: block;
+    width: 20em;
+    height: 20em;
+    left: -5em;
+    text-align: center;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
+  }
+
+  .common:hover {
+    color: #ffffff;
+    border: 2px solid #e76f51;
+  }
+
+    .common:hover::before {
+      box-shadow: inset 0 0 0 10em #e76f51;
+    }
+
+.expert {
+  background: transparent;
+  position: relative;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: #ffffff;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
+
+  .expert::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: "";
+    border-radius: 50%;
+    display: block;
+    width: 20em;
+    height: 20em;
+    left: -5em;
+    text-align: center;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
+  }
+
+
+  .expert:hover {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+  }
+
+    .expert:hover::before {
+      box-shadow: inset 0 0 0 10em #ffffff;
+    }
+
+    .expert:hover::before {
+      box-shadow: inset 0 0 0 10em #ffffff;
+    }
+
+/* header button contactus */
+a.relative.hidden.md\:flex::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: "";
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  /* Override centering to match effect */
+  left: -5em;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+
+/* contactus common button  */
+.contact-common {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #e76f51;
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: #000000;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
+
+  .contact-common span {
+    margin: 10px;
+  }
+
+  .contact-common::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: "";
+    border-radius: 50%;
+    display: block;
+    width: 100%;
+    height: 20em;
+    /* left: -5em; */
+    text-align: center;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
+  }
+
+  .contact-common:hover {
+    color: #ffffff;
+    border: 2px solid #e76f51;
+  }
+
+    .contact-common:hover::before {
+      box-shadow: inset 0 0 0 10em #e76f51;
+    }
+
+
+
+a.relative.hidden.md\:flex:hover {
+  color: #fff;
+}
+
+  a.relative.hidden.md\:flex:hover::before {
+    box-shadow: inset 0 0 0 10em #e66f51;
+  }
+
+/* WebKit-based browsers */
+::-webkit-scrollbar {
+  width: 7px;
+  display: hidden; /* Adjust width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e66f51; /* Scrollbar thumb color */
+  border-radius: 4px; /* Round the thumb edges */
+  border: 2px solid #f1f1f1; /* Optional: space around thumb */
+}
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Thumb hover color */
+  }
+
+/* for solution pages */
+.truncate_text {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+/* Improve column layout */
+.columns-1 {
+  column-count: 1;
+}
+
+.md\:columns-2 {
+  column-count: 2;
+}
+
+.break-inside-avoid {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Smooth transition for card height */
+.bg-white {
+  transition: height 0.3s ease;
+}
+
+/* Better spacing between columns */
+@media (min-width: 768px) {
+  .gap-8 {
+    column-gap: 2rem;
+  }
+}
+
+/* for product pages */
+/* Fade-in Up Animation for Content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.truncate-text {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+/* Ensure text container takes full width */
+.feature-text-container {
+  width: 100%;
+}

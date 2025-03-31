@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.1738743">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Folder where production build objects will be placed -->
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\infinnium_website.client\browser\</BuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\guards\" />
+    <Folder Include="src\components\" />
+    <Folder Include="src\services\" />
+    <Folder Include="src\routing\" />
+    <Folder Include="src\shared\components\" />
+  </ItemGroup>
+</Project>

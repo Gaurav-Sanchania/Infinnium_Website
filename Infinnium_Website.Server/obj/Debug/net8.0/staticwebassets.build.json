@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "ozln6V9PnkNdfTrTxCv+5I4HStBW/P6IlsEAzgkw1Nw=",
+  "Source": "Infinnium_Website.Server",
+  "BasePath": "_content/Infinnium_Website.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\infinnium_website.client\\infinnium_website.client.esproj",
+      "Version": 2,
+      "Source": "infinnium_website.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
