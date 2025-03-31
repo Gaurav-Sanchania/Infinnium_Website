@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+import { Component, Input } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './expert-section.component.css'
 })
 export class ExpertSectionComponent {
-
+  @Input() headingText: string = "Talk to our Experts";
 }

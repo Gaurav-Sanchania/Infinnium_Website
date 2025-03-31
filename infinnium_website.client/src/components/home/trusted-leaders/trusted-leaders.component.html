@@ -1,11 +1,14 @@
-<section class="py-16 px-6 md:px-16 lg:px-24 text-center bg-[#12423C] text-white"
+<section class="py-16 px-6 md:px-16 lg:px-24 text-center text-white"
+         [ngStyle]="{ 'background-color': bgColor ,
+                      'color' : textColor}"
          style="font-family: 'Manrope', 'Open Sans', sans-serif">
 <!--Section Header-->
-<p class="text-sm uppercase tracking-widest text-gray-300">
+<p class="text-sm uppercase tracking-widest text-gray-300"
+   [ngStyle]="{ 'color' : textColor}">
   YOU ARE WITH A GOOD COMPANY
 </p>
 <h2 class="text-4xl font-semibold mt-2">
-  Trusted <span class="italic text-gray-300">Leader</span>
+  Trusted <span class="italic text-gray-300" [ngStyle]="{ 'color' : textColor}">Leader</span>
 </h2>
 <!--Certification Badges-->
 <div class="mt-10 flex flex-wrap justify-center gap-6 sm:gap-10 md:gap-16 lg:gap-24">
