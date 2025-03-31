@@ -7,7 +7,8 @@ import { AdvantagesComponent } from '../advantages/advantages.component';
 import { FeaturesComponent } from '../features/features.component';
 import { ExpertSectionComponent } from '../../../shared/components/expert-section/expert-section.component';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
-import { TrustedLeadersComponent } from '../../home/trusted-leaders/trusted-leaders.component';
+import { TrustedLeadersComponent } from '../../../shared/components/trusted-leaders/trusted-leaders.component';
+
 
 @Component({
   standalone: true,

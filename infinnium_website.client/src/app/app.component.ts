@@ -8,9 +8,10 @@ import { AreaOfExpertiseComponent } from '../components/home/area-of-expertise/a
 import { OurProductsComponent } from '../components/home/our-products/our-products.component';
 import { AboutUsComponent } from '../components/home/about-us/about-us.component';
 import { GlobalImpactComponent } from '../components/home/global-impact/global-impact.component';
-import { TrustedLeadersComponent } from '../components/home/trusted-leaders/trusted-leaders.component';
 import { RecentBlogsComponent } from '../components/home/recent-blogs/recent-blogs.component';
 import { ProductLayoutComponent } from '../components/4ig-Product/product-layout/product-layout.component';
+import { TrustedLeadersComponent } from '../shared/components/trusted-leaders/trusted-leaders.component';
+import { Solution1LayoutComponent } from '../components/solutions/breachResponse/solution1-layout/solution1-layout.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import { ProductLayoutComponent } from '../components/4ig-Product/product-layout
   imports: [HeaderComponent, FooterComponent, ExpertSectionComponent,
     HeroSectionComponent, WhatWeDoComponent, AreaOfExpertiseComponent,
     OurProductsComponent, AboutUsComponent, GlobalImpactComponent,
-    TrustedLeadersComponent, RecentBlogsComponent, ProductLayoutComponent],
+    TrustedLeadersComponent, RecentBlogsComponent, ProductLayoutComponent,
+    Solution1LayoutComponent],
   styleUrl: './app.component.css'
 })
 export class AppComponent {
