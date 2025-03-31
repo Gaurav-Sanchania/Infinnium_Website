@@ -4,12 +4,13 @@ import 'aos/dist/aos.css';
  import { HeaderComponent } from '../shared/components/header/header.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { ExpertSectionComponent } from '../shared/components/expert-section/expert-section.component';
+import { HeroSectionComponent } from '../components/hero-section/hero-section.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [HeaderComponent, FooterComponent, ExpertSectionComponent],
+  imports: [HeaderComponent, FooterComponent, ExpertSectionComponent, HeroSectionComponent],
   styleUrl: './app.component.css'
 })
 export class AppComponent implements AfterViewInit {
