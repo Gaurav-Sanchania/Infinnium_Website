@@ -1,71 +1,26 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
- import { HeaderComponent } from '../shared/components/header/header.component';
+import { Component } from '@angular/core';
+import { HeaderComponent } from '../shared/components/header/header.component';
 import { FooterComponent } from '../shared/components/footer/footer.component';
 import { ExpertSectionComponent } from '../shared/components/expert-section/expert-section.component';
 import { HeroSectionComponent } from '../components/hero-section/hero-section.component';
+import { WhatWeDoComponent } from '../components/what-we-do/what-we-do.component';
+import { AreaOfExpertiseComponent } from '../components/area-of-expertise/area-of-expertise.component';
+import { OurProductsComponent } from '../components/our-products/our-products.component';
+import { AboutUsComponent } from '../components/about-us/about-us.component';
+import { GlobalImpactComponent } from '../components/global-impact/global-impact.component';
+import { TrustedLeadersComponent } from '../components/trusted-leaders/trusted-leaders.component';
+import { RecentBlogsComponent } from '../components/recent-blogs/recent-blogs.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [HeaderComponent, FooterComponent, ExpertSectionComponent, HeroSectionComponent],
+  imports: [HeaderComponent, FooterComponent, ExpertSectionComponent,
+    HeroSectionComponent, WhatWeDoComponent, AreaOfExpertiseComponent,
+    OurProductsComponent, AboutUsComponent, GlobalImpactComponent,
+    TrustedLeadersComponent, RecentBlogsComponent],
   styleUrl: './app.component.css'
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'infinnium_website.client';
-  @ViewChildren('countUp') countUpElements!: QueryList<ElementRef>;
-  private hasAnimated = false;
-
-  ngAfterViewInit() {
-    if (!this.hasAnimated) {
-      AOS.init({ duration: 1200 });
-      this.initCountUpAnimations();
-    }
-  }
-
-  initCountUpAnimations() {
-    const animationDuration = 2200;
-    const frameDuration = 1000 / 60;
-    const delay = 500;
-
-    this.countUpElements.forEach((el: ElementRef) => {
-      const element = el.nativeElement;
-      const target = parseInt(element.getAttribute('data-count'), 10);
-      const suffix = '+';
-      const totalFrames = Math.round(animationDuration / frameDuration);
-
-      setTimeout(() => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              let currentFrame = 0;
-
-              const counterAnimation = setInterval(() => {
-                currentFrame++;
-                const progress = currentFrame / totalFrames;
-                const currentValue = Math.round(target * progress);
-
-                if (currentValue >= target) {
-                  clearInterval(counterAnimation);
-                  element.textContent = `${target}${suffix}`;
-                } else {
-                  element.textContent = `${currentValue}${suffix}`;
-                }
-              }, frameDuration);
-
-              observer.unobserve(element);
-            }
-          });
-        }, {
-          rootMargin: '0px',
-          threshold: 0.1
-        });
-        observer.observe(element);
-      }, delay);
-    });
-
-    this.hasAnimated = true;
-  }
 }
