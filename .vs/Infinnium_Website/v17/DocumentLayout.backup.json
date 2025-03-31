@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CB7F8B90-233F-4DE9-95FA-F28F5A53D231}|infinnium_website.client\\infinnium_website.client.esproj|c:\\users\\abcom\\desktop\\infinnium_website\\infinnium_website.client\\src\\shared\\components\\header\\header.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CB7F8B90-233F-4DE9-95FA-F28F5A53D231}|infinnium_website.client\\infinnium_website.client.esproj|solutionrelative:infinnium_website.client\\src\\shared\\components\\header\\header.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB7F8B90-233F-4DE9-95FA-F28F5A53D231}|infinnium_website.client\\infinnium_website.client.esproj|c:\\users\\abcom\\desktop\\infinnium_website\\infinnium_website.client\\src\\shared\\components\\header\\header.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{CB7F8B90-233F-4DE9-95FA-F28F5A53D231}|infinnium_website.client\\infinnium_website.client.esproj|solutionrelative:infinnium_website.client\\src\\shared\\components\\header\\header.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,37 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "header.component.html",
-              "DocumentMoniker": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\infinnium_website.client\\src\\shared\\components\\header\\header.component.html",
-              "RelativeDocumentMoniker": "infinnium_website.client\\src\\shared\\components\\header\\header.component.html",
-              "ToolTip": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\infinnium_website.client\\src\\shared\\components\\header\\header.component.html",
-              "RelativeToolTip": "infinnium_website.client\\src\\shared\\components\\header\\header.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-03-31T03:35:25.957Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "header.component.ts",
-              "DocumentMoniker": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\infinnium_website.client\\src\\shared\\components\\header\\header.component.ts",
-              "RelativeDocumentMoniker": "infinnium_website.client\\src\\shared\\components\\header\\header.component.ts",
-              "ToolTip": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\infinnium_website.client\\src\\shared\\components\\header\\header.component.ts",
-              "RelativeToolTip": "infinnium_website.client\\src\\shared\\components\\header\\header.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-03-31T03:35:28.222Z",
-              "EditorCaption": ""
             }
           ]
         }
