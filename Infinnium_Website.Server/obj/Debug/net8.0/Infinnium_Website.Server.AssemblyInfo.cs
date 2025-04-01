@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Infinnium_Website.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05b435f2333b40f977e1e506386947db653218c4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d81eda865d31c4653a89a84d2de86a4c99b86a92")]
 [assembly: System.Reflection.AssemblyProductAttribute("Infinnium_Website.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Infinnium_Website.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
