@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+import { AfterViewInit, Component, ElementRef, Input, QueryList, ViewChildren } from '@angular/core';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 @Component({
@@ -9,6 +10,7 @@ import 'aos/dist/aos.css';
   styleUrl: './about-us.component.css'
 })
 export class AboutUsComponent implements AfterViewInit {
+  @Input() paddingStyle: string = "px-[6.5rem] py-24 bg-[#EAF5F4]";
   @ViewChildren('countUp') countUpElements!: QueryList<ElementRef>;
   private hasAnimated = false;
 

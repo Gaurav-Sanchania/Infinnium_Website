@@ -9,6 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\components\4ig-Product\" />
+    <Folder Include="src\components\about us\" />
     <Folder Include="src\components\solutions\" />
     <Folder Include="src\guards\" />
     <Folder Include="src\services\" />
