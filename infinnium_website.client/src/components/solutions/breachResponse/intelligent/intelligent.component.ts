@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 export class IntelligentComponent {
   toggleDescription(id: number): void {
     const desc = document.getElementById(`desc-${id}`);
-    const button = document.querySelector(`[data-id="${id}"]`) as HTMLButtonElement;
+    const button = document.querySelector(`[onclick="toggleDescription(${id})"]`) as HTMLButtonElement;
 
     if (desc && button) {
       desc.classList.toggle('truncate-text');
