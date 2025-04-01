@@ -8,7 +8,9 @@
 /bazel-out
 
 # Node
-/node_modules
+.Infinnium_Website/node_modules/
+.Infinnium_Website/.vscode/
+.Infinnium_Website/.angular/
 npm-debug.log
 yarn-error.log
 
