@@ -4,13 +4,16 @@ import { Solution1LayoutComponent } from '../components/solutions/breachResponse
 import { HomeLayoutComponent } from '../components/home/home-layout/home-layout.component';
 import { AboutUsLayoutComponent } from '../components/about us/about-us-layout/about-us-layout.component';
 import { CommonLayoutComponent } from '../components/blogs and news/common-layout/common-layout.component';
+import { PartnerLayoutComponent } from "../components/partner/partner-layout/partner-layout.component";
+import { ContactUsLayoutComponent } from "../components/contact us/contact-us-layout/contact-us-layout.component";
+import { SingleLayoutComponent } from "../components/blogs and news/single-layout/single-layout.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   imports: [HomeLayoutComponent, ProductLayoutComponent, AboutUsLayoutComponent,
-    Solution1LayoutComponent, CommonLayoutComponent],
+    Solution1LayoutComponent, CommonLayoutComponent, PartnerLayoutComponent, ContactUsLayoutComponent, SingleLayoutComponent],
   styleUrl: './app.component.css'
 })
 export class AppComponent {
