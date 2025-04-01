@@ -216,19 +216,19 @@ export class BlogsListComponent implements AfterViewInit {
       cardLink.classList.add("block");
 
       cardLink.innerHTML = `
-        <div class="bg-white rounded-lg overflow-hidden flex flex-col h-full shadow-lg">
-          <div class="h-40 overflow-hidden">
-            <img src="${post.image}" alt="Blog Post" class="w-full h-full object-cover"/>
-          </div>
-          <div class="p-4 flex flex-col flex-grow">
-            <p class="text-sm font-medium text-[#E76F51] uppercase mb-2">${post.category}</p>
-            <h3 class="text-lg font-semibold mb-2">${post.title}</h3>
-            <p class="text-gray-600 text-sm mb-3 flex-grow">${post.excerpt}</p>
-            <div class="flex items-center text-gray-400 text-sm">
-              <i class="far fa-calendar-alt mr-2"></i>${post.date}
-            </div>
-          </div>
-        </div>
+        <div class="bg-white rounded-lg overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+  <div class="h-40 overflow-hidden">
+    <img src="${post.image}" alt="Blog Post" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"/>
+  </div>
+  <div class="p-4 flex flex-col flex-grow">
+    <p class="text-sm font-medium text-[#E76F51] uppercase mb-2">${post.category}</p>
+    <h3 class="text-lg font-semibold mb-2 hover:text-[#E76F51] transition-colors duration-300">${post.title}</h3>
+    <p class="text-gray-600 text-sm mb-3 flex-grow">${post.excerpt}</p>
+    <div class="flex items-center text-gray-400 text-sm">
+      <i class="far fa-calendar-alt mr-2"></i>${post.date}
+    </div>
+  </div>
+</div>
       `;
 
       blogGrid.appendChild(cardLink);

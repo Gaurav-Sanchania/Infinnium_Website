@@ -225,12 +225,13 @@ export class HeroSectionComponent implements AfterViewInit{
         <div class="w-full md:w-2/3 mt-4 md:mt-0 flex flex-col justify-between min-h-[234px]">
           <div>
             <p class="text-sm font-medium uppercase text-[#E76F51] mb-2">${post.category}</p>
+            <div class="flex items-center text-gray-400 text-sm mb-2">
+            <i class="far fa-calendar-alt mr-2"></i>${post.date}
+          </div>
             <h2 class="text-xl md:text-2xl font-semibold mb-3">${post.title}</h2>
             <p class="text-gray-200 text-sm mb-4 line-clamp-2">${post.excerpt}</p>
           </div>
-          <div class="flex items-center text-gray-400 text-sm">
-            <i class="far fa-calendar-alt mr-2"></i>${post.date}
-          </div>
+          
         </div>`;
 
       this.renderer.appendChild(slideLink, slide);
