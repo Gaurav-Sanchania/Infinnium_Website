@@ -40,7 +40,7 @@ yarn-error.log
 /libpeerconnection.log
 testem.log
 /typings
-obj/
+Infinnium_Website.Server/obj/
 
 # System files
 .DS_Store
