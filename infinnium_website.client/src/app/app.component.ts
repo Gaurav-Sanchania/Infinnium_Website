@@ -1,21 +1,16 @@
 import { Component } from '@angular/core';
-import { ProductLayoutComponent } from '../components/4ig-Product/product-layout/product-layout.component';
-import { Solution1LayoutComponent } from '../components/solutions/breachResponse/solution1-layout/solution1-layout.component';
-import { HomeLayoutComponent } from '../components/home/home-layout/home-layout.component';
-import { AboutUsLayoutComponent } from '../components/about us/about-us-layout/about-us-layout.component';
-import { CommonLayoutComponent } from '../components/blogs and news/common-layout/common-layout.component';
-import { PartnerLayoutComponent } from "../components/partner/partner-layout/partner-layout.component";
-import { ContactUsLayoutComponent } from "../components/contact us/contact-us-layout/contact-us-layout.component";
-import { SingleLayoutComponent } from "../components/blogs and news/single-layout/single-layout.component";
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [HomeLayoutComponent, ProductLayoutComponent, AboutUsLayoutComponent,
-    Solution1LayoutComponent, CommonLayoutComponent, PartnerLayoutComponent, ContactUsLayoutComponent, SingleLayoutComponent],
+  imports: [RouterOutlet],
   styleUrl: './app.component.css'
 })
 export class AppComponent {
    title = 'infinnium_website.client';
+
+   constructor(private route: ActivatedRoute) {
+  }
 }
