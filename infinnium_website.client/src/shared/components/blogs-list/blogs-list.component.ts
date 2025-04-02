@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
 
 interface BlogPost {

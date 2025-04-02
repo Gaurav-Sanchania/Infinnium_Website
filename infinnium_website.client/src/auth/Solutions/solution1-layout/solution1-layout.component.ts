@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../../../shared/components/header/header.component';
 import { HeroSectionComponent } from '../hero-section/hero-section.component';
 import { IntelligentComponent } from '../intelligent/intelligent.component';
-import { FeaturesComponent } from '../features/features.component';
-import { TrustedLeadersComponent } from '../../../../shared/components/trusted-leaders/trusted-leaders.component';
-import { RecentBlogsComponent } from '../../../../shared/components/recent-blogs/recent-blogs.component';
-import { ExpertSectionComponent } from '../../../../shared/components/expert-section/expert-section.component';
-import { FooterComponent } from '../../../../shared/components/footer/footer.component';
+import { ExpertSectionComponent } from '../../../shared/components/expert-section/expert-section.component';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { HeaderComponent } from '../../../shared/components/header/header.component';
+import { TrustedLeadersComponent } from '../../../shared/components/trusted-leaders/trusted-leaders.component';
+import { RecentBlogsComponent } from '../../Home/recent-blogs/recent-blogs.component';
+import { FeaturesComponent } from '../breachResponse/features/features.component';
 
 @Component({
   standalone: true,
