@@ -16,7 +16,7 @@ export class AboutUsComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     if (!this.hasAnimated) {
-      AOS.init({ duration: 1200, once: true });
+      AOS.init({ duration: 1000, once: true, easing: 'ease-out-quad' });
       this.initCountUpAnimations();
     }
   }

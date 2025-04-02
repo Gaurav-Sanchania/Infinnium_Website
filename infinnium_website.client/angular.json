@@ -31,7 +31,7 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/assets/scripts",
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -42,6 +42,7 @@
               "./node_modules/aos/dist/aos.css"
             ],
             "scripts": [
+              "src/assets/scripts/script.js"
             ]
           },
           "configurations": {

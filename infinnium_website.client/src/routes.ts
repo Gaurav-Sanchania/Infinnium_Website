@@ -5,7 +5,7 @@ import { HomeLayoutComponent } from "./auth/Home/home-layout/home-layout.compone
 import { PartnerLayoutComponent } from "./auth/Partner/partner-layout/partner-layout.component";
 import { ProductLayoutComponent } from "./auth/Product/4ig-Product/product-layout/product-layout.component";
 import { CommonLayoutComponent } from "./auth/Resources/blogs and news/common-layout/common-layout.component";
-import { Solution1LayoutComponent } from "./auth/Solutions/solution1-layout/solution1-layout.component";
+import { Solution1LayoutComponent } from "./auth/Solutions/breachResponse/solution1-layout/solution1-layout.component";
 
 export const routes: Routes = [
     {
