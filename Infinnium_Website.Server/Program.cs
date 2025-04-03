@@ -7,6 +7,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add connection string
+builder.Configuration.GetConnectionString("InfinniumDB");
+
 var app = builder.Build();
 
 app.UseDefaultFiles();
