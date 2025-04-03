@@ -30,7 +30,6 @@ C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8
 C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Infinnium_Website.Server.props
 C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Infinnium_Website.Server.props
 C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\Infinniu.D996CA12.Up2Date
 C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\Infinnium_Website.Server.dll
 C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\refint\Infinnium_Website.Server.dll

@@ -6,11 +6,10 @@ import { ExpertSectionComponent } from "../../../../shared/components/expert-sec
 import { FooterComponent } from "../../../../shared/components/footer/footer.component";
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
 import { AboutComponent } from '../about/about.component';
-import { FeaturesComponent } from '../features/features.component';
 
 @Component({
   selector: 'app-solution5-layout',
-  imports: [HeaderComponent, HeroSectionComponent, AboutComponent, FeaturesComponent,
+  imports: [HeaderComponent, HeroSectionComponent, AboutComponent, 
     TrustedLeadersComponent, RecentBlogsComponent, ExpertSectionComponent, FooterComponent],
   templateUrl: './solution5-layout.component.html',
   styleUrl: './solution5-layout.component.css'
