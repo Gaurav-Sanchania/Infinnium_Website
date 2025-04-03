@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from "../../../../shared/components/header/header.component";
 import { TrustedLeadersComponent } from "../../../../shared/components/trusted-leaders/trusted-leaders.component";
-import { RecentBlogsComponent } from "../../../../shared/components/recent-blogs/recent-blogs.component";
 import { ExpertSectionComponent } from "../../../../shared/components/expert-section/expert-section.component";
 import { FooterComponent } from "../../../../shared/components/footer/footer.component";
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
@@ -11,7 +10,7 @@ import { FeaturesComponent } from '../features/features.component';
 @Component({
   selector: 'app-solution2-layout',
   imports: [HeaderComponent, HeroSectionComponent, AboutComponent, FeaturesComponent, 
-    TrustedLeadersComponent, RecentBlogsComponent, ExpertSectionComponent, FooterComponent],
+    TrustedLeadersComponent, ExpertSectionComponent, FooterComponent],
   templateUrl: './solution2-layout.component.html',
   styleUrl: './solution2-layout.component.css'
 })
