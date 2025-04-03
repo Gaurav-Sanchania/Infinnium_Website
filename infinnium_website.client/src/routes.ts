@@ -18,6 +18,7 @@ import { Solution9LayoutComponent } from "./auth/Solutions/DataDiposition/soluti
 import { Solution10LayoutComponent } from "./auth/Solutions/LegalHold/solution10-layout/solution10-layout.component";
 import { BlogsListLayoutComponent } from "./auth/Resources/Blogs/blogs-list-layout/blogs-list-layout.component";
 import { NewsListLayoutComponent } from "./auth/Resources/News/news-list-layout/news-list-layout.component";
+import { MemberLayoutComponent } from "./auth/About Us/Members/member-layout/member-layout.component";
 
 export const routes: Routes = [
     {
@@ -76,6 +77,9 @@ export const routes: Routes = [
     },
     {
       path: 'about-us', component: AboutUsLayoutComponent
+    },
+    {
+      path: 'member', component: MemberLayoutComponent
     },
     {
       path: 'contact-us', component: ContactUsLayoutComponent
