@@ -8,7 +8,6 @@ import { AboutUsComponent } from '../../../shared/components/about-us/about-us.c
 import { GlobalImpactComponent } from '../global-impact/global-impact.component';
 import { TrustedLeadersComponent } from '../../../shared/components/trusted-leaders/trusted-leaders.component';
 import { RecentBlogsComponent } from '../../../shared/components/recent-blogs/recent-blogs.component';
-import { ExpertSectionComponent } from '../../../shared/components/expert-section/expert-section.component';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
 
 @Component({
@@ -16,7 +15,7 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
   selector: 'app-home-layout',
   imports: [HeaderComponent, HeroSectionComponent, WhatWeDoComponent, AreaOfExpertiseComponent,
     OurProductsComponent, AboutUsComponent, GlobalImpactComponent, TrustedLeadersComponent,
-    RecentBlogsComponent, ExpertSectionComponent, FooterComponent],
+    RecentBlogsComponent, FooterComponent],
   templateUrl: './home-layout.component.html',
   styleUrl: './home-layout.component.css'
 })

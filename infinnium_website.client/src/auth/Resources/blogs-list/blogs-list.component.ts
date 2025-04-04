@@ -1,6 +1,7 @@
 
 import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
 
+
 interface BlogPost {
   category: string;
   title: string;
@@ -194,7 +195,7 @@ export class BlogsListComponent implements AfterViewInit {
       const post = this.blogPosts[i];
       const cardLink = document.createElement("a");
       cardLink.classList.add("block");
-
+      cardLink.href = `/Resources/Blogs/blog1`;
       cardLink.innerHTML = `
         <div class="bg-white rounded-lg overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
   <div class="h-40 overflow-hidden">
