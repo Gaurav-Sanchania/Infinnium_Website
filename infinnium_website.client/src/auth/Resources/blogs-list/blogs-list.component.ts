@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { BlogsService } from '../../../services/blogsService.service';
+import { CommonModule } from '@angular/common';
 
 
 interface BlogPost {
@@ -13,12 +16,13 @@ interface BlogPost {
 @Component({
   standalone: true,
   selector: 'app-blogs-list',
-  imports: [],
+  providers: [BlogsService],
+  imports: [CommonModule],
   templateUrl: './blogs-list.component.html',
   styleUrl: './blogs-list.component.css'
 })
-export class BlogsListComponent implements AfterViewInit {
-  constructor(private el: ElementRef, private renderer: Renderer2) { }
+export class BlogsListComponent implements AfterViewInit, OnInit {
+  constructor(private el: ElementRef, private renderer: Renderer2, private blogService: BlogsService) { }
   blogPosts: BlogPost[] = [
     {
       category: "Blogs",
@@ -173,9 +177,25 @@ export class BlogsListComponent implements AfterViewInit {
       image: "ediscovery-1288x724-1.webp",
     },
   ];
+
+  public blogsList: any = [];
+  public blogDetails: any = [];
+  public top3Blogs: any = [];
+
   currentBlogIndex = 0;
   blogsPerPage = 6;
   loadMoreBtn!: HTMLElement | null;
+
+  async ngOnInit() {
+    this.blogsList = await this.blogService.getAllBlogs();
+    // console.log(this.blogsList);
+
+    this.blogDetails = await this.blogService.getBlogDetails(1);
+    // console.log(this.blogDetails);
+
+    this.top3Blogs = await this.blogService.getTop3Blogs();
+    // console.log(this.top3Blogs);
+  }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
