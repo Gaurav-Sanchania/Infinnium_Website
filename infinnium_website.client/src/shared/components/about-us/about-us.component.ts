@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import { AfterViewInit, Component, ElementRef, Input, QueryList, ViewChildren } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 @Component({
   standalone: true,
   selector: 'app-about-us',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.css'
 })

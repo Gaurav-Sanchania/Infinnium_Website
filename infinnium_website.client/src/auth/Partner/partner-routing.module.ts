@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PartnerLayoutComponent } from './partner-layout/partner-layout.component';
+export { routes as partnerRoutes } from './partner-routing.module';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
-    path: 'partner', component: PartnerLayoutComponent
+    path: 'Partner', component: PartnerLayoutComponent
   }
 ];
 

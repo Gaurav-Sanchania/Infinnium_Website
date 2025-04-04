@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-hero-section',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css'
 })

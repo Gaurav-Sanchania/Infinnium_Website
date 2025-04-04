@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-our-products',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './our-products.component.html',
   styleUrl: './our-products.component.css'
 })
