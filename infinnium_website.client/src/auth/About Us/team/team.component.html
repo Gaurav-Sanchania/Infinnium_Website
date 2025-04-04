@@ -1,3 +1,4 @@
+<!-- eslint-disable @angular-eslint/template/elements-content -->
 <section class="bg-[#EAF4F2] text-black flex items-center justify-center min-h-screen py-16 px-6">
   <div class="max-w-6xl mx-auto">
     <p class="text-[#198C7B] uppercase text-center text-sm font-semibold tracking-wide">
@@ -5,7 +6,7 @@
     </p>
     <h1 class="text-4xl text-center md:text-5xl font-light font-semibold">
       Meet The
-      <span class="italic font-bold">Best</span> Team
+      <span class="italic">Best</span> Team
     </h1>
 
     <!-- Team Members Grid -->
@@ -13,7 +14,7 @@
 
       <!-- Card 1 - Elie Francis -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="memebr.html" class="absolute inset-0 z-10"></a>
+        <a [routerLink]="['/AboutUs/member']" class="absolute inset-0 z-10"></a>
         <img src="Elie-Francis-Resize.png" alt="Elie Francis" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -24,10 +25,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>
@@ -36,7 +37,7 @@
 
       <!-- Card 2 - Doug Kaminski -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="#" class="absolute inset-0 z-10"></a>
+        <a  class="absolute inset-0 z-10"></a>
         <img src="doug.png" alt="Doug Kaminski" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -47,10 +48,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>
@@ -59,7 +60,7 @@
 
       <!-- Card 3 - Tom Skelley -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="#" class="absolute inset-0 z-10"></a>
+        <a  class="absolute inset-0 z-10"></a>
         <img src="tom.png" alt="Tom Skelley" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -70,10 +71,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>
@@ -82,7 +83,7 @@
 
       <!-- Card 4 - Brian Wolfinger -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="#" class="absolute inset-0 z-10"></a>
+        <a  class="absolute inset-0 z-10"></a>
         <img src="Brian.png" alt="Brian Wolfinger" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -93,10 +94,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>
@@ -105,7 +106,7 @@
 
       <!-- Card 5 - Charles Lavallee -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="#" class="absolute inset-0 z-10"></a>
+        <a  class="absolute inset-0 z-10"></a>
         <img src="charles.png" alt="Charles Lavallee" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -116,10 +117,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>
@@ -128,7 +129,7 @@
 
       <!-- Card 6 - Nirav Avaiya -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="#" class="absolute inset-0 z-10"></a>
+        <a  class="absolute inset-0 z-10"></a>
         <img src="nirav_avaiya.png" alt="Nirav Avaiya" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -139,10 +140,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>
@@ -151,7 +152,7 @@
 
       <!-- Card 7 - Nitesh Gajjar -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="#" class="absolute inset-0 z-10"></a>
+        <a  class="absolute inset-0 z-10"></a>
         <img src="nitesh_gajjar.png" alt="Nitesh Gajjar" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -162,10 +163,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>
@@ -174,7 +175,7 @@
 
       <!-- Card 8 - Hitesh Zinzuwadiya -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="#" class="absolute inset-0 z-10"></a>
+        <a  class="absolute inset-0 z-10"></a>
         <img src="hitesh.png" alt="Hitesh Zinzuwadiya" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -185,10 +186,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>
@@ -197,7 +198,7 @@
 
       <!-- Card 9 - Hari Pandya -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="#" class="absolute inset-0 z-10"></a>
+        <a  class="absolute inset-0 z-10"></a>
         <img src="hari.png" alt="Hari Pandya" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -208,10 +209,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>
@@ -220,7 +221,7 @@
 
       <!-- Card 10 - Naitik Jani -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative">
-        <a href="#" class="absolute inset-0 z-10"></a>
+        <a  class="absolute inset-0 z-10"></a>
         <img src="naitik.png" alt="Naitik Jani" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
@@ -231,10 +232,10 @@
             </p>
           </div>
           <div class="flex items-center space-x-3 mt-4 relative z-20">
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
-            <a href="#" class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+            <a  class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
               <i class="fa-brands fa-twitter text-lg"></i>
             </a>
           </div>

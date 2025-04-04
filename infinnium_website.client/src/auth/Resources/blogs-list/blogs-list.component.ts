@@ -7,7 +7,6 @@ interface BlogPost {
   excerpt: string;
   date: string;
   image: string;
-  link: string;
 }
 
 @Component({
@@ -28,7 +27,6 @@ export class BlogsListComponent implements AfterViewInit {
         "They bring to you a host of beautifully created infographics that contain the latest digital marketing.",
       date: "October 24, 2023",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -38,7 +36,6 @@ export class BlogsListComponent implements AfterViewInit {
         "They bring to you a host of beautifully created infographics that contain the latest digital marketing.",
       date: "December 3, 2025",
       image: "blog-image.png",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -48,7 +45,6 @@ export class BlogsListComponent implements AfterViewInit {
         "They bring to you a host of beautifully created infographics that contain the latest digital marketing.",
       date: "December 3, 2025",
       image: "blog-image2.png",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -58,7 +54,6 @@ export class BlogsListComponent implements AfterViewInit {
         "Explore how synergy between culture and collaboration drives success.",
       date: "January 10, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "News and Events",
@@ -67,7 +62,6 @@ export class BlogsListComponent implements AfterViewInit {
         "A quick recap of our well-received webinar on new trends in legal tech.",
       date: "February 1, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -76,7 +70,6 @@ export class BlogsListComponent implements AfterViewInit {
         "Breaking down the basics and advanced techniques in e-discovery for legal firms.",
       date: "March 15, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -85,7 +78,6 @@ export class BlogsListComponent implements AfterViewInit {
         "How AI is revolutionizing the way organizations handle big data.",
       date: "April 22, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "News and Events",
@@ -94,7 +86,6 @@ export class BlogsListComponent implements AfterViewInit {
         "A highlight reel from our recent leadership summit focusing on technology and collaboration.",
       date: "May 3, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -103,7 +94,6 @@ export class BlogsListComponent implements AfterViewInit {
         "Essential strategies to protect your data from cyber threats.",
       date: "June 10, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -113,7 +103,6 @@ export class BlogsListComponent implements AfterViewInit {
         "They bring to you a host of beautifully created infographics that contain the latest digital marketing.",
       date: "October 24, 2023",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -123,7 +112,6 @@ export class BlogsListComponent implements AfterViewInit {
         "They bring to you a host of beautifully created infographics that contain the latest digital marketing.",
       date: "December 3, 2025",
       image: "blog-image.png",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -133,7 +121,6 @@ export class BlogsListComponent implements AfterViewInit {
         "They bring to you a host of beautifully created infographics that contain the latest digital marketing.",
       date: "December 3, 2025",
       image: "blog-image2.png",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -143,7 +130,6 @@ export class BlogsListComponent implements AfterViewInit {
         "Explore how synergy between culture and collaboration drives success.",
       date: "January 10, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "News and Events",
@@ -152,7 +138,6 @@ export class BlogsListComponent implements AfterViewInit {
         "A quick recap of our well-received webinar on new trends in legal tech.",
       date: "February 1, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -161,7 +146,6 @@ export class BlogsListComponent implements AfterViewInit {
         "Breaking down the basics and advanced techniques in e-discovery for legal firms.",
       date: "March 15, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -170,7 +154,6 @@ export class BlogsListComponent implements AfterViewInit {
         "How AI is revolutionizing the way organizations handle big data.",
       date: "April 22, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "News and Events",
@@ -179,7 +162,6 @@ export class BlogsListComponent implements AfterViewInit {
         "A highlight reel from our recent leadership summit focusing on technology and collaboration.",
       date: "May 3, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
     {
       category: "Blogs",
@@ -188,7 +170,6 @@ export class BlogsListComponent implements AfterViewInit {
         "Essential strategies to protect your data from cyber threats.",
       date: "June 10, 2025",
       image: "ediscovery-1288x724-1.webp",
-      link: "blog_inside.html",
     },
   ];
   currentBlogIndex = 0;
@@ -212,7 +193,6 @@ export class BlogsListComponent implements AfterViewInit {
     for (let i = startIndex; i < endIndex; i++) {
       const post = this.blogPosts[i];
       const cardLink = document.createElement("a");
-      cardLink.href = post.link;
       cardLink.classList.add("block");
 
       cardLink.innerHTML = `
@@ -232,12 +212,12 @@ export class BlogsListComponent implements AfterViewInit {
       `;
 
       blogGrid.appendChild(cardLink);
-    }
-
-    this.currentBlogIndex = endIndex;
-
-    if (this.currentBlogIndex >= this.blogPosts.length) {
-      this.renderer.addClass(this.loadMoreBtn, "hidden");
+      
+      this.currentBlogIndex = endIndex;
+      
+      if (this.currentBlogIndex >= this.blogPosts.length) {
+        this.renderer.addClass(this.loadMoreBtn, "hidden");
+      }
     }
   }
 

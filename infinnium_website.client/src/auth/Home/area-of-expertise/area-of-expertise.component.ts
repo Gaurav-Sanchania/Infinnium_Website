@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-area-of-expertise',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './area-of-expertise.component.html',
   styleUrl: './area-of-expertise.component.css'
 })

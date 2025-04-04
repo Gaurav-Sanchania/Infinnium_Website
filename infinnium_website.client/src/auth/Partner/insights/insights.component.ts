@@ -1,10 +1,11 @@
 import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 @Component({
   standalone: true,
   selector: 'app-insights',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './insights.component.html',
   styleUrl: './insights.component.css'
 })

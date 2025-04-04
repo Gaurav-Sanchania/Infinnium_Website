@@ -1,0 +1,55 @@
+<section class="min-h-screen bg-[#EAF5F4] flex flex-col items-center py-12 px-6">
+    <!-- Back Button -->
+    <div class="w-full max-w-3xl text-left">
+        <a [routerLink]="['/AboutUs/']">
+            <button class="common flex items-center mb-4" style="height: 45px;">
+                &larr; <span class="text-sm ml-2">Back to Team</span>
+            </button>
+        </a>
+    </div>
+
+    <!-- Profile Container -->
+    <div class="max-w-3xl w-full space-y-8">
+        <!-- Profile Header (left aligned) -->
+        <div class="text-left">
+            <h1 class="text-4xl font-semibold text-gray-900">Charles Lavallée</h1>
+            <p class="text-md text-[#E76F51]">Director, Business Development</p>
+        </div>
+
+        <!-- Profile Image (full width) -->
+        <div class="w-full">
+            <img src="charles.png" alt="Charles Lavallée" class="w-full rounded-lg shadow-md border border-gray-200" />
+        </div>
+
+        <!-- Profile Description -->
+        <div class="text-gray-800 leading-relaxed text-base">
+            <p>Charles joins Infinnium with an extensive background in e-Discovery and Compliance software solutions
+                that leverage AI and cloud-based architecture. With over 20 years in legal technology sales, Charles is
+                highly recognized by his clients for his knowledge in practice and technology.</p>
+            <p class="mt-4">He brings a demonstrated devotion to building better partnerships with his clients and a
+                focus on helping them drive new revenue. He has worked with corporations, consultancies, legal service
+                providers, government agencies, and top law firms around the world.</p>
+            <p class="mt-4">Originally from the Washington, DC area, Charles has lived in NYC and abroad. From startups
+                to Fortune 500 companies, he has always evangelized better technology and processes for his clients. A
+                true international man, he has spent much of his career introducing new technologies in the UK, EU, and
+                Canada as well as the Asia/Australia markets.</p>
+            <p class="mt-4">Charles holds a BA in Political Science and French from Providence College, studied
+                International Law & Economics at the Université de Fridbourg, Switzerland, and participated at the
+                former University of Dubrovnik Academy for International Affairs and Economics. A FAA Part 107
+                commercial drone pilot and an avid snowboarder, Charles and his wife Jennifer also enjoy travel and
+                seeking new adventures.</p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex space-x-4">
+            <a href="#"
+                class="border border-gray-400 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-gray-600 transition">
+                <i class="fa-brands fa-linkedin-in text-lg"></i>
+            </a>
+            <a href="#"
+                class="border border-gray-400 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-gray-600 transition">
+                <i class="fa-brands fa-twitter text-lg"></i>
+            </a>
+        </div>
+    </div>
+</section>

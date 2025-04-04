@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ozln6V9PnkNdfTrTxCv+5I4HStBW/P6IlsEAzgkw1Nw=",
+  "Hash": "wFBeMBVxKQ0KpjnfKOYrCUIWBdYQUb+gQn8saYlN5g4=",
   "Source": "Infinnium_Website.Server",
   "BasePath": "_content/Infinnium_Website.Server",
   "Mode": "Default",
@@ -12,10 +12,10 @@
       "Source": "infinnium_website.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
       "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
       "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
-      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
     }
   ],
   "DiscoveryPatterns": [],

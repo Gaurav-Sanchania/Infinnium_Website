@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsLayoutComponent } from './about-us-layout/about-us-layout.component';
+import { MemberLayoutComponent } from './Members/member-layout/member-layout.component';
+export { routes as aboutUsRoutes } from './about-us-routing.module';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
-    path: 'about-us', component: AboutUsLayoutComponent
+    path: 'AboutUs',
+    children: [
+      { path: '', component: AboutUsLayoutComponent },
+      { path: 'member', component: MemberLayoutComponent }
+    ]
   }
 ];
 

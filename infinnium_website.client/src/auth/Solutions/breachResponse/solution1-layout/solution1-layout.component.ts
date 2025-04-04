@@ -7,13 +7,12 @@ import { TrustedLeadersComponent } from '../../../../shared/components/trusted-l
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
 import { IntelligentComponent } from '../intelligent/intelligent.component';
 import { FeaturesComponent } from '../features/features.component';
-import { RecentBlogsComponent } from '../../../../shared/components/recent-blogs/recent-blogs.component';
 
 @Component({
   standalone: true,
   selector: 'app-solution1-layout',
   imports: [HeaderComponent, HeroSectionComponent, IntelligentComponent, FeaturesComponent,
-    TrustedLeadersComponent, RecentBlogsComponent, ExpertSectionComponent, FooterComponent],
+    TrustedLeadersComponent, ExpertSectionComponent, FooterComponent],
   templateUrl: './solution1-layout.component.html',
   styleUrl: './solution1-layout.component.css'
 })

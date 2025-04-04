@@ -1,10 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommonLayoutComponent } from './blogs and news/common-layout/common-layout.component';
+import { BlogsListLayoutComponent } from './Blogs/blogs-list-layout/blogs-list-layout.component';
+import { NewsListLayoutComponent } from './News/news-list-layout/news-list-layout.component';
+import { SingleBlogLayoutComponent } from './Blogs/single-blog-layout/single-blog-layout.component';
+import { SingleNewsLayoutComponent } from './News/single-news-layout/single-news-layout.component';
+export { routes as resourcesRoutes } from './resources-routing.module';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
-    path: 'blogs', component: CommonLayoutComponent
+    path: 'Resources',
+    children: [
+      { path: 'Blogs', component: BlogsListLayoutComponent, children: [
+        { path: 'blog-1', component: SingleBlogLayoutComponent },
+      ] },
+      { path: 'News-and-Events', component: NewsListLayoutComponent, children: [
+        { path: 'news-1', component: SingleNewsLayoutComponent }
+      ] },
+    ]
   }
 ];
 

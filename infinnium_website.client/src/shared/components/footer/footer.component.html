@@ -54,7 +54,7 @@
           <span>Headquarters (D.C. Metro Area) Chantilly, VA, 20151</span>
         </div>
         <div class="flex items-center gap-2">
-          <a href="#" class="inline-flex items-center gap-2">
+          <a class="inline-flex items-center gap-2">
             <!-- Mail Icon -->
             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 30 30" fill="none">
               <path d="M3.75 8.75C3.75 8.08696 4.01339 7.45107 4.48223 6.98223C4.95107 6.51339 5.58696 6.25 6.25 6.25H23.75C24.413 6.25 25.0489 6.51339 25.5178 6.98223C25.9866 7.45107 26.25 8.08696 26.25 8.75V21.25C26.25 21.913 25.9866 22.5489 25.5178 23.0178C25.0489 23.4866 24.413 23.75 23.75 23.75H6.25C5.58696 23.75 4.95107 23.4866 4.48223 23.0178C4.01339 22.5489 3.75 21.913 3.75 21.25V8.75Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -83,11 +83,11 @@
       <div>
         <h3 class="text-lg font-semibold mb-4 text-black">Quick Links</h3>
         <ul class="space-y-2 text-gray-600">
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Home</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">About Us</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Contact Us</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Blogs</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Innovate With Us</a></li>
+          <li><a [routerLink]="['/home']" class="text-black hover:text-[#E76F51]">Home</a></li>
+          <li><a [routerLink]="['/AboutUs/']" class="text-black hover:text-[#E76F51]">About Us</a></li>
+          <li><a [routerLink]="['/ContactUs']" class="text-black hover:text-[#E76F51]">Contact Us</a></li>
+          <li><a [routerLink]="['/Resources/Blogs']" class="text-black hover:text-[#E76F51]">Blogs</a></li>
+          <li><a class="text-black hover:text-[#E76F51]">Innovate With Us</a></li>
         </ul>
       </div>
 
@@ -95,16 +95,16 @@
       <div>
         <h3 class="text-lg font-semibold mb-4 text-black">Services</h3>
         <ul class="space-y-2 text-gray-600">
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Breach Responses</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Unified Information Governance</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Data Protection/DSAR</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">eDiscovery</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Automated Redaction</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Data Mapping</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Data Retention</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Unified Archival</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Data Disposition</a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Legal Hold</a></li>
+          <li><a [routerLink]="['/Solutions/breach-response']" class="text-black hover:text-[#E76F51]">Breach Responses</a></li>
+          <li><a [routerLink]="['/Solutions/unified-information-governance']" class="text-black hover:text-[#E76F51]">Unified Information Governance</a></li>
+          <li><a [routerLink]="['/Solutions/data-protection']" class="text-black hover:text-[#E76F51]">Data Protection/DSAR</a></li>
+          <li><a [routerLink]="['/Solutions/eDiscovery']" class="text-black hover:text-[#E76F51]">eDiscovery</a></li>
+          <li><a [routerLink]="['/Solutions/automated-redaction']" class="text-black hover:text-[#E76F51]">Automated Redaction</a></li>
+          <li><a [routerLink]="['/Solutions/data-mapping']" class="text-black hover:text-[#E76F51]">Data Mapping</a></li>
+          <li><a [routerLink]="['/Solutions/data-retention']" class="text-black hover:text-[#E76F51]">Data Retention</a></li>
+          <li><a [routerLink]="['/Solutions/unified-archival']" class="text-black hover:text-[#E76F51]">Unified Archival</a></li>
+          <li><a [routerLink]="['/Solutions/data-disposition']" class="text-black hover:text-[#E76F51]">Data Disposition</a></li>
+          <li><a [routerLink]="['/Solutions/legal-hold']" class="text-black hover:text-[#E76F51]">Legal Hold</a></li>
         </ul>
       </div>
 
@@ -112,9 +112,9 @@
       <div>
         <h3 class="text-lg font-semibold mb-4 text-black">Products</h3>
         <ul class="space-y-2 text-gray-600">
-          <li><a href="#" class="text-black hover:text-[#E76F51]">4iG<sup>®</sup></a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">Data Breach<sup>™</sup></a></li>
-          <li><a href="#" class="text-black hover:text-[#E76F51]">ObscurePI<sup>®</sup></a></li>
+          <li><a [routerLink]="['/Products/4ig']" class="text-black hover:text-[#E76F51]">4iG<sup>®</sup></a></li>
+          <li><a [routerLink]="['/Products/breach-profiler']" class="text-black hover:text-[#E76F51]">Data Breach<sup>™</sup></a></li>
+          <li><a [routerLink]="['/Products/obscure-pi']" class="text-black hover:text-[#E76F51]">ObscurePI<sup>®</sup></a></li>
         </ul>
       </div>
     </div>
