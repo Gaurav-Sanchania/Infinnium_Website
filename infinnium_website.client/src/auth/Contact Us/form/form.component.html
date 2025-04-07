@@ -2,15 +2,19 @@
 <section class="relative -mt-20 pb-16" style="font-family: 'Manrope', 'Open Sans', sans-serif">
     <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 px-4 sm:px-12">
         <h3 class="text-center text-lg font-semibold mb-6 ">Send Us Message</h3>
-        <form id="contactForm" class="space-y-4">
+        <form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()" id="contactForm" class="space-y-4">
             <!-- First & Last Name -->
             <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
                 <div>
                     <label class="block text-[#12423C] text-sm mb-1">Full Name<span
                             class="text-red-600">*</span></label>
-                    <input type="text" id="firstName"
+                    <input type="text" id="firstName" formControlName="name"
                         class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
                         placeholder="Full Name" required />
+                    @if(contactUsForm.controls['name'].touched &&
+                    contactUsForm.controls['name'].errors?.['required']) {
+                    <div class="text-[red]">This is required !</div>
+                    }
                 </div>
                 <!-- <div>
                     <label class="block text-[#12423C] text-sm mb-1">Last Name <span
@@ -24,9 +28,13 @@
             <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
                 <div>
                     <label class="block text-[#12423C] text-sm mb-1">Email <span class="text-red-600">*</span></label>
-                    <input type="email" id="email"
+                    <input type="email" id="email" formControlName="email"
                         class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
                         placeholder="Email" required />
+                        @if(contactUsForm.controls['email'].touched &&
+                    contactUsForm.controls['email'].errors?.['required']) {
+                    <div class="text-[red]">This is required !</div>
+                    }
                 </div>
                 <!-- <div>
                     <label class="block text-[#12423C] text-sm mb-1">Phone Number <span
@@ -39,9 +47,13 @@
             <!-- Description -->
             <div>
                 <label class="block text-[#12423C] text-sm mb-1">Description <span class="text-red-600">*</span></label>
-                <textarea id="message" rows="4"
+                <textarea id="message" rows="4" formControlName="description"
                     class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
                     placeholder="Write Message . . ." required></textarea>
+                    @if(contactUsForm.controls['description'].touched &&
+                    contactUsForm.controls['description'].errors?.['required']) {
+                    <div class="text-[red]">This is required !</div>
+                    }
             </div>
             <!-- Submit Button -->
             <button type="submit"

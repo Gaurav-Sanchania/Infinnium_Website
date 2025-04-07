@@ -11,6 +11,7 @@ export class ContactUsService {
     constructor(private httpClient: HttpClient) {}
     
     // All https methods are yet to be tested
+        // tested: addContactUs, sendEmail
 
     async getAllContactUs(): Promise<{ id: number; firstName: string; lastName: string; email: string; message: string; phone: string; }[]> {
         try {
@@ -36,9 +37,10 @@ export class ContactUsService {
         }
     }
 
-    addContactUs(contactUs: any) {
+    // tested
+    addContactUs(FirstName: string, Email: string, Message: string) {
         try {
-            this.httpClient.post("https://localhost:7046/ContactUsController/CreateContactUs", contactUs).subscribe();
+          this.httpClient.post("https://localhost:7046/ContactUsController/CreateContactUs", { FirstName, Email, Message }).subscribe();
             return 'Successful';
         } catch (error) {
             console.log(error);
@@ -59,6 +61,17 @@ export class ContactUsService {
     deleteContactUs(id: number) {
         try {
             this.httpClient.delete(`https://localhost:7046/ContactUsController/DeleteContactUs/${id}`).subscribe();
+            return 'Successful';
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
+
+    //tested
+    sendEmail(receiver: string, subject: string, body: string) {
+        try {
+            this.httpClient.post("https://localhost:7046/ContactUsController/SendEmail", { receiver, subject, body }).subscribe();
             return 'Successful';
         } catch (error) {
             console.log(error);

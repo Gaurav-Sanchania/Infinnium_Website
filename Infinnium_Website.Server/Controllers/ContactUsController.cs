@@ -1,4 +1,6 @@
-﻿using Infinnium_Website.Server.Models.Contact_Us;
+﻿using Infinnium_Website.Server.Interfaces;
+using Infinnium_Website.Server.Models.Contact_Us;
+using Infinnium_Website.Server.Models.Email;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -7,9 +9,16 @@ namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
     [Route("ContactUsController")]
-    public class ContactUsController(IConfiguration configuration) : Controller
+    public class ContactUsController : Controller
     {
-        private readonly IConfiguration config = configuration;
+        private readonly IConfiguration config;
+        private readonly IEmailSenderService emailSender;
+
+        public ContactUsController(IConfiguration configuration, IEmailSenderService emailSenderService)
+        {
+            this.config = configuration;
+            this.emailSender = emailSenderService;
+        }
 
         // GET: ContactUsController/GetAllContactUs
         [HttpGet]
@@ -97,9 +106,9 @@ namespace Infinnium_Website.Server.Controllers
 
                 cmd.Parameters.AddWithValue("@case", 3);
                 cmd.Parameters.AddWithValue("@FirstName", record.FirstName);
-                cmd.Parameters.AddWithValue("@LastName", record.LastName);
+                //cmd.Parameters.AddWithValue("@LastName", record.LastName);
                 cmd.Parameters.AddWithValue("@Email", record.Email);
-                cmd.Parameters.AddWithValue("@Phone", record.Phone);
+                //cmd.Parameters.AddWithValue("@Phone", record.Phone);
                 cmd.Parameters.AddWithValue("@Description", record.Message);
 
                 cmd.ExecuteNonQuery();
@@ -150,6 +159,26 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.ExecuteNonQuery();
 
                 con.Close();
+            }
+        }
+
+        // POST: ContactUsController/SendEmail
+        [HttpPost]
+        [Route("SendEmail")]
+        public async Task<IActionResult> SendEmail([FromBody] EmailRequest user)
+        {
+            //var receiver = "gauravsanchania@gmail.com";
+            //var subject = "Test Email";
+            //var body = "This is a test email.";
+
+            try
+            {
+                await emailSender.SendEmailAsync(user.Receiver, user.Subject, user.Body);
+                return Ok("Email sent successfully.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Failed to send email: {ex.Message}");
             }
         }
     }

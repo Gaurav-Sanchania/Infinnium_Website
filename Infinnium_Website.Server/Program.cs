@@ -1,8 +1,18 @@
+using Infinnium_Website.Server;
+using Infinnium_Website.Server.Interfaces;
+using Infinnium_Website.Server.Models.Email;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
+// Add login section
+builder.Services.Configure<LoginConfig>(
+    builder.Configuration.GetSection("LoginCredentials"));
+
+// Injecting EmailService
+builder.Services.AddTransient<IEmailSenderService, EmailSender>();
 
 // Add CORS
 builder.Services.AddCors(options =>
