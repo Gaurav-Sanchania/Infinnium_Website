@@ -1,83 +1,48 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Infinnium_Website.Server.Models.Admin;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 
 namespace Infinnium_Website.Server.Controllers
 {
-    public class AdminController : Controller
+    [ApiController]
+    [Route("AdminController")]
+    public class AdminController(IConfiguration configuration) : Controller
     {
-        // GET: AdminController
-        public ActionResult Index()
-        {
-            return View();
-        }
+        private readonly IConfiguration config = configuration;
 
-        // GET: AdminController/Details/5
-        public ActionResult Details(int id)
+        // GET: AdminController/GetAllUserMaster
+        [HttpGet]
+        [Route("GetAllUserMaster")]
+        public List<AdminModel> GetAllUserMaster ()
         {
-            return View();
-        }
-
-        // GET: AdminController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: AdminController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            List<AdminModel> allAdmins = new List<AdminModel>();
+            string cs = config.GetConnectionString("InfinniumDB");
+            using (SqlConnection con = new SqlConnection(cs))
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                con.Open();
 
-        // GET: AdminController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+                SqlCommand cmd = new SqlCommand("", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-        // POST: AdminController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                cmd.Parameters.AddWithValue("@case", 1);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var adminModel = new AdminModel();
 
-        // GET: AdminController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+                    adminModel.Id = Convert.ToInt32(reader["Id"]);
+                    adminModel.UserName = reader["UserName"].ToString();
+                    adminModel.Email = reader["Email"].ToString();
+                    adminModel.Password = reader["Password"].ToString();
+                    adminModel.AuthorId = Convert.ToInt32(reader["AuthorId"]);
 
-        // POST: AdminController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
+                    allAdmins.Add(adminModel);
+                }
+
+                con.Close();
             }
-            catch
-            {
-                return View();
-            }
+            return allAdmins;
         }
     }
 }

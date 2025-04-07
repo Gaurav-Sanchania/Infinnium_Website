@@ -45,7 +45,7 @@
       </svg>
     </a>
     <!--Mobile Menu Button-->
-    <button #mobileMenuBtn id="mobile-menu-btn" class="unique_btn md:hidden focus:outline-none">
+    <button #mobileMenuBtn id="mobileMenuBtn" class="unique_btn md:hidden focus:outline-none">
       <svg class="w-8 h-8 text-[#E76F51]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
@@ -57,7 +57,7 @@
         <a class="header-without-bg flex items-left">Products</a>
         <div class="absolute left-1/2 transform -translate-x-1/2 mt-0 hidden group-hover:flex flex-col bg-[#ffffff] text-[#444444] shadow-lg w-72 py-2 text-left rounded transition-all duration-300 z-50" style="margin-left: 89px;">
           <a [routerLink]="['/Products/4ig']" class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">4iG®</a>
-          <a [routerLink]="['/Products/breach-profiler']" class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Data Breach<sup>™</sup></a>
+          <a [routerLink]="['/Products/breach-profiler']" class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Data Breach Profiler<sup>™</sup></a>
           <a [routerLink]="['/Products/obscure-pi']" class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">ObscurePI®</a>
         </div>
       </div>
@@ -98,7 +98,7 @@
 </header>
 
 <!--Mobile Sidebar Menu (opens from right)-->
-<div #mobileSidebar id="mobile-sidebar" class="mobile-sidebar fixed top-0 right-0 w-64 h-full bg-white shadow-lg transition-transform duration-300 z-50">
+<div #mobileSidebar id="mobileSidebar" class="mobile-sidebar fixed top-0 right-0 w-64 h-full bg-white shadow-lg transition-transform duration-300 z-50">
   <button #mobileCloseBtn id="mobile-close-btn" class="md:hidden focus:outline-none p-4">
     <svg class="w-8 h-8 text-[#E76F51]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -115,7 +115,7 @@
       </a>
       <div class="dropdown-menu ml-4 hidden">
         <a [routerLink]="['/Products/4ig']" class="block py-1 text-gray-600">4iG®</a>
-        <a [routerLink]="['/Products/breach-profiler']" class="block py-1 text-gray-600">BreachProfiler™</a>
+        <a [routerLink]="['/Products/breach-profiler']" class="block py-1 text-gray-600">Data Breach Profiler<sup>™</sup></a>
         <a [routerLink]="['/Products/obscure-pi']" class="block py-1 text-gray-600">ObscurePI®</a>
       </div>
     </div>

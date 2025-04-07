@@ -1,5 +1,5 @@
-<footer class="bg-[#f6f9fb] text-white py-10 px-6 md:px-20" style="font-family: 'Manrope', 'Open Sans', sans-serif">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+<footer class="bg-[#f6f9fb] text-white py-10 px-6 md:px-14" style="font-family: 'Manrope', 'Open Sans', sans-serif">
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
     <!-- Logo & Subscription -->
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 481.25 121.64"
@@ -66,13 +66,14 @@
       </div>
 
       <div class="flex gap-4 mt-6">
-        <a href="#"
-           class="border border-gray-600 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+        <a 
+           class="border border-gray-600 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black hover:text-white text-black transition">
           <i class="fa-brands fa-linkedin-in "></i>
         </a>
-        <a href="#"
-           class="border border-gray-600 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
-          <i class="fa-brands fa-twitter"></i>
+        <a 
+           class="border border-gray-600 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black hover:text-white text-black transition">
+          <!-- <i class="fa-brands fa-twitter"></i> -->
+          <i class="fa-brands fa-x-twitter"></i>
         </a>
       </div>
     </div>
@@ -113,7 +114,7 @@
         <h3 class="text-lg font-semibold mb-4 text-black">Products</h3>
         <ul class="space-y-2 text-gray-600">
           <li><a [routerLink]="['/Products/4ig']" class="text-black hover:text-[#E76F51]">4iG<sup>®</sup></a></li>
-          <li><a [routerLink]="['/Products/breach-profiler']" class="text-black hover:text-[#E76F51]">Data Breach<sup>™</sup></a></li>
+          <li><a [routerLink]="['/Products/breach-profiler']" class="text-black hover:text-[#E76F51]">Data Breach Profiler<sup>™</sup></a></li>
           <li><a [routerLink]="['/Products/obscure-pi']" class="text-black hover:text-[#E76F51]">ObscurePI<sup>®</sup></a></li>
         </ul>
       </div>
@@ -121,7 +122,14 @@
   </div>
 
   <!-- Bottom Section -->
-  <div class="max-w-7xl mx-auto mt-10 border-t border-gray-300 pt-6 text-left text-black">
-    © 2025, Infinnium. All rights reserved.
+  <div class="max-w-7xl mx-auto mt-10 border-t border-gray-300 pt-6 text-left text-black flex justify-between">
+    <p class="inline">© 2025, Infinnium. All rights reserved.</p>
+    <div class="inline">
+      <div class="flex gap-10">
+        <a class="text-black hover:text-[#E76F51] cursor-pointer">Privacy</a>
+        <a class="text-black hover:text-[#E76F51] cursor-pointer">Cookies setting</a>
+        <a class="text-black hover:text-[#E76F51] cursor-pointer">Terms of Use</a>
+      </div>
+    </div>
   </div>
 </footer>
