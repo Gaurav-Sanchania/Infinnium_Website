@@ -22,7 +22,7 @@ namespace Infinnium_Website.Server.Controllers
             {
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("", con);
+                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_UserMaster]", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@case", 1);

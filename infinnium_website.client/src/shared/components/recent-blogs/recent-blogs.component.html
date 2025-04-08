@@ -14,7 +14,7 @@
     </a>
 
     <!-- Blog Entries -->
-    <div class="mt-8 space-y-8">
+    <div class="mt-8 space-y-8" *ngFor="let blog of recentBlogs; let i = index">
       <!-- Blog 1 -->
       <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 w-full">
         <div class="w-full md:w-1/3">
@@ -23,12 +23,11 @@
         </div>
         <div class="flex-1 flex flex-col">
           <h3 class="text-md font-bold">
-            Utilizing Information Governance Software for eDiscovery Workflows.
+            {{ blog.title }}
           </h3>
           <!-- Description divided into two lines -->
           <p class="text-gray-600 text-sm font-normal mt-2">
-            They bring to you a host of beautifully created infographics<br />
-            that contain the latest digital marketing.
+            {{ blog.brief }}
           </p>
           <!-- Read More Button with Arrow -->
           <a class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-3 inline-block hover:underline">
@@ -40,9 +39,9 @@
       </div>
 
       <!-- Divider -->
-      <hr class="border-gray-300" />
+      <hr class="border-gray-300" *ngIf="i < recentBlogs.length -1"/>
 
-      <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+      <!--<div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
         <div class="w-full md:w-1/3">
           <img src="ediscovery-1288x724-1.webp" alt="Blog Image 3"
                class="w-full h-full object-cover blog-img" />
@@ -50,25 +49,25 @@
         <div class="flex-1 flex flex-col">
           <h3 class="text-md font-bold">
             What role does culture and collaboration play in tech success?
-          </h3>
+          </h3>-->
           <!-- Description divided into two lines -->
-          <p class="text-gray-600 text-sm font-normal mt-2">
+          <!--<p class="text-gray-600 text-sm font-normal mt-2">
             They bring to you a host of beautifully created infographics<br />
             that contain the latest digital marketing.
-          </p>
+          </p>-->
           <!-- Read More Button with Arrow -->
-          <a class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-3 inline-block hover:underline">
+          <!--<a class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-3 inline-block hover:underline">
             Read More →
           </a>
           <p class="text-gray-500 text-sm mt-[4.5rem]">📅 October 24, 2023</p>
         </div>
         <div></div>
-      </div>
+      </div>-->
 
       <!-- Divider -->
-      <hr class="border-gray-300" />
+      <!--<hr class="border-gray-300" />-->
 
-      <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+      <!--<div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
         <div class="w-full md:w-1/3">
           <img src="ediscovery-1288x724-1.webp" alt="Blog Image 3"
                class="w-full h-full object-cover blog-img" />
@@ -76,20 +75,20 @@
         <div class="flex-1 flex flex-col">
           <h3 class="text-md font-bold">
             Having unnecessary data under management is not only costly, but is also dumb
-          </h3>
+          </h3>-->
           <!-- Description divided into two lines -->
-          <p class="text-gray-600 text-sm font-normal mt-2">
+          <!--<p class="text-gray-600 text-sm font-normal mt-2">
             They bring to you a host of beautifully created infographics<br />
             that contain the latest digital marketing.
-          </p>
+          </p>-->
           <!-- Read More Button with Arrow -->
-          <a class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-3 inline-block hover:underline">
+          <!--<a class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-3 inline-block hover:underline">
             Read More →
           </a>
           <p class="text-gray-500 text-sm mt-[4.5rem]">📅 October 24, 2023</p>
         </div>
         <div></div>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>

@@ -10,12 +10,10 @@ export const routes: Routes = [
   {
     path: 'Resources',
     children: [
-      { path: 'Blogs', component: BlogsListLayoutComponent, children: [
-        { path: 'blog1', component: SingleBlogLayoutComponent },
-      ] },
-      { path: 'News-and-Events', component: NewsListLayoutComponent, children: [
-        { path: 'news1', component: SingleNewsLayoutComponent }
-      ] },
+      { path: 'Blogs', component: BlogsListLayoutComponent, },
+      { path: 'News-and-Events', component: NewsListLayoutComponent, },
+      { path: 'Blogs/:blogTitle/:guid', component: SingleBlogLayoutComponent }, 
+      { path: 'News-and-Events/:newsTitle/:guid', component: SingleNewsLayoutComponent }
     ]
   }
 ];

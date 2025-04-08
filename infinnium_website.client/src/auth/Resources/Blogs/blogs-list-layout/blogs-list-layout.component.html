@@ -1,8 +1,7 @@
 <div class="bg-black text-white w-full">
     <app-header></app-header>
-    <app-hero-section></app-hero-section>
-    <app-blogs-list [category]="'Blogs'"></app-blogs-list>
+    <app-hero-section [category]="'Blogs'" [top3Blogs]="top3Blogs"></app-hero-section>
+    <app-blogs-list [category]="'Blogs'" [blogs]="blogs"></app-blogs-list>
     <!-- <app-expert-section></app-expert-section> -->
     <app-footer></app-footer>
   </div>
-  

@@ -1,7 +1,7 @@
 <div class="bg-gray-50 text-gray-900" style="font-family: 'Manrope', 'Open Sans', sans-serif">
     <app-header></app-header>
-    <app-hero-section></app-hero-section>
-    <app-single-blog></app-single-blog>
+    <app-hero-section [category]="'Blogs'" [top3Blogs]="top3Blogs"></app-hero-section>
+    <app-single-blog [blog]="blog"></app-single-blog>
     <app-recent-blogs></app-recent-blogs>
     <!-- <app-expert-section></app-expert-section> -->
     <app-footer></app-footer>

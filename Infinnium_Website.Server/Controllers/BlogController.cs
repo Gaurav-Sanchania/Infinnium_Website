@@ -39,9 +39,10 @@ namespace Infinnium_Website.Server.Controllers
                     blog.PublishedDate = reader["PublishedDate"].ToString();
                     blog.AuthorId = Convert.ToInt32(reader["AuthorId"]);
                     blog.AuthorName = reader["Name"].ToString();
-                    blog.AuthorDepartment = reader["Department"].ToString();
+                    blog.AuthorDesignation = reader["Designation"].ToString();
                     blog.AuthorEmail = reader["Email"].ToString();
                     blog.ImageName = reader["ImageName"].ToString();
+                    blog.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
                     blog.Image = reader["ImagePath"].ToString();
@@ -57,7 +58,7 @@ namespace Infinnium_Website.Server.Controllers
         // GET: BlogController/GetBlogDetails/{id}
         [HttpGet]
         [Route("GetBlogDetails/{id}")]
-        public BlogsModel GetBlogDetails(int id)
+        public BlogsModel GetBlogDetails(string id)
         {
             BlogsModel blog = new BlogsModel();
             string cs = config.GetConnectionString("InfinniumDB");
@@ -69,7 +70,7 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@case", 2);
-                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.Parameters.AddWithValue("@ShortGuid", id);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -81,9 +82,10 @@ namespace Infinnium_Website.Server.Controllers
                     blog.PublishedDate = reader["PublishedDate"].ToString();
                     blog.AuthorId = Convert.ToInt32(reader["AuthorId"]);
                     blog.AuthorName = reader["Name"].ToString();
-                    blog.AuthorDepartment = reader["Department"].ToString();
+                    blog.AuthorDesignation = reader["Designation"].ToString();
                     blog.AuthorEmail = reader["Email"].ToString();
                     blog.ImageName = reader["ImageName"].ToString();
+                    blog.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
                     blog.Image = reader["ImagePath"].ToString();
@@ -122,9 +124,10 @@ namespace Infinnium_Website.Server.Controllers
                     blog.PublishedDate = reader["PublishedDate"].ToString();
                     blog.AuthorId = Convert.ToInt32(reader["AuthorId"]);
                     blog.AuthorName = reader["Name"].ToString();
-                    blog.AuthorDepartment = reader["Department"].ToString();
+                    blog.AuthorDesignation = reader["Designation"].ToString();
                     blog.AuthorEmail = reader["Email"].ToString();
                     blog.ImageName = reader["ImageName"].ToString();
+                    blog.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
                     blog.Image = reader["ImagePath"].ToString();

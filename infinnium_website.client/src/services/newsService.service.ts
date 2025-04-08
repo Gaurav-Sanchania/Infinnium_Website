@@ -12,12 +12,12 @@ export class NewsService {
 
     // All https methods are yet to be tested
 
-    async getAllNews(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-        imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]> {
+  async getAllNews(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
         try {
             const response = await firstValueFrom(
-                this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-                    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]>
+              this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
                     (`https://localhost:7046/NewsAndEventsController/GetAllNews`));
             return response;
         } catch (error) {
@@ -26,13 +26,13 @@ export class NewsService {
         }
     }
 
-    async getNewsDetails(id: number): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-        imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]> {
+  async getNewsDetails(guid: string): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
         try {
             const response = await firstValueFrom(
-                this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-                    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]>
-                    (`https://localhost:7046/NewsAndEventsController/GetNewsDetails/${id}`));
+              this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
+                    (`https://localhost:7046/NewsAndEventsController/GetNewsDetails/${guid}`));
             return response;
         } catch (error) {
             console.log(error);
@@ -40,12 +40,12 @@ export class NewsService {
         }
     }
 
-    async getTop3News(): Promise <{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-        imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]> {
+  async getTop3News(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
         try {
             const response = await firstValueFrom(
-                this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-                    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]>
+              this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
                     ("https://localhost:7046/NewsAndEventsController/Top3News"));
             return response;
         } catch (error) {

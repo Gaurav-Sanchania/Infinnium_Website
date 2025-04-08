@@ -10,13 +10,13 @@ import { firstValueFrom } from 'rxjs';
 export class BlogsService {
     constructor(private httpClient: HttpClient) {}
 
-    async getAllBlogs(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-        imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]> {
+  async getAllBlogs(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+      imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
         // https://localhost:7046/BlogsController/GetAllBlogs
         try {
             const response = await firstValueFrom(
-                this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-                    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]>
+              this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
                     (`https://localhost:7046/BlogsController/GetAllBlogs`));
             return response;
         } catch (error) {
@@ -25,14 +25,14 @@ export class BlogsService {
         }
     }
 
-    async getBlogDetails(id: number): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-        imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]> {
+  async getBlogDetails(guid: string): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
         // https://localhost:7046/BlogsController/GetBlogDetails/{id}
         try {
             const response = await firstValueFrom(
                 this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-                    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]>
-                    (`https://localhost:7046/BlogsController/GetBlogDetails/${id}`));
+                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
+                    (`https://localhost:7046/BlogsController/GetBlogDetails/${guid}`));
             return response;
         } catch (error) {
             console.log(error);
@@ -40,13 +40,13 @@ export class BlogsService {
         }
     }
 
-    async getTop3Blogs(): Promise <{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-        imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]> {
+  async getTop3Blogs(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
         // https://localhost:7046/BlogsController/Top3Blogs
         try {
             const response = await firstValueFrom(
-                this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-                    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string }[]>("https://localhost:7046/BlogsController/Top3Blogs"));
+              this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>("https://localhost:7046/BlogsController/Top3Blogs"));
             return response;
         } catch (error) {
             console.log(error);

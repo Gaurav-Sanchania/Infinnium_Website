@@ -11,7 +11,8 @@
         public string? ImageName { get; set; }
         public int AuthorId { get; set; }
         public string? AuthorName { get; set; }
-        public string? AuthorDepartment { get; set; }
+        public string? AuthorDesignation { get; set; }
         public string? AuthorEmail { get; set; }
+        public string? Guid { get; set; }
     }
 }

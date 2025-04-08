@@ -40,9 +40,10 @@ namespace Infinnium_Website.Server.Controllers
                     singleNews.PublishedDate = reader["PublishedDate"].ToString();
                     singleNews.AuthorId = Convert.ToInt32(reader["AuthorId"]);
                     singleNews.AuthorName = reader["Name"].ToString();
-                    singleNews  .AuthorDepartment = reader["Department"].ToString();
+                    singleNews.AuthorDesignation = reader["Designation"].ToString();
                     singleNews.AuthorEmail = reader["Email"].ToString();
                     singleNews.ImageName = reader["ImageName"].ToString();
+                    singleNews.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
                     singleNews.Image = reader["ImagePath"].ToString();
@@ -58,7 +59,7 @@ namespace Infinnium_Website.Server.Controllers
         // GET: NewsController/GetNewsDetails/{id}
         [HttpGet]
         [Route("GetNewsDetails/{id}")]
-        public NewsModel GetNewsDetails(int id)
+        public NewsModel GetNewsDetails(string id)
         {
             NewsModel news = new NewsModel();
             string cs = config.GetConnectionString("InfinniumDB");
@@ -70,7 +71,7 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@case", 2);
-                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.Parameters.AddWithValue("@ShortGuid", id);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -82,9 +83,10 @@ namespace Infinnium_Website.Server.Controllers
                     news.PublishedDate = reader["PublishedDate"].ToString();
                     news.AuthorId = Convert.ToInt32(reader["AuthorId"]);
                     news.AuthorName = reader["Name"].ToString();
-                    news.AuthorDepartment = reader["Department"].ToString();
+                    news.AuthorDesignation = reader["Designation"].ToString();
                     news.AuthorEmail = reader["Email"].ToString();
                     news.ImageName = reader["ImageName"].ToString();
+                    news.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
                     news.Image = reader["ImagePath"].ToString();
@@ -123,9 +125,10 @@ namespace Infinnium_Website.Server.Controllers
                     singleNews.PublishedDate = reader["PublishedDate"].ToString();
                     singleNews.AuthorId = Convert.ToInt32(reader["AuthorId"]);
                     singleNews.AuthorName = reader["Name"].ToString();
-                    singleNews.AuthorDepartment = reader["Department"].ToString();
+                    singleNews.AuthorDesignation = reader["Designation"].ToString();
                     singleNews.AuthorEmail = reader["Email"].ToString();
                     singleNews.ImageName = reader["ImageName"].ToString();
+                    singleNews.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
                     singleNews.Image = reader["ImagePath"].ToString();
