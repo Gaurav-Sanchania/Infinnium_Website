@@ -1104,3 +1104,17 @@ a.relative.hidden.md\:flex:hover {
 .earth {
     background-image: url('../public/Earth1.png');
 }
+.zoom-static {
+  transform-box: fill-box; /* Super important */
+  transform-origin: center;
+  animation: pulseZoom 2s ease-in-out infinite;
+}
+
+@keyframes pulseZoom {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
