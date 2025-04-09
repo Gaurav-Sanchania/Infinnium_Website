@@ -1,8 +1,12 @@
 <main class="max-w-2xl mx-auto mt-12 p-4">
   <!-- Back Button -->
-  <button [routerLink]="['/Resources/Blogs']" class="common flex items-center mb-4">
+  <button *ngIf="blog?.title" [routerLink]="['/Resources/Blogs']" class="common flex items-center mb-4">
     &larr; <span class="text-md ml-2">Back to Team Listing</span>
   </button>
+  <button *ngIf="news?.title" [routerLink]="['/Resources/News-and-Events']" class="common flex items-center mb-4">
+    &larr; <span class="text-md ml-2">Back to Team Listing</span>
+  </button>
+
   <!-- Blog Label -->
   <p *ngIf="blog?.title" class="text-green-600 font-semibold uppercase text-sm">Blogs</p>
   <p *ngIf="news?.title" class="text-green-600 font-semibold uppercase text-sm">News and Events</p>

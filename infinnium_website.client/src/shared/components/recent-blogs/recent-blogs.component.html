@@ -30,7 +30,7 @@
             {{ blog.brief }}
           </p>
           <!-- Read More Button with Arrow -->
-          <a class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-3 inline-block hover:underline">
+          <a [routerLink]="['/Resources/Blogs/', blog.title, blog.guid]" class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-3 inline-block hover:underline cursor-pointer">
             Read More →
           </a>
           <p class="text-gray-500 text-sm mt-[4.5rem]">📅 October 24, 2023</p>
