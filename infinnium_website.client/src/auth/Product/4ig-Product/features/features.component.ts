@@ -15,7 +15,7 @@ export class FeaturesComponent {
     if (desc && button) {
       desc.classList.toggle('truncate-text');
       button.textContent = desc.classList.contains('truncate-text')
-        ? 'Read More →'
+        ? 'Read More ↓'
         : 'Read Less ↑';
     }
   }
