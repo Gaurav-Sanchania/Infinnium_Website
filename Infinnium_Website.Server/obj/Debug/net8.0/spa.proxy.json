@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:57776",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\Infinnium_Website.Server\\..\\infinnium_website.client",
+"WorkingDirectory": "C:\\Users\\admin\\OneDrive\\Desktop\\Infinnium Website\\Infinnium_Website\\Infinnium_Website.Server\\..\\infinnium_website.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

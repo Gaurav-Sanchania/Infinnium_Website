@@ -28,9 +28,16 @@ body {
   height: 100vh;
   z-index: 0;
 }
-
-.active-link {
-  color: #38bdf8; /* Highlight active link */
+.header-bg-scrolled span after_scroll,
+.active23link {
+  color: #000;
+  background-color: #EAF5F4;
+  display: block;
+  padding-left: 1.25rem;   /* px-5 */
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;    /* py-3 */
+  padding-bottom: 0.75rem;
+  transition: background-color 0.3s, color 0.3s; /* transition duration-300 *//* Highlight active link */
 }
 
 .header-bg {
@@ -40,6 +47,7 @@ body {
 
 .header-bg-scrolled {
   background-color: white !important; /* White background when scrolled */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for visibility */
 }
 
   .header-bg-scrolled svg path[fill="white"] {
@@ -1115,6 +1123,6 @@ a.relative.hidden.md\:flex:hover {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }

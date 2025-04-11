@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "ozln6V9PnkNdfTrTxCv+5I4HStBW/P6IlsEAzgkw1Nw=",
+  "Hash": "u9cFrkeDhJ6xyxAMf2R3IIaStLNGC32KlgwQWNC+wkY=",
   "Source": "Infinnium_Website.Server",
   "BasePath": "_content/Infinnium_Website.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\infinnium_website.client\\infinnium_website.client.esproj",
+      "Identity": "C:\\Users\\admin\\OneDrive\\Desktop\\Infinnium Website\\Infinnium_Website\\infinnium_website.client\\infinnium_website.client.esproj",
       "Version": 2,
       "Source": "infinnium_website.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

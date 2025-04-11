@@ -13,10 +13,43 @@ export class FeaturesComponent {
     const button = document.querySelector(`[data-id="${id}"]`) as HTMLButtonElement;
 
     if (desc && button) {
-      desc.classList.toggle('truncate-text');
-      button.textContent = desc.classList.contains('truncate-text')
-        ? 'Read More ↓'
-        : 'Read Less ↑';
+      const isExpanded = desc.classList.contains('slide-toggle');
+
+      if (isExpanded) {
+        // COLLAPSING
+        const fullHeight = desc.scrollHeight;
+        desc.style.maxHeight = `${fullHeight}px`; // Start from current height
+        desc.classList.remove('truncate-text');
+
+        requestAnimationFrame(() => {
+          desc.style.maxHeight = '4.5em'; // Collapse to truncated height
+        });
+
+        button.textContent = 'Read More ↓';
+
+        setTimeout(() => {
+          desc.classList.remove('slide-toggle');
+          desc.classList.add('truncate-text');
+          desc.style.maxHeight = '';
+        }, 400);
+
+      } else {
+        // EXPANDING
+        desc.classList.remove('truncate-text');
+        desc.classList.add('slide-toggle');
+        desc.style.maxHeight = '4.5em'; // Start collapsed
+
+        requestAnimationFrame(() => {
+          desc.style.maxHeight = `${desc.scrollHeight}px`; // Animate open
+        });
+
+        button.textContent = 'Read Less ↑';
+
+        setTimeout(() => {
+          desc.style.maxHeight = 'none'; // Let content grow naturally
+        }, 400);
+      }
     }
   }
+
 }

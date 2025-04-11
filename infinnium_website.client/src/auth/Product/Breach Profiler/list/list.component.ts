@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 @Component({
-  standalone: true, 
+  standalone: true,
   selector: 'app-list',
   imports: [RouterLink],
   templateUrl: './list.component.html',

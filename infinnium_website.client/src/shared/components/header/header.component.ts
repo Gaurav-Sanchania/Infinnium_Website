@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-header',
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -48,7 +48,7 @@ export class HeaderComponent implements AfterViewInit {
       if (window.scrollY > 0) {
         headerEl.classList.add('header-bg-scrolled');
         headerEl.classList.remove('header-bg');
-        logoPath.style.fill = '#234653';
+        logoPath.style.fill = '#000000';
       } else {
         headerEl.classList.add('header-bg');
         headerEl.classList.remove('header-bg-scrolled');
