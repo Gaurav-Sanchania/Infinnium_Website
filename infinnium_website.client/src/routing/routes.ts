@@ -6,6 +6,9 @@ import { partnerRoutes } from "../auth/Partner/partner-routing.module";
 import { productRoutingModule } from "../auth/Product/product-routing.module";
 import { resourcesRoutes } from "../auth/Resources/resources-routing.module";
 import { solutionRoutes } from "../auth/Solutions/solutions-routing.module";
+import { adminRoutes } from "../admin/admin-routing.module";
+import { policyRoutes } from "../auth/Privacy/privacy-routing.module";
+import { termsRoutes } from "../auth/Terms of Use/terms-routing.module";
 
 export const routes: Routes = [
     ...aboutUsRoutes,
@@ -14,5 +17,8 @@ export const routes: Routes = [
     ...solutionRoutes,
     ...partnerRoutes,
     ...resourcesRoutes,
-    ...contactUsRoutes
+    ...contactUsRoutes,
+    ...adminRoutes,
+    ...policyRoutes,
+    ...termsRoutes
   ];

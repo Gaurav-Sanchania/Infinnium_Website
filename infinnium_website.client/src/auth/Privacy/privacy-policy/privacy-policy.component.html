@@ -1,0 +1,304 @@
+<header #header id="header" class="fixed top-0 left-0 w-full z-30 header-bg transition-all duration-300"
+    style="font-family: 'Manrope', 'Open Sans', sans-serif; background-color: black;">
+    <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center max-w-[calc(100%-30px)] md:max-w-[calc(100%-100px)]">
+        <a [routerLink]="['/home']">
+            <svg xmlns="http://www.w3.org/2000/svg" #logoSvg id="logo-svg" data-name="Layer 1"
+                viewBox="0 0 481.25 121.64" style="height: 40px;margin-left: -9px;">
+                <defs>
+                    <style type="text/css">
+                        .cls-1 {
+                            fill: #264653;
+                        }
+
+                        .cls-2 {
+                            fill: #E76F51;
+                        }
+
+                        .cls-3 {
+                            fill: #2a9d8f;
+                        }
+                    </style>
+                </defs>
+                <path class="cls-1"
+                    d="M11.55,96.24a1.61,1.61,0,0,1-.28.94,2.23,2.23,0,0,1-.91.67,7,7,0,0,1-1.75.42,24.67,24.67,0,0,1-2.87.14,24,24,0,0,1-2.8-.14,7.63,7.63,0,0,1-1.79-.42,1.89,1.89,0,0,1-.9-.67A1.67,1.67,0,0,1,0,96.24v-63a1.71,1.71,0,0,1,.25-.91,1.76,1.76,0,0,1,.9-.7,6.74,6.74,0,0,1,1.79-.42,22,22,0,0,1,2.8-.14,22.62,22.62,0,0,1,2.87.14,6.22,6.22,0,0,1,1.75.42,2,2,0,0,1,.91.7,1.65,1.65,0,0,1,.28.91Z" />
+                <path class="cls-1"
+                    d="M87.14,96.24a1.61,1.61,0,0,1-.28.94,2.23,2.23,0,0,1-.91.67,7,7,0,0,1-1.75.42,24,24,0,0,1-2.8.14,24.54,24.54,0,0,1-2.87-.14,6.89,6.89,0,0,1-1.75-.42,2.16,2.16,0,0,1-.91-.67,1.54,1.54,0,0,1-.28-.94V59.35a36.32,36.32,0,0,0-.84-8.68A18.11,18.11,0,0,0,72.3,45a10.62,10.62,0,0,0-4.17-3.64,13.18,13.18,0,0,0-5.91-1.26,15,15,0,0,0-8.68,3.08,47.7,47.7,0,0,0-9.1,9v44a1.54,1.54,0,0,1-.28.94,2.16,2.16,0,0,1-.91.67,6.89,6.89,0,0,1-1.75.42,24.54,24.54,0,0,1-2.87.14,24,24,0,0,1-2.8-.14,7.53,7.53,0,0,1-1.78-.42,1.93,1.93,0,0,1-.91-.67,1.75,1.75,0,0,1-.24-.94v-63a1.86,1.86,0,0,1,.21-1,1.76,1.76,0,0,1,.83-.7,4.77,4.77,0,0,1,1.61-.42,25.76,25.76,0,0,1,2.59-.1c1,0,1.88,0,2.56.1a4.12,4.12,0,0,1,1.57.42,2.2,2.2,0,0,1,.81.7,1.76,1.76,0,0,1,.24,1v8.32a38.73,38.73,0,0,1,10.61-8.71A22.83,22.83,0,0,1,64.6,30.1a23.75,23.75,0,0,1,10.6,2.13,19.22,19.22,0,0,1,7,5.7A22.77,22.77,0,0,1,86,46.3a49.68,49.68,0,0,1,1.16,11.51Z" />
+                <path class="cls-1"
+                    d="M144.32,7.35a12.14,12.14,0,0,1-.14,2.13,8.64,8.64,0,0,1-.31,1.3,1.19,1.19,0,0,1-.46.66,1.25,1.25,0,0,1-.7.18,3.29,3.29,0,0,1-1.22-.32c-.49-.21-1.09-.44-1.79-.7a20.73,20.73,0,0,0-2.48-.7,15.72,15.72,0,0,0-3.33-.31,10.52,10.52,0,0,0-4.41.84,6.72,6.72,0,0,0-2.93,2.62,12.58,12.58,0,0,0-1.61,4.62,41,41,0,0,0-.49,6.9v6.86h9.16a1.75,1.75,0,0,1,.94.24,2.09,2.09,0,0,1,.7.84,5.58,5.58,0,0,1,.49,1.51,11.67,11.67,0,0,1,.18,2.23,7.8,7.8,0,0,1-.63,3.64A1.88,1.88,0,0,1,133.61,41h-9.16V96.24a1.61,1.61,0,0,1-.28.94,2.25,2.25,0,0,1-1,.67,7.53,7.53,0,0,1-1.78.42,28.07,28.07,0,0,1-5.6,0,7.63,7.63,0,0,1-1.79-.42,2.15,2.15,0,0,1-.94-.67,1.54,1.54,0,0,1-.28-.94V41h-8.89a1.78,1.78,0,0,1-1.68-1.12,8.71,8.71,0,0,1-.56-3.64,14.08,14.08,0,0,1,.14-2.23,5.36,5.36,0,0,1,.42-1.51,1.82,1.82,0,0,1,.7-.84,1.92,1.92,0,0,1,1-.24h8.89V24.92a45.89,45.89,0,0,1,1.22-11.31,19.53,19.53,0,0,1,3.75-7.73,14.89,14.89,0,0,1,6.33-4.44,25.42,25.42,0,0,1,9-1.44,24,24,0,0,1,4.76.46,18.5,18.5,0,0,1,3.57,1,5.62,5.62,0,0,1,1.68.94,3.26,3.26,0,0,1,.7,1.08,5.76,5.76,0,0,1,.39,1.61A21.21,21.21,0,0,1,144.32,7.35Z" />
+                <path class="cls-1"
+                    d="M292.28,96a1.59,1.59,0,0,1-.28.94,2.13,2.13,0,0,1-.91.66,6.22,6.22,0,0,1-1.75.42,24.79,24.79,0,0,1-2.87.14,23.84,23.84,0,0,1-2.8-.14,6.74,6.74,0,0,1-1.79-.42,1.9,1.9,0,0,1-.91-.66,1.73,1.73,0,0,1-.24-.94V33.24a1.79,1.79,0,0,1,.24-.91,1.89,1.89,0,0,1,.91-.7,7.21,7.21,0,0,1,1.79-.41,21.84,21.84,0,0,1,2.8-.14,22.73,22.73,0,0,1,2.87.14,6.64,6.64,0,0,1,1.75.41,2.1,2.1,0,0,1,.91.7,1.65,1.65,0,0,1,.28.91Z" />
+                <path class="cls-1"
+                    d="M339.8,99.74a35.89,35.89,0,0,1-9.31-1.12,25.42,25.42,0,0,1-7.24-3.15A21.25,21.25,0,0,1,318,90.6a24.17,24.17,0,0,1-3.43-6.19,24.73,24.73,0,0,1-1.4-5.53,47.81,47.81,0,0,1-.42-6.58V31.5h10.85V72.23A25.21,25.21,0,0,0,325,81.47a13.73,13.73,0,0,0,5.43,6.61A17.3,17.3,0,0,0,340,90.5q6.17,0,9.9-2.66a14.62,14.62,0,0,0,5.36-7.14,26.18,26.18,0,0,0,1.19-8.47V31.5h10.85V72.37a47,47,0,0,1-.39,6.26A27.92,27.92,0,0,1,365.7,84a24.24,24.24,0,0,1-3.47,6.33,21.49,21.49,0,0,1-5.42,5,26.12,26.12,0,0,1-7.46,3.25A36.26,36.26,0,0,1,339.8,99.74Z" />
+                <path class="cls-1"
+                    d="M481.25,96.24a1.61,1.61,0,0,1-.28.94,2.23,2.23,0,0,1-.91.67,7,7,0,0,1-1.75.42,24,24,0,0,1-2.8.14,24.67,24.67,0,0,1-2.87-.14,7.63,7.63,0,0,1-1.79-.42,2.21,2.21,0,0,1-.94-.67,1.54,1.54,0,0,1-.28-.94V58a34.87,34.87,0,0,0-.7-7.28A16.82,16.82,0,0,0,466.69,45a10.5,10.5,0,0,0-3.92-3.64,11.8,11.8,0,0,0-5.6-1.26,13.18,13.18,0,0,0-8,3.08,55.61,55.61,0,0,0-8.86,9v44a1.6,1.6,0,0,1-.27.94,2.25,2.25,0,0,1-.95.67,7.53,7.53,0,0,1-1.78.42,27.77,27.77,0,0,1-5.57,0,7.56,7.56,0,0,1-1.82-.42,1.93,1.93,0,0,1-.91-.67,1.75,1.75,0,0,1-.24-.94V58a32.2,32.2,0,0,0-.77-7.28A18.22,18.22,0,0,0,425.68,45a10.57,10.57,0,0,0-3.89-3.64,11.58,11.58,0,0,0-5.56-1.26,13.35,13.35,0,0,0-8.05,3.08,52.85,52.85,0,0,0-8.82,9v44a1.54,1.54,0,0,1-.28.94,2.23,2.23,0,0,1-.91.67,6.89,6.89,0,0,1-1.75.42,24.67,24.67,0,0,1-2.87.14,24,24,0,0,1-2.8-.14,7.53,7.53,0,0,1-1.78-.42,1.88,1.88,0,0,1-.91-.67,1.67,1.67,0,0,1-.25-.94v-63a2,2,0,0,1,.21-1,1.84,1.84,0,0,1,.84-.7,4.77,4.77,0,0,1,1.61-.42,25.76,25.76,0,0,1,2.59-.1c1,0,1.88,0,2.56.1a4.12,4.12,0,0,1,1.57.42,2.28,2.28,0,0,1,.81.7,1.76,1.76,0,0,1,.24,1v8.32a41.11,41.11,0,0,1,10.32-8.71,20.77,20.77,0,0,1,10.12-2.76,25,25,0,0,1,7,.91,18.68,18.68,0,0,1,5.5,2.55,17.19,17.19,0,0,1,4.06,3.92,23,23,0,0,1,2.8,5.07,65,65,0,0,1,6-5.81,36.18,36.18,0,0,1,5.46-3.84,22.13,22.13,0,0,1,5.11-2.14,19.35,19.35,0,0,1,5-.66,22.12,22.12,0,0,1,10.22,2.13,18.56,18.56,0,0,1,6.68,5.7,22.7,22.7,0,0,1,3.64,8.37,45.28,45.28,0,0,1,1.09,10.11Z" />
+                <path class="cls-2"
+                    d="M237.59,83.29a1.54,1.54,0,0,1-.28.94,2.23,2.23,0,0,1-.91.67,6.89,6.89,0,0,1-1.75.42,24,24,0,0,1-2.8.14,24.67,24.67,0,0,1-2.87-.14,6.89,6.89,0,0,1-1.75-.42,2.23,2.23,0,0,1-.91-.67,1.54,1.54,0,0,1-.28-.94V46.4a36.32,36.32,0,0,0-.84-8.68,17.88,17.88,0,0,0-2.45-5.67,10.66,10.66,0,0,0-4.16-3.64,13.25,13.25,0,0,0-5.92-1.26A14.93,14.93,0,0,0,204,30.23a47.13,47.13,0,0,0-9.1,9v44a1.61,1.61,0,0,1-.28.94,2.23,2.23,0,0,1-.91.67,7,7,0,0,1-1.75.42,24.79,24.79,0,0,1-2.87.14,23.84,23.84,0,0,1-2.8-.14,7.63,7.63,0,0,1-1.79-.42,2,2,0,0,1-.91-.67,1.75,1.75,0,0,1-.24-.94v-63a2,2,0,0,1,.21-.94,1.84,1.84,0,0,1,.84-.7,4.71,4.71,0,0,1,1.61-.42,25,25,0,0,1,2.59-.11,25.29,25.29,0,0,1,2.55.11,4.18,4.18,0,0,1,1.58.42,2.16,2.16,0,0,1,.8.7,1.67,1.67,0,0,1,.25.94v8.33a38.7,38.7,0,0,1,10.6-8.71,22.83,22.83,0,0,1,10.67-2.76,23.8,23.8,0,0,1,10.61,2.13,19,19,0,0,1,7,5.7,22.79,22.79,0,0,1,3.82,8.37,49.73,49.73,0,0,1,1.15,11.51Z" />
+                <path class="cls-2"
+                    d="M205.07,41.2a1.54,1.54,0,0,1,.28-.94,2.07,2.07,0,0,1,.91-.66,6.13,6.13,0,0,1,1.75-.42,21.84,21.84,0,0,1,2.8-.14,22.73,22.73,0,0,1,2.87.14,6.22,6.22,0,0,1,1.75.42,2.13,2.13,0,0,1,.91.66,1.61,1.61,0,0,1,.28.94V78a36.17,36.17,0,0,0,.84,8.67,18,18,0,0,0,2.44,5.66A10.74,10.74,0,0,0,224.07,96,13.18,13.18,0,0,0,230,97.25a14.93,14.93,0,0,0,8.68-3.08,46.67,46.67,0,0,0,9.1-9v-44a1.54,1.54,0,0,1,.28-.94,2.13,2.13,0,0,1,.91-.66,6.13,6.13,0,0,1,1.75-.42,22.62,22.62,0,0,1,2.87-.14,22,22,0,0,1,2.8.14,6.56,6.56,0,0,1,1.78.42,1.81,1.81,0,0,1,.91.66,1.67,1.67,0,0,1,.25.94v62.9a2,2,0,0,1-.21.94,1.84,1.84,0,0,1-.84.7,4.77,4.77,0,0,1-1.61.42,25.63,25.63,0,0,1-2.59.1c-1,0-1.88,0-2.55-.1a4.13,4.13,0,0,1-1.58-.42,2.16,2.16,0,0,1-.8-.7,1.67,1.67,0,0,1-.25-.94V95.78a38.64,38.64,0,0,1-10.6,8.7,22.84,22.84,0,0,1-10.68,2.76,23.75,23.75,0,0,1-10.6-2.13,19,19,0,0,1-7-5.7,22.53,22.53,0,0,1-3.82-8.35,49.61,49.61,0,0,1-1.15-11.49Z" />
+                <path class="cls-1"
+                    d="M162.86,96.24a1.54,1.54,0,0,1-.28.94,2.16,2.16,0,0,1-.91.67,6.89,6.89,0,0,1-1.75.42,24.54,24.54,0,0,1-2.87.14,24,24,0,0,1-2.8-.14,7.53,7.53,0,0,1-1.78-.42,1.88,1.88,0,0,1-.91-.67,1.67,1.67,0,0,1-.25-.94v-63a1.71,1.71,0,0,1,.25-.91,1.74,1.74,0,0,1,.91-.7,6.66,6.66,0,0,1,1.78-.42,22,22,0,0,1,2.8-.14,22.52,22.52,0,0,1,2.87.14,6.13,6.13,0,0,1,1.75.42,2,2,0,0,1,.91.7,1.58,1.58,0,0,1,.28.91Z" />
+                <path class="cls-3"
+                    d="M293.61,114.67c0,2.7-.52,4.53-1.54,5.51s-2.92,1.46-5.67,1.46-4.56-.47-5.57-1.43-1.5-2.75-1.5-5.4.51-4.53,1.54-5.5,2.91-1.47,5.67-1.47,4.56.48,5.56,1.43S293.61,112,293.61,114.67Z" />
+                <path class="cls-3"
+                    d="M164.38,14.89c0,2.69-.52,4.53-1.54,5.5s-2.92,1.47-5.67,1.47-4.56-.48-5.57-1.43-1.5-2.75-1.5-5.4.51-4.53,1.54-5.51,2.91-1.46,5.67-1.46,4.56.48,5.56,1.43S164.38,12.24,164.38,14.89Z" />
+            </svg>
+        </a>
+
+        <nav #navMenu id="nav-menu"
+            class="hidden md:flex absolute md:relative top-16 md:top-auto left-0 w-full md:w-auto md:bg-transparent text-white md:flex-row flex-col items-center md:items-center md:space-x-12 md:p-0 p-4 transition-all duration-300 z-50"
+            style="font-family: 'Manrope', 'Open Sans', sans-serif">
+            <div class="relative group">
+                <a class="header-without-bg flex items-left cursor-pointer">Products</a>
+                <div class="absolute left-1/2 transform -translate-x-1/2 mt-0 hidden group-hover:flex flex-col bg-[#ffffff] text-[#444444] shadow-lg w-72 py-2 text-left rounded transition-all duration-300 z-50"
+                    style="margin-left: 89px;">
+                    <a [routerLink]="['/Products/4ig']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">4iG®</a>
+                    <a [routerLink]="['/Products/breach-profiler']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Data
+                        Breach Profiler<sup>™</sup></a>
+                    <a [routerLink]="['/Products/obscure-pi']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">ObscurePI®</a>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <a class="header-without-bg flex items-center cursor-pointer">Solutions</a>
+                <div class="absolute left-1/2 transform -translate-x-1/2 mt-0 hidden group-hover:flex flex-col bg-[#ffffff] text-[#444444] shadow-lg w-60 py-2 text-left rounded transition-all duration-300 z-50"
+                    style="margin-left: 65px;">
+                    <a [routerLink]="['/Solutions/breach-response']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Breach
+                        Response</a>
+                    <a [routerLink]="['/Solutions/unified-information-governance']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Unified
+                        Information Governance</a>
+                    <a [routerLink]="['/Solutions/data-protection']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition dration-300">Data
+                        Protection/DSAR</a>
+                    <a [routerLink]="['/Solutions/eDiscovery']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">eDiscovery</a>
+                    <a [routerLink]="['/Solutions/automated-redaction']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Automated
+                        Redaction</a>
+                    <a [routerLink]="['/Solutions/data-mapping']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Data
+                        Mapping</a>
+                    <a [routerLink]="['/Solutions/data-retention']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Data
+                        Retention</a>
+                    <a [routerLink]="['/Solutions/unified-archival']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Unified
+                        Archival</a>
+                    <a [routerLink]="['/Solutions/data-disposition']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Data
+                        Disposition</a>
+                    <a [routerLink]="['/Solutions/legal-hold']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Legal
+                        Hold</a>
+                </div>
+            </div>
+
+            <a [routerLink]="['/Partner']" class="header-without-bg">Become a partner</a>
+
+            <div class="relative group">
+                <a class="header-without-bg flex items-center cursor-pointer">Resources</a>
+                <div class="absolute left-1/2 transform -translate-x-1/2 mt-0 hidden group-hover:flex flex-col bg-[#ffffff] text-[#444444] shadow-lg w-72 py-2 text-left rounded transition-all duration-300 z-50"
+                    style="margin-left: 85px;">
+                    <a [routerLink]="['/Resources/News-and-Events']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">News and
+                        Events</a>
+                    <a [routerLink]="['/Resources/Blogs']"
+                        class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-[#000000] transition duration-300">Blog</a>
+                </div>
+            </div>
+
+            <a [routerLink]="['/AboutUs/']" class="header-without-bg">About us</a>
+        </nav>
+
+        <a [routerLink]="['/ContactUs']"
+            class="relative hidden md:flex border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out"
+            style="font-family: 'Manrope', 'Open Sans', sans-serif;">
+            <span class="relative z-10">Contact<span class="ml-2 mb-1">→</span></span>
+        </a>
+    </div>
+</header>
+
+<p class="text-center mt-[7rem] mb-[2rem] text-4xl font-semibold mt-2 text-gray-900">
+    PRIVACY POLICY
+</p>
+<p class="px-[15rem] text-justify">
+    <b>SCOPE</b><br>
+    This Privacy Statement applies to all Infinnium-owned websites, domains, and services and those of our wholly owned
+    subsidiaries (“Infinnium sites or services”), except that a privacy policy or statement specific to a particular
+    Infinnium service or program may supersede or supplement this Privacy Statement. Personal information concerning
+    Infinnium and its customers, including outsourcing and other services clients, business partners, employees, former
+    employees, and applicants for employment (“covered individuals”) collected and processed offline is also governed by
+    this Privacy Statement except where the contract with a covered individual defines different requirements which will
+    take precedence over this Privacy Statement. <br><br>
+
+    This Privacy Statement also provides notice as set out in the requirements of certification to the EU-U.S. Data
+    Privacy Framework (EU-U.S. DPF) and the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework
+    (Swiss-U.S. DPF) as set forth by the U.S. Department of Commerce, hereto collectively also referred to as the DPF,
+    of which Infinnium is a participant. <br><br>
+
+    You will find further information on the DPF in the Data Privacy Framework section of this Policy <br><br>
+
+    <b>COLLECTION OF PERSONAL INFORMATION</b><br>
+    Personal information is any information that personally identifies a natural person or from which a natural person
+    could be identified. This may include a name, address, telephone number, email address and other private personal
+    attributes.
+    Infinnium collects, uses, stores and transfers (collectively “processes”) Personal Information to manage its
+    relationship with its customers, employees, business partners and other third parties (“covered individuals”) and
+    better serve covered individuals by personalizing their experience and interaction with Infinnium. Such processing
+    is done in compliance with applicable laws, including appropriate notice and consent, along with required filings
+    with data protection authorities, where required.
+    Infinnium may collect and process Personal Information through a variety of means when a covered individual
+    purchases or receives services from Infinnium, asks for information about Infinnium or its services, applies for
+    employment with Infinnium, or engages with Infinnium for any reason, including partaking in promotional and
+    informational events. Such interactions may occur through email, technical and online forums and tools including
+    webinars hosted by Infinnium, through hiring and employment processes, through the employment application process,
+    and through verbal and virtual interactions with Infinnium personnel. <br><br>
+
+    Infinnium may receive, or be directed to collect, personal information from data controller-clients in connection
+    with Infinnium’s provision of litigation support other consulting services to those data controller-clients. In such
+    instances, Infinnium acts at the direction of the data controller-client, provided that such directions are not
+    inconsistent with the DPF principles or other applicable law, regulation or corporate policy. <br>
+    In the provisioning of these services Infinnium may receive personal information of individuals residing in the
+    European Union (“EU”), Switzerland, and the United Kingdom when it does business with data controller-clients that
+    possess personal information. <br><br>
+
+    <b>USE OF PERSONAL INFORMATION</b><br>
+    Fulfilling your Transaction Request
+    If we receive any requests related to, for example, a service, a callback, or specific marketing materials, we will
+    use your Personal Information to fulfil your request. In this context, we may share information with others, for
+    instance, Infinnium’s group companies and business partners, involved in the fulfilment of your request. In
+    connection with a transaction, we may also contact you as part of our customer satisfaction surveys or for market
+    research purposes subject to applicable laws and regulations.
+    Personalizing your Experience on our Websites <br><br>
+    We may use information we collect about you to provide you with a personalized experience on our websites, such as
+    providing you with content in which you may be interested and making navigation on our sites easier. <br><br>
+
+    <b>Providing Support</b><br>
+    We may use your Personal Information to support Infinnium products or services you have purchased from us. This data
+    may contain information about you, your organization’s employees, customers, partners, or suppliers (collectively
+    “customer data”). This Privacy Statement does not apply to our access to or handling of your customer data; the
+    conditions regarding the handling and processing of your customer data is covered by the applicable terms of use or
+    other agreements between you and Infinnium and its group companies. <br><br>
+
+    <b>Marketing </b><br>
+    The information you provide to Infinnium, as well as the information we have lawfully collected about you
+    indirectly, may be used by Infinnium for marketing purposes. We will offer you the opportunity to opt-in to
+    Infinnium marketing using your information in this way. You may at any time choose not to receive marketing
+    materials from us by following the unsubscribe instructions included in each e-mail you may receive, by contacting
+    Infinnium’s Global Privacy and Data Protection Office at privacy&#64;Infinnium.com. <br><br>
+    Some of our offerings may be co-branded, that is sponsored by both Infinnium and third parties, including partners
+    co-sponsoring educational events. If you sign up for these offerings, be aware that your information may also be
+    collected by and shared with those third parties. We encourage you to familiarize yourself with their privacy
+    policies to gain an understanding of the manner in which they will handle information about you. If you would like
+    to review, rectify or request deletion of any Personal Information we have about you, you can submit a request by
+    emailing Infinnium’s Global Privacy and Data Protection Office at privacy&#64;Infinnium.com.
+    Recruitment <br><br>
+    Infinnium may process your information provided by you, about yourself directly to Infinnium (ex. resume), in
+    connection with a job application or inquiry, whether advertised on a Infinnium website or as otherwise, provided by
+    you about yourself (ex. resume). We may use this information throughout Infinnium and its group companies in order
+    to address your inquiry or consider you for employment purposes. In some instances, Infinnium may process
+    information provided by you to a third-party recruiter or staffing agent. We encourage you to familiarize yourself
+    with the privacy policies of any such third-party you provide your information to gain an understanding of the
+    manner in which they will handle information about you. <br><br>
+
+    <b>Monitoring or Recording of Calls, Chats and Other Interactions </b><br>
+    Certain online transactions may involve you calling us or us calling you. They may also involve online chats. Please
+    be aware that it is Infinnium’s general practice to monitor and in some cases record such interactions for staff
+    training or quality assurance purposes or to retain evidence of a particular transaction or interaction.
+    Use of Information in the Social Computing Environment <br><br>
+    Infinnium provides social computing tools on some of its websites to enable collaboration among members who have
+    registered to use them. These include forums, wikis, blogs and other social media platforms. <br><br>
+    When using these social computing tools, you may be asked to provide certain Personal Information. These
+    applications and tools may also include supplemental privacy statements with specific information about collection
+    and handling practices. We encourage you to read those supplemental statements to understand how the tools and
+    applications may process your data. <br><br>
+    Any other content you post, such as pictures, information, opinions, or any other type of Personal Information that
+    you make available to other participants on these social platforms or applications, is not subject to this Privacy
+    Statement. Rather, such content is subject to the terms of use of those applications or platforms, and any
+    additional guidelines and privacy information provided in relation to their use, as well as the process by which you
+    can remove your content from such tools. You should be aware that the content you post on any such social computing
+    platforms may be made broadly available to others inside and outside Infinnium.
+    Protect the Rights and Property <br><br>
+    We may share your information to protect the rights or property of Infinnium, our business partners, suppliers,
+    clients, or others when we have reasonable grounds to believe that such rights or property have been or could be
+    affected. In addition, we reserve the right to disclose your Personal Information as required by law and when we
+    believe that disclosure is necessary to protect our rights, or the rights of others, or to comply with a judicial
+    proceeding, court order, law enforcement or legal process. <br><br>
+
+    <b>SHARING OF PERSONAL INFORMATION</b><br>
+    Infinnium will not sell, rent or lease your Personal Information to others. <br><br>
+    As a global organization with business processes, management structures and technical systems that cross borders,
+    Infinnium may share information about you within Infinnium and transfer it to countries in the world where we do
+    business in connection with the uses identified above and in accordance with this Privacy Statement. Our Privacy
+    Statement and our internal policies and practices are designed to provide a globally consistent level of protection
+    for Personal Information all over the world. Even in countries whose laws provide for less protection for your
+    information, Infinnium will handle and protect your information in the manner described in this Privacy Statement.
+    Infinnium retains service providers, suppliers, and other business partners located in various countries to manage
+    or support its business operations, provide professional services, deliver customer services and solutions, and
+    otherwise process information on Infinnium’s behalf. It is Infinnium’s practice to require such service providers,
+    suppliers and alliance partners to handle Personal Information and other confidential information in a manner
+    consistent with Infinnium’s policies.
+    Circumstances may arise where, whether for strategic or other business reasons, Infinnium decides to sell, buy,
+    merge or otherwise reorganize businesses in some countries. Such a transaction may involve the disclosure of
+    Personal Information to prospective or actual purchasers, or the receipt of such information from sellers. It is
+    Infinnium’s practice to seek appropriate protection for information in these types of transactions. <br><br>
+    Please be aware that in certain circumstances, Personal Information may be subject to disclosure to government
+    agencies pursuant to judicial proceeding, court order, law enforcement or legal process. We may also share your
+    information to protect the rights or property of Infinnium, our business partners, suppliers or clients, and others
+    when we have reasonable grounds to believe that such rights or property have been or could be affected. <br><br>
+
+    In the event Infinnium does transfer personal information it receives under the DPF to third parties acting as
+    agents of Infinnium, Infinnium shall: (a) transfer such personal information only for limited and specified
+    purposes, (b) ascertain that the third party agent is obligated to provide at least the same level of privacy
+    protection as is required by the DPF principles, (c) take reasonable and appropriate steps to ensure that the third
+    party agent effectively processes the personal information transferred in a manner consistent with Infinnium’s
+    obligations under the DPF principles, (d) require the third party agent to notify Infinnium if it makes a
+    determination that it can no longer meet its obligation to provide the same of level of protection as required by
+    the DPF principles, (e) upon notice, including under point (d) above, take reasonable and appropriate steps to stop
+    and remediate unauthorized processing, and (f) provide a summary or a representative copy of the relevant privacy
+    provisions of its contract with that third party agent to the Department upon request.  <br><br>
+    Infinnium shall be liable under the DPF if it transfers personal information received under the DPF to a third party
+    and such third party processes the personal information in a manner inconsistent with the DPF principles, provided
+    that Infinnium shall not be liable if it can prove it was not responsible for the event giving rise to the
+    applicable damage.  <br><br>
+
+    <b>CHOICES AND PRIVACY PREFERENCES</b><br>
+    Registration is not required to gain access to Infinnium websites. However, Infinnium may offer specific material
+    and information where your subscription is required.
+    In this scenario, Infinnium may collect Personal Information from you including your name, phone number, email
+    address, or other information you choose to provide at various times, for example, when you complete an online form
+    or request or participate in an online community.
+    You can make or change your choices about receiving either subscription or general communications at the data
+    collection point, within your account preference settings or by using other methods, which are listed in this
+    Privacy Statement. You may opt-out at any time using the links at the bottom of any email or by emailing Infinnium’s
+    Global Privacy and Data Protection Office at privacy&#64;Infinnium.com.
+    Please note, this option does not apply to communications primarily for the purpose of administering business
+    relationships, including contracts, support, or other administrative and transactional notices where the primary
+    purpose of these communications is not promotional in nature. <br><br>
+
+    Infinnium will work in good faith with individuals whose personal information it receives under the DPF that are
+    interested in exercising their right to choose whether their personal information (a) will be disclosed to a third
+    party or (b) used for a purpose that is materially different – or in the case of sensitive information, different –
+    than the purpose for which the personal information was originally collected or subsequently authorized. This may
+    include Infinnium facilitating communication between the individual and data controller-client from which Infinnium
+    received the personal information or sensitive information in question. <br><br>
+
+    In the limited situations where Infinnium does independently collect personal information as a data controller,
+    including but not limited to employment-related activities, it will offer individuals the opportunity to choose
+    (specifically, opt out of) whether their personal information is (a) to be disclosed to a non-agent third party, or
+    (b) to be used for a purpose other than the purpose for which it was originally collected or subsequently authorized
+    by the individual. For sensitive information, Infinnium will give individuals the opportunity to affirmatively and
+    explicitly provide consent (specifically, opt in) to (a) the disclosure of the information to a third party or (b)
+    the use of the information for a purpose other than the purpose for which it was originally collected or
+    subsequently authorized by the individual. Infinnium will provide individuals with reasonable mechanisms to exercise
+    their choices should requisite circumstances arise. Questions regarding this section should be directed to the
+    contact listed below. <br>
+
+</p><br>
+
+<app-footer></app-footer>

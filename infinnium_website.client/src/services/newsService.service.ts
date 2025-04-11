@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -21,7 +22,7 @@ export class NewsService {
                     (`https://localhost:7046/NewsAndEventsController/GetAllNews`));
             return response;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return [];
         }
     }
@@ -35,7 +36,7 @@ export class NewsService {
                     (`https://localhost:7046/NewsAndEventsController/GetNewsDetails/${guid}`));
             return response;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return [];
         }
     }
@@ -49,7 +50,7 @@ export class NewsService {
                     ("https://localhost:7046/NewsAndEventsController/Top3News"));
             return response;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return [];            
         }
     }
@@ -59,7 +60,7 @@ export class NewsService {
             this.httpClient.post("https://localhost:7046/NewsAndEventsController/AddNews", blog).subscribe();
             return 'Successful';
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return error;
         }
     }
@@ -69,7 +70,7 @@ export class NewsService {
             this.httpClient.post("https://localhost:7046/NewsAndEventsController/EditNews", blog).subscribe();
             return 'Successful';
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return error;
         }
     }
@@ -79,7 +80,7 @@ export class NewsService {
             this.httpClient.post(`https://localhost:7046/NewsAndEventsController/DeleteNews/${id}`, id).subscribe();
             return 'Successful';
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return error;
         }
     }

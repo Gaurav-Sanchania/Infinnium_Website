@@ -42,7 +42,8 @@
               "./node_modules/aos/dist/aos.css"
             ],
             "scripts": [
-              "src/assets/scripts/script.js"
+              "src/assets/scripts/script.js",
+              "./node_modules/aos/dist/aos.js"
             ]
           },
           "configurations": {
@@ -103,6 +104,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
             "scripts": [],

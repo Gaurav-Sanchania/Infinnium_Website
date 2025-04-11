@@ -24,7 +24,7 @@ export class LoginService {
         }
     }
 
-    async loginValiation(loginCredentials: any) {
+    async loginValidation(loginCredentials: any) {
         const email = loginCredentials.email;
         const password = loginCredentials.password;
 
@@ -35,6 +35,7 @@ export class LoginService {
 
         if(validUser) {
             localStorage.setItem("user", JSON.stringify(validUser));
+            localStorage.setItem('isAdminLoggedIn', 'true');
             return true; // Login successful
         } else {
             return false; // Login failed

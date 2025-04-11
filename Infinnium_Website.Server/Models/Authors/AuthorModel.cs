@@ -8,5 +8,7 @@
         public string? Email { get; set; }
         public string? Designation { get; set; }
         public string? Guid { get; set; }
+        public byte[]? Image { get; set; }
+        public string? ImageName { get; set; }
     }
 }

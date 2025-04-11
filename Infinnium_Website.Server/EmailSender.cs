@@ -23,27 +23,46 @@ namespace Infinnium_Website.Server
             Console.WriteLine("Password: " + loginConfig.Password);
         }
 
-        public Task SendEmailAsync(string emailTo, string subject, string body)
+        public async Task<bool> SendEmailAsync(string emailTo, string subject, string body)
         {
-            var mail = loginConfig.Username;
-            Console.WriteLine(mail);
-
-            var pwd = loginConfig.Password;
-            Console.WriteLine(pwd);
-
-            var client = new SmtpClient("smtp.gmail.com", 587)
+            bool isEmailSend = false;
+            try
             {
-                EnableSsl = true,
-                Credentials = new NetworkCredential(mail, pwd)
-            };
+                var mail = loginConfig.Username;
+                if (string.IsNullOrEmpty(mail))
+                {
+                    throw new ArgumentNullException(nameof(mail), "Email address cannot be null or empty.");
+                }
+                Console.WriteLine(mail);
 
-            return client.SendMailAsync(new MailMessage
+                var pwd = loginConfig.Password;
+                if (string.IsNullOrEmpty(pwd))
+                {
+                    throw new ArgumentNullException(nameof(pwd), "Password cannot be null or empty.");
+                }
+                Console.WriteLine(pwd);
+
+                var client = new SmtpClient("mail.infinniumtech.com", 587)
+                {
+                    EnableSsl = true,
+                    Credentials = new NetworkCredential(mail, pwd)
+                };
+
+                await client.SendMailAsync(new MailMessage
+                {
+                    From = new MailAddress(mail),
+                    To = { emailTo },
+                    Subject = subject,
+                    Body = body
+                });
+
+                isEmailSend = true;
+            }
+            catch (Exception excep)
             {
-                From = new MailAddress(mail),
-                To = { emailTo },
-                Subject = subject,
-                Body = body
-            });
+                throw excep;
+            }
+            return isEmailSend;
         }
     }
 }

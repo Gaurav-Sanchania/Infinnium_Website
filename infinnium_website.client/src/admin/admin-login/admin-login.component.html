@@ -1,0 +1,68 @@
+<div class="container1">
+    <div class="login-card">
+        <!-- Decorative elements -->
+        <div class="decorative-circle top-left"></div>
+        <div class="decorative-circle bottom-right"></div>
+        <div class="decorative-circle top-right"></div>
+        <div class="decorative-circle bottom-left"></div>
+
+        <div class="card">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-overlay"></div>
+                <div class="header-content">
+                    <div class="title d-flex align-items-center justify-content-center">
+                        <div class="logoContainer ms-2">
+                            <img src="infinnium_white.svg" alt="infi_logo" height="80px" width="160px"
+                                class="companyLogo mx-auto">
+                        </div>
+                    </div>
+                    <p class="ms-2">Admin Login</p>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="form-container">
+                <form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="email">User Id <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <div class="input-icon">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <input id="email" name="email" type="email" autocomplete="email" required
+                                placeholder="you@example.com" formControlName="email" />
+                        </div>
+                        @if(loginForm.controls['email'].touched &&
+                        (loginForm.controls['email'].errors?.['required'] ||
+                            loginForm.controls['email'].errors?.['email']
+                        )) {
+                        <div class="text-danger">This is required.</div>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <div class="input-icon">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <input id="password" name="password" type="password" autocomplete="current-password"
+                                required placeholder="••••••••" formControlName="password" />
+                        </div>
+                        @if(loginForm.controls['password'].touched &&
+                        loginForm.controls['password'].errors?.['required']) {
+                        <div class="text-danger">This is required.</div>
+                        }
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" id="login-button">
+                            Log in
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

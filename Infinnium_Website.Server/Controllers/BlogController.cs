@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Infinnium_Website.Server.Controllers
 {
@@ -145,7 +146,7 @@ namespace Infinnium_Website.Server.Controllers
         // POST: BlogController/AddBlog
         [HttpPost]
         [Route("AddBlog")]
-        public void AddBlog([FromBody] AddBlogModel blog)
+        public void AddBlog([FromBody] AddBlogModel blog, IFormFile Image)
         {
             string cs = config.GetConnectionString("InfinniumDB");
             using(SqlConnection con = new SqlConnection(cs))
@@ -160,9 +161,22 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.Parameters.AddWithValue("@Description", blog.Description);
                 cmd.Parameters.AddWithValue("@Brief", blog.Brief);
                 cmd.Parameters.AddWithValue("@PublishedDate", blog.PublishedDate);
-                cmd.Parameters.AddWithValue("@ImagePath", blog.Image);
-                cmd.Parameters.AddWithValue("@ImageName", blog.ImageName);
                 cmd.Parameters.AddWithValue("@AuthorId", blog.AuthorId);
+
+                if(Image != null)
+                {
+                    byte[] imageData;
+                    using (var binaryReader = new BinaryReader(Image.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)Image.Length);
+                    }
+                    cmd.Parameters.AddWithValue("@ImagePath", imageData);
+                    cmd.Parameters.AddWithValue("@ImageName", blog.ImageName);
+                } else
+                {
+                    cmd.Parameters.AddWithValue("@ImagePath", null);
+                    cmd.Parameters.AddWithValue("@ImageName", null);
+                }
                 
                 cmd.ExecuteNonQuery();
 
@@ -173,7 +187,7 @@ namespace Infinnium_Website.Server.Controllers
         // POST: BlogController/EditBlog
         [HttpPost]
         [Route("EditBlog")]
-        public void EditBlog([FromBody] EditBlogModel blog)
+        public void EditBlog([FromBody] EditBlogModel blog, IFormFile Image)
         {
             string cs = config.GetConnectionString("InfinniumDB");
             using (SqlConnection con = new SqlConnection(cs))
@@ -189,9 +203,23 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.Parameters.AddWithValue("@Description", blog.Description);
                 cmd.Parameters.AddWithValue("@Brief", blog.Brief);
                 cmd.Parameters.AddWithValue("@PublishedDate", blog.PublishedDate);
-                cmd.Parameters.AddWithValue("@ImagePath", blog.Image);
-                cmd.Parameters.AddWithValue("@ImageName", blog.ImageName);
                 cmd.Parameters.AddWithValue("@AuthorId", blog.AuthorId);
+
+                if (Image != null)
+                {
+                    byte[] imageData;
+                    using (var binaryReader = new BinaryReader(Image.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)Image.Length);
+                    }
+                    cmd.Parameters.AddWithValue("@ImagePath", imageData);
+                    cmd.Parameters.AddWithValue("@ImageName", blog.ImageName);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ImagePath", null);
+                    cmd.Parameters.AddWithValue("@ImageName", null);
+                }
 
                 cmd.ExecuteNonQuery();
 

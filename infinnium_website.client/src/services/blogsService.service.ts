@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -20,7 +21,7 @@ export class BlogsService {
                     (`https://localhost:7046/BlogsController/GetAllBlogs`));
             return response;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return [];
         }
     }
@@ -35,7 +36,7 @@ export class BlogsService {
                     (`https://localhost:7046/BlogsController/GetBlogDetails/${guid}`));
             return response;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return [];
         }
     }
@@ -49,7 +50,7 @@ export class BlogsService {
                   imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>("https://localhost:7046/BlogsController/Top3Blogs"));
             return response;
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return [];            
         }
     }
@@ -61,7 +62,7 @@ export class BlogsService {
             this.httpClient.post("https://localhost:7046/BlogsController/AddBlog", blog).subscribe();
             return 'Successful';
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return error;
         }
     }
@@ -71,7 +72,7 @@ export class BlogsService {
             this.httpClient.post("https://localhost:7046/BlogsController/EditBlog", blog).subscribe();
             return 'Successful';
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return error;
         }
     }
@@ -81,7 +82,7 @@ export class BlogsService {
             this.httpClient.post(`https://localhost:7046/BlogsController/DeleteBlog/${id}`, id).subscribe();
             return 'Successful';
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return error;
         }
     }

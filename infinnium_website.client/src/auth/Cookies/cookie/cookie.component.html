@@ -1,0 +1,40 @@
+<div
+  class="fixed bottom-2 left-1/2 transform -translate-x-1/2 w-[98%] bg-white text-gray-800 shadow-xl px-[5rem] py-[1rem] border border-gray-200 z-50 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-10"
+  *ngIf="showPopup">
+
+  <button class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl font-bold focus:outline-none"
+    (click)="closePopup()" aria-label="Close">
+    &times;
+  </button>
+
+  <!-- Text Section -->
+  <div class="sm:w-2/3 text-center sm:text-left">
+    <h2 class="text-xl font-semibold mb-2">We value your privacy</h2>
+    <p class="text-sm md:text-base">
+      We use cookies to enhance your browsing experience, serve personalised ads or content, and analyse our traffic.
+      By clicking "Accept All", you consent to our use of cookies. For more information, please visit our <a
+        [routerLink]="['/Privacy-Policy']"
+        (click)="closePopup()"
+        class="text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
+        privacy and policy page.
+      </a>
+
+    </p>
+  </div>
+
+  <!-- Button Section -->
+  <div class="sm:w-1/3 w-full flex flex-col sm:flex-row justify-center items-center gap-3">
+    <button (click)="acceptAll()"
+      class="w-full sm:w-auto bg-[#E76F51] text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-[#D65C3D] transition">
+      Accept All
+    </button>
+    <button (click)="reject()"
+      class="w-full sm:w-auto bg-[#E76F51] text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-[#D65C3D] transition">
+      Reject
+    </button>
+    <button (click)="customize()"
+      class="w-full sm:w-auto bg-[#E76F51] text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-[#D65C3D] transition">
+      Customise
+    </button>
+  </div>
+</div>

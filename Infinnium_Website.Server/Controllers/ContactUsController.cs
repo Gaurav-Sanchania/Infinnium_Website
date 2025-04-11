@@ -165,7 +165,7 @@ namespace Infinnium_Website.Server.Controllers
         // POST: ContactUsController/SendEmail
         [HttpPost]
         [Route("SendEmail")]
-        public async Task<IActionResult> SendEmail([FromBody] EmailRequest user)
+        public async Task<IActionResult> SendEmail(EmailRequest user)
         {
             //var receiver = "gauravsanchania@gmail.com";
             //var subject = "Test Email";

@@ -39,6 +39,16 @@ namespace Infinnium_Website.Server.Controllers
                     author.Description = Convert.ToString(reader["Description"]);
                     author.Guid = Convert.ToString(reader["ShortGuid"]);
 
+                    if (reader["Image"] != null)
+                    {
+                        author.Image = (byte[])reader["Image"];
+                        author.ImageName = Convert.ToString(reader["ImageName"]);
+                    } else
+                    {
+                        author.Image = null;
+                        author.ImageName = null;
+                    }
+
                     authors.Add(author);
                 }
 
@@ -73,6 +83,16 @@ namespace Infinnium_Website.Server.Controllers
                     author.Designation = Convert.ToString(reader["Designation"]);
                     author.Description = Convert.ToString(reader["Description"]);
                     author.Guid = Convert.ToString(reader["ShortGuid"]);
+
+                    if (reader["Image"] != null)
+                    {
+                        author.Image = (byte[])reader["Image"];
+                        author.ImageName = Convert.ToString(reader["ImageName"]);
+                    } else
+                    {
+                        author.Image = null;
+                        author.ImageName = null;
+                    }
                 }
 
                 con.Close();
