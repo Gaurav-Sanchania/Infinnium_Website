@@ -26,7 +26,7 @@ export class AdminLoginComponent {
 
   async onSubmit() {
     if (this.loginForm.invalid) {
-      console.log("Form is invalid! Fix the errors before submitting.");
+      //console.log("Form is invalid! Fix the errors before submitting.");
       return; 
     }
 
