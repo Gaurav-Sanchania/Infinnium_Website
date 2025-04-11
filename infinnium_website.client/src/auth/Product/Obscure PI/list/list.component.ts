@@ -1,10 +1,9 @@
 import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 @Component({
   selector: 'app-list',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
