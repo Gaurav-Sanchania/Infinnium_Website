@@ -13,10 +13,50 @@ export class IntelligentComponent {
     const button = document.querySelector(`[data-id="${id}"]`) as HTMLButtonElement;
 
     if (desc && button) {
-      desc.classList.toggle('truncate-text');
-      button.textContent = desc.classList.contains('truncate-text')
-        ? 'Read More →'
-        : 'Read Less ↑';
+      const isExpanded = desc.classList.contains('slide-toggle');
+
+      if (isExpanded) {
+        // COLLAPSING — set to full height first
+        const fullHeight = desc.scrollHeight;
+        desc.style.maxHeight = `${fullHeight}px`; // Set current height to enable transition
+        desc.classList.remove('truncate-text'); // Prevent line clamping during animation
+
+        // Trigger collapse in next frame
+        requestAnimationFrame(() => {
+          desc.style.maxHeight = '4.5em';
+        });
+
+        button.textContent = 'Read More ↓';
+
+        // After transition ends
+        setTimeout(() => {
+          desc.classList.remove('slide-toggle');
+          desc.classList.add('truncate-text');
+          desc.style.maxHeight = '';
+        }, 400);
+
+      } else {
+        // EXPANDING
+        desc.classList.remove('truncate-text');
+        desc.classList.add('slide-toggle');
+
+        // Collapse height start
+        desc.style.maxHeight = '4.5em';
+
+        // Expand to full height in next frame
+        requestAnimationFrame(() => {
+          desc.style.maxHeight = `${desc.scrollHeight}px`;
+        });
+
+        button.textContent = 'Read Less ↑';
+
+        // Cleanup max-height so the content can grow naturally
+        setTimeout(() => {
+          desc.style.maxHeight = 'none';
+        }, 400);
+      }
     }
   }
+
+
 }
