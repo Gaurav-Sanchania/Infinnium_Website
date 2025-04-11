@@ -1,56 +1,56 @@
-<nav class="navbar navbar-expand-lg px-3 px-lg-4">
-    <div class="container-fluid">
-      <div class="d-flex align-items-center">
-        <div class="logoContainer ms-2 ms-sm-3 me-2">
-          <img
-            src="infinnium_white.svg"
-            alt="infi_logo"
-            height="65px"
-            width="130px"
-            class="companyLogo img-fluid"
-            />
-        </div>
-      </div>
-    
-    <div class="navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto gap-lg-3">
-          <li class="nav-item me-3">
-            <a
-              class="nav-link position-relative"
-              routerLink="/Dashboard"
-              routerLinkActive="activeLink"
-              [routerLinkActiveOptions]="{ exact: true }"
-              >Admin Dashboard</a
-            >
-          </li>
-          <li class="nav-item me-3">
-            <a
-            class="nav-link"
-            routerLink=""
-            routerLinkActive="activeLink"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Add Blog</a
-            >
-          </li>      
-          <li class="nav-item me-3">
-            <a
-              class="nav-link"
-              routerLink=""
-              routerLinkActive="activeLink"
-              [routerLinkActiveOptions]="{ exact: true }"
-              >Add News and Events</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              routerLink="/home"
-              (click)="clearLocalStorage()"
-              >Logout</a>
-          </li>
-        </ul>
+<nav class="bg-black text-white px-4 lg:px-6 py-3 navbar">
+  <div class="flex items-center justify-between flex-wrap max-w-7xl mx-auto">
+    <!-- Logo -->
+    <div class="flex items-center space-x-4">
+      <div routerLink="/home" class="logoContainer cursor-pointer">
+        <img
+          src="infinnium_white.svg"
+          alt="infi_logo"
+          class="h-10 w-auto object-contain"
+        />
       </div>
     </div>
-  </nav>
-  <router-outlet></router-outlet>
-  
+
+    <!-- Navigation Links -->
+    <div class="w-full lg:w-auto mt-4 lg:mt-0">
+      <ul class="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-6 text-sm font-medium">
+        <li>
+          <a
+            routerLink="/Dashboard"
+            routerLinkActive="activeLink"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-lg hover:text-blue-400 transition-colors duration-300"
+            >Admin Dashboard</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/add-Blog"
+            routerLinkActive="activeLink"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-lg hover:text-blue-400 transition-colors duration-300"
+            >Add Blog</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/add-News"
+            routerLinkActive="activeLink"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-lg hover:text-blue-400 transition-colors duration-300"
+            >Add News and Events</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/home"
+            (click)="clearLocalStorage()"
+            class="text-lg hover:text-red-400 transition-colors duration-300"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

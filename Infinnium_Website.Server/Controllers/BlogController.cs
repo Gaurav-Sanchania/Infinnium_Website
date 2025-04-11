@@ -46,7 +46,11 @@ namespace Infinnium_Website.Server.Controllers
                     blog.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
-                    blog.Image = reader["ImagePath"].ToString();
+                    byte[] imageData = reader["ImagePath"] as byte[];
+                    if (imageData != null)
+                    {
+                        blog.Image = Convert.ToBase64String((byte[])imageData);
+                    }
 
                     blogs.Add(blog);
                 }
@@ -89,7 +93,11 @@ namespace Infinnium_Website.Server.Controllers
                     blog.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
-                    blog.Image = reader["ImagePath"].ToString();
+                    byte[] imageData = reader["ImagePath"] as byte[];
+                    if (imageData != null)
+                    {
+                        blog.Image = Convert.ToBase64String((byte[])imageData);
+                    }
                 }
 
                 con.Close();
@@ -131,7 +139,11 @@ namespace Infinnium_Website.Server.Controllers
                     blog.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
-                    blog.Image = reader["ImagePath"].ToString();
+                    byte[] imageData = reader["ImagePath"] as byte[];
+                    if (imageData != null)
+                    {
+                        blog.Image = Convert.ToBase64String((byte[])imageData);
+                    }
 
                     blogs.Add(blog);
                 }
@@ -146,8 +158,20 @@ namespace Infinnium_Website.Server.Controllers
         // POST: BlogController/AddBlog
         [HttpPost]
         [Route("AddBlog")]
-        public void AddBlog([FromBody] AddBlogModel blog, IFormFile Image)
+        public void AddBlog()
         {
+            var blog = new AddBlogModel
+            {
+                Title = Request.Form["Title"],
+                Description = Request.Form["Description"],
+                Brief = Request.Form["Brief"],
+                PublishedDate = Request.Form["PublishedDate"],
+                AuthorId = int.Parse(Request.Form["AuthorId"]),
+                ImageName = Request.Form["ImageName"]
+            };
+
+            IFormFile image = Request.Form.Files["Image"];
+
             string cs = config.GetConnectionString("InfinniumDB");
             using(SqlConnection con = new SqlConnection(cs))
             {
@@ -163,21 +187,22 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.Parameters.AddWithValue("@PublishedDate", blog.PublishedDate);
                 cmd.Parameters.AddWithValue("@AuthorId", blog.AuthorId);
 
-                if(Image != null)
+                if (image != null)
                 {
                     byte[] imageData;
-                    using (var binaryReader = new BinaryReader(Image.OpenReadStream()))
+                    using (var binaryReader = new BinaryReader(image.OpenReadStream()))
                     {
-                        imageData = binaryReader.ReadBytes((int)Image.Length);
+                        imageData = binaryReader.ReadBytes((int)image.Length);
                     }
                     cmd.Parameters.AddWithValue("@ImagePath", imageData);
                     cmd.Parameters.AddWithValue("@ImageName", blog.ImageName);
-                } else
-                {
-                    cmd.Parameters.AddWithValue("@ImagePath", null);
-                    cmd.Parameters.AddWithValue("@ImageName", null);
                 }
-                
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ImageName", DBNull.Value);
+                }
+
                 cmd.ExecuteNonQuery();
 
                 con.Close();

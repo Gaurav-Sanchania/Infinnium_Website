@@ -39,7 +39,7 @@ namespace Infinnium_Website.Server.Controllers
                     author.Description = Convert.ToString(reader["Description"]);
                     author.Guid = Convert.ToString(reader["ShortGuid"]);
 
-                    if (reader["Image"] != null)
+                    if (reader["Image"] != DBNull.Value)
                     {
                         author.Image = (byte[])reader["Image"];
                         author.ImageName = Convert.ToString(reader["ImageName"]);

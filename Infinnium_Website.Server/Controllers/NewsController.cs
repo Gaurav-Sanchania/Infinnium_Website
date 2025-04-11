@@ -46,7 +46,11 @@ namespace Infinnium_Website.Server.Controllers
                     singleNews.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
-                    singleNews.Image = reader["ImagePath"].ToString();
+                    byte[] imageData = reader["ImagePath"] as byte[];
+                    if(imageData != null)
+                    {
+                        singleNews.Image = Convert.ToBase64String((byte[])imageData);
+                    }
 
                     news.Add(singleNews);
                 }
@@ -89,7 +93,11 @@ namespace Infinnium_Website.Server.Controllers
                     news.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
-                    news.Image = reader["ImagePath"].ToString();
+                    byte[] imageData = reader["ImagePath"] as byte[];
+                    if (imageData != null)
+                    {
+                        news.Image = Convert.ToBase64String((byte[])imageData);
+                    }
                 }
 
                 con.Close();
@@ -131,7 +139,11 @@ namespace Infinnium_Website.Server.Controllers
                     singleNews.Guid = reader["ShortGuid"].ToString();
 
                     // Image Reader function
-                    singleNews.Image = reader["ImagePath"].ToString();
+                    byte[] imageData = reader["ImagePath"] as byte[];
+                    if (imageData != null)
+                    {
+                        singleNews.Image = Convert.ToBase64String((byte[])imageData);
+                    }
 
                     news.Add(singleNews);
                 }
@@ -146,8 +158,20 @@ namespace Infinnium_Website.Server.Controllers
         // POST: NewsController/AddNews
         [HttpPost]
         [Route("AddNews")]
-        public void AddNews([FromBody] AddNewsModel news)
+        public void AddNews()
         {
+            var news = new AddNewsModel
+            {
+                Title = Request.Form["Title"],
+                Description = Request.Form["Description"],
+                Brief = Request.Form["Brief"],
+                PublishedDate = Request.Form["PublishedDate"],
+                AuthorId = int.Parse(Request.Form["AuthorId"]),
+                ImageName = Request.Form["ImageName"]
+            };
+
+            IFormFile image = Request.Form.Files["Image"];
+
             string cs = config.GetConnectionString("InfinniumDB");
             using (SqlConnection con = new SqlConnection(cs))
             {
@@ -161,9 +185,23 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.Parameters.AddWithValue("@Description", news.Description);
                 cmd.Parameters.AddWithValue("@Brief", news.Brief);
                 cmd.Parameters.AddWithValue("@PublishedDate", news.PublishedDate);
-                cmd.Parameters.AddWithValue("@ImagePath", news.Image);
-                cmd.Parameters.AddWithValue("@ImageName", news.ImageName);
                 cmd.Parameters.AddWithValue("@AuthorId", news.AuthorId);
+
+                if (image != null)
+                {
+                    byte[] imageData;
+                    using (var binaryReader = new BinaryReader(image.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)image.Length);
+                    }
+                    cmd.Parameters.AddWithValue("@ImagePath", imageData);
+                    cmd.Parameters.AddWithValue("@ImageName", news.ImageName);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ImageName", DBNull.Value);
+                }
 
                 cmd.ExecuteNonQuery();
 

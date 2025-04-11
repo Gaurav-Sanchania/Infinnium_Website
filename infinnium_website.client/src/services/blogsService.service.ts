@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient } from "@angular/common/http";
@@ -19,7 +20,13 @@ export class BlogsService {
               this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
                   imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
                     (`https://localhost:7046/BlogsController/GetAllBlogs`));
-            return response;
+          const updatedResponse = response.map(item => {
+            if (item.image) {
+              item.image = `data:image/jpeg;base64,${item.image}`;
+            }
+            return item;
+          });
+          return updatedResponse;
         } catch (error) {
             // console.log(error);
             return [];
@@ -27,17 +34,20 @@ export class BlogsService {
     }
 
   async getBlogDetails(guid: string): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
-    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }> {
         // https://localhost:7046/BlogsController/GetBlogDetails/{id}
         try {
             const response = await firstValueFrom(
                 this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
+                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }>
                     (`https://localhost:7046/BlogsController/GetBlogDetails/${guid}`));
-            return response;
+          if (response.image) {
+            response.image = `data:image/jpeg;base64,${response.image}`;
+          }
+          return response;
         } catch (error) {
             // console.log(error);
-            return [];
+          throw error;
         }
     }
 
@@ -48,7 +58,13 @@ export class BlogsService {
             const response = await firstValueFrom(
               this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
                   imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>("https://localhost:7046/BlogsController/Top3Blogs"));
-            return response;
+          const updatedResponse = response.map(item => {
+            if (item.image) {
+              item.image = `data:image/jpeg;base64,${item.image}`;
+            }
+            return item;
+          });
+          return updatedResponse;
         } catch (error) {
             // console.log(error);
             return [];            
@@ -58,8 +74,18 @@ export class BlogsService {
     // All post methods are yet to be tested
 
     addBlog(blog: any) {
-        try {
-            this.httpClient.post("https://localhost:7046/BlogsController/AddBlog", blog).subscribe();
+      try {
+        const formData = new FormData();
+
+        formData.append('Image', blog.image);
+        formData.append('Title', blog.title);
+        formData.append('Description', blog.description);
+        formData.append('Brief', blog.brief);
+        formData.append('PublishedDate', blog.publishedDate);
+        formData.append('AuthorId', blog.authorId);
+        formData.append('ImageName', blog.image.name);
+
+        this.httpClient.post("https://localhost:7046/BlogsController/AddBlog", formData).subscribe();
             return 'Successful';
         } catch (error) {
             // console.log(error);
