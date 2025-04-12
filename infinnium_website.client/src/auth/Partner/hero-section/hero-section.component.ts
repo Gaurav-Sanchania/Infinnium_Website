@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
-  selector: 'app-hero-section',
+  selector: 'app-partner-hero-section',
   imports: [RouterLink],
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css'

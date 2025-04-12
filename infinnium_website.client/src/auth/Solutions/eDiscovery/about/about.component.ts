@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
-  selector: 'app-about',
+  selector: 'app-ediscovery-about',
   imports: [],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'

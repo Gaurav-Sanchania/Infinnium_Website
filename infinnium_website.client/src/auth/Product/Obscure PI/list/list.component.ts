@@ -2,7 +2,7 @@ import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit } from '@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 @Component({
-  selector: 'app-list',
+  selector: 'app-products-obscure-list',
   imports: [],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'

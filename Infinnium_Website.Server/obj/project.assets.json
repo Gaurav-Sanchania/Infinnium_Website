@@ -2133,23 +2133,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {},
+    "C:\\Users\\Abcom\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\OneDrive\\Desktop\\Infinnium Website\\Infinnium_Website\\Infinnium_Website.Server\\Infinnium_Website.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\Infinnium_Website.Server\\Infinnium_Website.Server.csproj",
       "projectName": "Infinnium_Website.Server",
-      "projectPath": "C:\\Users\\admin\\OneDrive\\Desktop\\Infinnium Website\\Infinnium_Website\\Infinnium_Website.Server\\Infinnium_Website.Server.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\OneDrive\\Desktop\\Infinnium Website\\Infinnium_Website\\Infinnium_Website.Server\\obj\\",
+      "projectPath": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\Infinnium_Website.Server\\Infinnium_Website.Server.csproj",
+      "packagesPath": "C:\\Users\\Abcom\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Abcom\\Desktop\\Infinnium_Website\\Infinnium_Website.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Abcom\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2176,7 +2176,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -2214,7 +2214,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -5,7 +5,7 @@ import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@
 
 @Component({
   standalone: true,
-  selector: 'app-features',
+  selector: 'app-uig-features',
   imports: [],
   templateUrl: './features.component.html',
   styleUrl: './features.component.css'

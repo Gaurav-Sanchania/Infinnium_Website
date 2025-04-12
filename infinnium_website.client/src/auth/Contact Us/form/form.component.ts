@@ -29,7 +29,7 @@ export class FormComponent {
       // Send Email to user
       const email = this.contactUsForm.value.email;
       const subject = 'Great to here from you!';
-      const body = 'Thank you for reaching out to us. We will get back to you soon.';
+      const body = `${this.contactUsForm.value.description} Thank you for reaching out to us. We will get back to you soon.`;
 
       this.contactUsService.sendEmail(email, subject, body);
     } else {

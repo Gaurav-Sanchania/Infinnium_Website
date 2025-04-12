@@ -70,7 +70,8 @@ export class ContactUsService {
 
     //tested
     sendEmail(receiver: string, subject: string, body: string) {
-        try {
+      try {
+        //console.log(receiver, subject, body);
             this.httpClient.post("https://localhost:7046/ContactUsController/SendEmail", { receiver, subject, body }).subscribe();
             return 'Successful';
         } catch (error) {

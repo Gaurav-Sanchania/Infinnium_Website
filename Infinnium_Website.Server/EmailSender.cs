@@ -44,8 +44,10 @@ namespace Infinnium_Website.Server
 
                 var client = new SmtpClient("mail.infinniumtech.com", 587)
                 {
-                    EnableSsl = true,
-                    Credentials = new NetworkCredential(mail, pwd)
+                    EnableSsl = false,
+                    Credentials = new NetworkCredential(mail, pwd),
+                    UseDefaultCredentials = false,
+                    DeliveryMethod = SmtpDeliveryMethod.Network
                 };
 
                 await client.SendMailAsync(new MailMessage
@@ -58,9 +60,9 @@ namespace Infinnium_Website.Server
 
                 isEmailSend = true;
             }
-            catch (Exception excep)
+            catch (Exception)
             {
-                throw excep;
+                throw;
             }
             return isEmailSend;
         }

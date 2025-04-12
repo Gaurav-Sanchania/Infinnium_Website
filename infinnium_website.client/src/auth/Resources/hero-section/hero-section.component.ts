@@ -6,7 +6,7 @@ import { BlogsService } from '../../../services/blogsService.service';
 
 @Component({
   standalone: true,
-  selector: 'app-hero-section',
+  selector: 'app-resources-hero-section',
   imports: [],
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css'

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-about',
+  selector: 'app-automated-redaction-about',
   imports: [],
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'

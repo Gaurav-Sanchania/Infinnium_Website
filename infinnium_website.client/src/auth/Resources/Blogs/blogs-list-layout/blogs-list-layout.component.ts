@@ -7,7 +7,7 @@ import { BlogsListComponent } from '../../blogs-list/blogs-list.component';
 import { BlogsService } from '../../../../services/blogsService.service';
 
 @Component({
-  selector: 'app-blogs-list-layout',
+  selector: 'app-resources-blogs-list-layout',
   imports: [HeaderComponent, HeroSectionComponent, BlogsListComponent, FooterComponent],
   providers: [BlogsService],
   templateUrl: './blogs-list-layout.component.html',
