@@ -1,0 +1,10 @@
+.truncate-text {
+    max-height: 4.5em; 
+    overflow: hidden;
+  }
+  
+  .slide-toggle {
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  

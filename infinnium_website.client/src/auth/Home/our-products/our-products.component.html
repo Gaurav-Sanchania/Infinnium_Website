@@ -1,46 +1,50 @@
 <section class="py-20 px-6 md:px-16 lg:px-35 bg-[#12423C]" style="font-family: 'Manrope', 'Open Sans', sans-serif">
-<!--Section Header-->
-<div class="text-center mb-12 animate-product">
-  <p class="text-xs sm:text-sm text-[#ffffff] font-semibold tracking-wide">PRODUCTS</p>
-  <h2 class="text-4xl font-semibold mt-2 text-[#ffffff]">
-    Our <span class="italic">Products</span>
-  </h2>
-  <p class="mt-4 text-#ffffff">
-    Improve your processes, serve more customers, and grow your business
-    with cutting-edge technology.
-  </p>
-</div>
-<!--Product Grid-->
-<div class="grid md:grid-cols-2 gap-8 product-grid max-w-6xl mx-auto" id="productGrid" #productGrid>
-<!--Product Card 1-->
-<div class="bg-white text-black rounded shadow-lg p-6 product-item">
-  <h3 class="text-xl font-semibold">4iG®</h3>
-  <p class="mt-2 text-gray-600">
-    Revolutionize data management with 4iG®. Manage, classify, and protect data using AI—quick, smart, and seamless.
-  </p>
-  <a [routerLink]="['/Products/4ig']"class="text-[#E76F51] hover:text-[#E65A4E]  font-medium mt-3 inline-block hover:underline">
-    Read More →
-  </a>
-  <img src="product.png" alt="Product 1" class="mt-4 rounded-xl" />
-</div>
-<!--Product Card 2-->
-<div class="bg-white text-black rounded shadow-lg p-6 product-item">
-  <h3 class="text-xl font-semibold">ObscurePI®</h3>
-  <p class="mt-2 text-[#516B75]">
-    Protect PII with ObscurePI®—smart redaction, anonymization, and encryption across all file types, no imaging needed.
-  </p>
-  <a [routerLink]="['/Products/obscure-pi']" class="text-[#E76F51] hover:text-[#E65A4E]  font-medium mt-3 inline-block hover:underline">
-    Read More →
-  </a>
-  <img src="product.png" alt="Product 2" class="mt-4 rounded-xl" />
-</div>
-<!--Product Card 3 (Full Width)-->
-<div class="bg-white text-black rounded shadow-lg p-6 md:col-span-2 product-item">
+  <!--Section Header-->
+  <div class="text-center mb-12 animate-product">
+    <p class="text-xs sm:text-sm text-[#ffffff] font-semibold tracking-wide">PRODUCTS</p>
+    <h2 class="text-4xl font-semibold mt-2 text-[#ffffff]">
+      Our <span class="italic">Products</span>
+    </h2>
+    <p class="mt-4 text-#ffffff">
+      Improve your processes, serve more customers, and grow your business
+      with cutting-edge technology.
+    </p>
+  </div>
+  <!--Product Grid-->
+  <div class="grid md:grid-cols-2 gap-8 product-grid max-w-6xl mx-auto" id="productGrid" #productGrid>
+    <!--Product Card 1-->
+    <div class="bg-white text-black rounded shadow-lg p-6 product-item">
+      <h3 class="text-xl font-semibold">4iG®</h3>
+      <p class="mt-2 text-gray-600">
+        Revolutionize data management with 4iG®. Manage, classify, and protect data using AI—quick, smart, and seamless.
+      </p>
+      <a [routerLink]="['/Products/4ig']"
+        class="text-[#E76F51] hover:text-[#E65A4E]  font-medium mt-3 inline-block hover:underline">
+        Read More →
+      </a>
+      <img src="product.png" alt="Product 1" class="mt-4 rounded-xl" />
+    </div>
+    <!--Product Card 2-->
+    <div class="bg-white text-black rounded shadow-lg p-6 product-item">
+      <h3 class="text-xl font-semibold">ObscurePI®</h3>
+      <p class="mt-2 text-[#516B75]">
+        Protect PII with ObscurePI®—smart redaction, anonymization, and encryption across all file types, no imaging
+        needed.
+      </p>
+      <a [routerLink]="['/Products/obscure-pi']"
+        class="text-[#E76F51] hover:text-[#E65A4E]  font-medium mt-3 inline-block hover:underline">
+        Read More →
+      </a>
+      <img src="product.png" alt="Product 2" class="mt-4 rounded-xl" />
+    </div>
+    <!--Product Card 3 (Full Width)-->
+    <div class="bg-white text-black rounded shadow-lg p-6 md:col-span-2 product-item">
       <h3 class="text-xl font-semibold">Breach Profiler™</h3>
       <p class="mt-2 text-gray-600">
         BreachProfiler™ uses AI to swiftly identify breach impacts—fast, accurate, and compliant post-cyber review.
       </p>
-      <a [routerLink]="['/Products/breach-profiler']" class="text-[#E76F51] hover:text-[#E65A4E]  font-medium mt-3 inline-block hover:underline">
+      <a [routerLink]="['/Products/breach-profiler']"
+        class="text-[#E76F51] hover:text-[#E65A4E]  font-medium mt-3 inline-block hover:underline">
         Read More →
       </a>
       <img src="product.png" alt="Product 3" class="mt-4 rounded-xl" />
