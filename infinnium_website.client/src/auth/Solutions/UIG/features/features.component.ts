@@ -84,7 +84,7 @@ export class FeaturesComponent implements AfterViewInit {
         // console.log("removed truncate text class");
 
         requestAnimationFrame(() => {
-          desc.style.maxHeight = '4.5em'; // Collapse to truncated height
+          desc.style.maxHeight = '3em'; // Collapse to truncated height
         });
 
         button.textContent = 'Read More ↓';
@@ -99,7 +99,7 @@ export class FeaturesComponent implements AfterViewInit {
         // EXPANDING
         desc.classList.remove('truncate-text');
         desc.classList.add('slide-toggle');
-        desc.style.maxHeight = '4.5em'; 
+        desc.style.maxHeight = '3em'; 
 
         requestAnimationFrame(() => {
           desc.style.maxHeight = `${desc.scrollHeight}px`; // Animate open
