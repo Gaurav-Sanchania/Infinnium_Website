@@ -1,6 +1,7 @@
-import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+// import AOS from 'aos';
 
 @Component({
   standalone: true,
@@ -62,5 +63,54 @@ export class FeaturesComponent implements AfterViewInit {
     });
 
     this.hasAnimated = true;
+  }
+
+  toggleDescription(id: string | number): void {
+    const desc = document.getElementById(`desc-${id}`);
+    // console.log(desc);
+    
+    const button = document.querySelector(`[data-id="${id}"]`) as HTMLButtonElement;
+    // console.log(button);
+
+    if (desc) {
+      // console.log("entered inside if");
+      const isExpanded = desc.classList.contains('slide-toggle');
+
+      if (isExpanded) {
+        // COLLAPSING
+        const fullHeight = desc.scrollHeight;
+        desc.style.maxHeight = `${fullHeight}px`; // Start from current height
+        desc.classList.remove('truncate-text');
+        // console.log("removed truncate text class");
+
+        requestAnimationFrame(() => {
+          desc.style.maxHeight = '4.5em'; // Collapse to truncated height
+        });
+
+        button.textContent = 'Read More ↓';
+
+        setTimeout(() => {
+          desc.classList.remove('slide-toggle');
+          desc.classList.add('truncate-text');
+          desc.style.maxHeight = '';
+        }, 400);
+
+      } else {
+        // EXPANDING
+        desc.classList.remove('truncate-text');
+        desc.classList.add('slide-toggle');
+        desc.style.maxHeight = '4.5em'; 
+
+        requestAnimationFrame(() => {
+          desc.style.maxHeight = `${desc.scrollHeight}px`; // Animate open
+        });
+
+        button.textContent = 'Read Less ↑';
+
+        setTimeout(() => {
+          desc.style.maxHeight = 'none'; // Let content grow naturally
+        }, 400);
+      }
+    }
   }
 }
