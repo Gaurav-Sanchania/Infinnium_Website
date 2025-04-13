@@ -16,4 +16,21 @@
       cursor: pointer;
       width: fit-content;
     }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
     
+    @keyframes progress {
+      0% { width: 0; opacity: 0; }
+      50% { width: 100%; opacity: 1; }
+      100% { width: 100%; opacity: 0; }
+    }
+  
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+  
+    .animate-progress {
+      animation: progress 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
