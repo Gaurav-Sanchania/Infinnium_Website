@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 @Component({
   standalone: true,
-  selector: 'app-features',
+  selector: 'app-breach-response-features',
   imports: [],
   templateUrl: './features.component.html',
   styleUrl: './features.component.css'

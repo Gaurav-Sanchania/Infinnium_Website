@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 
 @Component({
   standalone: true,
-  selector: 'app-features',
+  selector: 'app-data-disposition-features',
   imports: [],
   templateUrl: './features.component.html',
   styleUrl: './features.component.css'

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
-  selector: 'app-hero-section',
+  selector: 'app-contact-us-hero-section',
   imports: [],
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css'

@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 
 @Component({
   standalone: true,
-  selector: 'app-features',
+  selector: 'app-legal-hold-features',
   imports: [],
   templateUrl: './features.component.html',
   styleUrl: './features.component.css'

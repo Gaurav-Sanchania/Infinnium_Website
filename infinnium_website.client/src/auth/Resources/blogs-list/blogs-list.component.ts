@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
-  selector: 'app-blogs-list',
+  selector: 'app-resources-blogs-list',
   imports: [CommonModule],
   templateUrl: './blogs-list.component.html',
   styleUrl: './blogs-list.component.css'

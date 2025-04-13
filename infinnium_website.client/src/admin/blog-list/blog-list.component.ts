@@ -8,7 +8,7 @@ import { BlogsService } from '../../services/blogsService.service';
 import { NewsService } from '../../services/newsService.service';
 
 @Component({
-  selector: 'app-blog-list',
+  selector: 'app-admin-blog-list',
   imports: [CommonModule],
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css'

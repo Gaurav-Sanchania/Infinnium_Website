@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
-  selector: 'app-features',
+  selector: 'app-products-4ig-features',
   imports: [],
   templateUrl: './features.component.html',
   styleUrl: './features.component.css'

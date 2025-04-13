@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { BlogListComponent } from "../blog-list/blog-list.component";
 import { FooterComponent } from "../../shared/components/footer/footer.component";
+import { BlogListComponent } from '../blog-list/blog-list.component';
 
 @Component({
   standalone: true,

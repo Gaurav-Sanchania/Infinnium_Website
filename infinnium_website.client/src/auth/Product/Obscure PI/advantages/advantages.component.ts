@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-advantages',
+  selector: 'app-products-obscure-advantages',
   imports: [],
   templateUrl: './advantages.component.html',
   styleUrl: './advantages.component.css'

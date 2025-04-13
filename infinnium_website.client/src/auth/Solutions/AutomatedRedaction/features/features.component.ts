@@ -2,7 +2,7 @@ import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit } from '@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 @Component({
-  selector: 'app-features',
+  selector: 'app-automated-redaction-features',
   imports: [],
   templateUrl: './features.component.html',
   styleUrl: './features.component.css'
