@@ -9,6 +9,7 @@ import { solutionRoutes } from "../auth/Solutions/solutions-routing.module";
 import { adminRoutes } from "../admin/admin-routing.module";
 import { policyRoutes } from "../auth/Privacy/privacy-routing.module";
 import { termsRoutes } from "../auth/Terms of Use/terms-routing.module";
+import { cookieRoute } from "../auth/Cookies/cookie-routing.module";
 
 export const routes: Routes = [
     ...aboutUsRoutes,
@@ -20,5 +21,6 @@ export const routes: Routes = [
     ...contactUsRoutes,
     ...adminRoutes,
     ...policyRoutes,
-    ...termsRoutes
+    ...termsRoutes,
+    ...cookieRoute
   ];
