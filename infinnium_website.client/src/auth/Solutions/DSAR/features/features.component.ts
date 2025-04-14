@@ -62,3 +62,4 @@ export class FeaturesComponent implements AfterViewInit {
     this.hasAnimated = true;
   }
 }
+

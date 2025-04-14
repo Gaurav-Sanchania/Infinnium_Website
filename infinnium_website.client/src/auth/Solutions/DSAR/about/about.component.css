@@ -1,19 +1,9 @@
 .truncate-text {
-    /*  display: -webkit-box;
-      line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      -webkit-line-clamp: 3;
-      text-overflow: ellipsis;
-      white-space: normal;*/
-    
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 3; /* Show only 3 lines */
-      -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-height: 4.5em; /* Approx. 3 lines */
+  transition: max-height 0.5s ease;
     }
     .toggleBtn {
       cursor: pointer;
       width: fit-content;
     }
-    
