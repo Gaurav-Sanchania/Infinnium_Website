@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { firstValueFrom } from "rxjs";
+import { firstValueFrom, Observable } from "rxjs";
 
 @Injectable({
     providedIn: "root",
@@ -69,14 +69,10 @@ export class ContactUsService {
     }
 
     //tested
-    sendEmail(receiver: string, subject: string, body: string) {
-      try {
+  sendEmail(receiver: string, subject: string, body: string): Observable<any> {
+      
         //console.log(receiver, subject, body);
-            this.httpClient.post("https://localhost:7046/ContactUsController/SendEmail", { receiver, subject, body }).subscribe();
-            return 'Successful';
-        } catch (error) {
-            console.log(error);
-            return error;
-        }
+    return this.httpClient.post("https://localhost:7046/ContactUsController/SendEmail", { receiver, subject, body }, { responseType: 'text' });
+      
     }
 }

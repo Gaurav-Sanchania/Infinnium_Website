@@ -1,4 +1,6 @@
-﻿using Infinnium_Website.Server.Models.Authors;
+﻿using System.Data;
+using System.Reflection.Metadata;
+using Infinnium_Website.Server.Models.Authors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -39,9 +41,9 @@ namespace Infinnium_Website.Server.Controllers
                     author.Description = Convert.ToString(reader["Description"]);
                     author.Guid = Convert.ToString(reader["ShortGuid"]);
 
-                    if (reader["Image"] != DBNull.Value)
+                    if (reader["Images"] != DBNull.Value)
                     {
-                        author.Image = (byte[])reader["Image"];
+                        author.Image = (byte[])reader["Images"];
                         author.ImageName = Convert.ToString(reader["ImageName"]);
                     } else
                     {
@@ -84,9 +86,9 @@ namespace Infinnium_Website.Server.Controllers
                     author.Description = Convert.ToString(reader["Description"]);
                     author.Guid = Convert.ToString(reader["ShortGuid"]);
 
-                    if (reader["Image"] != null)
+                    if (reader["Images"] != null)
                     {
-                        author.Image = (byte[])reader["Image"];
+                        author.Image = (byte[])reader["Images"];
                         author.ImageName = Convert.ToString(reader["ImageName"]);
                     } else
                     {
@@ -99,5 +101,39 @@ namespace Infinnium_Website.Server.Controllers
             }
             return author;
         }
+
+        // -----------------------------------------------------------------------------------------------------------------------
+        
+        // ONLY FOR DEVELOPMENT PURPOSE
+
+        // POST: AuthorController/AddImage
+        [HttpPost]
+        [Route("AddImage")]
+        public void AddImage()
+        {
+            IFormFile image = Request.Form.Files["Image"];
+
+            string cs = config.GetConnectionString("InfinniumDB");
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+
+                if (image != null)
+                {
+                    byte[] imageData;
+                    using (var binaryReader = new BinaryReader(image.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)image.Length);
+                    }
+
+                    SqlCommand cmd = new SqlCommand("UPDATE Authors SET Images = @Image WHERE Authors.Id = 10", con);
+                    cmd.Parameters.Add("@Image", SqlDbType.VarBinary).Value = imageData;
+                    cmd.ExecuteNonQuery();
+                }
+
+                con.Close();
+            }
+        }
+
     }
 }

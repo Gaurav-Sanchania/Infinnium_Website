@@ -15,7 +15,7 @@
       <!-- Card 1 - Elie Francis -->
       <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative" *ngFor="let author of authors;">
         <a [routerLink]="['Member', author.name, author.guid]" class="absolute inset-0 z-10"></a>
-        <img src="Elie-Francis-Resize.png" alt="Elie Francis" class="w-36 h-auto object-cover rounded-l-xl">
+        <img [src]="author.image" alt="Elie Francis" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
             <h2 class="text-lg font-semibold">{{ author.name }}</h2>

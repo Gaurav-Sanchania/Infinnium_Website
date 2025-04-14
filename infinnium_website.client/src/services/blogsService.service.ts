@@ -71,8 +71,6 @@ export class BlogsService {
         }
     }
 
-    // All post methods are yet to be tested
-
     addBlog(blog: any) {
       try {
         const formData = new FormData();

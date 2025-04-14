@@ -2,16 +2,28 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ContactUsService } from '../../../services/contactUsService.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-form',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   providers: [ContactUsService],
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })
 export class FormComponent {
+  isVisible = false;
+  message = '';
+
+  show(message: string) {
+    this.message = message;
+    this.isVisible = true;
+
+    setTimeout(() => {
+      this.isVisible = false;
+    }, 3000);
+  }
   constructor(private contactUsService: ContactUsService) { }
 
   contactUsForm : FormGroup = new FormGroup({
@@ -31,7 +43,16 @@ export class FormComponent {
       const subject = 'Great to here from you!';
       const body = `${this.contactUsForm.value.description} Thank you for reaching out to us. We will get back to you soon.`;
 
-      this.contactUsService.sendEmail(email, subject, body);
+      this.contactUsService.sendEmail(email, subject, body).subscribe({
+        next: (res) => {
+          console.log('Email sent successfully:', res);
+          this.show('Email sent successfully!');
+        },
+        error: (err) => {
+          console.error('Error sending email:', err);
+          this.show('Failed to send email.');
+        }
+      });
     } else {
       console.log('Form is invalid');
     }
