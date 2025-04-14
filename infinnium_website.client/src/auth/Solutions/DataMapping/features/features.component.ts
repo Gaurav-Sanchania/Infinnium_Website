@@ -1,6 +1,6 @@
 import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 
 @Component({
   standalone: true,
