@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <footer class="bg-[#f6f9fb] text-white py-16 px-6 md:px-14" style="font-family: 'Manrope', 'Open Sans', sans-serif">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
     <!-- Logo & Subscription -->
@@ -125,9 +127,48 @@
     <div class="inline">
       <div class="flex gap-10">
         <a [routerLink]="['/Privacy-Policy']" class="text-black hover:text-[#E76F51] cursor-pointer">Privacy</a>
-        <a class="text-black hover:text-[#E76F51] cursor-pointer">Cookies setting</a>
+        <a class="text-black hover:text-[#E76F51] cursor-pointer" (click)="openPopup()">Cookies setting</a>
         <a [routerLink]="['/Terms-of-use']" class="text-black hover:text-[#E76F51] cursor-pointer">Terms of Use</a>
       </div>
     </div>
   </div>
 </footer>
+
+<div *ngIf="showPopup" class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+  <div class="relative bg-white p-6 rounded-2xl shadow-2xl w-full max-w-md text-left space-y-4">
+    <!-- Close Button -->
+    <button (click)="closePopup()" class="absolute top-4 right-4 text-gray-500 hover:text-black text-xl">
+      &times;
+    </button>
+
+    <h2 class="text-2xl font-semibold text-black">Cookie Settings</h2>
+    <p class="text-sm text-gray-600">Manage your cookie preferences below:</p>
+
+    <div class="space-y-3">
+      <div class="flex justify-between items-center text-black">
+        <span>Necessary</span>
+        <button disabled class="bg-gray-300 text-gray-700 text-sm px-3 py-1 rounded-full cursor-not-allowed">
+          Enabled
+        </button>
+      </div>
+
+      <div class="flex justify-between items-center" *ngFor="let key of settingKeys">
+        <span class="capitalize text-black">{{ key }}</span>
+        <button (click)="toggleSetting(key)"
+                [ngClass]="settings[key] ? 'bg-green-500 text-black' : 'bg-gray-300 text-gray-700'"
+                class="text-sm px-3 py-1 rounded-full transition">
+          {{ settings[key] ? 'Enabled' : 'Disabled' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="pt-4 flex justify-end space-x-2">
+      <button (click)="closePopup()" class="px-4 py-2 rounded-md border border-gray-400 text-gray-700 hover:bg-gray-100">
+        Cancel
+      </button>
+      <button (click)="saveSettings()" class="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700">
+        Save Settings
+      </button>
+    </div>
+  </div>
+</div>

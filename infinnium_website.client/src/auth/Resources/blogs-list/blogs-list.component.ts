@@ -16,7 +16,7 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
   @Input() blogs: any = [];
   @Input() news: any = [];
   constructor(private el: ElementRef, private renderer: Renderer2) {
-    console.log(this.blogs);
+    // console.log(this.blogs);
   }
 
   currentBlogIndex = 0;
