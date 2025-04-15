@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -9,8 +9,6 @@ import { ActivatedRoute, RouterLink, RouterLinkActive, RouterOutlet } from '@ang
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements AfterViewInit {
-  constructor(private route: ActivatedRoute) {
-    }
 
   @ViewChild('mobileMenuBtn', { static: false }) mobileMenuBtn!: ElementRef;
   @ViewChild('mobileSidebar', { static: false }) mobileSidebar!: ElementRef;

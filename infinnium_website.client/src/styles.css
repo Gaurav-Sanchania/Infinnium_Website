@@ -39,6 +39,10 @@ body {
   padding-bottom: 0.75rem;
   transition: background-color 0.3s, color 0.3s; /* transition duration-300 *//* Highlight active link */
 }
+.mobileActiveLink {
+  color: #000;
+  background-color: #EAF5F4;
+}
 
 .header-bg {
   background-color: transparent;
