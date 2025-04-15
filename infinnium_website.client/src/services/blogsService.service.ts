@@ -33,13 +33,12 @@ export class BlogsService {
         }
     }
 
-  async getBlogDetails(guid: string): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
-    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }> {
+  async getBlogDetails(guid: string): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string; imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean }> {
         // https://localhost:7046/BlogsController/GetBlogDetails/{id}
         try {
             const response = await firstValueFrom(
                 this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
-                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }>
+                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean }>
                     (`https://localhost:7046/BlogsController/GetBlogDetails/${guid}`));
           if (response.image) {
             response.image = `data:image/jpeg;base64,${response.image}`;
@@ -91,15 +90,26 @@ export class BlogsService {
         }
     }
 
-    editBlog(blog: any) {
-        try {
-            this.httpClient.post("https://localhost:7046/BlogsController/EditBlog", blog).subscribe();
-            return 'Successful';
-        } catch (error) {
-            // console.log(error);
-            return error;
-        }
+  editBlog(blog: any) {
+    try {
+      const formData = new FormData();
+
+      formData.append('Image', blog.image);
+      formData.append('Title', blog.title);
+      formData.append('Description', blog.description);
+      formData.append('Brief', blog.brief);
+      formData.append('PublishedDate', blog.publishedDate);
+      formData.append('AuthorId', blog.authorId);
+      formData.append('ImageName', blog.image.name);
+      formData.append('isActive', blog.isActive);
+
+      this.httpClient.post("https://localhost:7046/BlogsController/EditBlog", formData).subscribe();
+      return 'Successful';
+    } catch (error) {
+      // console.log(error);
+      return error;
     }
+  }
 
     deleteBlog(id: number) {
         try {
@@ -110,4 +120,13 @@ export class BlogsService {
             return error;
         }
     }
+
+  updateStatus(data: any) {
+    try {
+      this.httpClient.post('https://localhost:7046/BlogsController/SetisActive', data).subscribe();
+      return 'Successful';
+    } catch (error) {
+      return error;
+    }
+  }
 }

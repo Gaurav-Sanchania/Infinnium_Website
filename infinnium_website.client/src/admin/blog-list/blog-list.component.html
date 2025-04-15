@@ -8,12 +8,12 @@
            *ngFor="let blog of blogs; let i = index;">
         <!-- Hover buttons -->
         <div class="absolute bottom-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button class="bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600" (click)="editBlog(blog.id)">
+          <button class="bg-blue-500 text-white text-sm px-2 py-1 rounded hover:bg-blue-600" (click)="editBlog(blog)">
             Edit
           </button>
-          <button class="bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600" (click)="deleteBlog(blog.id)">
+          <!--<button class="bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600" (click)="deleteBlog(blog.id)">
             Delete
-          </button>
+          </button>-->
         </div>
         <a class="w-80">
           <img class="rounded-t-lg h-40 w-80 object-cover"
@@ -97,7 +97,7 @@
     <p class="mb-6">
       You are going to edit this blog from the public website <a class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
     </p>
-    <button (click)="confirmDelete()"
+    <button (click)="navigateEditBlog()"
             class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
       Confirm EDIT
     </button>

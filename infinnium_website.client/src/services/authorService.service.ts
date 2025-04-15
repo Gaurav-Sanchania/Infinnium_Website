@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -24,8 +25,8 @@ export class AuthorService {
       });
       return updatedResponse;
     } catch (error) {
-      console.log(error);
-      return [];
+      // console.log(error);
+      throw error;
     }
   }
 

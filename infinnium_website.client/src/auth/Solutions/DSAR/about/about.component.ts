@@ -9,34 +9,52 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
   toggleDescription(id: number): void {
-    const descEl = document.getElementById(`desc-${id}`);
+    const desc = document.getElementById(`desc-${id}`);
     const button = document.querySelector(`[data-id="${id}"]`) as HTMLButtonElement;
-    if (!descEl || !button) return;
 
-    if (descEl.classList.contains('expanded')) {
-      // Collapse: set current height explicitly, then animate back to collapsed height.
-      descEl.style.maxHeight = descEl.scrollHeight + 'px';
-      // Force the browser to recognize the current height before starting the transition.
-      requestAnimationFrame(() => {
-        descEl.style.maxHeight = '4.5em'; // This is the collapsed height (≈ 3 lines)
-      });
-      descEl.classList.remove('expanded');
-      button.textContent = 'Read More →';
-    } else {
-      // Expand: start from collapsed height.
-      // (Optional: set the maxHeight explicitly in case it was auto)
-      descEl.style.maxHeight = '4.5em';
-      // Force a reflow to ensure the starting height is applied.
-      void descEl.offsetHeight;
-      // Then get the full height and set it.
-      const fullHeight = descEl.scrollHeight + 'px';
-      descEl.style.maxHeight = fullHeight;
-      descEl.classList.add('expanded');
-      button.textContent = 'Read Less ↑';
-      // After the animation, remove the inline max-height so that the element naturally adjusts if needed.
-      setTimeout(() => {
-        descEl.style.maxHeight = 'none';
-      }, 500);
+    if (desc && button) {
+      const isExpanded = desc.classList.contains('slide-toggle');
+
+      if (isExpanded) {
+        // COLLAPSING — set to full height first
+        const fullHeight = desc.scrollHeight;
+        desc.style.maxHeight = `${fullHeight}px`; // Set current height to enable transition
+        desc.classList.remove('truncate-text'); // Prevent line clamping during animation
+
+        // Trigger collapse in next frame
+        requestAnimationFrame(() => {
+          desc.style.maxHeight = '4.5em';
+        });
+
+        button.textContent = 'Read More ↓';
+
+        // After transition ends
+        setTimeout(() => {
+          desc.classList.remove('slide-toggle');
+          desc.classList.add('truncate-text');
+          desc.style.maxHeight = '';
+        }, 400);
+
+      } else {
+        // EXPANDING
+        desc.classList.remove('truncate-text');
+        desc.classList.add('slide-toggle');
+
+        // Collapse height start
+        desc.style.maxHeight = '4.5em';
+
+        // Expand to full height in next frame
+        requestAnimationFrame(() => {
+          desc.style.maxHeight = `${desc.scrollHeight}px`;
+        });
+
+        button.textContent = 'Read Less ↑';
+
+        // Cleanup max-height so the content can grow naturally
+        setTimeout(() => {
+          desc.style.maxHeight = 'none';
+        }, 400);
+      }
     }
   }
 }

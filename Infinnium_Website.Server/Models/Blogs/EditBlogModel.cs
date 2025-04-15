@@ -10,5 +10,6 @@
         public string? Image { get; set; }
         public string? ImageName { get; set; }
         public int AuthorId { get; set; }
+        public bool isActive { get; set; }
     }
 }

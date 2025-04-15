@@ -5,6 +5,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AddBlogComponent } from './add-blog/add-blog.component';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { AddImageComponent } from './add-image/add-image.component';
+import { EditBlogComponent } from './edit-blog/edit-blog.component';
 // import { AdminGuard } from './admin.guard';
 export { routes as adminRoutes } from './admin-routing.module';
 
@@ -14,7 +15,8 @@ export const routes: Routes = [
   // { path: 'Dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] }
   { path: 'add-Blog', component: AddBlogComponent },
   { path: 'add-News', component: AddNewsComponent },
-  { path: 'add-image', component: AddImageComponent }
+  { path: 'add-image', component: AddImageComponent },
+  { path: 'edit-blog/:guid', component: EditBlogComponent }
 ];
 
 @NgModule({

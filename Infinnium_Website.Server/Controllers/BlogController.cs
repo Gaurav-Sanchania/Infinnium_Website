@@ -91,6 +91,7 @@ namespace Infinnium_Website.Server.Controllers
                     blog.AuthorEmail = reader["Email"].ToString();
                     blog.ImageName = reader["ImageName"].ToString();
                     blog.Guid = reader["ShortGuid"].ToString();
+                    blog.isActive = (bool)reader["isActive"];
 
                     // Image Reader function
                     byte[] imageData = reader["ImagePath"] as byte[];
@@ -212,8 +213,21 @@ namespace Infinnium_Website.Server.Controllers
         // POST: BlogController/EditBlog
         [HttpPost]
         [Route("EditBlog")]
-        public void EditBlog([FromBody] EditBlogModel blog, IFormFile Image)
+        public void EditBlog()
         {
+            var blog = new EditBlogModel
+            {
+                Title = Request.Form["Title"],
+                Description = Request.Form["Description"],
+                Brief = Request.Form["Brief"],
+                PublishedDate = Request.Form["PublishedDate"],
+                AuthorId = int.Parse(Request.Form["AuthorId"]),
+                ImageName = Request.Form["ImageName"],
+                isActive = bool.Parse(Request.Form["isActive"]),
+            };
+
+            IFormFile Image = Request.Form.Files["Image"];
+
             string cs = config.GetConnectionString("InfinniumDB");
             using (SqlConnection con = new SqlConnection(cs))
             {
@@ -229,6 +243,7 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.Parameters.AddWithValue("@Brief", blog.Brief);
                 cmd.Parameters.AddWithValue("@PublishedDate", blog.PublishedDate);
                 cmd.Parameters.AddWithValue("@AuthorId", blog.AuthorId);
+                cmd.Parameters.AddWithValue("@isActive", blog.isActive);
 
                 if (Image != null)
                 {
@@ -267,6 +282,29 @@ namespace Infinnium_Website.Server.Controllers
 
                 cmd.Parameters.AddWithValue("@case", 5);
                 cmd.Parameters.AddWithValue("@Id", id);
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+        }
+
+        // POST: BlogController/SetisActive
+        [HttpPost]
+        [Route("SetisActive")]
+        public void SetisActive([FromBody] SetActiveStatusBlogModel active)
+        {
+            string cs = config.GetConnectionString("InfinniumDB");
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Blogs]", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@case", 7);
+                cmd.Parameters.AddWithValue("@Id", active.Id);
+                cmd.Parameters.AddWithValue("@isActive", active.IsActive);
 
                 cmd.ExecuteNonQuery();
 

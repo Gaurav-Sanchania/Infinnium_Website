@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
@@ -18,6 +16,9 @@ export class BlogListComponent implements OnInit {
   public news: any = [];
   showDeletePopup = false;
   showEditPopup = false;
+
+  public blog_edit: any = [];
+  public blog_delete!: number;
   
   constructor(private blogService: BlogsService, private newsService: NewsService, private route: Router) { }
 
@@ -27,15 +28,21 @@ export class BlogListComponent implements OnInit {
     this.news = await this.newsService.getAllNews();
   }
 
-  editBlog(id: number) {
+  editBlog(blog: any) {
     this.showEditPopup = true;
+    this.blog_edit = blog;
+    //console.log(this.blog_edit);
+  }
+  
+  navigateEditBlog() {
+    this.closePopup();
+    this.route.navigateByUrl(`/edit-blog/${this.blog_edit.guid}`);
   }
 
   deleteBlog(id: number) {
     this.showDeletePopup = true;
-  }
-  confirmDelete() {
-
+    this.blog_delete = id;
+    console.log(this.blog_delete);
   }
 
   closePopup(): void {

@@ -14,5 +14,6 @@
         public string? AuthorDesignation { get; set; }
         public string? AuthorEmail { get; set; }
         public string? Guid { get; set; }
+        public bool isActive { get; set; }
     }
 }
