@@ -24,8 +24,8 @@ export class FooterComponent {
   settingKeys: Array<Exclude<keyof typeof this.settings, 'necessary'>> = ['preferences', 'statistics', 'marketing'];
 
   openPopup() {
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
+    // document.body.style.overflow = 'hidden';
+    // document.documentElement.style.overflow = 'hidden';
     this.showPopup = true;
   }
 

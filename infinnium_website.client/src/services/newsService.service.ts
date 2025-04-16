@@ -35,11 +35,11 @@ export class NewsService {
     }
 
   async getNewsDetails(guid: string): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
-    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }> {
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean }> {
         try {
             const response = await firstValueFrom(
               this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
-                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }>
+                imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean }>
                     (`https://localhost:7046/NewsAndEventsController/GetNewsDetails/${guid}`));
           if (response.image) {
             response.image = `data:image/jpeg;base64,${response.image}`;
@@ -91,14 +91,28 @@ export class NewsService {
       }
     }
 
-    editNewsAndEvents(blog: any) {
-        try {
-            this.httpClient.post("https://localhost:7046/NewsAndEventsController/EditNews", blog).subscribe();
-            return 'Successful';
-        } catch (error) {
-            // console.log(error);
-            return error;
-        }
+  editNewsAndEvents(blog: any) {
+    try {
+      const formData = new FormData();
+
+      formData.append('Image', blog.image);
+      formData.append('Title', blog.title);
+      formData.append('Description', blog.description);
+      formData.append('Brief', blog.brief);
+      formData.append('PublishedDate', blog.publishedDate);
+      formData.append('AuthorId', blog.authorId);
+      formData.append('ImageName', blog.image.name);
+      formData.append('isActive', blog.isActive);
+      formData.append('Id', blog.id);
+
+      //console.log(formData);
+
+      this.httpClient.post("https://localhost:7046/NewsAndEventsController/EditNews", formData).subscribe();
+      return 'Successful';
+    } catch (error) {
+      // console.log(error);
+      return error;
+    }
     }
 
     deleteNewsAndEvents(id: number) {

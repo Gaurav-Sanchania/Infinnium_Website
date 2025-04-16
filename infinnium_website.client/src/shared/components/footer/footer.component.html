@@ -164,7 +164,7 @@
             </p>
           </div>
           <button (click)="toggleSetting(key)"
-                  [ngClass]="settings[key] ? 'bg-green-500 text-black hover:bg-green-600' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'"
+                  [ngClass]="settings[key] ? 'bg-[#E76F51] text-white hover:bg-[#D65C3D]' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'"
                   class="text-sm px-4 py-2 rounded-full font-medium transition">
             {{ settings[key] ? 'Enabled' : 'Disabled' }}
           </button>
@@ -175,12 +175,12 @@
 
     <div class="pt-6 flex justify-end space-x-6">
       <!-- Cancel Button -->
-      <button (click)="closePopup()" class="px-6 py-3 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition duration-200 ease-in-out">
+      <button (click)="closePopup()" class="w-full sm:w-auto bg-gray-200 text-gray-800 py-2 px-6 text-sm rounded-3xl font-medium hover:bg-gray-300 transition">
         Cancel
       </button>
 
       <!-- Save Button -->
-      <button (click)="saveSettings()" class="px-6 py-3 rounded-md bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200 ease-in-out">
+      <button (click)="saveSettings()" class="w-full sm:w-auto bg-[#E76F51] text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-[#D65C3D] transition">
         Save Settings
       </button>
     </div>

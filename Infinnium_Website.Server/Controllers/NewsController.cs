@@ -1,4 +1,5 @@
-﻿using Infinnium_Website.Server.Models.Blogs;
+﻿using System.Reflection.Metadata;
+using Infinnium_Website.Server.Models.Blogs;
 using Infinnium_Website.Server.Models.News;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -212,8 +213,22 @@ namespace Infinnium_Website.Server.Controllers
         // POST: NewsController/EditNews
         [HttpPost]
         [Route("EditNews")]
-        public void EditNews([FromBody] EditNewsModel news)
+        public void EditNews()
         {
+            var news = new EditNewsModel
+            {
+                Title = Request.Form["Title"],
+                Description = Request.Form["Description"],
+                Brief = Request.Form["Brief"],
+                PublishedDate = Request.Form["PublishedDate"],
+                AuthorId = int.Parse(Request.Form["AuthorId"]),
+                ImageName = Request.Form["ImageName"],
+                isActive = bool.Parse(Request.Form["isActive"]),
+                Id = Request.Form["Id"],
+            };
+
+            IFormFile Image = Request.Form.Files["Image"];
+
             string cs = config.GetConnectionString("InfinniumDB");
             using (SqlConnection con = new SqlConnection(cs))
             {
@@ -223,14 +238,29 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@case", 6);
-                cmd.Parameters.AddWithValue("Id", news.Id);
+                cmd.Parameters.AddWithValue("@ShortGuid", news.Id);
                 cmd.Parameters.AddWithValue("@Title", news.Title);
                 cmd.Parameters.AddWithValue("@Description", news.Description);
                 cmd.Parameters.AddWithValue("@Brief", news.Brief);
                 cmd.Parameters.AddWithValue("@PublishedDate", news.PublishedDate);
-                cmd.Parameters.AddWithValue("@ImagePath", news.Image);
-                cmd.Parameters.AddWithValue("@ImageName", news.ImageName);
                 cmd.Parameters.AddWithValue("@AuthorId", news.AuthorId);
+                cmd.Parameters.AddWithValue("@isActive", news.isActive);
+
+                if (Image != null)
+                {
+                    byte[] imageData;
+                    using (var binaryReader = new BinaryReader(Image.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)Image.Length);
+                    }
+                    cmd.Parameters.AddWithValue("@ImagePath", imageData);
+                    cmd.Parameters.AddWithValue("@ImageName", news.ImageName);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ImagePath", null);
+                    cmd.Parameters.AddWithValue("@ImageName", null);
+                }
 
                 cmd.ExecuteNonQuery();
 

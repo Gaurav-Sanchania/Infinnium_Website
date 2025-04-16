@@ -102,6 +102,9 @@ export class BlogsService {
       formData.append('AuthorId', blog.authorId);
       formData.append('ImageName', blog.image.name);
       formData.append('isActive', blog.isActive);
+      formData.append('Id', blog.id);
+
+      //console.log(formData);
 
       this.httpClient.post("https://localhost:7046/BlogsController/EditBlog", formData).subscribe();
       return 'Successful';

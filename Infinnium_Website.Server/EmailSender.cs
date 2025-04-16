@@ -55,7 +55,8 @@ namespace Infinnium_Website.Server
                     From = new MailAddress(mail),
                     To = { emailTo },
                     Subject = subject,
-                    Body = body
+                    Body = body,
+                    IsBodyHtml = true
                 });
 
                 isEmailSend = true;

@@ -1,5 +1,5 @@
 <div
-  class="fixed bottom-2 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl bg-white text-gray-800 shadow-xl px-6 sm:px-12 py-6 border border-gray-200 z-50 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6"
+  class="container fixed bottom-2 left-1/2 -translate-x-1/2 max-w-[calc(100%-30px)] md:max-w-[calc(100%-100px)] bg-white text-gray-800 shadow-xl px-6 sm:px-12 py-6 border border-gray-200 z-50 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6"
   *ngIf="showPopup"
 >
   <!-- Close Button -->
@@ -15,8 +15,8 @@
   <div class="sm:w-2/3 text-center sm:text-left">
     <h2 class="text-lg sm:text-xl font-semibold mb-2">We value your privacy</h2>
     <p class="text-sm sm:text-base leading-relaxed">
-      We use cookies to enhance your browsing experience, serve personalised ads or content, and analyse our traffic.
-      By clicking "Accept All", you consent to our use of cookies. For more information, please visit our
+      By clicking "Accept All", you consent to our use of cookies. <br />
+      For more information, please visit our
       <a
         [routerLink]="['/Privacy-Policy']"
         (click)="closePopup()"
@@ -33,11 +33,11 @@
       (click)="acceptAll()"
       class="w-full sm:w-auto bg-[#E76F51] text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-[#D65C3D] transition"
     >
-      Accept All
+      Accept
     </button>
     <button
       (click)="reject()"
-      class="w-full sm:w-auto bg-gray-200 text-gray-800 py-2 px-6 text-sm rounded-3xl font-medium hover:bg-gray-300 transition"
+      class="w-full sm:w-auto bg-gray-700 text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-gray-800 transition"
     >
       Reject
     </button>

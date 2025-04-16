@@ -154,7 +154,7 @@ namespace Infinnium_Website.Server.Controllers
             return blogs;
         }
 
-        //-----------------------------------------------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------------------------------------------
 
         // POST: BlogController/AddBlog
         [HttpPost]
@@ -224,6 +224,7 @@ namespace Infinnium_Website.Server.Controllers
                 AuthorId = int.Parse(Request.Form["AuthorId"]),
                 ImageName = Request.Form["ImageName"],
                 isActive = bool.Parse(Request.Form["isActive"]),
+                Id = Request.Form["Id"],
             };
 
             IFormFile Image = Request.Form.Files["Image"];
@@ -237,7 +238,7 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@case", 6);
-                cmd.Parameters.AddWithValue("Id", blog.Id);
+                cmd.Parameters.AddWithValue("@ShortGuid", blog.Id);
                 cmd.Parameters.AddWithValue("@Title", blog.Title);
                 cmd.Parameters.AddWithValue("@Description", blog.Description);
                 cmd.Parameters.AddWithValue("@Brief", blog.Brief);
