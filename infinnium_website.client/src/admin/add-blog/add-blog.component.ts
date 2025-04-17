@@ -5,10 +5,11 @@ import { FooterComponent } from "../../shared/components/footer/footer.component
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BlogsService } from '../../services/blogsService.service';
+import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-add-blog',
-  imports: [NavbarComponent, FooterComponent, CommonModule, ReactiveFormsModule],
+  imports: [NavbarComponent, FooterComponent, CommonModule, ReactiveFormsModule, QuillModule],
   templateUrl: './add-blog.component.html',
   styleUrl: './add-blog.component.css'
 })

@@ -5,10 +5,11 @@ import { FooterComponent } from "../../shared/components/footer/footer.component
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NewsService } from '../../services/newsService.service';
+import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-add-news',
-  imports: [NavbarComponent, FooterComponent, ReactiveFormsModule, CommonModule],
+  imports: [NavbarComponent, FooterComponent, ReactiveFormsModule, CommonModule, QuillModule],
   templateUrl: './add-news.component.html',
   styleUrl: './add-news.component.css'
 })
