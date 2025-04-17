@@ -11,5 +11,7 @@ import { BlogListComponent } from '../blog-list/blog-list.component';
   styleUrl: './admin-dashboard.component.css'
 })
 export class AdminDashboardComponent {
-  
+  canDeactivate(): boolean {
+    return true;
+  }
 }

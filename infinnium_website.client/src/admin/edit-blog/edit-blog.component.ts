@@ -28,8 +28,8 @@ export class EditBlogComponent implements OnInit {
   ngOnInit(): void {
     this.blogForm = this.fb.group({
       image: [null, Validators.required],
-      title: ['', [Validators.required, Validators.maxLength(100)]],
-      brief: ['', [Validators.required, Validators.maxLength(150)]],
+      title: ['', [Validators.required, Validators.maxLength(450)]],
+      brief: ['', [Validators.required, Validators.maxLength(450)]],
       description: ['', Validators.required],
       publishedDate: ['', Validators.required],
       isActive: [true],
@@ -102,8 +102,12 @@ export class EditBlogComponent implements OnInit {
     //console.log(blog);
 
     if (this.blogForm.valid) {
-      console.log(this.blogForm.value);
-      this.blogService.editBlog(blog);
+      //console.log(this.blogForm.value);
+      if (this.category == 'blog') {
+        this.blogService.editBlog(blog);
+      } else {
+        this.newsService.editNewsAndEvents(blog);
+      }
       this.showPopup = true;
       this.blogForm.reset();
     } else {
@@ -113,5 +117,6 @@ export class EditBlogComponent implements OnInit {
 
   closePopup(): void {
     this.showPopup = false;
+    this.router.navigateByUrl(`/Dashboard`);
   }
 }

@@ -11,8 +11,6 @@ import { firstValueFrom } from "rxjs";
 export class NewsService {
     constructor(private httpClient: HttpClient) {}
 
-    // All https methods are yet to be tested
-
   async getAllNews(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
     imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
         try {
@@ -69,7 +67,34 @@ export class NewsService {
             // console.log(error);
             return [];            
         }
+  }
+
+  async getAllNewsAdmin(): Promise<{
+    id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string;
+  }[]> {
+    try {
+      const response = await firstValueFrom(
+        this.httpClient.get<{
+          id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+          imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string;
+        }[]>
+          (`https://localhost:7046/NewsAndEventsController/GetAllNewsAdmin`));
+
+      const updatedResponse = response.map(item => {
+        if (item.image) {
+          item.image = `data:image/jpeg;base64,${item.image}`;
+        }
+        return item;
+      });
+      return updatedResponse;
+    } catch (error) {
+      // console.log(error);
+      return [];
     }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------
 
     addNewsAndEvents(blog: any) {
       try {

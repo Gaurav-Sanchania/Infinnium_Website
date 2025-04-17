@@ -92,6 +92,7 @@ namespace Infinnium_Website.Server.Controllers
                     news.AuthorEmail = reader["Email"].ToString();
                     news.ImageName = reader["ImageName"].ToString();
                     news.Guid = reader["ShortGuid"].ToString();
+                    news.isActive = (bool)reader["isActive"];
 
                     // Image Reader function
                     byte[] imageData = reader["ImagePath"] as byte[];
@@ -121,6 +122,54 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@case", 3);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var singleNews = new NewsModel();
+
+                    singleNews.Id = Convert.ToInt32(reader["NewsId"]);
+                    singleNews.Title = reader["Title"].ToString();
+                    singleNews.Description = reader["Description"].ToString();
+                    singleNews.Brief = reader["Brief"].ToString();
+                    singleNews.PublishedDate = reader["PublishedDate"].ToString();
+                    singleNews.AuthorId = Convert.ToInt32(reader["AuthorId"]);
+                    singleNews.AuthorName = reader["Name"].ToString();
+                    singleNews.AuthorDesignation = reader["Designation"].ToString();
+                    singleNews.AuthorEmail = reader["Email"].ToString();
+                    singleNews.ImageName = reader["ImageName"].ToString();
+                    singleNews.Guid = reader["ShortGuid"].ToString();
+
+                    // Image Reader function
+                    byte[] imageData = reader["ImagePath"] as byte[];
+                    if (imageData != null)
+                    {
+                        singleNews.Image = Convert.ToBase64String((byte[])imageData);
+                    }
+
+                    news.Add(singleNews);
+                }
+
+                con.Close();
+            }
+            return news;
+        }
+
+        // GET: NewsController/GetAllNewsAdmin
+        [HttpGet]
+        [Route("GetAllNewsAdmin")]
+        public List<NewsModel> GetAllNewsAdmin()
+        {
+            List<NewsModel> news = new List<NewsModel>();
+            string cs = config.GetConnectionString("InfinniumDB");
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_NewsAndEvents]", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@case", 8);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())

@@ -68,7 +68,34 @@ export class BlogsService {
             // console.log(error);
             return [];            
         }
+  }
+
+  async getAllBlogsAdmin(): Promise<{
+    id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string;
+  }[]> {
+    // https://localhost:7046/BlogsController/GetAllBlogs
+    try {
+      const response = await firstValueFrom(
+        this.httpClient.get<{
+          id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
+          imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string;
+        }[]>
+          (`https://localhost:7046/BlogsController/GetAllBlogsAdmin`));
+      const updatedResponse = response.map(item => {
+        if (item.image) {
+          item.image = `data:image/jpeg;base64,${item.image}`;
+        }
+        return item;
+      });
+      return updatedResponse;
+    } catch (error) {
+      // console.log(error);
+      return [];
     }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------
 
     addBlog(blog: any) {
       try {

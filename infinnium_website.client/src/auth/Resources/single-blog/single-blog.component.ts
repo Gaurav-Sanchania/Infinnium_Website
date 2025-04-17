@@ -26,23 +26,23 @@ export class SingleBlogComponent implements OnInit {
     if (guidFromRoute) {
       const url = this.router.url;
       this.guid = guidFromRoute;
-      console.log(url);
+      //console.log(url);
 
       if (url.startsWith('/Resources/Blogs')) {
         this.blog = await this.blogService.getBlogDetails(this.guid);
-        console.log(this.blog);
-        if (this.news?.publishedDate && typeof this.news.publishedDate === 'string') {
-          this.news.publishedDate = new Date(this.news.publishedDate);
-        } 
+        //console.log(this.blog);
+        //if (this.news?.publishedDate && typeof this.news.publishedDate === 'string') {
+        //  this.news.publishedDate = new Date(this.news.publishedDate);
+        //} 
       } else {
         this.news = await this.newsService.getNewsDetails(this.guid);
-        console.log(this.news);
-        if (this.news?.publishedDate && typeof this.news.publishedDate === 'string') {
-          this.news.publishedDate = new Date(this.news.publishedDate);
-        } 
+        //console.log(this.news);
+        //if (this.news?.publishedDate && typeof this.news.publishedDate === 'string') {
+        //  this.news.publishedDate = new Date(this.news.publishedDate);
+        //} 
       }
     } else {
-      console.error('GUID not found in route!');
+      //console.error('GUID not found in route!');
     }
   }
 }

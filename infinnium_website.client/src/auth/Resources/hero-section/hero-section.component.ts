@@ -44,7 +44,7 @@ export class HeroSectionComponent implements OnChanges{
 
       slide.innerHTML = `
         <div class="w-full md:w-1/3">
-          <img src="blog-image.png" alt="Blog Image" class="w-full h-auto object-cover" />
+          <img src="${post.image}" alt="Blog Image" class="w-full h-auto object-cover" />
         </div>
         <div class="w-full md:w-2/3 mt-4 md:mt-0 flex flex-col justify-between min-h-[234px]">
           <div>

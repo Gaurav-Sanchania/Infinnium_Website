@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AuthSessionService } from '../../guards/authSession';
 
 @Component({
   standalone: true,
@@ -10,12 +11,12 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(private route: Router) {}
+  constructor(private route: Router, private auth: AuthSessionService) {}
 
   clearLocalStorage() {
     setTimeout(() => {
-      this.route.navigate(['/home']);
-      localStorage.clear();
+      this.auth.clearToken();
+      this.route.navigate(['/Login']);
     }, 100);
   }
 }

@@ -154,6 +154,54 @@ namespace Infinnium_Website.Server.Controllers
             return blogs;
         }
 
+        // GET: BlogController/GetAllBlogsAdmin
+        [HttpGet]
+        [Route("GetAllBlogsAdmin")]
+        public List<BlogsModel> GetAllBlogsAdmin()
+        {
+            List<BlogsModel> blogs = new List<BlogsModel>();
+            string cs = config.GetConnectionString("InfinniumDB");
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Blogs]", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@case", 8);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var blog = new BlogsModel();
+
+                    blog.Id = Convert.ToInt32(reader["BlogId"]);
+                    blog.Title = reader["Title"].ToString();
+                    blog.Description = reader["Description"].ToString();
+                    blog.Brief = reader["Brief"].ToString();
+                    blog.PublishedDate = reader["PublishedDate"].ToString();
+                    blog.AuthorId = Convert.ToInt32(reader["AuthorId"]);
+                    blog.AuthorName = reader["Name"].ToString();
+                    blog.AuthorDesignation = reader["Designation"].ToString();
+                    blog.AuthorEmail = reader["Email"].ToString();
+                    blog.ImageName = reader["ImageName"].ToString();
+                    blog.Guid = reader["ShortGuid"].ToString();
+
+                    // Image Reader function
+                    byte[] imageData = reader["ImagePath"] as byte[];
+                    if (imageData != null)
+                    {
+                        blog.Image = Convert.ToBase64String((byte[])imageData);
+                    }
+
+                    blogs.Add(blog);
+                }
+
+                con.Close();
+            }
+            return blogs;
+        }
+
         //----------------------------------------------------------------------------------------------------------------------------------
 
         // POST: BlogController/AddBlog

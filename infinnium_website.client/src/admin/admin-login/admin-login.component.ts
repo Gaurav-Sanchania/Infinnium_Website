@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/loginService.service';
+import { AuthSessionService } from '../../guards/authSession';
 
 @Component({
   standalone: true,
@@ -13,7 +14,7 @@ import { LoginService } from '../../services/loginService.service';
   styleUrl: './admin-login.component.css'
 })
 export class AdminLoginComponent {
-  constructor(private loginService: LoginService, private route: Router) {}
+  constructor(private loginService: LoginService, private route: Router, private auth: AuthSessionService) {}
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl("", [
@@ -33,7 +34,8 @@ export class AdminLoginComponent {
     try {
       const loginValid = await this.loginService.loginValidation(this.loginForm.value);
   
-      if(loginValid) {
+      if (loginValid) {
+        this.auth.setToken('true');
         this.route.navigate(["Dashboard"]);
       } else {
         this.route.navigate(["Login"]);

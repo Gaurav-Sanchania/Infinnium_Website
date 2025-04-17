@@ -30,7 +30,7 @@
             {{ blog.brief }}
           </p>
           <p class="text-gray-700 dark:text-gray-700">
-            <i class="far fa-calendar-alt mr-1"></i> {{ blog.publishedDate }}
+            <i class="far fa-calendar-alt mr-1"></i> {{ blog.publishedDate | date: 'longDate' }}
           </p>
           <a class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-1 inline-block hover:underline cursor-pointer">
             Read More →
@@ -74,7 +74,7 @@
             {{ blog.brief }}
           </p>
           <p class="text-gray-700 dark:text-gray-700">
-            <i class="far fa-calendar-alt mr-1"></i> {{ blog.publishedDate }}
+            <i class="far fa-calendar-alt mr-1"></i> {{ blog.publishedDate | date: 'longDate' }}
           </p>
           <a class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-1 inline-block hover:underline cursor-pointer">
             Read More →

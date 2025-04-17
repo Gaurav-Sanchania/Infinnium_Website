@@ -37,12 +37,10 @@
 
   <!-- Blog Image -->
   <div *ngIf="blog?.title" class="mt-4">
-    <img *ngIf="blog?.image" [src]="blog.image" alt="Blog Image" class="w-full rounded-lg shadow">
-    <!--<img src="blog-image.png" alt="Blog Image" class="w-full rounded-lg shadow">-->
+    <img [src]="blog.image" alt="Blog Image" class="w-full rounded-lg shadow">
   </div>
   <div *ngIf="news?.title" class="mt-4">
-    <img *ngIf="news?.image" [src]="blog.image" alt="Blog Image" class="w-full rounded-lg shadow">
-    <!--<img *ngIf="news?.image == null" src="blog-image.png" alt="Blog Image" class="w-full rounded-lg shadow">-->
+    <img [src]="news.image" alt="Blog Image" class="w-full rounded-lg shadow">
   </div>
 
   <!-- Blog Content -->

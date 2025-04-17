@@ -27,9 +27,9 @@ export class BlogListComponent implements OnInit {
   constructor(private blogService: BlogsService, private newsService: NewsService, private route: Router) { }
 
   async ngOnInit() {
-    this.blogs = await this.blogService.getAllBlogs();
+    this.blogs = await this.blogService.getAllBlogsAdmin();
     // console.log(this.blogs);
-    this.news = await this.newsService.getAllNews();
+    this.news = await this.newsService.getAllNewsAdmin();
   }
 
   editBlog(blog: any) {

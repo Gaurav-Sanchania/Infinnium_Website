@@ -108,7 +108,7 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
         cardLink.innerHTML = `
         <div class="bg-white rounded-lg overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
   <div class="h-40 overflow-hidden">
-    <img [src]="post.image" alt="Blog Post" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"/>
+    <img src="${post.image}" alt="Blog Post" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"/>
   </div>
   <div class="p-4 flex flex-col flex-grow">
     <p class="text-sm font-medium text-[#E76F51] uppercase mb-2">NEWS / EVENTS</p>
