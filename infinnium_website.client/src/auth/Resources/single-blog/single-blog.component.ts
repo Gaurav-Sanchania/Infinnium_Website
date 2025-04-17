@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NewsService } from '../../../services/newsService.service';
 import { BlogsService } from '../../../services/blogsService.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   standalone: true,
@@ -18,7 +19,7 @@ export class SingleBlogComponent implements OnInit {
   news: any = [];
   public guid = "";
 
-  constructor(private route: ActivatedRoute, private router: Router, private blogService: BlogsService, private newsService: NewsService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private blogService: BlogsService, private newsService: NewsService, private sanitizer: DomSanitizer) { }
 
   async ngOnInit() {
     const guidFromRoute = this.route.snapshot.paramMap.get('guid');
@@ -30,12 +31,14 @@ export class SingleBlogComponent implements OnInit {
 
       if (url.startsWith('/Resources/Blogs')) {
         this.blog = await this.blogService.getBlogDetails(this.guid);
+        this.blog.description = this.sanitizer.bypassSecurityTrustHtml(this.blog.description);
         //console.log(this.blog);
         //if (this.news?.publishedDate && typeof this.news.publishedDate === 'string') {
         //  this.news.publishedDate = new Date(this.news.publishedDate);
         //} 
       } else {
         this.news = await this.newsService.getNewsDetails(this.guid);
+        this.news.description = this.sanitizer.bypassSecurityTrustHtml(this.news.description);
         //console.log(this.news);
         //if (this.news?.publishedDate && typeof this.news.publishedDate === 'string') {
         //  this.news.publishedDate = new Date(this.news.publishedDate);

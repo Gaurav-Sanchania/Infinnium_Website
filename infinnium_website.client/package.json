@@ -25,6 +25,7 @@
     "@tailwindcss/postcss": "^4.0.17",
     "aos": "^2.3.4",
     "jest-editor-support": "*",
+    "ngx-quill": "^27.0.2",
     "particles.js": "^2.0.0",
     "postcss": "^8.5.3",
     "run-script-os": "*",

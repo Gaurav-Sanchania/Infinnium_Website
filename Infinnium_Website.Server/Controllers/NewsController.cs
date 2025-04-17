@@ -187,6 +187,7 @@ namespace Infinnium_Website.Server.Controllers
                     singleNews.AuthorEmail = reader["Email"].ToString();
                     singleNews.ImageName = reader["ImageName"].ToString();
                     singleNews.Guid = reader["ShortGuid"].ToString();
+                    singleNews.isActive = (bool)reader["isActive"];
 
                     // Image Reader function
                     byte[] imageData = reader["ImagePath"] as byte[];

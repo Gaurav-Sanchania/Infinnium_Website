@@ -37,7 +37,7 @@
                         (loginForm.controls['email'].errors?.['required'] ||
                             loginForm.controls['email'].errors?.['email']
                         )) {
-                        <div class="text-danger">This is required.</div>
+                        <div class="text-red-500 text-xs">This is required.</div>
                         }
                     </div>
 
@@ -52,7 +52,7 @@
                         </div>
                         @if(loginForm.controls['password'].touched &&
                         loginForm.controls['password'].errors?.['required']) {
-                        <div class="text-danger">This is required.</div>
+                        <div class="text-red-500 text-xs">This is required.</div>
                         }
                     </div>
 

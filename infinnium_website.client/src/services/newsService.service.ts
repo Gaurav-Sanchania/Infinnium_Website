@@ -71,13 +71,13 @@ export class NewsService {
 
   async getAllNewsAdmin(): Promise<{
     id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
-    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string;
+    imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean;
   }[]> {
     try {
       const response = await firstValueFrom(
         this.httpClient.get<{
           id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
-          imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string;
+          imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean;
         }[]>
           (`https://localhost:7046/NewsAndEventsController/GetAllNewsAdmin`));
 

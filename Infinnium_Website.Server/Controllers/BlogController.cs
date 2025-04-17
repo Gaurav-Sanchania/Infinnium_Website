@@ -186,6 +186,7 @@ namespace Infinnium_Website.Server.Controllers
                     blog.AuthorEmail = reader["Email"].ToString();
                     blog.ImageName = reader["ImageName"].ToString();
                     blog.Guid = reader["ShortGuid"].ToString();
+                    blog.isActive = (bool)reader["isActive"];
 
                     // Image Reader function
                     byte[] imageData = reader["ImagePath"] as byte[];

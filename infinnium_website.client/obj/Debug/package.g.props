@@ -24,6 +24,7 @@
     <PackageJsonDependenciesTailwindcssPostcss Condition="$(PackageJsonDependenciesTailwindcssPostcss) == ''">^4.0.17</PackageJsonDependenciesTailwindcssPostcss>
     <PackageJsonDependenciesAos Condition="$(PackageJsonDependenciesAos) == ''">^2.3.4</PackageJsonDependenciesAos>
     <PackageJsonDependenciesJestEditorSupport Condition="$(PackageJsonDependenciesJestEditorSupport) == ''">*</PackageJsonDependenciesJestEditorSupport>
+    <PackageJsonDependenciesNgxQuill Condition="$(PackageJsonDependenciesNgxQuill) == ''">^27.0.2</PackageJsonDependenciesNgxQuill>
     <PackageJsonDependenciesParticlesJs Condition="$(PackageJsonDependenciesParticlesJs) == ''">^2.0.0</PackageJsonDependenciesParticlesJs>
     <PackageJsonDependenciesPostcss Condition="$(PackageJsonDependenciesPostcss) == ''">^8.5.3</PackageJsonDependenciesPostcss>
     <PackageJsonDependenciesRunScriptOs Condition="$(PackageJsonDependenciesRunScriptOs) == ''">*</PackageJsonDependenciesRunScriptOs>

@@ -1130,3 +1130,10 @@ a.relative.hidden.md\:flex:hover {
     transform: scale(1.2);
   }
 }
+
+/* Blog description style in Single Blog page */
+.blog-content {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}

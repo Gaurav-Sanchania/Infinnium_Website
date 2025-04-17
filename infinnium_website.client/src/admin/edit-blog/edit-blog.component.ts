@@ -7,11 +7,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { BlogsService } from '../../services/blogsService.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from '../../services/newsService.service';
+import { QuillModule } from 'ngx-quill';
+
 
 @Component({
   standalone: true,
   selector: 'app-edit-blog',
-  imports: [CommonModule, NavbarComponent, FooterComponent, ReactiveFormsModule],
+  imports: [CommonModule, NavbarComponent, FooterComponent, ReactiveFormsModule, QuillModule],
+  providers: [],
   templateUrl: './edit-blog.component.html',
   styleUrl: './edit-blog.component.css'
 })
