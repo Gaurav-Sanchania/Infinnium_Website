@@ -10,5 +10,6 @@
         public string? Guid { get; set; }
         public byte[]? Image { get; set; }
         public string? ImageName { get; set; }
+        public string? SocialMediaLink { get; set; }
     }
 }

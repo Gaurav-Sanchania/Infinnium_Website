@@ -40,6 +40,7 @@ namespace Infinnium_Website.Server.Controllers
                     author.Designation = Convert.ToString(reader["Designation"]);
                     author.Description = Convert.ToString(reader["Description"]);
                     author.Guid = Convert.ToString(reader["ShortGuid"]);
+                    author.SocialMediaLink = Convert.ToString(reader["SocialLink"]);
 
                     if (reader["Images"] != DBNull.Value)
                     {
@@ -85,6 +86,7 @@ namespace Infinnium_Website.Server.Controllers
                     author.Designation = Convert.ToString(reader["Designation"]);
                     author.Description = Convert.ToString(reader["Description"]);
                     author.Guid = Convert.ToString(reader["ShortGuid"]);
+                    author.SocialMediaLink = Convert.ToString(reader["SocialLink"]);
 
                     if (reader["Images"] != null)
                     {

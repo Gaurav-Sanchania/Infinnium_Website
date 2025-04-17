@@ -167,13 +167,15 @@ namespace Infinnium_Website.Server.Controllers
         [Route("SendEmail")]
         public async Task<IActionResult> SendEmail(EmailRequest user)
         {
-            //var receiver = "gauravsanchania@gmail.com";
-            //var subject = "Test Email";
-            //var body = "This is a test email.";
+            string templatePath = Path.Combine(Directory.GetCurrentDirectory(), "Templates", "email.html");
+            string htmlBody = await System.IO.File.ReadAllTextAsync(templatePath);
+
+            // Replace placeholders if needed
+            htmlBody = htmlBody.Replace("[User's Name]", "John Doe");
 
             try
             {
-                await emailSender.SendEmailAsync(user.Receiver, user.Subject, user.Body);
+                await emailSender.SendEmailAsync(user.Receiver, user.Subject, htmlBody);
                 return Ok("Email sent successfully.");
             }
             catch (Exception ex)

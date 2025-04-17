@@ -12,10 +12,10 @@ import { Observable } from "rxjs/internal/Observable";
 export class AuthorService {
   constructor(private httpClient: HttpClient) { }
 
-  async getAllAuthors(): Promise<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image:  string; }[]> {
+  async getAllAuthors(): Promise<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; socialMediaLink: string; }[]> {
     try {
       const response = await firstValueFrom(
-        this.httpClient.get<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; }[]>
+        this.httpClient.get<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; socialMediaLink: string; }[]>
           (`https://localhost:7046/AuthorController/GetAllAuthors`));
       const updatedResponse = response.map(item => {
         if (item.image) {
@@ -30,10 +30,10 @@ export class AuthorService {
     }
   }
 
-  async getAuthorDetails(guid: string): Promise<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; }> {
+  async getAuthorDetails(guid: string): Promise<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; socialMediaLink: string; }> {
     try {
       const response = await firstValueFrom(
-        this.httpClient.get<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; }>
+        this.httpClient.get<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; socialMediaLink: string; }>
           (`https://localhost:7046/AuthorController/AuthorDetails/${guid}`));
       if (response.image) {
         response.image = `data:image/jpeg;base64,${response.image}`;

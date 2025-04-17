@@ -44,7 +44,7 @@ namespace Infinnium_Website.Server
 
                 var client = new SmtpClient("mail.infinniumtech.com", 587)
                 {
-                    EnableSsl = false,
+                    EnableSsl = true,
                     Credentials = new NetworkCredential(mail, pwd),
                     UseDefaultCredentials = false,
                     DeliveryMethod = SmtpDeliveryMethod.Network
