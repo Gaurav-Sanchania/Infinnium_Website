@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/array-type */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
@@ -13,6 +13,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CookieComponent implements OnInit {
   showPopup = true;
+  showCookieSettingsPopup = false;
 
   acceptAll() {
     this.closePopup();
@@ -27,10 +28,12 @@ export class CookieComponent implements OnInit {
   }
 
   customize() {
+    this.showCookieSettingsPopup = true;
   }
 
   closePopup() {
     this.showPopup = false;
+    this.showCookieSettingsPopup = false;
   }
 
   ngOnInit() {
@@ -98,5 +101,31 @@ export class CookieComponent implements OnInit {
     }
   }
     return sessionId;
+  }
+
+  settings = {
+    necessary: true,
+    preferences: false,
+    statistics: false,
+  };
+
+  // Explicitly typed array to avoid TS errors in template
+  settingKeys: Array<Exclude<keyof typeof this.settings, 'necessary'>> = ['preferences', 'statistics'];
+
+  openPopup() {
+    // document.body.style.overflow = 'hidden';
+    // document.documentElement.style.overflow = 'hidden';
+    this.showPopup = true;
+  }
+
+  toggleSetting(key: keyof typeof this.settings) {
+    if (key !== 'necessary') {
+      this.settings[key] = !this.settings[key];
+    }
+  }
+
+  saveSettings() {
+    // console.log('Saved Settings:', this.settings);
+    this.closePopup();
   }
 }

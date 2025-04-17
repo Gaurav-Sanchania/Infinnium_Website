@@ -1,13 +1,12 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <div
+  style="font-family: 'Manrope', 'Open Sans', sans-serif;"
   class="container fixed bottom-2 left-1/2 -translate-x-1/2 max-w-[calc(100%-30px)] md:max-w-[calc(100%-100px)] bg-white text-gray-800 shadow-xl px-6 sm:px-12 py-6 border border-gray-200 z-50 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6"
-  *ngIf="showPopup"
->
+  *ngIf="showPopup">
   <!-- Close Button -->
-  <button
-    class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold focus:outline-none"
-    (click)="closePopup()"
-    aria-label="Close"
-  >
+  <button class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold focus:outline-none"
+    (click)="closePopup()" aria-label="Close">
     &times;
   </button>
 
@@ -17,11 +16,8 @@
     <p class="text-sm sm:text-base leading-relaxed">
       By clicking "Accept All", you consent to our use of cookies. <br />
       For more information, please visit our
-      <a
-        [routerLink]="['/Privacy-Policy']"
-        (click)="closePopup()"
-        class="text-blue-600 underline hover:text-blue-800 transition-colors duration-200"
-      >
+      <a [routerLink]="['/Privacy-Policy']" (click)="closePopup()"
+        class="text-blue-600 underline hover:text-blue-800 transition-colors duration-200">
         privacy and policy page
       </a>.
     </p>
@@ -29,23 +25,85 @@
 
   <!-- Button Section -->
   <div class="sm:w-1/3 w-full flex flex-col sm:flex-row justify-center items-center gap-3">
-    <button
-      (click)="acceptAll()"
-      class="w-full sm:w-auto bg-[#E76F51] text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-[#D65C3D] transition"
-    >
+    <button (click)="acceptAll()" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
+      class="border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
       Accept
     </button>
-    <button
-      (click)="reject()"
-      class="w-full sm:w-auto bg-gray-700 text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-gray-800 transition"
-    >
+    <button (click)="reject()" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
+      class="border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
       Reject
     </button>
-    <button
-      (click)="customize()"
-      class="w-full sm:w-auto bg-[#E76F51] text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-[#D65C3D] transition"
-    >
-      Customise
+    <a (click)="customize()"
+      class="relative hidden md:flex border-[1.5px] border-[#E76F51] text-black px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer"
+      style="font-family: 'Manrope', 'Open Sans', sans-serif;">
+      <span class="relative z-10">Customise<span class="ml-2 mb-1">→</span></span>
+    </a>
+  </div>
+</div>
+
+<div *ngIf="showCookieSettingsPopup"
+  style="font-family: 'Manrope', 'Open Sans', sans-serif;"
+  class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+  <div class="relative bg-white p-8 rounded-2xl shadow-2xl w-[40rem] text-left space-y-6">
+    <!-- Close Button -->
+    <button (click)="closePopup()" class="absolute top-4 right-4 text-gray-500 hover:text-black text-xl">
+      &times;
     </button>
+
+    <h2 class="text-3xl font-semibold text-black">Cookie Settings</h2>
+    <p class="text-sm text-gray-600">Manage your cookie preferences below:</p>
+
+    <div class="space-y-4">
+      <div class="flex justify-between items-center text-black">
+        <span class="font-medium">Necessary</span>
+        <!-- Disabled Toggle -->
+        <label class="relative inline-flex items-center cursor-not-allowed opacity-60">
+          <input type="checkbox" checked disabled class="sr-only peer" />
+          <div class="w-11 h-6 bg-[#E76F51] rounded-full transition-all duration-300"></div>
+          <div
+            class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 translate-x-5">
+          </div>
+        </label>
+      </div>
+
+
+      <div *ngFor="let key of settingKeys" class="">
+        <div class="flex items-center justify-between gap-10">
+          <div class="flex-1">
+            <h3 class="capitalize text-lg font-medium text-black">{{ key }}</h3>
+            <p class="text-sm text-gray-500">
+              {{
+              key === 'statistics' ? 'Helps us understand how visitors interact with the website.' :
+              key === 'preferences' ? 'Allows the website to remember your preferences and settings.' :
+              'Additional cookie setting.'
+              }}
+            </p>
+          </div>
+          <!-- Toggle -->
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" [checked]="settings[key]" (change)="toggleSetting(key)" class="sr-only peer" />
+            <div class="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-[#E76F51] transition-all duration-300"></div>
+            <div
+              class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 peer-checked:translate-x-5">
+            </div>
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pt-6 flex justify-end space-x-6">
+      <!-- Cancel Button -->
+      <button (click)="closePopup()" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
+        class="bg-gray-200 text-gray-800 px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-gray-300 transition">
+        Cancel
+      </button>
+
+      <!-- Save Button -->
+      <button (click)="saveSettings()" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
+        class="border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
+        Save Settings
+      </button>
+    </div>
   </div>
 </div>

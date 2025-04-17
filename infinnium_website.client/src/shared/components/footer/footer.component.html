@@ -132,7 +132,9 @@
   </div>  
 </footer>
 
-<div *ngIf="showPopup" class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+<div *ngIf="showPopup"
+  style="font-family: 'Manrope', 'Open Sans', sans-serif;"
+  class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
   <div class="relative bg-white p-8 rounded-2xl shadow-2xl w-[40rem] text-left space-y-6">
     <!-- Close Button -->
     <button (click)="closePopup()" class="absolute top-4 right-4 text-gray-500 hover:text-black text-xl">
@@ -145,10 +147,23 @@
     <div class="space-y-4">
       <div class="flex justify-between items-center text-black">
         <span class="font-medium">Necessary</span>
-        <button disabled class="bg-gray-300 text-gray-700 text-sm px-4 py-2 rounded-full cursor-not-allowed">
-          Enabled
-        </button>
+        <!-- Disabled Toggle -->
+        <label class="relative inline-flex items-center cursor-not-allowed opacity-60">
+          <input
+            type="checkbox"
+            checked
+            disabled
+            class="sr-only peer"
+          />
+          <div
+            class="w-11 h-6 bg-[#E76F51] rounded-full transition-all duration-300"
+          ></div>
+          <div
+            class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 translate-x-5"
+          ></div>
+        </label>
       </div>
+      
 
       <div *ngFor="let key of settingKeys" class="">
         <div class="flex items-center justify-between gap-10">
@@ -158,29 +173,40 @@
               {{
                 key === 'statistics' ? 'Helps us understand how visitors interact with the website.' :
                 key === 'preferences' ? 'Allows the website to remember your preferences and settings.' :
-                key === 'marketing' ? 'Used to deliver personalized ads based on your interests.' :
                 'Additional cookie setting.'
               }}
             </p>
           </div>
-          <button (click)="toggleSetting(key)"
-                  [ngClass]="settings[key] ? 'bg-[#E76F51] text-white hover:bg-[#D65C3D]' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'"
-                  class="text-sm px-4 py-2 rounded-full font-medium transition">
-            {{ settings[key] ? 'Enabled' : 'Disabled' }}
-          </button>
+          <!-- Toggle -->
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              [checked]="settings[key]"
+              (change)="toggleSetting(key)"
+              class="sr-only peer"
+            />
+            <div
+              class="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-[#E76F51] transition-all duration-300"
+            ></div>
+            <div
+              class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 peer-checked:translate-x-5"
+            ></div>
+          </label>
         </div>
-      </div>
+      </div>      
 
     </div>
 
     <div class="pt-6 flex justify-end space-x-6">
       <!-- Cancel Button -->
-      <button (click)="closePopup()" class="w-full sm:w-auto bg-gray-200 text-gray-800 py-2 px-6 text-sm rounded-3xl font-medium hover:bg-gray-300 transition">
+      <button (click)="closePopup()" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
+        class="bg-gray-200 text-gray-800 px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-gray-300 transition">
         Cancel
       </button>
 
       <!-- Save Button -->
-      <button (click)="saveSettings()" class="w-full sm:w-auto bg-[#E76F51] text-white py-2 px-6 text-sm rounded-3xl font-medium hover:bg-[#D65C3D] transition">
+      <button (click)="saveSettings()" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
+        class="border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
         Save Settings
       </button>
     </div>

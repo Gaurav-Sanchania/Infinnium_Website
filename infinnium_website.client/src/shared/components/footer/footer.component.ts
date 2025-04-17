@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/array-type */
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-footer',
-  imports: [RouterLink, CommonModule, NgClass],
+  imports: [RouterLink, CommonModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
@@ -17,11 +17,10 @@ export class FooterComponent {
     necessary: true,
     preferences: false,
     statistics: false,
-    marketing: false
   };
 
   // Explicitly typed array to avoid TS errors in template
-  settingKeys: Array<Exclude<keyof typeof this.settings, 'necessary'>> = ['preferences', 'statistics', 'marketing'];
+  settingKeys: Array<Exclude<keyof typeof this.settings, 'necessary'>> = ['preferences', 'statistics'];
 
   openPopup() {
     // document.body.style.overflow = 'hidden';
