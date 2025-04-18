@@ -22,5 +22,8 @@ export const routes: Routes = [
     ...adminRoutes,
     ...policyRoutes,
     ...termsRoutes,
-    ...cookieRoute
+  ...cookieRoute,
+
+  // Wildcard
+  { path: '**', redirectTo: '/home', pathMatch: 'full' }
   ];

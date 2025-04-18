@@ -41,12 +41,14 @@ namespace Infinnium_Website.Server.Controllers
                 {
                     var contactUs = new ContactUsModel();
 
-                    contactUs.Id = Convert.ToInt32(reader["Id"]);
+                    //contactUs.Id = Convert.ToInt32(reader["Id"]);
                     contactUs.FirstName = reader["FirstName"].ToString();
-                    contactUs.LastName = reader["LastName"].ToString();
+                    //contactUs.LastName = reader["LastName"].ToString();
                     contactUs.Email = reader["Email"].ToString();
-                    contactUs.Phone = reader["Phone"].ToString();
+                    //contactUs.Phone = reader["Phone"].ToString();
                     contactUs.Message = reader["Description"].ToString();
+                    contactUs.isActive = (bool)reader["isActive"];
+                    contactUs.Guid = reader["ShortGuid"].ToString();
 
                     allRecords.Add(contactUs);
                 }
@@ -57,37 +59,37 @@ namespace Infinnium_Website.Server.Controllers
         }
 
         // GET: ContactUsController/ContactUsDetails/{id}
-        [HttpGet]
-        [Route("ContactUsDetails/{id}")]
-        public ContactUsModel ContactUsDetails(int id)
-        {
-            ContactUsModel contactUs = new ContactUsModel();
-            string cs = config.GetConnectionString("InfinniumDB");
-            using (SqlConnection con = new SqlConnection(cs))
-            {
-                con.Open();
+        //[HttpGet]
+        //[Route("ContactUsDetails/{id}")]
+        //public ContactUsModel ContactUsDetails(int id)
+        //{
+        //    ContactUsModel contactUs = new ContactUsModel();
+        //    string cs = config.GetConnectionString("InfinniumDB");
+        //    using (SqlConnection con = new SqlConnection(cs))
+        //    {
+        //        con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_ContactUs]", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        //        SqlCommand cmd = new SqlCommand("[dbo].[CRUD_ContactUs]", con);
+        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@case", 2);
-                cmd.Parameters.AddWithValue("@Id", id);
+        //        cmd.Parameters.AddWithValue("@case", 2);
+        //        cmd.Parameters.AddWithValue("@Id", id);
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    contactUs.Id = Convert.ToInt32(reader["Id"]);
-                    contactUs.FirstName = reader["FirstName"].ToString();
-                    contactUs.LastName = reader["LastName"].ToString();
-                    contactUs.Email = reader["Email"].ToString();
-                    contactUs.Phone = reader["Phone"].ToString();
-                    contactUs.Message = reader["Description"].ToString();
-                }
+        //        SqlDataReader reader = cmd.ExecuteReader();
+        //        while (reader.Read())
+        //        {
+        //            contactUs.Id = Convert.ToInt32(reader["Id"]);
+        //            contactUs.FirstName = reader["FirstName"].ToString();
+        //            contactUs.LastName = reader["LastName"].ToString();
+        //            contactUs.Email = reader["Email"].ToString();
+        //            contactUs.Phone = reader["Phone"].ToString();
+        //            contactUs.Message = reader["Description"].ToString();
+        //        }
 
-                con.Close();
-            }
-            return contactUs;
-        }
+        //        con.Close();
+        //    }
+        //    return contactUs;
+        //}
 
         //--------------------------------------------------------------------------------------------------------------------------------
 
@@ -117,11 +119,18 @@ namespace Infinnium_Website.Server.Controllers
             }
         }
 
+        // Set Contact Us record Active/inActive
         // POST: ContactUsController/UpdateContactUs
         [HttpPost]
         [Route("UpdateContactUs")]
-        public void UpdateContactUs([FromBody] EditContactUsModel record)
+        public void UpdateContactUs()
         {
+            var record = new EditContactUsModel()
+            {
+                isActive = Convert.ToBoolean(Request.Form["isActive"]),
+                Id = Request.Form["Id"]
+            };
+
             string cs = config.GetConnectionString("InfinniumDB");
             using (SqlConnection con = new SqlConnection(cs))
             {
@@ -131,7 +140,7 @@ namespace Infinnium_Website.Server.Controllers
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@case", 5);
-                cmd.Parameters.AddWithValue("@Id", record.Id);
+                cmd.Parameters.AddWithValue("@ShortGuid", record.Id);
                 cmd.Parameters.AddWithValue("@isActive", record.isActive);
 
                 cmd.ExecuteNonQuery();
@@ -140,27 +149,27 @@ namespace Infinnium_Website.Server.Controllers
             }
         }
 
-        // POST: ContactUsController/DeleteContactUs/{id}
-        [HttpPost]
-        [Route("DeleteContactUs/{id}")]
-        public void DeleteContactUs(int id)
-        {
-            string cs = config.GetConnectionString("InfinniumDB");
-            using (SqlConnection con = new SqlConnection(cs))
-            {
-                con.Open();
+        //// POST: ContactUsController/DeleteContactUs/{id}
+        //[HttpPost]
+        //[Route("DeleteContactUs/{id}")]
+        //public void DeleteContactUs(int id)
+        //{
+        //    string cs = config.GetConnectionString("InfinniumDB");
+        //    using (SqlConnection con = new SqlConnection(cs))
+        //    {
+        //        con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_ContactUs]", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        //        SqlCommand cmd = new SqlCommand("[dbo].[CRUD_ContactUs]", con);
+        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@case", 4);
-                cmd.Parameters.AddWithValue("@Id", id);
+        //        cmd.Parameters.AddWithValue("@case", 4);
+        //        cmd.Parameters.AddWithValue("@Id", id);
 
-                cmd.ExecuteNonQuery();
+        //        cmd.ExecuteNonQuery();
 
-                con.Close();
-            }
-        }
+        //        con.Close();
+        //    }
+        //}
 
         // POST: ContactUsController/SendEmail
         [HttpPost]

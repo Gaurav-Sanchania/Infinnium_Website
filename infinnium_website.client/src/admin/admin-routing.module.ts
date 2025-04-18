@@ -7,6 +7,7 @@ import { AddNewsComponent } from './add-news/add-news.component';
 // import { AddImageComponent } from './add-image/add-image.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { AdminGuard } from '../guards/admin.guard';
+import { ContactUsLayoutComponent } from './contact-us-layout/contact-us-layout.component';
 export { routes as adminRoutes } from './admin-routing.module';
 
 export const routes: Routes = [
@@ -16,7 +17,9 @@ export const routes: Routes = [
   { path: 'add-News', component: AddNewsComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] },
   // { path: 'add-image', component: AddImageComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] },
   { path: 'edit-blog/:guid', component: EditBlogComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] },
-  { path: 'edit-news/:guid', component: EditBlogComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] }
+  { path: 'edit-news/:guid', component: EditBlogComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] },
+  // { path: 'Contact-Us', component: ContactUsLayoutComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] }
+  { path: 'Dashboard/Contact-Us', component: ContactUsLayoutComponent, }
 ];
 
 @NgModule({

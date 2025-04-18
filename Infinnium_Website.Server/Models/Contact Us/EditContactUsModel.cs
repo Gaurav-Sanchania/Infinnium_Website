@@ -2,7 +2,7 @@
 {
     public class EditContactUsModel
     {
-        public int Id { get; set; }
-        public byte isActive { get; set; }
+        public string? Id { get; set; }
+        public bool isActive { get; set; }
     }
 }

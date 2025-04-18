@@ -1,0 +1,70 @@
+<section class="bg-[#EAF5F4] py-10 px-4 sm:px-6 lg:px-20 mt-[3.25rem]" style="font-family: 'Manrope', 'Open Sans', sans-serif;">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl sm:text-4xl text-center font-extrabold text-gray-800 mb-10">
+            Contact Records
+        </h1>
+
+        <div class="overflow-x-auto rounded-xl shadow-md">
+            <table class="min-w-full bg-white border border-gray-200 rounded-xl overflow-hidden">
+                <thead class="bg-gray-50 text-gray-600 uppercase text-sm leading-normal hidden md:table-header-group">
+                    <tr>
+                        <th class="py-3 px-6 text-left font-bold">Name</th>
+                        <th class="py-3 px-6 text-left">Email</th>
+                        <th class="py-3 px-6 text-left">Description</th>
+                        <th class="py-3 px-6 text-left">Active Status</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-700 text-sm font-medium">
+                    <tr *ngFor="let contact of contactRecords; let i = index"
+                        class="border-b border-gray-100 hover:bg-gray-50 transition-all duration-200 grid md:table-row grid-cols-1 md:grid-cols-none gap-y-2 md:gap-y-0 px-4 py-4 md:px-0 md:py-0">
+                        <!-- Name -->
+                        <td class="py-2 px-0 md:px-6">
+                            <div class="md:hidden font-semibold text-gray-500">Name</div>
+                            {{ contact.firstName }}
+                        </td>
+
+                        <!-- Email -->
+                        <td class="py-2 px-0 md:px-6">
+                            <div class="md:hidden font-semibold text-gray-500">Email</div>
+                            {{ contact.email }}
+                        </td>
+
+                        <!-- Description -->
+                        <td class="py-2 px-0 md:px-6">
+                            <div class="md:hidden font-semibold text-gray-500">Description</div>
+                            {{ contact.message }}
+                        </td>
+
+                        <!-- Toggle -->
+                        <td class="py-2 px-0 md:px-6">
+                            <div class="md:hidden font-semibold text-gray-500">Active Status</div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="isActive" [(ngModel)]="contact.isActive" class="sr-only peer"
+                                    (click)="openPopUp(contact)" />
+                                <div
+                                    class="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-colors duration-300">
+                                </div>
+                                <div
+                                    class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-5">
+                                </div>
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<div *ngIf="showEditPopup" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
+        <h3 class="text-xl font-semibold mb-4">Please cofirm before Edit!</h3>
+        <p class="mb-6">
+            You are going to edit this record from the public website <a
+                class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
+        </p>
+        <button (click)="editStatus()" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+            Confirm EDIT
+        </button>
+    </div>
+</div>

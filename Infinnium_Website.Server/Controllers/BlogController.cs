@@ -317,27 +317,27 @@ namespace Infinnium_Website.Server.Controllers
             }
         }
 
-        // POST: BlogController/DeleteBlog/{id}
-        [HttpPost]
-        [Route("DeleteBlog/{id}")]
-        public void Delete(int id)
-        {
-            string cs = config.GetConnectionString("InfinniumDB");
-            using (SqlConnection con = new SqlConnection(cs))
-            {
-                con.Open();
+        //// POST: BlogController/DeleteBlog/{id}
+        //[HttpPost]
+        //[Route("DeleteBlog/{id}")]
+        //public void Delete(int id)
+        //{
+        //    string cs = config.GetConnectionString("InfinniumDB");
+        //    using (SqlConnection con = new SqlConnection(cs))
+        //    {
+        //        con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Blogs]", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        //        SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Blogs]", con);
+        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@case", 5);
-                cmd.Parameters.AddWithValue("@Id", id);
+        //        cmd.Parameters.AddWithValue("@case", 5);
+        //        cmd.Parameters.AddWithValue("@Id", id);
 
-                cmd.ExecuteNonQuery();
+        //        cmd.ExecuteNonQuery();
 
-                con.Close();
-            }
-        }
+        //        con.Close();
+        //    }
+        //}
 
         // POST: BlogController/SetisActive
         [HttpPost]

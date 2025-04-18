@@ -1,31 +1,40 @@
-<section class="bg-[#EAF5F4] py-10 px-4 sm:px-6 lg:px-20 mt-[3.25rem]">
+<section class="bg-[#EAF5F4] py-10 px-4 sm:px-6 lg:px-20 mt-[3.25rem]"
+  style="font-family: 'Manrope', 'Open Sans', sans-serif;">
   <div class="max-w-8xl mx-auto">
     <h1 class="text-3xl text-center font-bold text-gray-800 mb-8">BLOGS</h1>
 
     <!-- Container for all blogs in a row -->
     <div class="flex flex-row flex-wrap gap-6">
       <div class="bg-black border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group"
-           *ngFor="let blog of blogs; let i = index;">
+        *ngFor="let blog of blogs; let i = index;">
         <!-- Red exclamation icon if blog is not active -->
-        <div *ngIf="blog.isActive === false"
-             class="absolute bottom-2 right-[4rem] text-red-600 text-xl"
-             title="Inactive blog">
-          <i class="fa-solid fa-ban"></i>
+        <div class="absolute bottom-[1.9rem] right-[4rem] text-red-600 text-xs" title="Inactive blog">
+          <!--<i class="fa-solid fa-ban"></i>-->
         </div>
+
+        <label class="absolute bottom-2 right-[4rem] inline-flex items-center cursor-pointer">
+          <input type="checkbox" id="isActive" [checked]="blog.isActive" class="sr-only peer"
+            (click)="editBlog(blog)" />
+          <div
+            class="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer-checked:bg-green-500 transition-all duration-300">
+          </div>
+          <div
+            class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 peer-checked:translate-x-5">
+          </div>
+        </label>
+
         <!-- Hover buttons -->
         <div class="absolute bottom-2 right-2 flex gap-2 opacity-100 group-hover:opacity-100 transition-opacity">
-          <button (click)="editBlog(blog)" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
-                  class="border-[1.5px] border-[#E76F51] text-white text-sm px-2 py-1 rounded overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
+          <button (click)="editBlog(blog)"
+            class="border-[1.5px] border-[#E76F51] text-white text-sm px-2 py-1 rounded overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
             Edit
           </button>
           <!--<button class="bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600" (click)="deleteBlog(blog.id)">
-    Delete
-  </button>-->
+      Delete
+    </button>-->
         </div>
         <a class="w-80">
-          <img class="rounded-t-lg h-40 w-80 object-cover"
-               [src]="blog.image"
-               alt="blog_image" />
+          <img class="rounded-t-lg h-40 w-80 object-cover" [src]="blog.image" alt="blog_image" />
         </a>
         <div class="p-4 w-80">
           <a>
@@ -49,34 +58,51 @@
   </div>
 </section>
 
-<section class="bg-[#12423C] py-10 px-4 sm:px-6 lg:px-20">
+<section class="bg-[#12423C] py-10 px-4 sm:px-6 lg:px-20" style="font-family: 'Manrope', 'Open Sans', sans-serif;">
   <div class="max-w-8xl mx-auto">
     <h1 class="text-3xl text-center font-bold text-white mb-8">NEWS AND EVENTS</h1>
 
     <!-- Container for all blogs in a row -->
     <div class="flex flex-row flex-wrap gap-6">
-      <div class="bg-black border border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group"
-           *ngFor="let blog of news; let i = index;">
+      <div
+        class="bg-black border border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group"
+        *ngFor="let blog of news; let i = index;">
         <!-- Red exclamation icon if blog is not active -->
-        <div *ngIf="blog.isActive === false"
+        <!--<div *ngIf="blog.isActive === false"
              class="absolute bottom-2 right-[4rem] text-red-600 text-xl"
              title="Inactive blog">
           <i class="fa-solid fa-ban"></i>
         </div>
+        <div *ngIf="blog.isActive === true"
+             class="absolute bottom-2 right-[4rem] text-green-600 text-xl"
+             title="Inactive blog">-->
+        <!--<i class="fa-solid fa-check-double"></i>-->
+        <!--<i class="fa-solid fa-check"></i>
+        </div>-->
+
+        <label class="absolute bottom-2 right-[4rem] inline-flex items-center cursor-pointer">
+          <input type="checkbox" id="isActive" [checked]="blog.isActive" class="sr-only peer"
+            (click)="editNews(blog)" />
+          <div
+            class="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer-checked:bg-green-500 transition-all duration-300">
+          </div>
+          <div
+            class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 peer-checked:translate-x-5">
+          </div>
+        </label>
+
         <!-- Hover buttons -->
         <div class="absolute bottom-2 right-2 flex gap-2 opacity-100 group-hover:opacity-100 transition-opacity">
           <button (click)="editNews(blog)" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
-                  class="border-[1.5px] border-[#E76F51] text-white text-sm px-2 py-1 rounded overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
+            class="border-[1.5px] border-[#E76F51] text-white text-sm px-2 py-1 rounded overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
             Edit
           </button>
           <!--<button class="bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600" (click)="deleteBlog(blog.id)">
-    Delete
-  </button>-->
+      Delete
+    </button>-->
         </div>
         <a class="w-80">
-          <img class="rounded-t-lg h-40 w-80 object-cover"
-               [src]="blog.image"
-               alt="blog_image" />
+          <img class="rounded-t-lg h-40 w-80 object-cover" [src]="blog.image" alt="blog_image" />
         </a>
         <div class="p-4 w-80">
           <a>
@@ -100,42 +126,41 @@
   </div>
 </section>
 
-<div *ngIf="showDeletePopup"
-     class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+<div *ngIf="showDeletePopup" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
   <div class="bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
     <h3 class="text-xl font-semibold mb-4">Please cofirm before Delete!</h3>
-    <p class="mb-6">You are going to delete this blog from the public website <a class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
+    <p class="mb-6">You are going to delete this blog from the public website <a
+        class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
     </p>
-    <button (click)="closePopup()"
-            class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">
+    <button (click)="closePopup()" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition">
       Confirm DELETE
     </button>
   </div>
 </div>
 
-<div *ngIf="showEditPopup"
-     class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+<div *ngIf="showEditPopup" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
   <div class="bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
     <h3 class="text-xl font-semibold mb-4">Please cofirm before Edit!</h3>
     <p class="mb-6">
-      You are going to edit this blog from the public website <a class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
+      You are going to edit this blog from the public website <a
+        class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
     </p>
     <button (click)="navigateEditBlog()"
-            class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+      class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
       Confirm EDIT
     </button>
   </div>
 </div>
 
-<div *ngIf="showEditNewsPopup"
-     class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+<div *ngIf="showEditNewsPopup" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
   <div class="bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
     <h3 class="text-xl font-semibold mb-4">Please cofirm before Edit!</h3>
     <p class="mb-6">
-      You are going to edit this News/Events from the public website <a class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
+      You are going to edit this News/Events from the public website <a
+        class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
     </p>
     <button (click)="navigateEditNewsBlog()"
-            class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+      class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
       Confirm EDIT
     </button>
   </div>

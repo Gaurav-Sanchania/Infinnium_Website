@@ -9,14 +9,11 @@ import { firstValueFrom, Observable } from "rxjs";
 
 export class ContactUsService {
     constructor(private httpClient: HttpClient) {}
-    
-    // All https methods are yet to be tested
-        // tested: addContactUs, sendEmail
 
-    async getAllContactUs(): Promise<{ id: number; firstName: string; lastName: string; email: string; message: string; phone: string; }[]> {
+    async getAllContactUs(): Promise<{ firstName: string; email: string; message: string; isActive: boolean }[]> {
         try {
             const response = await firstValueFrom(
-                this.httpClient.get<{ id: number; firstName: string; lastName: string; email: string; message: string; phone: string; }[]>
+                this.httpClient.get<{ firstName: string; email: string; message: string; isActive: boolean }[]>
                 (`https://localhost:7046/ContactUsController/GetAllContactUs`));
             return response;
         } catch (error) {
@@ -25,17 +22,17 @@ export class ContactUsService {
         }
     }
 
-    async getContactUsDetails(id: number): Promise<{ id: number; firstName: string; lastName: string; email: string; message: string; phone: string; }[]> {
-        try {
-            const response = await firstValueFrom(
-                this.httpClient.get<{ id: number; firstName: string; lastName: string; email: string; message: string; phone: string; }[]>
-                (`https://localhost:7046/ContactUsController/ContactUsDetails/${id}`));
-            return response;
-        } catch (error) {
-            console.log(error);
-            return [];
-        }
-    }
+    // async getContactUsDetails(id: number): Promise<{ id: number; firstName: string; lastName: string; email: string; message: string; phone: string; }[]> {
+    //     try {
+    //         const response = await firstValueFrom(
+    //             this.httpClient.get<{ id: number; firstName: string; lastName: string; email: string; message: string; phone: string; }[]>
+    //             (`https://localhost:7046/ContactUsController/ContactUsDetails/${id}`));
+    //         return response;
+    //     } catch (error) {
+    //         console.log(error);
+    //         return [];
+    //     }
+    // }
 
     // tested
     addContactUs(FirstName: string, Email: string, Message: string) {
@@ -49,8 +46,13 @@ export class ContactUsService {
     }
 
     updateContactUs(contactUs: any) {
+        const formData = new FormData();
+
+      formData.append('isActive', contactUs.isActive);
+      formData.append('Id', contactUs.guid);
+
         try {
-            this.httpClient.put("https://localhost:7046/ContactUsController/UpdateContactUs", contactUs).subscribe();
+            this.httpClient.post("https://localhost:7046/ContactUsController/UpdateContactUs", formData).subscribe();
             return 'Successful';
         } catch (error) {
             console.log(error);
@@ -58,15 +60,15 @@ export class ContactUsService {
         }
     }
 
-    deleteContactUs(id: number) {
-        try {
-            this.httpClient.delete(`https://localhost:7046/ContactUsController/DeleteContactUs/${id}`).subscribe();
-            return 'Successful';
-        } catch (error) {
-            console.log(error);
-            return error;
-        }
-    }
+    // deleteContactUs(id: number) {
+    //     try {
+    //         this.httpClient.delete(`https://localhost:7046/ContactUsController/DeleteContactUs/${id}`).subscribe();
+    //         return 'Successful';
+    //     } catch (error) {
+    //         console.log(error);
+    //         return error;
+    //     }
+    // }
 
     //tested
   sendEmail(receiver: string, subject: string, body: string): Observable<any> {

@@ -51,11 +51,11 @@ export class BlogListComponent implements OnInit {
     this.route.navigateByUrl(`/edit-news/${this.news_edit.guid}`);
   }
 
-  deleteBlog(id: number) {
-    this.showDeletePopup = true;
-    this.blog_delete = id;
-    console.log(this.blog_delete);
-  }
+  //deleteBlog(id: number) {
+  //  this.showDeletePopup = true;
+  //  this.blog_delete = id;
+  //  console.log(this.blog_delete);
+  //}
 
   closePopup(): void {
     this.showDeletePopup = false;

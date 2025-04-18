@@ -13,6 +13,12 @@ import { AuthSessionService } from '../../guards/authSession';
 export class NavbarComponent {
   constructor(private route: Router, private auth: AuthSessionService) {}
 
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
   clearLocalStorage() {
     setTimeout(() => {
       this.auth.clearToken();

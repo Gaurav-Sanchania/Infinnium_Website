@@ -109,33 +109,33 @@ namespace Infinnium_Website.Server.Controllers
         // ONLY FOR DEVELOPMENT PURPOSE
 
         // POST: AuthorController/AddImage
-        [HttpPost]
-        [Route("AddImage")]
-        public void AddImage()
-        {
-            IFormFile image = Request.Form.Files["Image"];
+        //[HttpPost]
+        //[Route("AddImage")]
+        //public void AddImage()
+        //{
+        //    IFormFile image = Request.Form.Files["Image"];
 
-            string cs = config.GetConnectionString("InfinniumDB");
-            using (SqlConnection con = new SqlConnection(cs))
-            {
-                con.Open();
+        //    string cs = config.GetConnectionString("InfinniumDB");
+        //    using (SqlConnection con = new SqlConnection(cs))
+        //    {
+        //        con.Open();
 
-                if (image != null)
-                {
-                    byte[] imageData;
-                    using (var binaryReader = new BinaryReader(image.OpenReadStream()))
-                    {
-                        imageData = binaryReader.ReadBytes((int)image.Length);
-                    }
+        //        if (image != null)
+        //        {
+        //            byte[] imageData;
+        //            using (var binaryReader = new BinaryReader(image.OpenReadStream()))
+        //            {
+        //                imageData = binaryReader.ReadBytes((int)image.Length);
+        //            }
 
-                    SqlCommand cmd = new SqlCommand("UPDATE Authors SET Images = @Image WHERE Authors.Id = 10", con);
-                    cmd.Parameters.Add("@Image", SqlDbType.VarBinary).Value = imageData;
-                    cmd.ExecuteNonQuery();
-                }
+        //            SqlCommand cmd = new SqlCommand("UPDATE Authors SET Images = @Image WHERE Authors.Id = 10", con);
+        //            cmd.Parameters.Add("@Image", SqlDbType.VarBinary).Value = imageData;
+        //            cmd.ExecuteNonQuery();
+        //        }
 
-                con.Close();
-            }
-        }
+        //        con.Close();
+        //    }
+        //}
 
     }
 }
