@@ -31,8 +31,8 @@ export class EditBlogComponent implements OnInit {
   ngOnInit(): void {
     this.blogForm = this.fb.group({
       image: [null, Validators.required],
-      title: ['', [Validators.required, Validators.maxLength(450)]],
-      brief: ['', [Validators.required, Validators.maxLength(450)]],
+      title: ['', [Validators.required]],
+      brief: ['', [Validators.required]],
       description: ['', Validators.required],
       publishedDate: ['', Validators.required],
       isActive: [true],

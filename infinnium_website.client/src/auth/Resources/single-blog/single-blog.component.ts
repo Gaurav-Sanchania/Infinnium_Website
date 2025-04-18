@@ -23,14 +23,16 @@ export class SingleBlogComponent implements OnInit {
 
   async ngOnInit() {
     const guidFromRoute = this.route.snapshot.paramMap.get('guid');
-
+    console.log(guidFromRoute);
     if (guidFromRoute) {
+    console.log("Inside If");
       const url = this.router.url;
       this.guid = guidFromRoute;
       //console.log(url);
 
       if (url.startsWith('/Resources/Blogs')) {
         this.blog = await this.blogService.getBlogDetails(this.guid);
+        this.blog.description = this.blog.description.replace(/&nbsp;/g, ' ');
         this.blog.description = this.sanitizer.bypassSecurityTrustHtml(this.blog.description);
         //console.log(this.blog);
         //if (this.news?.publishedDate && typeof this.news.publishedDate === 'string') {
@@ -38,6 +40,7 @@ export class SingleBlogComponent implements OnInit {
         //} 
       } else {
         this.news = await this.newsService.getNewsDetails(this.guid);
+        this.news.description = this.news.description.replace(/&nbsp;/g, ' ');
         this.news.description = this.sanitizer.bypassSecurityTrustHtml(this.news.description);
         //console.log(this.news);
         //if (this.news?.publishedDate && typeof this.news.publishedDate === 'string') {
