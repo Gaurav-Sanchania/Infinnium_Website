@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -13,18 +13,14 @@ import { RouterLink } from '@angular/router';
 export class HeroSectionComponent implements OnInit {
   @Input() solution = "";
 
-  ngOnInit() {
-    if(this.solution == 'Legal hold') {
-      const ring = document.getElementById("rotating-ring");
-      const ring2 = document.querySelector('rotating-ring');
-      let angle = 0;
-      function rotateRing() {
-        angle = (angle + 1) % 360;
-        ring2!.setAttribute("transform", `rotate(${angle} 0 0)`);
+  constructor(private http: HttpClient, private el: ElementRef) { }
 
-        requestAnimationFrame(rotateRing);
-      }
-      rotateRing();
+  ngOnInit() {
+    if (this.solution === 'Breach Response') {
+      this.http.get('public/breach_response_icon2.svg', { responseType: 'text' })
+        .subscribe(svgText => {
+          this.el.nativeElement.querySelector('.svg-container').innerHTML = svgText;
+        });
     }
   }
 }

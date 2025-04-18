@@ -45,13 +45,17 @@
 
   <!-- Blog Content -->
   <!-- <p *ngIf="blog?.description" class="mt-6 space-y-4 text-gray-800 leading-relaxed">
-    {{ blog.description }}
+    
   </p>
   <p *ngIf="news?.description" class="mt-6 space-y-4 text-gray-800 leading-relaxed">
-    {{ news.description }}
+    
   </p> -->
 
-  <div *ngIf="blog?.description" class="mt-6 space-y-4 text-gray-800 leading-relaxed blog-content" [innerHTML]="blog.description"></div>
-  <div *ngIf="news?.description" class="mt-6 space-y-4 text-gray-800 leading-relaxed blog-content" [innerHTML]="news.description"></div>
+  <div *ngIf="blog?.description">
+    <p [innerHTML]="blog.description" class="mt-6 space-y-4 text-gray-800 blog-content hyphens-none"></p>
+  </div>
+  <div *ngIf="news?.description">
+    <p class="mt-6 space-y-4 text-gray-800 leading-relaxed blog-content" [innerHTML]="news.description"></p>
+  </div>
   
 </main>
