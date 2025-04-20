@@ -44,7 +44,6 @@
               "node_modules/quill/dist/quill.snow.css"
             ],
             "scripts": [
-              "src/assets/scripts/script.js",
               "./node_modules/aos/dist/aos.js"
             ]
           },

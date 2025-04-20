@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+  standalone: true,
   selector: 'app-data-disposition-about',
   imports: [],
   templateUrl: './about.component.html',

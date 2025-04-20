@@ -3,12 +3,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs";
+import { environment } from "../environments/environment";
 
 @Injectable({
     providedIn: "root",
 })
 
 export class NewsService {
+    private readonly BASE_URL = environment.base_api_Url;
+
     constructor(private httpClient: HttpClient) {}
 
   async getAllNews(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
@@ -17,7 +20,7 @@ export class NewsService {
             const response = await firstValueFrom(
               this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
                   imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
-                    (`https://localhost:7046/NewsAndEventsController/GetAllNews`));
+                    (`${this.BASE_URL}/NewsAndEventsController/GetAllNews`));
 
           const updatedResponse = response.map(item => {
             if (item.image) {
@@ -38,7 +41,7 @@ export class NewsService {
             const response = await firstValueFrom(
               this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
                 imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean }>
-                    (`https://localhost:7046/NewsAndEventsController/GetNewsDetails/${guid}`));
+                    (`${this.BASE_URL}/NewsAndEventsController/GetNewsDetails/${guid}`));
           if (response.image) {
             response.image = `data:image/jpeg;base64,${response.image}`;
           }
@@ -55,7 +58,7 @@ export class NewsService {
             const response = await firstValueFrom(
               this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
                   imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
-                    ("https://localhost:7046/NewsAndEventsController/Top3News"));
+                    (`${this.BASE_URL}/NewsAndEventsController/Top3News`));
           const updatedResponse = response.map(item => {
             if (item.image) {
               item.image = `data:image/jpeg;base64,${item.image}`;
@@ -79,7 +82,7 @@ export class NewsService {
           id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
           imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean;
         }[]>
-          (`https://localhost:7046/NewsAndEventsController/GetAllNewsAdmin`));
+          (`${this.BASE_URL}/NewsAndEventsController/GetAllNewsAdmin`));
 
       const updatedResponse = response.map(item => {
         if (item.image) {
@@ -108,7 +111,7 @@ export class NewsService {
         formData.append('AuthorId', blog.authorId);
         formData.append('ImageName', blog.image.name);
 
-        this.httpClient.post("https://localhost:7046/NewsAndEventsController/AddNews", formData).subscribe();
+        this.httpClient.post(`${this.BASE_URL}/NewsAndEventsController/AddNews`, formData).subscribe();
         return 'Successful';
       } catch (error) {
         // console.log(error);
@@ -132,7 +135,7 @@ export class NewsService {
 
       //console.log(formData);
 
-      this.httpClient.post("https://localhost:7046/NewsAndEventsController/EditNews", formData).subscribe();
+      this.httpClient.post(`${this.BASE_URL}/NewsAndEventsController/EditNews`, formData).subscribe();
       return 'Successful';
     } catch (error) {
       // console.log(error);
@@ -140,9 +143,11 @@ export class NewsService {
     }
     }
 
+    // --------------------------------------------------------------------------------------------------------------------------------------------------
+
     deleteNewsAndEvents(id: number) {
         try {
-            this.httpClient.post(`https://localhost:7046/NewsAndEventsController/DeleteNews/${id}`, id).subscribe();
+            this.httpClient.post(`${this.BASE_URL}/NewsAndEventsController/DeleteNews/${id}`, id).subscribe();
             return 'Successful';
         } catch (error) {
             // console.log(error);

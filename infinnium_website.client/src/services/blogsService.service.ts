@@ -4,12 +4,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from 'rxjs';
+import { environment } from "../environments/environment";
 
 @Injectable({
     providedIn: "root",
 })
 
 export class BlogsService {
+    private readonly BASE_URL = environment.base_api_Url;
+
     constructor(private httpClient: HttpClient) {}
 
   async getAllBlogs(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
@@ -19,7 +22,7 @@ export class BlogsService {
             const response = await firstValueFrom(
               this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
                   imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
-                    (`https://localhost:7046/BlogsController/GetAllBlogs`));
+                    (`${this.BASE_URL}/BlogsController/GetAllBlogs`));
           const updatedResponse = response.map(item => {
             if (item.image) {
               item.image = `data:image/jpeg;base64,${item.image}`;
@@ -39,7 +42,7 @@ export class BlogsService {
             const response = await firstValueFrom(
                 this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string,
                   imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean }>
-                    (`https://localhost:7046/BlogsController/GetBlogDetails/${guid}`));
+                    (`${this.BASE_URL}/BlogsController/GetBlogDetails/${guid}`));
           if (response.image) {
             response.image = `data:image/jpeg;base64,${response.image}`;
           }
@@ -56,7 +59,8 @@ export class BlogsService {
         try {
             const response = await firstValueFrom(
               this.httpClient.get<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
-                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>("https://localhost:7046/BlogsController/Top3Blogs"));
+                  imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]>
+                  (`${this.BASE_URL}/BlogsController/Top3Blogs`));
           const updatedResponse = response.map(item => {
             if (item.image) {
               item.image = `data:image/jpeg;base64,${item.image}`;
@@ -81,7 +85,7 @@ export class BlogsService {
           id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
           imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean;
         }[]>
-          (`https://localhost:7046/BlogsController/GetAllBlogsAdmin`));
+          (`${this.BASE_URL}/BlogsController/GetAllBlogsAdmin`));
       const updatedResponse = response.map(item => {
         if (item.image) {
           item.image = `data:image/jpeg;base64,${item.image}`;
@@ -109,7 +113,7 @@ export class BlogsService {
         formData.append('AuthorId', blog.authorId);
         formData.append('ImageName', blog.image.name);
 
-        this.httpClient.post("https://localhost:7046/BlogsController/AddBlog", formData).subscribe();
+        this.httpClient.post(`${this.BASE_URL}/BlogsController/AddBlog`, formData).subscribe();
             return 'Successful';
         } catch (error) {
             // console.log(error);
@@ -133,7 +137,7 @@ export class BlogsService {
 
       //console.log(formData);
 
-      this.httpClient.post("https://localhost:7046/BlogsController/EditBlog", formData).subscribe();
+      this.httpClient.post(`${this.BASE_URL}/BlogsController/EditBlog`, formData).subscribe();
       return 'Successful';
     } catch (error) {
       // console.log(error);
@@ -143,7 +147,7 @@ export class BlogsService {
 
     deleteBlog(id: number) {
         try {
-            this.httpClient.post(`https://localhost:7046/BlogsController/DeleteBlog/${id}`, id).subscribe();
+            this.httpClient.post(`${this.BASE_URL}/BlogsController/DeleteBlog/${id}`, id).subscribe();
             return 'Successful';
         } catch (error) {
             // console.log(error);
@@ -153,7 +157,7 @@ export class BlogsService {
 
   updateStatus(data: any) {
     try {
-      this.httpClient.post('https://localhost:7046/BlogsController/SetisActive', data).subscribe();
+      this.httpClient.post(`${this.BASE_URL}/BlogsController/SetisActive`, data).subscribe();
       return 'Successful';
     } catch (error) {
       return error;

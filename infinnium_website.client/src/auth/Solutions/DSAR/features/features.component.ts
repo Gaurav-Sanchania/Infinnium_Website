@@ -2,6 +2,7 @@ import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit } from '@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 @Component({
+  standalone: true,
   selector: 'app-dsar-features',
   imports: [],
   templateUrl: './features.component.html',

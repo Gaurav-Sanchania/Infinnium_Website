@@ -2,12 +2,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs";
+import { environment } from "../environments/environment";
 
 @Injectable({
     providedIn: "root",
 })
 
 export class LoginService {
+    private readonly BASE_URL = environment.base_api_Url;
+
     constructor(private httpClient: HttpClient) {}
 
     async loginValidation(loginCredentials: any): Promise<boolean> {
@@ -17,7 +20,7 @@ export class LoginService {
       try {
         const response: boolean = await firstValueFrom(
           this.httpClient.post<boolean>(
-          `https://localhost:7046/AdminController/CheckUser`, { email, password })
+          `${this.BASE_URL}/AdminController/CheckUser`, { email, password })
         );
 
         if (response) {
@@ -37,7 +40,7 @@ export class LoginService {
     let listUserMaster: object[] = [];
     try {
       listUserMaster = await firstValueFrom(
-        this.httpClient.get<object[]>("https://localhost:7046/AdminController/GetAllUserMaster...."));
+        this.httpClient.get<object[]>(`${this.BASE_URL}/AdminController/GetAllUserMaster....`));
       return listUserMaster;
     } catch (error) {
       console.log(error);

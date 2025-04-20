@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css'
 })
-export class HeroSectionComponent implements OnInit {
+export class HeroSectionComponent implements AfterViewInit {
   @ViewChild('phraseContainer', { static: true }) phraseContainer!: ElementRef;
 
   phrases: string[] = [
@@ -62,7 +62,7 @@ export class HeroSectionComponent implements OnInit {
 
   currentPhraseIndex = 0;
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.animatePhrase();
     this.addIconsToGels();
   }

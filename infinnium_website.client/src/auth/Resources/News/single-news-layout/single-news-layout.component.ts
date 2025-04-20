@@ -10,6 +10,7 @@ import { NewsService } from '../../../../services/newsService.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-single-news-layout',
   imports: [HeaderComponent, HeroSectionComponent, SingleBlogComponent, RecentBlogsComponent, FooterComponent],
   templateUrl: './single-news-layout.component.html',

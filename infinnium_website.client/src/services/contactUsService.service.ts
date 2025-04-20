@@ -2,19 +2,22 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom, Observable } from "rxjs";
+import { environment } from "../environments/environment";
 
 @Injectable({
     providedIn: "root",
 })
 
 export class ContactUsService {
+    private readonly BASE_URL = environment.base_api_Url;
+
     constructor(private httpClient: HttpClient) {}
 
     async getAllContactUs(): Promise<{ firstName: string; email: string; message: string; isActive: boolean }[]> {
         try {
             const response = await firstValueFrom(
                 this.httpClient.get<{ firstName: string; email: string; message: string; isActive: boolean }[]>
-                (`https://localhost:7046/ContactUsController/GetAllContactUs`));
+                (`${this.BASE_URL}/ContactUsController/GetAllContactUs`));
             return response;
         } catch (error) {
             console.log(error);
@@ -34,10 +37,9 @@ export class ContactUsService {
     //     }
     // }
 
-    // tested
     addContactUs(FirstName: string, Email: string, Message: string) {
         try {
-          this.httpClient.post("https://localhost:7046/ContactUsController/CreateContactUs", { FirstName, Email, Message }).subscribe();
+          this.httpClient.post(`${this.BASE_URL}/ContactUsController/CreateContactUs`, { FirstName, Email, Message }).subscribe();
             return 'Successful';
         } catch (error) {
             console.log(error);
@@ -52,7 +54,7 @@ export class ContactUsService {
       formData.append('Id', contactUs.guid);
 
         try {
-            this.httpClient.post("https://localhost:7046/ContactUsController/UpdateContactUs", formData).subscribe();
+            this.httpClient.post(`${this.BASE_URL}/ContactUsController/UpdateContactUs`, formData).subscribe();
             return 'Successful';
         } catch (error) {
             console.log(error);
@@ -70,11 +72,10 @@ export class ContactUsService {
     //     }
     // }
 
-    //tested
   sendEmail(receiver: string, subject: string, body: string): Observable<any> {
       
         //console.log(receiver, subject, body);
-    return this.httpClient.post("https://localhost:7046/ContactUsController/SendEmail", { receiver, subject, body }, { responseType: 'text' });
+    return this.httpClient.post(`${this.BASE_URL}/ContactUsController/SendEmail`, { receiver, subject, body }, { responseType: 'text' });
       
     }
 }

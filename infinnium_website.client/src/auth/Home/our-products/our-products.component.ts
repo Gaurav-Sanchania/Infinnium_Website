@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,12 +8,12 @@ import { RouterLink } from '@angular/router';
   templateUrl: './our-products.component.html',
   styleUrl: './our-products.component.css'
 })
-export class OurProductsComponent implements OnInit {
+export class OurProductsComponent implements AfterViewInit {
   @ViewChild('productGrid', { static: true }) productGrid!: ElementRef;
 
   constructor(private elementRef: ElementRef) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.initAnimations();
   }
 

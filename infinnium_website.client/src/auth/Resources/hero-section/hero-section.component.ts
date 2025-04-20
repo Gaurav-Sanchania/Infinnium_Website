@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-import { Component, ElementRef, Renderer2, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, Renderer2, Input, AfterViewInit } from '@angular/core';
 import { BlogsService } from '../../../services/blogsService.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { BlogsService } from '../../../services/blogsService.service';
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css'
 })
-export class HeroSectionComponent implements OnChanges{
+export class HeroSectionComponent implements AfterViewInit{
   @Input() category: string = "";
   @Input() top3Blogs: any = [];
   @Input() top3News: any = [];
@@ -21,7 +20,7 @@ export class HeroSectionComponent implements OnChanges{
 
   constructor(private el: ElementRef, private renderer: Renderer2, private blogService: BlogsService) { }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngAfterViewInit() {
     this.renderHeroSlides();
     this.startSlideshow();
   }

@@ -7,6 +7,7 @@ import { BlogsListComponent } from '../../blogs-list/blogs-list.component';
 import { BlogsService } from '../../../../services/blogsService.service';
 
 @Component({
+  standalone: true,
   selector: 'app-resources-blogs-list-layout',
   imports: [HeaderComponent, HeroSectionComponent, BlogsListComponent, FooterComponent],
   providers: [BlogsService],

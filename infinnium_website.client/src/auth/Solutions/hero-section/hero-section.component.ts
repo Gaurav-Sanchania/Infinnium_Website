@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,12 +10,12 @@ import { RouterLink } from '@angular/router';
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css'
 })
-export class HeroSectionComponent implements OnInit {
+export class HeroSectionComponent implements AfterViewInit {
   @Input() solution = "";
 
   constructor(private http: HttpClient, private el: ElementRef) { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     if (this.solution === 'Breach Response') {
       this.http.get('assets/icons/breach_response_icon2.svg', { responseType: 'text' })
         .subscribe(svgText => {
