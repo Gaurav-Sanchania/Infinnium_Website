@@ -138,6 +138,7 @@ namespace Infinnium_Website.Server.Controllers
                     blog.AuthorEmail = reader["Email"].ToString();
                     blog.ImageName = reader["ImageName"].ToString();
                     blog.Guid = reader["ShortGuid"].ToString();
+                    blog.isActive = (bool)reader["isActive"];
 
                     // Image Reader function
                     byte[] imageData = reader["ImagePath"] as byte[];
@@ -339,27 +340,27 @@ namespace Infinnium_Website.Server.Controllers
         //    }
         //}
 
-        // POST: BlogController/SetisActive
-        [HttpPost]
-        [Route("SetisActive")]
-        public void SetisActive([FromBody] SetActiveStatusBlogModel active)
-        {
-            string cs = config.GetConnectionString("InfinniumDB");
-            using (SqlConnection con = new SqlConnection(cs))
-            {
-                con.Open();
+        //// POST: BlogController/SetisActive
+        //[HttpPost]
+        //[Route("SetisActive")]
+        //public void SetisActive([FromBody] SetActiveStatusBlogModel active)
+        //{
+        //    string cs = config.GetConnectionString("InfinniumDB");
+        //    using (SqlConnection con = new SqlConnection(cs))
+        //    {
+        //        con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Blogs]", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        //        SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Blogs]", con);
+        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@case", 7);
-                cmd.Parameters.AddWithValue("@Id", active.Id);
-                cmd.Parameters.AddWithValue("@isActive", active.IsActive);
+        //        cmd.Parameters.AddWithValue("@case", 7);
+        //        cmd.Parameters.AddWithValue("@Id", active.Id);
+        //        cmd.Parameters.AddWithValue("@isActive", active.IsActive);
 
-                cmd.ExecuteNonQuery();
+        //        cmd.ExecuteNonQuery();
 
-                con.Close();
-            }
-        }
+        //        con.Close();
+        //    }
+        //}
     }
 }

@@ -7,7 +7,6 @@ import { BlogsListComponent } from '../../blogs-list/blogs-list.component';
 import { BlogsService } from '../../../../services/blogsService.service';
 
 @Component({
-  standalone: true,
   selector: 'app-resources-blogs-list-layout',
   imports: [HeaderComponent, HeroSectionComponent, BlogsListComponent, FooterComponent],
   providers: [BlogsService],
@@ -23,5 +22,6 @@ export class BlogsListLayoutComponent implements OnInit {
   async ngOnInit() {
     this.blogs = await this.blogService.getAllBlogs();
     this.top3Blogs = await this.blogService.getTop3Blogs();
+    //console.log(this.top3Blogs);
   }
 }
