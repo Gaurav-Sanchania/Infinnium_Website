@@ -22,5 +22,6 @@ export class BlogsListLayoutComponent implements OnInit {
   async ngOnInit() {
     this.blogs = await this.blogService.getAllBlogs();
     this.top3Blogs = await this.blogService.getTop3Blogs();
+    //console.log(this.top3Blogs);
   }
 }

@@ -27,7 +27,7 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
     this.renderBlogListing();
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() {
       this.renderBlogListing();
       this.loadMoreBtn = this.el.nativeElement.querySelector("#loadMoreBtn");
       this.setupLoadMoreButton();

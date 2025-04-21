@@ -4,19 +4,22 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs/internal/firstValueFrom";
 import { Observable } from "rxjs/internal/Observable";
+import { environment } from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthorService {
+  private readonly BASE_URL = environment.base_api_Url;
+
   constructor(private httpClient: HttpClient) { }
 
   async getAllAuthors(): Promise<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; socialMediaLink: string; }[]> {
     try {
       const response = await firstValueFrom(
         this.httpClient.get<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; socialMediaLink: string; }[]>
-          (`https://localhost:7046/AuthorController/GetAllAuthors`));
+          (`${this.BASE_URL}/AuthorController/GetAllAuthors`));
       const updatedResponse = response.map(item => {
         if (item.image) {
           item.image = `data:image/jpeg;base64,${item.image}`;
@@ -34,7 +37,7 @@ export class AuthorService {
     try {
       const response = await firstValueFrom(
         this.httpClient.get<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; socialMediaLink: string; }>
-          (`https://localhost:7046/AuthorController/AuthorDetails/${guid}`));
+          (`${this.BASE_URL}/AuthorController/AuthorDetails/${guid}`));
       if (response.image) {
         response.image = `data:image/jpeg;base64,${response.image}`;
       }
@@ -49,7 +52,7 @@ export class AuthorService {
     const formData = new FormData();
     formData.append('Image', Image.image);
 
-    return this.httpClient.post("https://localhost:7046/AuthorController/AddImage", formData);
+    return this.httpClient.post(`${this.BASE_URL}/AuthorController/AddImage`, formData);
   }
 
 }

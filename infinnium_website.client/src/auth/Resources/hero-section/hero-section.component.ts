@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-import { Component, ElementRef, Renderer2, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { BlogsService } from '../../../services/blogsService.service';
+import { Component, ElementRef, Renderer2, Input, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -11,7 +9,7 @@ import { BlogsService } from '../../../services/blogsService.service';
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css'
 })
-export class HeroSectionComponent implements OnChanges{
+export class HeroSectionComponent implements AfterViewInit, OnChanges{
   @Input() category: string = "";
   @Input() top3Blogs: any = [];
   @Input() top3News: any = [];
@@ -19,11 +17,20 @@ export class HeroSectionComponent implements OnChanges{
   currentBlogIndex: number = 0;
   blogsPerPage: number = 6;
 
-  constructor(private el: ElementRef, private renderer: Renderer2, private blogService: BlogsService) { }
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngAfterViewInit() {
+    //console.log(this.category);
+    //console.log(this.top3Blogs);
     this.renderHeroSlides();
     this.startSlideshow();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['top3Blogs'] || changes['top3News'] || changes['category']) {
+      this.renderHeroSlides();  // Clear old ones first maybe
+    this.startSlideshow();
+    }
   }
 
   renderHeroSlides(): void {
@@ -31,6 +38,7 @@ export class HeroSectionComponent implements OnChanges{
     if (!heroSlideshow) return;
 
     const top3 = (this.category == 'Blogs') ? this.top3Blogs.slice(0, 3) : this.top3News.slice(0, 3);
+    //console.log(top3);
 
     top3.forEach((post: any, index: number) => {
       const slideLink = this.renderer.createElement('a');

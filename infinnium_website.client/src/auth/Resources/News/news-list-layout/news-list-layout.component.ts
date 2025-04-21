@@ -7,6 +7,7 @@ import { BlogsListComponent } from '../../blogs-list/blogs-list.component';
 import { NewsService } from '../../../../services/newsService.service';
 
 @Component({
+  standalone: true,
   selector: 'app-news-list-layout',
   imports: [HeaderComponent, HeroSectionComponent, BlogsListComponent, FooterComponent],
   providers: [NewsService],

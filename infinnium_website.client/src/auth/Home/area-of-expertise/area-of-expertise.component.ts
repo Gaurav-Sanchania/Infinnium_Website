@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,13 +8,13 @@ import { RouterLink } from '@angular/router';
   templateUrl: './area-of-expertise.component.html',
   styleUrl: './area-of-expertise.component.css'
 })
-export class AreaOfExpertiseComponent implements OnInit {
+export class AreaOfExpertiseComponent implements AfterViewInit {
   @ViewChild('servicesGrid', { static: true }) servicesGrid!: ElementRef;
   @ViewChild('cardItems', { static: true }) cardItems!: ElementRef;
 
   constructor(private elementRef: ElementRef) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
     this.initAnimations();
   }
 

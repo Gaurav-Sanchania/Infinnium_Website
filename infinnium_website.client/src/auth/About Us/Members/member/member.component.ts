@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-member',
   imports: [RouterLink],
   templateUrl: './member.component.html',

@@ -10,6 +10,7 @@ import { BlogsService } from '../../../../services/blogsService.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-single-blog-layout',
   imports: [HeroSectionComponent, SingleBlogComponent, RecentBlogsComponent, HeaderComponent, FooterComponent],
   providers: [BlogsService],

@@ -19,7 +19,7 @@ export const routes: Routes = [
   { path: 'edit-blog/:guid', component: EditBlogComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] },
   { path: 'edit-news/:guid', component: EditBlogComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] },
   // { path: 'Contact-Us', component: ContactUsLayoutComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] }
-  { path: 'Dashboard/Contact-Us', component: ContactUsLayoutComponent, }
+  { path: 'Dashboard/Contact-Us', component: ContactUsLayoutComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] }
 ];
 
 @NgModule({

@@ -22,8 +22,8 @@ export class AddNewsComponent implements OnInit {
   ngOnInit(): void {
     this.blogForm = this.fb.group({
       image: [null, Validators.required],
-      title: ['', [Validators.required, Validators.maxLength(100)]],
-      brief: ['', [Validators.required, Validators.maxLength(150)]],
+      title: ['', [Validators.required]],
+      brief: ['', [Validators.required]],
       description: ['', Validators.required],
       publishedDate: ['', Validators.required],
     });
