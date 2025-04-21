@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlogsListLayoutComponent } from './Blogs/blogs-list-layout/blogs-list-layout.component';
-import { NewsListLayoutComponent } from './News/news-list-layout/news-list-layout.component';
-import { SingleBlogLayoutComponent } from './Blogs/single-blog-layout/single-blog-layout.component';
-import { SingleNewsLayoutComponent } from './News/single-news-layout/single-news-layout.component';
 export { routes as resourcesRoutes } from './resources-routing.module';
 
 export const routes: Routes = [
   {
     path: 'Resources',
     children: [
-      { path: 'Blogs', component: BlogsListLayoutComponent, },
-      { path: 'News-and-Events', component: NewsListLayoutComponent, },
-      { path: 'Blogs/:blogTitle/:guid', component: SingleBlogLayoutComponent }, 
-      { path: 'News-and-Events/:newsTitle/:guid', component: SingleNewsLayoutComponent }
+      { path: 'Blogs', 
+        loadComponent: () => import('./Blogs/blogs-list-layout/blogs-list-layout.component').then( m => m.BlogsListLayoutComponent )
+       },
+      { path: 'News-and-Events', 
+        loadComponent: () => import('./News/news-list-layout/news-list-layout.component').then( m => m.NewsListLayoutComponent )
+       },
+      { path: 'Blogs/:blogTitle/:guid', 
+        loadComponent: () => import('./Blogs/single-blog-layout/single-blog-layout.component').then( m => m.SingleBlogLayoutComponent )
+       }, 
+      { path: 'News-and-Events/:newsTitle/:guid', 
+        loadComponent: () => import('./News/single-news-layout/single-news-layout.component').then( m => m.SingleNewsLayoutComponent )
+       }
     ]
   }
 ];

@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TermsComponent } from './terms/terms.component';
 export { routes as termsRoutes } from './terms-routing.module';
 
 export const routes: Routes = [
-  { path: 'Terms-of-use', component: TermsComponent }
+  { path: 'Terms-of-use', loadComponent: () => import('./terms/terms.component').then( m => m.TermsComponent ) }
 ];
 
 @NgModule({
