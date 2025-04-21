@@ -79,14 +79,13 @@ body {
   min-width: 10rem; /* Adjust this based on the longest word */
 }
 
-#phrase-container {
+/* #phrase-container {
   text-align: left;
-  font-size: 4rem;
   color: #e65a4e;
   font-weight: bold;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-}
+} */
 
 /* Custom font styles */
 .custom-heading {
