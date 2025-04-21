@@ -52,6 +52,7 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
         title = title.slice(0, maxLength) + '...';
       }
 
+      console.log(encodeURIComponent(title));
       cardLink.href = `/Resources/Blogs/${encodeURIComponent(title)}/${post.guid}`;
       //console.log(cardLink.href);
 
