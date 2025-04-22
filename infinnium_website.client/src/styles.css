@@ -1166,3 +1166,59 @@ a.relative.hidden.md\:flex:hover {
   overflow-wrap: anywhere;      /* Force wrapping if necessary */
   white-space: normal;          /* Allow wrapping */
 }
+.shake-slow {
+  animation: shake 2s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(0.5px, -0.5px) rotate(-0.3deg); }
+  50% { transform: translate(-0.5px, 0.5px) rotate(0.3deg); }
+  75% { transform: translate(0.4px, -0.4px) rotate(-0.2deg); }
+}
+.shake-horizontal {
+  animation: shake-left-right 2s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes shake-left-right {
+  0%, 100%   { transform: translateX(0); }
+  25%        { transform: translateX(-1px); }
+  50%        { transform: translateX(1px); }
+  75%        { transform: translateX(-0.5px); }
+}
+.shake-vertical {
+  animation: shake-up-down 2s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes shake-up-down {
+  0%, 100% { transform: translateY(0); }
+  25%     { transform: translateY(-1px); }
+  50%     { transform: translateY(1px); }
+  75%     { transform: translateY(-0.5px); }
+}
+.rotate-slow {
+  animation: rotate-circle 4s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotate-circle {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+  .shake-circular {
+    animation: shake-circle 2s infinite ease-in-out;
+    transform-origin: center;
+  }
+
+  @keyframes shake-circle {
+    0%   { transform: translate(0px, 0px); }
+    25%  { transform: translate(1px, -1px); }
+    50%  { transform: translate(2px, 0px); }
+    75%  { transform: translate(1px, 1px); }
+    100% { transform: translate(0px, 0px); }
+  }
+
