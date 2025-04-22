@@ -1,44 +1,42 @@
-<section class="relative w-full min-h-screen flex items-center justify-center px-4 py-16 bg-black text-white"
-  style="font-family: 'Manrope', 'Open Sans', sans-serif">
-  <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center w-full">
+<section class="bg-black min-h-screen px-4 sm:px-6 lg:px-8 py-16 flex items-center"
+    style="font-family: 'Manrope', 'Open Sans', sans-serif">
+
+  <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between w-full gap-10">
 
     <!-- Left Column: Text -->
-    <div class="mt-1 md:mt-0 md:w-1/2 flex flex-col gap-6">
-
-      <span class="md:text-6xl text-4xl">
-        Revolutionizing The Way You Interact With & Govern Data
+    <div class="md:w-1/2 flex flex-col gap-2 justify-center text-white">
+      <span class="text-4xl md:text-6xl">
+        Revolutionizing The Way You Interact <br>
+        <span class="text-[#e76f51]">With & Govern Data</span>
       </span>
-      <p class="font-light md:text-3xl pl-1 text-2xl text-white mt-[-0.5rem]">
+      <p class="font-light text-lg md:text-2xl mt-4">
         Where Power Meets Purpose
       </p>
-      <!-- <span class="block font-light text-3xl pl-1 mt-0">Meets Purpose</span> -->
+
       <a href="contact_us.html">
         <button class="learn-more pt-6">
           <span class="circle" aria-hidden="true">
             <span class="icon arrow"></span>
           </span>
-          <span class="button-text text-lg pt-6 #00332b underline">Contact Us</span>
+          <span class="button-text text-lg text-[#00332b] underline">Contact Us</span>
         </button>
       </a>
     </div>
 
-    <!-- Right Column: Image -->
-    <div class="lg:mt-0 lg:col-span-5 lg:flex relative">
-      <div class="h-auto w-auto">
+    <!-- Right Column: Dynamic Image -->
+    <div class="md:w-1/2 flex items-center justify-center relative">
+      <div *ngIf="product === '4ig'" class="w-[350px] h-[350px] md:w-[550px] md:h-[550px]">
+        <img src="4ig_hero.svg" alt="4ig" class="w-full h-full object-contain" />
+      </div>
 
-        <div *ngIf="product === '4ig'" class="w-[400px] h-[400px] md:w-[450px] md:h-[450px]">
-          <img src="4ig_hero.svg" alt="4ig"/>
-        </div>
-       
-        <div *ngIf="product === 'breach-profiler'" class="w-[400px] h-[400px] md:w-[450px] md:h-[450px]">
-          <img src="breach_profiler.svg" alt="breach-profiler"/>
-        </div>
-       
-        <div *ngIf="product === 'obscure-pi'" class="w-[400px] h-[400px] md:w-[450px] md:h-[450px]">
-          <img src="obscure_pi.svg" alt="obscure-pi"/>
-        </div>
+      <div *ngIf="product === 'breach-profiler'" class="w-[350px] h-[350px] md:w-[450px] md:h-[450px]">
+        <img src="breach_profiler.svg" alt="breach-profiler" class="w-full h-full object-contain" />
+      </div>
 
+      <div *ngIf="product === 'obscure-pi'" class="w-[350px] h-[350px] md:w-[450px] md:h-[450px]">
+        <img src="obscure_pi.svg" alt="obscure-pi" class="w-full h-full object-contain" />
       </div>
     </div>
+
   </div>
 </section>
