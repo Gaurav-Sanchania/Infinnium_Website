@@ -1,4 +1,5 @@
 ﻿using Infinnium_Website.Server.Models.Blogs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -157,6 +158,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // GET: BlogController/GetAllBlogsAdmin
         [HttpGet]
+        [Authorize]
         [Route("GetAllBlogsAdmin")]
         public List<BlogsModel> GetAllBlogsAdmin()
         {
@@ -208,6 +210,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // POST: BlogController/AddBlog
         [HttpPost]
+        [Authorize]
         [Route("AddBlog")]
         public void AddBlog()
         {
@@ -262,6 +265,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // POST: BlogController/EditBlog
         [HttpPost]
+        [Authorize]
         [Route("EditBlog")]
         public void EditBlog()
         {
@@ -320,6 +324,7 @@ namespace Infinnium_Website.Server.Controllers
 
         //// POST: BlogController/DeleteBlog/{id}
         //[HttpPost]
+        //[Authorize]
         //[Route("DeleteBlog/{id}")]
         //public void Delete(int id)
         //{
@@ -342,6 +347,7 @@ namespace Infinnium_Website.Server.Controllers
 
         //// POST: BlogController/SetisActive
         //[HttpPost]
+        //[Authorize]
         //[Route("SetisActive")]
         //public void SetisActive([FromBody] SetActiveStatusBlogModel active)
         //{

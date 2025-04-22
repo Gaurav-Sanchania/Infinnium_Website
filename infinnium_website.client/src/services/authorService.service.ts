@@ -13,6 +13,9 @@ import { environment } from "../environments/environment";
 export class AuthorService {
   private readonly BASE_URL = environment.base_api_Url;
 
+  // const token = localStorage.getItem('jwtToken');
+  // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
   constructor(private httpClient: HttpClient) { }
 
   async getAllAuthors(): Promise<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; socialMediaLink: string; }[]> {

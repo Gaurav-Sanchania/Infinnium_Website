@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Reflection.Metadata;
 using Infinnium_Website.Server.Models.Authors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -105,11 +106,12 @@ namespace Infinnium_Website.Server.Controllers
         }
 
         // -----------------------------------------------------------------------------------------------------------------------
-        
+
         // ONLY FOR DEVELOPMENT PURPOSE
 
         // POST: AuthorController/AddImage
         //[HttpPost]
+        //[Authorize]
         //[Route("AddImage")]
         //public void AddImage()
         //{

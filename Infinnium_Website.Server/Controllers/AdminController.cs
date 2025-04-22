@@ -7,14 +7,15 @@ namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
     [Route("AdminController")]
-    public class AdminController(IConfiguration configuration) : Controller
+    public class AdminController(IConfiguration configuration, EncryptionHelper encryptionHelper) : Controller
     {
         private readonly IConfiguration config = configuration;
+        private readonly EncryptionHelper encryptionHelper = encryptionHelper;
 
         // POST: AdminController/CheckUser/
         [HttpPost]
         [Route("CheckUser")]
-        public bool CheckUser([FromBody] AdminModel adminModel)
+        public bool CheckUser(AdminModel adminModel)
         {
             var isUserValid = false;
             string cs = config.GetConnectionString("InfinniumDB");
@@ -31,7 +32,7 @@ namespace Infinnium_Website.Server.Controllers
 
                 if (!string.IsNullOrEmpty(encryptedPasswordFromDb))
                 {
-                    string decryptedPassword = EncryptionHelper.Decrypt(encryptedPasswordFromDb);
+                    string decryptedPassword = encryptionHelper.Decrypt(encryptedPasswordFromDb);
                     if (decryptedPassword == adminModel.Password)
                     {
                         isUserValid = true;

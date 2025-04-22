@@ -1,0 +1,10 @@
+.truncate-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Show only 3 lines */
+    line-clamp: 4; /* Standard property for compatibility */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+  

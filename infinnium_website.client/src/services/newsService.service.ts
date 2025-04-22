@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs";
 import { environment } from "../environments/environment";
@@ -11,6 +11,9 @@ import { environment } from "../environments/environment";
 
 export class NewsService {
     private readonly BASE_URL = environment.base_api_Url;
+
+    // const token = localStorage.getItem('jwtToken');
+    // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     constructor(private httpClient: HttpClient) {}
 
@@ -77,12 +80,14 @@ export class NewsService {
     imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean;
   }[]> {
     try {
+      const token = sessionStorage.getItem('auth-token');
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const response = await firstValueFrom(
         this.httpClient.get<{
           id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
           imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean;
         }[]>
-          (`${this.BASE_URL}/NewsAndEventsController/GetAllNewsAdmin`));
+          (`${this.BASE_URL}/NewsAndEventsController/GetAllNewsAdmin`, {headers}));
 
       const updatedResponse = response.map(item => {
         if (item.image) {

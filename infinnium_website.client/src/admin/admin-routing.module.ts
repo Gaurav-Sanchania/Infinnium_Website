@@ -26,7 +26,11 @@ export const routes: Routes = [
   // { path: 'Contact-Us', component: ContactUsLayoutComponent, canActivate: [AdminGuard], canDeactivate: [AdminGuard] }
   { path: 'Dashboard/Contact-Us', 
     loadComponent: () => import('./contact-us-layout/contact-us-layout.component').then( m => m.ContactUsLayoutComponent ),
-    canActivate: [AdminGuard], canDeactivate: [AdminGuard] }
+    canActivate: [AdminGuard], canDeactivate: [AdminGuard] },
+  {
+    path: 'Dashboard/Update-members',
+    loadComponent: () => import('./founders-layout/founders-layout.component').then( m => m.FoundersLayoutComponent ),
+    canActivate: [AdminGuard], canDeactivate: [AdminGuard] },
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs";
 import { environment } from "../environments/environment";
+import { AuthSessionService } from "../guards/authSession";
 
 @Injectable({
     providedIn: "root",
@@ -11,7 +12,9 @@ import { environment } from "../environments/environment";
 export class LoginService {
     private readonly BASE_URL = environment.base_api_Url;
 
-    constructor(private httpClient: HttpClient) {}
+    // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    constructor(private httpClient: HttpClient, private auth: AuthSessionService) {}
 
     async loginValidation(loginCredentials: any): Promise<boolean> {
       const email = loginCredentials.email;
@@ -25,6 +28,7 @@ export class LoginService {
 
         if (response) {
           localStorage.setItem('isAdminLoggedIn', 'true');
+          await this.generateJwtToken();
           return true;
         } else {
           return false;
@@ -32,6 +36,21 @@ export class LoginService {
       } catch (error) {
         console.error('Login validation failed:', error);
         return false;
+      }
+    }
+
+    async generateJwtToken(): Promise<void> {
+      try {
+        const response = await firstValueFrom(
+          this.httpClient.post(`${this.BASE_URL}/AuthController/GenerateToken`, null, { responseType: 'text' })
+        );
+
+        if(response) {
+          // console.log(response);
+          this.auth.setToken(String(response));
+        }
+      } catch (error) {
+        console.error('Token generation failed:', error);
       }
     }
 

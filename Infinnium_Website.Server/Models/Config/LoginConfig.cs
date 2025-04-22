@@ -1,4 +1,4 @@
-﻿namespace Infinnium_Website.Server.Models.Email
+﻿namespace Infinnium_Website.Server.Models.Config
 {
     public class LoginConfig
     {

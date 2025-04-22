@@ -1,14 +1,23 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using Infinnium_Website.Server.Models.Config;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.Extensions.Options;
 
 namespace Infinnium_Website.Server
 {
     public class EncryptionHelper
     {
-        private static readonly string Key = "MySecretKey12345";
-        private static readonly string IV = "InitVectorABC123";  
+        private readonly string Key;
+        private readonly string IV;
 
-        public static string Encrypt(string plainText)
+        public EncryptionHelper(IOptions<EncryptionSettings> options)
+        {
+            Key = options.Value.Key;
+            IV = options.Value.IV;
+        }
+
+        public string Encrypt(string plainText)
             {
                 using (Aes aes = Aes.Create())
                 {
@@ -27,7 +36,7 @@ namespace Infinnium_Website.Server
                 }
             }
 
-            public static string Decrypt(string cipherText)
+            public string Decrypt(string cipherText)
             {
                 using (Aes aes = Aes.Create())
                 {

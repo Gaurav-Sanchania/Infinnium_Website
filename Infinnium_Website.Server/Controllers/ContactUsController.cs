@@ -1,6 +1,7 @@
 ﻿using Infinnium_Website.Server.Interfaces;
 using Infinnium_Website.Server.Models.Contact_Us;
 using Infinnium_Website.Server.Models.Email;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -22,6 +23,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // GET: ContactUsController/GetAllContactUs
         [HttpGet]
+        [Authorize]
         [Route("GetAllContactUs")]
         public List<ContactUsModel> GetAllContactUs()
         {
@@ -60,6 +62,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // GET: ContactUsController/ContactUsDetails/{id}
         //[HttpGet]
+        //[Authorize]
         //[Route("ContactUsDetails/{id}")]
         //public ContactUsModel ContactUsDetails(int id)
         //{
@@ -122,6 +125,7 @@ namespace Infinnium_Website.Server.Controllers
         // Set Contact Us record Active/inActive
         // POST: ContactUsController/UpdateContactUs
         [HttpPost]
+        [Authorize]
         [Route("UpdateContactUs")]
         public void UpdateContactUs()
         {
@@ -151,6 +155,7 @@ namespace Infinnium_Website.Server.Controllers
 
         //// POST: ContactUsController/DeleteContactUs/{id}
         //[HttpPost]
+        //[Authorize]
         //[Route("DeleteContactUs/{id}")]
         //public void DeleteContactUs(int id)
         //{

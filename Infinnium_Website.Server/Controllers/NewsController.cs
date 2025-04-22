@@ -1,6 +1,7 @@
 ﻿using System.Reflection.Metadata;
 using Infinnium_Website.Server.Models.Blogs;
 using Infinnium_Website.Server.Models.News;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -157,6 +158,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // GET: NewsController/GetAllNewsAdmin
         [HttpGet]
+        [Authorize]
         [Route("GetAllNewsAdmin")]
         public List<NewsModel> GetAllNewsAdmin()
         {
@@ -208,6 +210,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // POST: NewsController/AddNews
         [HttpPost]
+        [Authorize]
         [Route("AddNews")]
         public void AddNews()
         {
@@ -262,6 +265,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // POST: NewsController/EditNews
         [HttpPost]
+        [Authorize]
         [Route("EditNews")]
         public void EditNews()
         {
@@ -320,6 +324,7 @@ namespace Infinnium_Website.Server.Controllers
 
         //// POST: NewsController/DeleteNews/{id}
         //[HttpPost]
+        //[Authorize]
         //[Route("DeleteNews/{id}")]
         //public void DeleteNews(int id)
         //{

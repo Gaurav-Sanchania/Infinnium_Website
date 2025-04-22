@@ -1,6 +1,9 @@
+using System.Text;
 using Infinnium_Website.Server;
 using Infinnium_Website.Server.Interfaces;
-using Infinnium_Website.Server.Models.Email;
+using Infinnium_Website.Server.Models.Config;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +11,38 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Add login section
-builder.Services.Configure<LoginConfig>(
-    builder.Configuration.GetSection("LoginCredentials"));
+builder.Services.Configure<LoginConfig>(builder.Configuration.GetSection("LoginCredentials"));
+builder.Services.AddSingleton<LoginConfig>();
+
+// Add Encryption Settings
+builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionKey"));
+builder.Services.AddSingleton<EncryptionHelper>();
+
+// Configure JWT Settings
+var jwtSettings = new JwtSettings();
+builder.Configuration.GetSection("JwtSettings").Bind(jwtSettings);
+builder.Services.AddSingleton(jwtSettings);
+
+// Configure JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings.Issuer,
+        ValidAudience = jwtSettings.Audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecretKey))
+    };
+});
+builder.Services.AddAuthorization();
 
 // Injecting EmailService
 builder.Services.AddTransient<IEmailSenderService, EmailSender>();
@@ -49,7 +82,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AngularApp");
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

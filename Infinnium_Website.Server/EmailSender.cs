@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Mail;
 using Infinnium_Website.Server.Interfaces;
-using Infinnium_Website.Server.Models.Email;
+using Infinnium_Website.Server.Models.Config;
 using Microsoft.Extensions.Options;
 
 namespace Infinnium_Website.Server

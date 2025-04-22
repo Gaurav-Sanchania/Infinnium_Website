@@ -3,59 +3,52 @@
     <!-- Logo -->
     <div class="flex items-center space-x-4">
       <div routerLink="/home" class="logoContainer cursor-pointer">
-        <img src="infinnium_white.svg"
-             alt="infi_logo"
-             class="h-10 w-auto object-contain" />
+        <img src="infinnium_white.svg" alt="infi_logo" class="h-10 w-auto object-contain" />
       </div>
     </div>
 
     <!-- Hamburger Button (visible on mobile only) -->
-    <button class="lg:hidden text-white focus:outline-none"
-            (click)="toggleMenu()">
-      <svg class="w-6 h-6"
-           fill="none"
-           stroke="currentColor"
-           viewBox="0 0 24 24"
-           xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
+    <button class="lg:hidden text-white focus:outline-none" (click)="toggleMenu()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
 
     <!-- Navigation Links -->
     <div class="w-full lg:w-auto mt-4 lg:mt-0 bg-black lg:bg-transparent p-4 lg:p-0 rounded-md shadow-md lg:shadow-none"
-         [ngClass]="{ hidden: !menuOpen, 'block': menuOpen, 'lg:flex': true }">
+      [ngClass]="{ hidden: !menuOpen, 'block': menuOpen, 'lg:flex': true }">
       <ul class="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-6 text-sm font-medium">
         <li>
-          <a routerLink="/Dashboard"
-             routerLinkActive="activeLink"
-             [routerLinkActiveOptions]="{ exact: true }"
-             class="text-lg hover:text-blue-400 transition-colors duration-300">Admin Dashboard</a>
+          <a routerLink="/Dashboard" routerLinkActive="activeLink" [routerLinkActiveOptions]="{ exact: true }"
+            class="text-lg hover:text-blue-400 transition-colors duration-300">Admin Dashboard</a>
+        </li>
+        <!-- Dropdown for Blog/News -->
+        <li class="relative group">
+          <a class="text-lg cursor-pointer hover:text-blue-400 transition-colors duration-300">Content Management</a>
+          <ul
+            class="absolute left-0 w-52 bg-white shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity duration-300 z-10">
+            <li>
+              <a routerLink="/add-Blog" routerLinkActive="activeLink2" [routerLinkActiveOptions]="{ exact: true }"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Add Blog</a>
+            </li>
+            <li>
+              <a routerLink="/add-News" routerLinkActive="activeLink2" [routerLinkActiveOptions]="{ exact: true }"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Add News and Events</a>
+            </li>
+            <li>
+              <a routerLink="/Dashboard/Update-members" routerLinkActive="activeLink2" [routerLinkActiveOptions]="{ exact: true }"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Update Members</a>
+            </li>
+          </ul>
         </li>
         <li>
-          <a routerLink="/add-Blog"
-             routerLinkActive="activeLink"
-             [routerLinkActiveOptions]="{ exact: true }"
-             class="text-lg hover:text-blue-400 transition-colors duration-300">Add Blog</a>
+          <a routerLink="/Dashboard/Contact-Us" routerLinkActive="activeLink"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="text-lg hover:text-blue-400 transition-colors duration-300">Contact Us</a>
         </li>
         <li>
-          <a routerLink="/add-News"
-             routerLinkActive="activeLink"
-             [routerLinkActiveOptions]="{ exact: true }"
-             class="text-lg hover:text-blue-400 transition-colors duration-300">Add News and Events</a>
-        </li>
-        <li>
-          <a routerLink="/Dashboard/Contact-Us"
-             routerLinkActive="activeLink"
-             [routerLinkActiveOptions]="{ exact: true }"
-             class="text-lg hover:text-blue-400 transition-colors duration-300">Contact Us</a>
-        </li>
-        <li>
-          <a routerLink="/home"
-             (click)="clearLocalStorage()"
-             class="text-lg hover:text-red-400 transition-colors duration-300">Logout</a>
+          <a routerLink="/home" (click)="clearLocalStorage()"
+            class="text-lg hover:text-red-400 transition-colors duration-300">Logout</a>
         </li>
       </ul>
     </div>

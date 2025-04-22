@@ -35,7 +35,7 @@ export class AdminLoginComponent {
       const loginValid = await this.loginService.loginValidation(this.loginForm.value);
   
       if (loginValid) {
-        this.auth.setToken('true');
+        // this.auth.setToken('true');
         this.route.navigate(["Dashboard"]);
       } else {
         this.route.navigate(["Login"]);

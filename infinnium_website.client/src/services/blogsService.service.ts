@@ -1,10 +1,11 @@
 /* eslint-disable no-useless-catch */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from 'rxjs';
 import { environment } from "../environments/environment";
+import { AuthSessionService } from "../guards/authSession";
 
 @Injectable({
     providedIn: "root",
@@ -13,7 +14,7 @@ import { environment } from "../environments/environment";
 export class BlogsService {
     private readonly BASE_URL = environment.base_api_Url;
 
-    constructor(private httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient, private auth: AuthSessionService) {}
 
   async getAllBlogs(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
       imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
@@ -81,12 +82,14 @@ export class BlogsService {
   }[]> {
     // https://localhost:7046/BlogsController/GetAllBlogs
     try {
+      const token = sessionStorage.getItem('auth-token');
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const response = await firstValueFrom(
         this.httpClient.get<{
           id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
           imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean;
         }[]>
-          (`${this.BASE_URL}/BlogsController/GetAllBlogsAdmin`));
+          (`${this.BASE_URL}/BlogsController/GetAllBlogsAdmin`, {headers}));
       const updatedResponse = response.map(item => {
         if (item.image) {
           item.image = `data:image/jpeg;base64,${item.image}`;

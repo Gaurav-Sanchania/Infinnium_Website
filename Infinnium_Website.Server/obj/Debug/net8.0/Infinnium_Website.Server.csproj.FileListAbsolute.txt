@@ -168,3 +168,5 @@ C:\Users\admin\OneDrive\Desktop\Infinnium Website\Infinnium_Website\Infinnium_We
 C:\Users\admin\OneDrive\Desktop\Infinnium Website\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\Infinnium_Website.Server.pdb
 C:\Users\admin\OneDrive\Desktop\Infinnium Website\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\Infinnium_Website.Server.genruntimeconfig.cache
 C:\Users\admin\OneDrive\Desktop\Infinnium Website\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\ref\Infinnium_Website.Server.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
