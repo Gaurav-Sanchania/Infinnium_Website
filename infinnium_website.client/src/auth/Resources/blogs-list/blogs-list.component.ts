@@ -52,8 +52,16 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
         title = title.slice(0, maxLength) + '...';
       }
 
-      console.log(encodeURIComponent(title));
-      cardLink.href = `/Resources/Blogs/${encodeURIComponent(title)}/${post.guid}`;
+      function slugify(str: string) {
+        return str
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, '')        // Remove special characters
+          .replace(/\s+/g, '-')            // Replace spaces with -
+          .replace(/--+/g, '-');           // Collapse multiple dashes
+      }      
+
+      // console.log(encodeURIComponent(title));
+      cardLink.href = `/Resources/Blogs/${slugify(title)}/${post.guid}`;
       //console.log(cardLink.href);
 
       //console.log(post.image);
@@ -103,7 +111,17 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
           title = title.slice(0, maxLength) + '...';
         }
 
-        cardLink.href = `/Resources/News-and-Events/${encodeURIComponent(title)}/${post.guid}`;
+        function slugify(str: string) {
+          return str
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, '')        // Remove special characters
+            .replace(/\s+/g, '-')            // Replace spaces with -
+            .replace(/--+/g, '-');           // Collapse multiple dashes
+        }
+        cardLink.href = `/Resources/News-and-Events/${slugify(title)}/${post.guid}`;
+        
+
+        // cardLink.href = `/Resources/News-and-Events/${encodeURIComponent(title)}/${post.guid}`;
         //console.log(cardLink.href);
 
         cardLink.innerHTML = `
