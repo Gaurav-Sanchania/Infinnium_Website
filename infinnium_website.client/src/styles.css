@@ -707,7 +707,7 @@ height: 80px;
 
 .animate-card {
   animation: fadeInUp 0.6s ease-out forwards;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 /* Hover Effects */
@@ -800,11 +800,11 @@ height: 80px;
 
 .animate-product {
   animation: slideUpFadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .product-grid {
-  opacity: 0;
+  /* opacity: 0; */
   transition: opacity 0.6s ease-out;
 }
 

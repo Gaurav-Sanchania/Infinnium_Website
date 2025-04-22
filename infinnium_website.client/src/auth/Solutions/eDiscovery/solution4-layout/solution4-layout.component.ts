@@ -7,6 +7,7 @@ import { AboutComponent } from '../about/about.component';
 import { FeaturesComponent } from '../features/features.component';
 
 @Component({
+  standalone: true,
   selector: 'app-solution4-layout',
   imports: [HeaderComponent, HeroSectionComponent, AboutComponent, FeaturesComponent,
     TrustedLeadersComponent, FooterComponent],

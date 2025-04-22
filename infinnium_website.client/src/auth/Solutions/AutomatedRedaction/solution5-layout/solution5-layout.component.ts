@@ -6,6 +6,7 @@ import { HeroSectionComponent } from '../../hero-section/hero-section.component'
 import { AboutComponent } from '../about/about.component';
 
 @Component({
+  standalone: true,
   selector: 'app-solution5-layout',
   imports: [HeaderComponent, HeroSectionComponent, AboutComponent, 
     TrustedLeadersComponent, FooterComponent],
