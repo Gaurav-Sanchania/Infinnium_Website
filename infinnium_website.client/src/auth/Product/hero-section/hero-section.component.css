@@ -1,0 +1,26 @@
+.spotlight-orange {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at 100% 0%,
+    rgba(231, 111, 81, 0.35) 0%,
+    rgba(231, 111, 81, 0.1) 40%,
+    transparent 70%
+  );
+  filter: blur(100px);
+  opacity: 0.8;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 0;
+  animation: spotlightFloat 14s ease-in-out infinite;
+}
+
+/* Smooth floating ambient light movement */
+@keyframes spotlightFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-5%, 3%) scale(1.02); }
+  100% { transform: translate(0, 0) scale(1); }
+}
