@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { BlogsService } from '../../services/blogsService.service';
 import { NewsService } from '../../services/newsService.service';
 
 @Component({
   selector: 'app-admin-blog-list',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css'
 })
@@ -39,7 +39,7 @@ export class BlogListComponent implements OnInit {
   }
   navigateEditBlog() {
     this.closePopup();
-    this.route.navigateByUrl(`/edit-blog/${this.blog_edit.guid}`);
+    this.route.navigateByUrl(`Dashboard/edit-blog/${this.blog_edit.guid}`);
   }
 
   editNews(blog: any){
@@ -48,7 +48,7 @@ export class BlogListComponent implements OnInit {
   }
   navigateEditNewsBlog() {
     this.closePopup();
-    this.route.navigateByUrl(`/edit-news/${this.news_edit.guid}`);
+    this.route.navigateByUrl(`Dashboard/edit-news/${this.news_edit.guid}`);
   }
 
   //deleteBlog(id: number) {
@@ -61,5 +61,13 @@ export class BlogListComponent implements OnInit {
     this.showDeletePopup = false;
     this.showEditPopup = false;
     this.showEditNewsPopup = false;
+  }
+
+  slugify(str: string) {
+    return str
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')        // Remove special characters
+      .replace(/\s+/g, '-')            // Replace spaces with -
+      .replace(/--+/g, '-');           // Collapse multiple dashes
   }
 }

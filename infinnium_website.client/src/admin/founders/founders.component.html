@@ -1,16 +1,21 @@
-<section class="bg-[#EAF5F4] py-10 px-4 sm:px-6 lg:px-20 mt-[3.25rem]">
+<section class="bg-[#EAF5F4] py-10 px-4 sm:px-6 lg:px-20 mt-[3.25rem]"
+    style="font-family: 'Manrope', 'Open Sans', sans-serif;">
     <div class="max-w-6xl mx-auto">
 
         <h1 class="text-3xl text-center font-bold text-gray-800 mb-8">Members</h1>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             <!-- Card 1 - Elie Francis -->
-            <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative" *ngFor="let author of authors;">
+            <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative group" *ngFor="let author of authors;">
                 <!--<div class="transform transition duration-300 hover:scale-105">
                     </div>-->
+                <div class="absolute top-3 right-3 flex opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <i class="fa-solid fa-pen-clip transition-transform duration-200 hover:scale-125 cursor-pointer" [routerLink]="['/Dashboard/Update-members', slugify(author.name), author.guid]"></i>
+                </div>
 
-                <a [routerLink]="['Member', author.name, author.guid]" class="absolute inset-0 z-10 cursor-pointer">
-                </a>
+                <!-- <a [routerLink]="['/Dashboard/Update-members', slugify(author.name), author.guid]"
+                    class="absolute inset-0 z-10 cursor-pointer">
+                </a> -->
                 <img [src]="author.image" alt="Elie Francis" class="w-36 h-auto object-cover rounded-l-xl">
                 <div class="p-4 flex flex-col justify-between flex-1">
                     <div>
@@ -19,6 +24,13 @@
                         <p class="text-gray-600 text-sm mt-2 truncate-text">
                             {{ author.description }}
                         </p>
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 30 30" fill="none">
+                                <path d="M3.75 8.75C3.75 8.08696 4.01339 7.45107 4.48223 6.98223C4.95107 6.51339 5.58696 6.25 6.25 6.25H23.75C24.413 6.25 25.0489 6.51339 25.5178 6.98223C25.9866 7.45107 26.25 8.08696 26.25 8.75V21.25C26.25 21.913 25.9866 22.5489 25.5178 23.0178C25.0489 23.4866 24.413 23.75 23.75 23.75H6.25C5.58696 23.75 4.95107 23.4866 4.48223 23.0178C4.01339 22.5489 3.75 21.913 3.75 21.25V8.75Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3.75 8.75L15 16.25L26.25 8.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                              <p class="ms-1 text-sm">{{ author.email }}</p>
+                        </div>
                     </div>
                     <!-- <div class="flex items-center space-x-3 mt-4 relative z-20 pointer-events-auto">
                         <a *ngIf="author.socialMediaLink" [href]="author.socialMediaLink"

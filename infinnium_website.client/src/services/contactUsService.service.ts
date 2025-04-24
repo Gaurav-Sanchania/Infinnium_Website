@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom, Observable } from "rxjs";
 import { environment } from "../environments/environment";
+import { AuthSessionService } from "../guards/authSession";
 
 @Injectable({
     providedIn: "root",
@@ -11,14 +12,11 @@ import { environment } from "../environments/environment";
 export class ContactUsService {
     private readonly BASE_URL = environment.base_api_Url;
 
-    // const token = localStorage.getItem('jwtToken');
-    // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-    constructor(private httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient, private auth: AuthSessionService) {}
 
     async getAllContactUs(): Promise<{ firstName: string; email: string; message: string; isActive: boolean }[]> {
         try {
-            const token = sessionStorage.getItem('auth-token');
+            const token = this.auth.getToken();
             const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
             const response = await firstValueFrom(
                 this.httpClient.get<{ firstName: string; email: string; message: string; isActive: boolean }[]>
@@ -30,6 +28,7 @@ export class ContactUsService {
         }
     }
 
+    // NOT TO BE USED
     // async getContactUsDetails(id: number): Promise<{ id: number; firstName: string; lastName: string; email: string; message: string; phone: string; }[]> {
     //     try {
     //         const response = await firstValueFrom(
@@ -54,12 +53,13 @@ export class ContactUsService {
 
     updateContactUs(contactUs: any) {
         const formData = new FormData();
-
-      formData.append('isActive', contactUs.isActive);
-      formData.append('Id', contactUs.guid);
+        formData.append('isActive', contactUs.isActive);
+        formData.append('Id', contactUs.guid);
+        const token = this.auth.getToken();
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
         try {
-            this.httpClient.post(`${this.BASE_URL}/ContactUsController/UpdateContactUs`, formData).subscribe();
+            this.httpClient.post(`${this.BASE_URL}/ContactUsController/UpdateContactUs`, formData, {headers}).subscribe();
             return 'Successful';
         } catch (error) {
             console.log(error);
@@ -67,6 +67,7 @@ export class ContactUsService {
         }
     }
 
+    // NOT TO BE USED
     // deleteContactUs(id: number) {
     //     try {
     //         this.httpClient.delete(`https://localhost:7046/ContactUsController/DeleteContactUs/${id}`).subscribe();

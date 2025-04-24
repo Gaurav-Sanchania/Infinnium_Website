@@ -21,6 +21,7 @@ import { QuillModule } from 'ngx-quill';
 export class EditBlogComponent implements OnInit {
   blogForm!: FormGroup;
   showPopup = false;
+  showNewsPopup = false;
   blogId: any = "";
   previewUrl: string | ArrayBuffer | null = null;
   originalFile: File | null = null;
@@ -40,7 +41,7 @@ export class EditBlogComponent implements OnInit {
 
     this.blogId = this.route.snapshot.paramMap.get('guid');
     const url = this.router.url;
-    if (url.startsWith('/edit-blog')) {
+    if (url.startsWith('/Dashboard/edit-blog')) {
       this.category = 'blog';
       this.blogService.getBlogDetails(this.blogId).then((blog) => {
         const formattedDate = blog.publishedDate.split(' ')[0];
@@ -54,7 +55,7 @@ export class EditBlogComponent implements OnInit {
         });
         this.previewUrl = blog.image;
       });
-    } else if (url.startsWith('/edit-news')) {
+    } else if (url.startsWith('/Dashboard/edit-news')) {
       this.category = 'news';
       this.newsService.getNewsDetails(this.blogId).then((blog) => {
         const formattedDate = blog.publishedDate.split(' ')[0];
@@ -108,18 +109,20 @@ export class EditBlogComponent implements OnInit {
       //console.log(this.blogForm.value);
       if (this.category == 'blog') {
         this.blogService.editBlog(blog);
+        this.showPopup = true;
       } else {
         this.newsService.editNewsAndEvents(blog);
+        this.showNewsPopup = true;
       }
-      this.showPopup = true;
       this.blogForm.reset();
     } else {
       this.blogForm.markAllAsTouched();
     }
   }
-
+  
   closePopup(): void {
     this.showPopup = false;
+    this.showNewsPopup = false;
     this.router.navigateByUrl(`/Dashboard`);
   }
 }

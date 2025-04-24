@@ -23,4 +23,12 @@ export class RecentBlogsComponent implements OnInit {
     this.recentBlogs = await this.blogsService.getTop3Blogs();
     this.recentNews = await this.newsService.getTop3News();
   }
+
+  slugify(str: string) {
+    return str
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')        // Remove special characters
+      .replace(/\s+/g, '-')            // Replace spaces with -
+      .replace(/--+/g, '-');           // Collapse multiple dashes
+  }
 }

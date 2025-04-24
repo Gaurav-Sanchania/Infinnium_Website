@@ -10,13 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Add login section
+// Add login credentials
 builder.Services.Configure<LoginConfig>(builder.Configuration.GetSection("LoginCredentials"));
 builder.Services.AddSingleton<LoginConfig>();
 
 // Add Encryption Settings
 builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionKey"));
 builder.Services.AddSingleton<EncryptionHelper>();
+
+// Add JWT token blacklist service
+builder.Services.AddSingleton<ITokenBlacklistService, JwtTokenBlacklistService>();
 
 // Configure JWT Settings
 var jwtSettings = new JwtSettings();

@@ -82,7 +82,7 @@ export class BlogsService {
   }[]> {
     // https://localhost:7046/BlogsController/GetAllBlogs
     try {
-      const token = sessionStorage.getItem('auth-token');
+      const token = this.auth.getToken();
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const response = await firstValueFrom(
         this.httpClient.get<{
@@ -116,8 +116,11 @@ export class BlogsService {
         formData.append('PublishedDate', blog.publishedDate);
         formData.append('AuthorId', blog.authorId);
         formData.append('ImageName', blog.image.name);
+        
+        const token = this.auth.getToken();
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-        this.httpClient.post(`${this.BASE_URL}/BlogsController/AddBlog`, formData).subscribe();
+        this.httpClient.post(`${this.BASE_URL}/BlogsController/AddBlog`, formData, {headers}).subscribe();
             return 'Successful';
         } catch (error) {
             // console.log(error);
@@ -139,9 +142,10 @@ export class BlogsService {
       formData.append('isActive', blog.isActive);
       formData.append('Id', blog.id);
 
-      //console.log(formData);
+      const token = this.auth.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-      this.httpClient.post(`${this.BASE_URL}/BlogsController/EditBlog`, formData).subscribe();
+      this.httpClient.post(`${this.BASE_URL}/BlogsController/EditBlog`, formData, {headers}).subscribe();
       return 'Successful';
     } catch (error) {
       // console.log(error);
@@ -151,7 +155,9 @@ export class BlogsService {
 
     deleteBlog(id: number) {
         try {
-            this.httpClient.post(`${this.BASE_URL}/BlogsController/DeleteBlog/${id}`, id).subscribe();
+            const token = this.auth.getToken();
+            const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+            this.httpClient.post(`${this.BASE_URL}/BlogsController/DeleteBlog/${id}`, id, {headers}).subscribe();
             return 'Successful';
         } catch (error) {
             // console.log(error);
@@ -161,7 +167,9 @@ export class BlogsService {
 
   updateStatus(data: any) {
     try {
-      this.httpClient.post(`${this.BASE_URL}/BlogsController/SetisActive`, data).subscribe();
+      const token = this.auth.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+      this.httpClient.post(`${this.BASE_URL}/BlogsController/SetisActive`, data, {headers}).subscribe();
       return 'Successful';
     } catch (error) {
       return error;

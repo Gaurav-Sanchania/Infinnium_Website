@@ -11,8 +11,8 @@ export class AdminGuard implements CanActivate {
   constructor(private router: Router, private auth: AuthSessionService) {}
 
   canActivate(): boolean {
-    // const isAdminLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';
     if (this.auth.isLoggedIn()) {
+      localStorage.getItem('isAdminLoggedIn');
       return true;
     } else {
       this.router.navigate(['/Login']);
@@ -21,7 +21,7 @@ export class AdminGuard implements CanActivate {
   }
 
   canDeactivate(component: AdminDashboardComponent): boolean {
-    localStorage.removeItem('isAdminLoggedIn');
+    // localStorage.removeItem('isAdminLoggedIn');
     return component.canDeactivate ? component.canDeactivate() : true;
   }
 }

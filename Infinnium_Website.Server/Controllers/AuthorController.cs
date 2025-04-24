@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Infinnium_Website.Server.Controllers
 {
@@ -103,6 +104,120 @@ namespace Infinnium_Website.Server.Controllers
                 con.Close();
             }
             return author;
+        }
+
+        // -----------------------------------------------------------------------------------------------------------------------
+
+        // POST: AuthorController/AddAuthor
+        [HttpPost]
+        [Authorize]
+        [Route("AddAuthor")]
+        public void AddAuthor()
+        {
+            var member = new AddAuthorModel
+            {
+                Name = Request.Form["Name"],
+                Email = Request.Form["Email"],
+                Description = Request.Form["Description"],
+                Designation = Request.Form["Designation"],
+                LinkedInLink = Request.Form["LinkedInLink"],
+                ImageName = Request.Form["ImageName"],
+            };
+
+            IFormFile Image = Request.Form.Files["Image"];
+
+            string cs = config.GetConnectionString("InfinniumDB");
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Authors]", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@case", 3);
+                cmd.Parameters.AddWithValue("@Name", member.Name);
+                cmd.Parameters.AddWithValue("@Email", member.Email);
+                cmd.Parameters.AddWithValue("@Description", member.Description);
+                cmd.Parameters.AddWithValue("@Designation", member.Designation);
+                cmd.Parameters.AddWithValue("@SocialLink", member.LinkedInLink);
+
+                if (Image != null)
+                {
+                    byte[] imageData;
+                    using (var binaryReader = new BinaryReader(Image.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)Image.Length);
+                    }
+                    cmd.Parameters.AddWithValue("@Images", imageData);
+                    cmd.Parameters.AddWithValue("@ImageName", member.ImageName);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@Images", null);
+                    cmd.Parameters.AddWithValue("@ImageName", null);
+                }
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+        }
+
+        // POST: AuthorController/EditAuthorDetails
+        [HttpPost]
+        [Authorize]
+        [Route("EditAuthorDetails")]
+        public void EditAuthorDetails()
+        {
+            var member = new EditAuthorModel
+            {
+                Name = Request.Form["Name"],
+                Email = Request.Form["Email"],
+                Designation = Request.Form["Designation"],
+                Description = Request.Form["Description"],
+                LinkedInLink = Request.Form["LinkedInLink"],
+                Guid = Request.Form["Guid"],
+                ImageName = Request.Form["ImageName"]
+            };
+
+            IFormFile Image = Request.Form.Files["Image"];
+
+            string cs = config.GetConnectionString("InfinniumDB");
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Authors]", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@case", 5);
+                cmd.Parameters.AddWithValue("@ShortGuid", member.Guid);
+                cmd.Parameters.AddWithValue("@Name", member.Name);
+                cmd.Parameters.AddWithValue("@Email", member.Email);
+                cmd.Parameters.AddWithValue("@Description", member.Description);
+                cmd.Parameters.AddWithValue("@Designation", member.Designation);
+                cmd.Parameters.AddWithValue("@SocialLink", member.LinkedInLink);
+
+                if (Image != null)
+                {
+                    byte[] imageData;
+                    using (var binaryReader = new BinaryReader(Image.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)Image.Length);
+                    }
+                    cmd.Parameters.AddWithValue("@Image", imageData);
+                    cmd.Parameters.AddWithValue("@ImageName", member.ImageName);
+                }
+                //else
+                //{
+                //    cmd.Parameters.AddWithValue("@Images", null);
+                //    cmd.Parameters.AddWithValue("@ImageName", null);
+                //}
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
         }
 
         // -----------------------------------------------------------------------------------------------------------------------

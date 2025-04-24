@@ -50,9 +50,16 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges{
       slideClasses.forEach(cls => this.renderer.addClass(slide, cls));
       this.renderer.addClass(slide, index === 0 ? "opacity-100" : "opacity-0");
 
+      const maxLength = 90;
+        let title = post.title;
+
+        if (title.length > maxLength) {
+          title = title.slice(0, maxLength) + '...';
+        }
+
       slide.innerHTML = `
-        <div class="w-full md:w-1/3">
-          <img src="${post.image}" alt="Blog Image" class="w-full h-auto rounded-lg object-cover" />
+        <div class="w-full md:w-1/3 h-60 overflow-hidden">
+          <img src="${post.image}" alt="Blog Image" class="w-full h-full object-cover rounded-lg" />
         </div>
         <div class="w-full md:w-2/3 mt-4 md:mt-0 flex flex-col justify-between min-h-[234px]">
           <div>
@@ -64,7 +71,7 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges{
               day: 'numeric'
             })}
           </div>
-            <h2 class="text-xl md:text-2xl font-semibold mb-3">${post.title}</h2>
+            <h2 class="text-xl md:text-2xl font-semibold mb-3">${title}</h2>
             <p class="text-gray-200 text-sm mb-4 line-clamp-2">${post.brief}</p>
           </div>
           
