@@ -4,6 +4,7 @@ import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs";
 import { environment } from "../environments/environment";
 import { AuthSessionService } from "../guards/authSession";
+import { Router } from "@angular/router";
 
 @Injectable({
     providedIn: "root",
@@ -14,7 +15,7 @@ export class LoginService {
 
     // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    constructor(private httpClient: HttpClient, private auth: AuthSessionService) {}
+    constructor(private httpClient: HttpClient, private auth: AuthSessionService, private router: Router) {}
 
     async loginValidation(loginCredentials: any): Promise<boolean> {
       const email = loginCredentials.email;
@@ -48,9 +49,45 @@ export class LoginService {
         if(response) {
           // console.log(response);
           this.auth.setToken(String(response));
+          this.setupTokenExpirationTimer(response);
         }
       } catch (error) {
         console.error('Token generation failed:', error);
+      }
+    }
+
+    setupTokenExpirationTimer(token: string) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const expirationTime = payload.exp * 1000; // Convert to milliseconds
+
+      const timeUntilExpiration = expirationTime - Date.now();
+      
+      if (timeUntilExpiration > 0) {
+        setTimeout(() => {
+          this.logout();
+        }, timeUntilExpiration);
+      } else {
+        this.logout();
+      }
+    }
+    
+    async logout() {
+      localStorage.removeItem('isAdminLoggedIn');
+
+      try {
+        // const response = await firstValueFrom(
+        //   this.httpClient.post(`${this.BASE_URL}/AdminController/Logout`, null, { responseType: 'text' })
+        // );
+
+        // if(response) {
+          // console.log(response);
+          setTimeout(() => {
+            this.auth.clearToken();
+            this.router.navigate(['/Login']);
+          }, 500);
+        // }
+      } catch (error) {
+        console.error('Logout API failed:', error);
       }
     }
 

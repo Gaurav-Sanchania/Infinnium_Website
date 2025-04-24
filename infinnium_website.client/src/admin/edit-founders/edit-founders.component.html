@@ -1,0 +1,132 @@
+<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->
+<app-navbar></app-navbar>
+
+<section class="bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
+    <div class="mt-[3rem] max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Member Details</h2>
+
+        <form [formGroup]="memberForm" (ngSubmit)="onSubmit()" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Left side: Name, Designation, Email -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" name="name" formControlName="name"
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                            <div *ngIf="memberForm.get('name')?.touched && memberForm.get('name')?.invalid"
+                                class="text-sm text-red-500 mt-1">
+                                Name is required.
+                            </div>
+                        </div>
+                        <div class="">
+                            <label class="block text-sm font-medium text-gray-700">Designation</label>
+                            <input type="text" name="designation" formControlName="designation"
+                                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                            <div *ngIf="memberForm.get('designation')?.touched && memberForm.get('designation')?.invalid"
+                                class="text-sm text-red-500 mt-1">
+                                Designation is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email</label>
+                        <div
+                            class="mt-1 flex items-center border border-gray-300 rounded-lg bg-white focus-within:ring-2 focus-within:ring-blue-500">
+                            <span class="pl-3 text-black">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <input type="email" name="email" formControlName="email"
+                                class="flex-1 px-3 py-2 outline-none text-gray-800 bg-transparent" />
+                        </div>
+                        <div *ngIf="memberForm.get('email')?.touched && memberForm.get('email')?.invalid"
+                            class="text-sm text-red-500 mt-1">
+                            Email is required.
+                        </div>
+                    </div>
+                    <!-- LinkedIn Link -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">LinkedIn</label>
+                        <div
+                            class="mt-1 flex items-center border border-gray-300 rounded-lg bg-white focus-within:ring-2 focus-within:ring-blue-500">
+                            <span class="pl-3 text-black">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </span>
+                            <input type="url" name="linkedin" formControlName="linkedin"
+                                class="flex-1 px-3 py-2 outline-none text-gray-800 bg-transparent" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side: Profile Photo and Upload -->
+                <div class="flex flex-col items-center justify-start space-y-4">
+                    <div class="w-50 h-50 overflow-hidden border border-gray-300 rounded-lg">
+                        <img [src]="previewUrl" alt="Profile Photo" class="object-cover w-full h-full" />
+                    </div>
+                    <div class="w-50">
+                        <label class="block text-sm font-medium text-gray-700">Upload Photo</label>
+                        <input type="file" accept="image/*" name="profilePhoto" (change)="onFileChange($event)"
+                            class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:border-0 file:rounded-full file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" />
+                        <div *ngIf="memberForm.get('image')?.touched && memberForm.get('image')?.invalid"
+                            class="text-sm text-red-500 mt-1">
+                            Image is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Description</label>
+                <quill-editor formControlName="description"
+                    class="w-full rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    [modules]="{ toolbar: [['bold', 'italic'], ['link', 'blockquote', 'code-block'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]] }">
+                </quill-editor>
+                <div *ngIf="memberForm.get('description')?.touched && memberForm.get('description')?.invalid"
+                    class="text-sm text-red-500 mt-1">
+                    Description is required.
+                </div>
+            </div>
+
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> -->
+            <div class="">
+                <!-- IsActive Toggle
+                <div class="flex items-center justify-end gap-4 mt-[1rem]">
+                    <span class="text-sm font-medium" [class.text-green-600]="memberForm.get('isActive')?.value"
+                        [class.text-red-600]="!memberForm.get('isActive')?.value">
+                        {{ memberForm.get('isActive')?.value ? 'Active' : 'Inactive' }}
+                    </span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="isActive" formControlName="isActive" class="sr-only peer" />
+                        <div
+                            class="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer-checked:bg-green-500 transition-all duration-300">
+                        </div>
+                        <div
+                            class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 peer-checked:translate-x-5">
+                        </div>
+                    </label>
+                </div> -->
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4">
+                <button type="submit"
+                    class="w-full bg-[#E76F51] border-[#E76F51] text-white py-2 px-4 rounded-lg hover:bg-[#D65C3D] focus:outline-none focus:ring-2 focus:ring-blue-400 font-medium cursor-pointer">
+                    Update Member Details
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div *ngIf="showPopup" class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg shadow-xl text-center max-w-sm">
+      <h3 class="text-xl font-semibold mb-4">Form Submitted!</h3>
+      <p class="mb-6">Your Member Detials has been successfully updated.</p>
+      <button (click)="closePopup()" class="border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
+        OK
+      </button>
+    </div>
+</div>
+
+<app-footer></app-footer>

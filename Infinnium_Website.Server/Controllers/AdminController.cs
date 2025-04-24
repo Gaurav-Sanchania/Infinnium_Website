@@ -1,4 +1,6 @@
-﻿using Infinnium_Website.Server.Models.Admin;
+﻿using System.IdentityModel.Tokens.Jwt;
+using Infinnium_Website.Server.Interfaces;
+using Infinnium_Website.Server.Models.Admin;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -7,12 +9,13 @@ namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
     [Route("AdminController")]
-    public class AdminController(IConfiguration configuration, EncryptionHelper encryptionHelper) : Controller
+    public class AdminController(IConfiguration configuration, EncryptionHelper encryptionHelper, ITokenBlacklistService blacklistService) : Controller
     {
         private readonly IConfiguration config = configuration;
         private readonly EncryptionHelper encryptionHelper = encryptionHelper;
+        private readonly ITokenBlacklistService jwtBlacklist = blacklistService;
 
-        // POST: AdminController/CheckUser/
+        // POST: AdminController/CheckUser
         [HttpPost]
         [Route("CheckUser")]
         public bool CheckUser(AdminModel adminModel)
@@ -42,6 +45,29 @@ namespace Infinnium_Website.Server.Controllers
                 con.Close();
             }
             return isUserValid;
+        }
+
+        // POST: AdminController/Logout
+        [HttpPost]
+        [Route("Logout")]
+        public IActionResult Logout()
+        {
+            var token = HttpContext.Request.Headers.Authorization.ToString().Replace("Bearer ", "");
+
+            try
+            {
+                var handler = new JwtSecurityTokenHandler();
+                var jwtToken = handler.ReadJwtToken(token);
+                var expiry = jwtToken.ValidTo;
+
+                jwtBlacklist.BlacklistToken(token, expiry);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return Ok(new { message = "Logged out successfully" });
         }
 
         //-------------------------------------------------------------------------------------------------------------------------

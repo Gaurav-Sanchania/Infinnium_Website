@@ -20,7 +20,15 @@ export class FoundersComponent implements OnInit {
     this.authors = await this.authorService.getAllAuthors();
   }
 
-  // goToMember(author: any) {
-  //   this.router.navigate(['Member', author.name, author.guid]);
-  // }
+  slugify(str: string) {
+    return str
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')        // Remove special characters
+      .replace(/\s+/g, '-')            // Replace spaces with -
+      .replace(/--+/g, '-');           // Collapse multiple dashes
+  }
+
+  editMember(member: any) {
+    console.log(member);
+  }
 }

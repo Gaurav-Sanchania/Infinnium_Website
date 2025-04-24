@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs";
 import { environment } from "../environments/environment";
+import { AuthSessionService } from "../guards/authSession";
 
 @Injectable({
     providedIn: "root",
@@ -12,10 +13,7 @@ import { environment } from "../environments/environment";
 export class NewsService {
     private readonly BASE_URL = environment.base_api_Url;
 
-    // const token = localStorage.getItem('jwtToken');
-    // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-    constructor(private httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient, private auth: AuthSessionService) {}
 
   async getAllNews(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
     imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {
@@ -80,7 +78,7 @@ export class NewsService {
     imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; isActive: boolean;
   }[]> {
     try {
-      const token = sessionStorage.getItem('auth-token');
+      const token = this.auth.getToken();
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       const response = await firstValueFrom(
         this.httpClient.get<{
@@ -116,7 +114,10 @@ export class NewsService {
         formData.append('AuthorId', blog.authorId);
         formData.append('ImageName', blog.image.name);
 
-        this.httpClient.post(`${this.BASE_URL}/NewsAndEventsController/AddNews`, formData).subscribe();
+        const token = this.auth.getToken();
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+        this.httpClient.post(`${this.BASE_URL}/NewsAndEventsController/AddNews`, formData, {headers}).subscribe();
         return 'Successful';
       } catch (error) {
         // console.log(error);
@@ -138,9 +139,10 @@ export class NewsService {
       formData.append('isActive', blog.isActive);
       formData.append('Id', blog.id);
 
-      //console.log(formData);
+      const token = this.auth.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-      this.httpClient.post(`${this.BASE_URL}/NewsAndEventsController/EditNews`, formData).subscribe();
+      this.httpClient.post(`${this.BASE_URL}/NewsAndEventsController/EditNews`, formData, {headers}).subscribe();
       return 'Successful';
     } catch (error) {
       // console.log(error);
@@ -150,6 +152,7 @@ export class NewsService {
 
     // --------------------------------------------------------------------------------------------------------------------------------------------------
 
+    // NOT TO BE USED
     deleteNewsAndEvents(id: number) {
         try {
             this.httpClient.post(`${this.BASE_URL}/NewsAndEventsController/DeleteNews/${id}`, id).subscribe();
