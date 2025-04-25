@@ -5,7 +5,7 @@ import { AdminGuard } from '../guards/admin.guard';
 export { routes as adminRoutes } from './admin-routing.module';
 
 export const routes: Routes = [
-  { path: 'Login', 
+  { path: 'login', 
     loadComponent: () => import('./admin-login/admin-login.component').then( m => m.AdminLoginComponent ) },
   { path: 'Dashboard', 
     loadComponent: () => import('./admin-dashboard/admin-dashboard.component').then( m => m.AdminDashboardComponent ), 

@@ -18,7 +18,6 @@ export class AdminLoginComponent {
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl("", [
-      Validators.required,
       Validators.email,
       Validators.maxLength(50)
     ]),
