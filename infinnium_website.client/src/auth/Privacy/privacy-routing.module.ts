@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 export { routes as policyRoutes } from './privacy-routing.module';
 
 export const routes: Routes = [
-  { path: 'Privacy-Policy', loadComponent: () => import('./privacy-policy/privacy-policy.component').then( m => m.PrivacyPolicyComponent ) }
+  { path: 'privacy-policy', loadComponent: () => import('./privacy-policy/privacy-policy.component').then( m => m.PrivacyPolicyComponent ) }
 ];
 
 @NgModule({

@@ -3,17 +3,19 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs";
-import { environment } from "../environments/environment";
 import { AuthSessionService } from "../guards/authSession";
+import { ConfigService } from "./configService.service";
 
 @Injectable({
     providedIn: "root",
 })
 
 export class NewsService {
-    private readonly BASE_URL = environment.base_api_Url;
+  private BASE_URL;
 
-    constructor(private httpClient: HttpClient, private auth: AuthSessionService) {}
+    constructor(private httpClient: HttpClient, private auth: AuthSessionService, private config: ConfigService) {
+      this.BASE_URL = this.config.apiBaseUrl;
+    }
 
   async getAllNews(): Promise<{ id: number; title: string; description: string; brief: string; publishedDate: string; image: string;
     imageName: string; authorId: number; authorName: string; authorEmail: string; authorDepartment: string; guid: string; }[]> {

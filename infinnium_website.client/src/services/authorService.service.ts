@@ -4,17 +4,19 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs/internal/firstValueFrom";
 import { Observable } from "rxjs/internal/Observable";
-import { environment } from "../environments/environment";
 import { AuthSessionService } from "../guards/authSession";
+import { ConfigService } from "./configService.service";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthorService {
-  private readonly BASE_URL = environment.base_api_Url;
-
-  constructor(private httpClient: HttpClient, private auth: AuthSessionService) { }
+  private BASE_URL;
+  
+  constructor(private httpClient: HttpClient, private auth: AuthSessionService, private config: ConfigService) { 
+    this.BASE_URL = this.config.apiBaseUrl;
+  }
 
   async getAllAuthors(): Promise<{ id: number; name: string; description: string; email: string; designation: string; guid: string; image: string; socialMediaLink: string; }[]> {
     try {

@@ -2,20 +2,22 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { firstValueFrom } from "rxjs";
-import { environment } from "../environments/environment";
 import { AuthSessionService } from "../guards/authSession";
 import { Router } from "@angular/router";
+import { ConfigService } from "./configService.service";
 
 @Injectable({
     providedIn: "root",
 })
 
 export class LoginService {
-    private readonly BASE_URL = environment.base_api_Url;
+  private BASE_URL;
 
     // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    constructor(private httpClient: HttpClient, private auth: AuthSessionService, private router: Router) {}
+    constructor(private httpClient: HttpClient, private auth: AuthSessionService, private router: Router, private config: ConfigService) {
+      this.BASE_URL = this.config.apiBaseUrl;
+    }
 
     async loginValidation(loginCredentials: any): Promise<boolean> {
       const email = loginCredentials.email;

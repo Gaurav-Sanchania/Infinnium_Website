@@ -14,7 +14,11 @@ import { RouterLink } from '@angular/router';
 })
 export class FormComponent {
   isVisible = false;
+  isInValid = false;
+  submitted = false;
   message = '';
+  baseStyle = "w-full border rounded-lg p-3 focus:outline-none focus:ring-1";
+  invalidStyle = "w-full border border-red-600 rounded-lg p-3 focus:outline-none focus:ring-1 focus:ring-red-900 pr-10";
 
   show(message: string) {
     this.message = message;
@@ -34,8 +38,10 @@ export class FormComponent {
 
   onSubmit() {
     // console.log(this.contactUsForm.value);
+    this.submitted = true;
 
     if (this.contactUsForm.valid) {
+      this.isInValid = false;
       this.contactUsService.addContactUs(this.contactUsForm.value.name, this.contactUsForm.value.email, this.contactUsForm.value.description);
 
       // Send Email to user
@@ -54,7 +60,9 @@ export class FormComponent {
         }
       });
     } else {
-      console.log('Form is invalid');
+      this.isInValid = true;
+      this.contactUsForm.markAllAsTouched();
+      // console.log('Form is invalid');
     }
   }
 }

@@ -7,7 +7,7 @@ export { routes as productRoutingModule } from './product-routing.module';
 
 export const routes: Routes = [
   {
-    path: 'Products',
+    path: 'products',
     children: [
       { path: '4ig', component: ProductLayoutComponent },
       { path: 'breach-profiler', component: Product2LayoutComponent },

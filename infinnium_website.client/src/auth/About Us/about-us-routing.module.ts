@@ -6,10 +6,10 @@ export { routes as aboutUsRoutes } from './about-us-routing.module';
 
 export const routes: Routes = [
   {
-    path: 'AboutUs',
+    path: 'aboutUs',
     children: [
       { path: '', component: AboutUsLayoutComponent },
-      { path: 'Member/:name/:guid', component: MemberLayoutComponent }
+      { path: 'member/:name/:guid', component: MemberLayoutComponent }
     ]
   }
 ];

@@ -14,6 +14,7 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges{
   @Input() top3Blogs: any = [];
   @Input() top3News: any = [];
 
+  routePart = "";
   currentBlogIndex: number = 0;
   blogsPerPage: number = 6;
 
@@ -40,22 +41,33 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges{
     const top3 = (this.category == 'Blogs') ? this.top3Blogs.slice(0, 3) : this.top3News.slice(0, 3);
     //console.log(top3);
 
+    this.routePart = (this.category == 'Blogs') ? "blogs" : "news-and-events";
+
     top3.forEach((post: any, index: number) => {
       const slideLink = this.renderer.createElement('a');
-      this.renderer.setAttribute(slideLink, 'href', post.link);
       this.renderer.addClass(slideLink, 'block');
-
+      
       const slide = this.renderer.createElement('div');
       const slideClasses = ["slide", "absolute", "inset-0", "transition-opacity", "duration-1000", "flex", "flex-col", "md:flex-row", "items-center", "space-x-0", "md:space-x-8"];
       slideClasses.forEach(cls => this.renderer.addClass(slide, cls));
       this.renderer.addClass(slide, index === 0 ? "opacity-100" : "opacity-0");
-
+      
       const maxLength = 90;
-        let title = post.title;
+      let title = post.title;
+      this.renderer.setAttribute(slideLink, 'href', `/resources/${this.routePart}/${slugify(title)}/${post.guid}`);
 
         if (title.length > maxLength) {
           title = title.slice(0, maxLength) + '...';
         }
+
+        function slugify(str: string) {
+          return str
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, '')        // Remove special characters
+            .replace(/\s+/g, '-')            // Replace spaces with -
+            .replace(/--+/g, '-');           // Collapse multiple dashes
+        }
+        slide.href = `/resources/${this.routePart}/${slugify(title)}/${post.guid}`;
 
       slide.innerHTML = `
         <div class="w-full md:w-1/3 h-60 overflow-hidden">

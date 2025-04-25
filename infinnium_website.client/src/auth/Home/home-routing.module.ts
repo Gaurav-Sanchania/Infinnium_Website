@@ -5,10 +5,7 @@ export { routes as homeRoutingModule } from './home-routing.module';
 
 export const routes: Routes = [
   {
-    path: 'home', component: HomeLayoutComponent
-  },
-  {
-    path: '', redirectTo: 'home', pathMatch: 'full'
+    path: '', component: HomeLayoutComponent, pathMatch: 'full'
   }
 ];
 

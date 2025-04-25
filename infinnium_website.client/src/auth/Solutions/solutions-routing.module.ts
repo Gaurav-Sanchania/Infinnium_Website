@@ -5,7 +5,7 @@ export { routes as solutionRoutes } from './solutions-routing.module';
 
 export const routes: Routes = [
   {
-    path: 'Solutions',
+    path: 'solutions',
     children: [
       { path: 'breach-response', component: Solution1LayoutComponent },
       { path: 'unified-information-governance',

@@ -44,17 +44,12 @@
               "node_modules/quill/dist/quill.snow.css"
             ],
             "scripts": [
-              "./node_modules/aos/dist/aos.js"
+              "./node_modules/aos/dist/aos.js",
+              "src/assets/myConfig.js"
             ]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -114,7 +109,6 @@
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
-            "scripts": [],
             "karmaConfig": "karma.conf.js"
           }
         },

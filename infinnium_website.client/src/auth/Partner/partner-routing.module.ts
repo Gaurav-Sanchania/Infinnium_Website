@@ -5,7 +5,7 @@ export { routes as partnerRoutes } from './partner-routing.module';
 
 export const routes: Routes = [
   {
-    path: 'Partner', component: PartnerLayoutComponent
+    path: 'partner', component: PartnerLayoutComponent
   }
 ];
 
