@@ -39,7 +39,7 @@ export class BlogListComponent implements OnInit {
   }
   navigateEditBlog() {
     this.closePopup();
-    this.route.navigateByUrl(`Dashboard/edit-blog/${this.blog_edit.guid}`);
+    this.route.navigateByUrl(`dashboard/edit-blog/${this.blog_edit.guid}`);
   }
 
   editNews(blog: any){
@@ -48,7 +48,7 @@ export class BlogListComponent implements OnInit {
   }
   navigateEditNewsBlog() {
     this.closePopup();
-    this.route.navigateByUrl(`Dashboard/edit-news/${this.news_edit.guid}`);
+    this.route.navigateByUrl(`dashboard/edit-news/${this.news_edit.guid}`);
   }
 
   //deleteBlog(id: number) {

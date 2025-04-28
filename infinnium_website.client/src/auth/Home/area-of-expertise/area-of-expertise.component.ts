@@ -41,14 +41,14 @@ export class AreaOfExpertiseComponent implements AfterViewInit {
     }, observerOptions);
 
     cards.forEach((card: HTMLElement) => {
-      //card.style.opacity = '0';
+      card.style.opacity = '0';
       observer.observe(card);
     });
 
     const gridObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          //(entry.target as HTMLElement).style.opacity = '1';
+          (entry.target as HTMLElement).style.opacity = '1';
           obs.unobserve(entry.target);
         }
       });

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -42,7 +41,7 @@ export class OurProductsComponent implements AfterViewInit {
     }, observerOptions);
 
     productItems.forEach((item: HTMLElement) => {
-      //item.style.opacity = '0';
+      item.style.opacity = '0';
       productObserver.observe(item);
     });
 
@@ -50,7 +49,7 @@ export class OurProductsComponent implements AfterViewInit {
     headerElements.forEach((el: HTMLElement) => {
       //el.style.opacity = '0';
       setTimeout(() => {
-        //el.style.opacity = '1';
+        el.style.opacity = '1';
       }, 500);
     });
   }

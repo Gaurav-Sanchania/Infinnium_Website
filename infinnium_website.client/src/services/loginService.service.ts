@@ -85,7 +85,7 @@ export class LoginService {
           // console.log(response);
           setTimeout(() => {
             this.auth.clearToken();
-            this.router.navigate(['/Login']);
+            this.router.navigate(['/login']);
           }, 500);
         // }
       } catch (error) {

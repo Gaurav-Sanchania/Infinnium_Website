@@ -5,7 +5,8 @@
 
     <!-- Container for all blogs in a row -->
     <div class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
-      <div class="h-[29rem] bg-black border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group"
+      <div
+        class="h-[29rem] bg-black border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group"
         *ngFor="let blog of blogs; let i = index;">
         <!-- Red exclamation icon if blog is not active -->
         <div class="absolute bottom-[1.9rem] right-[4rem] text-red-600 text-xs" title="Inactive blog">
@@ -49,7 +50,8 @@
             <p class="text-gray-700 dark:text-gray-700">
               <i class="far fa-calendar-alt mr-1"></i> {{ blog.publishedDate | date: 'longDate' }}
             </p>
-            <a [routerLink]="['/Resources/Blogs/', slugify(blog.title), blog.guid]" class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-1 inline-block hover:underline cursor-pointer">
+            <a [routerLink]="['/Resources/Blogs/', slugify(blog.title), blog.guid]"
+              class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-1 inline-block hover:underline cursor-pointer">
               Read More →
             </a>
           </div>
@@ -119,7 +121,8 @@
             <p class="text-gray-700 dark:text-gray-700">
               <i class="far fa-calendar-alt mr-1"></i> {{ blog.publishedDate | date: 'longDate' }}
             </p>
-            <a [routerLink]="['/Resources/News-and-Events/', slugify(blog.title), blog.guid]" class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-1 inline-block hover:underline cursor-pointer">
+            <a [routerLink]="['/Resources/News-and-Events/', slugify(blog.title), blog.guid]"
+              class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-1 inline-block hover:underline cursor-pointer">
               Read More →
             </a>
           </div>
@@ -130,8 +133,15 @@
   </div>
 </section>
 
-<div *ngIf="showDeletePopup" class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+<div *ngIf="showDeletePopup"
+  class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
   <div class="bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
+    <!-- Close Button -->
+    <button
+      class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl sm:text-2xl font-bold focus:outline-none"
+      (click)="closePopup()" aria-label="Close">
+      &times;
+    </button>
     <h3 class="text-xl font-semibold mb-4">Please cofirm before Delete!</h3>
     <p class="mb-6">You are going to delete this blog from the public website <a
         class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
@@ -142,8 +152,15 @@
   </div>
 </div>
 
-<div *ngIf="showEditPopup" class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
-  <div class="bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
+<div *ngIf="showEditPopup"
+  class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+  <div class="relative bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
+    <!-- Close Button -->
+    <button
+      class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl sm:text-2xl font-bold focus:outline-none"
+      (click)="closePopup()" aria-label="Close">
+      &times;
+    </button>
     <h3 class="text-xl font-semibold mb-4">Please cofirm before Edit!</h3>
     <p class="mb-6">
       You are going to edit this blog from the public website <a
@@ -156,8 +173,15 @@
   </div>
 </div>
 
-<div *ngIf="showEditNewsPopup" class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
-  <div class="bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
+<div *ngIf="showEditNewsPopup"
+  class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+  <div class="relative bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
+    <!-- Close Button -->
+    <button
+      class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl sm:text-2xl font-bold focus:outline-none"
+      (click)="closePopup()" aria-label="Close">
+      &times;
+    </button>
     <h3 class="text-xl font-semibold mb-4">Please cofirm before Edit!</h3>
     <p class="mb-6">
       You are going to edit this News/Events from the public website <a

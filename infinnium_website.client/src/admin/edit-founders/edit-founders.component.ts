@@ -95,6 +95,6 @@ export class EditFoundersComponent implements OnInit {
 
   closePopup(): void {
     this.showPopup = false;
-    this.router.navigateByUrl(`/Dashboard`);
+    this.router.navigateByUrl(`/dashboard`);
   }
 }

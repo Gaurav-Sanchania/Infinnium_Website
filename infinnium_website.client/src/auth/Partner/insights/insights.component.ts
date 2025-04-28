@@ -1,7 +1,7 @@
 import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+
 @Component({
   standalone: true,
   selector: 'app-insights',
@@ -14,10 +14,12 @@ export class InsightsComponent implements AfterViewInit {
   private hasAnimated = false;
 
   ngAfterViewInit() {
-    if (!this.hasAnimated) {
-      AOS.init({ duration: 1200, once: true });
-      this.initCountUpAnimations();
-    }
+    import('aos').then(AOS => {
+      if (!this.hasAnimated) {
+        AOS.init({ duration: 1200, once: true });
+        this.initCountUpAnimations();
+      }
+    });
   }
 
   initCountUpAnimations() {
