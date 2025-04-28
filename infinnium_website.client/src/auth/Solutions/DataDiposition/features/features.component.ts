@@ -15,7 +15,7 @@ export class FeaturesComponent implements AfterViewInit {
   ngAfterViewInit() {
     import('aos').then(AOS => {
       if (!this.hasAnimated) {
-        AOS.init({ duration: 1200, once: true });
+        AOS.default.init({ duration: 1200, once: true });
         this.initCountUpAnimations();
       }
     });
