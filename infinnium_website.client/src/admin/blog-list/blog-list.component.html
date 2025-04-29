@@ -1,4 +1,4 @@
-<section class="bg-[#EAF5F4] py-10 px-4 sm:px-6 lg:px-20 mt-[3.25rem]"
+<section class="bg-gray-100 py-10 px-4 sm:px-6 lg:px-20 mt-[3.25rem]"
   style="font-family: 'Manrope', 'Open Sans', sans-serif;">
   <div class="max-w-8xl mx-auto">
     <h1 class="text-3xl text-center font-bold text-gray-800 mb-8">BLOGS</h1>
@@ -6,16 +6,16 @@
     <!-- Container for all blogs in a row -->
     <div class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
       <div
-        class="h-[29rem] bg-black border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group"
+        class="h-[29rem] bg-black border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group shadow-md"
         *ngFor="let blog of blogs; let i = index;">
         <!-- Red exclamation icon if blog is not active -->
         <div class="absolute bottom-[1.9rem] right-[4rem] text-red-600 text-xs" title="Inactive blog">
           <!--<i class="fa-solid fa-ban"></i>-->
         </div>
 
-        <label class="absolute bottom-2 right-[4rem] inline-flex items-center cursor-pointer">
+        <label class="absolute bottom-2 right-[4rem] inline-flex items-center cursor-pointer" title="Status">
           <input type="checkbox" id="isActive" [checked]="blog.isActive" class="sr-only peer"
-            (click)="editBlog(blog)" />
+            (click)="toggleEditBlog($event, blog)" />
           <div
             class="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer-checked:bg-[#E76F51] transition-all duration-300">
           </div>
@@ -62,14 +62,14 @@
   </div>
 </section>
 
-<section class="bg-[#12423C] py-10 px-4 sm:px-6 lg:px-20" style="font-family: 'Manrope', 'Open Sans', sans-serif;">
+<section class="bg-gray-100 py-10 px-4 sm:px-6 lg:px-20" style="font-family: 'Manrope', 'Open Sans', sans-serif;">
   <div class="max-w-8xl mx-auto">
-    <h1 class="text-3xl text-center font-bold text-white mb-8">NEWS AND EVENTS</h1>
+    <h1 class="text-3xl text-center font-bold text-gray-800 mb-8">NEWS AND EVENTS</h1>
 
     <!-- Container for all blogs in a row -->
     <div class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
       <div
-        class="h-[29rem] bg-black border border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group"
+        class="h-[29rem] bg-black border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group shadow-md"
         *ngFor="let blog of news; let i = index;">
         <!-- Red exclamation icon if blog is not active -->
         <!--<div *ngIf="blog.isActive === false"
@@ -84,9 +84,9 @@
         <!--<i class="fa-solid fa-check"></i>
         </div>-->
 
-        <label class="absolute bottom-2 right-[4rem] inline-flex items-center cursor-pointer">
+        <label class="absolute bottom-2 right-[4rem] inline-flex items-center cursor-pointer" title="Status">
           <input type="checkbox" id="isActive" [checked]="blog.isActive" class="sr-only peer"
-            (click)="editNews(blog)" />
+            (click)="toggleEditNews($event, blog)" />
           <div
             class="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer-checked:bg-[#E76F51] transition-all duration-300">
           </div>

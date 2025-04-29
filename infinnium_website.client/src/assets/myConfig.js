@@ -1,8 +1,7 @@
 window['myAppConfig'] = {
     // DEV URL
-    apiBaseUrl: 'https://localhost:7046' 
+    apiBaseUrl: 'http://localhost:5063' 
     
     // PROD URL
     // apiBaseUrl: 'http://4igproduction:8082'
   };
-  

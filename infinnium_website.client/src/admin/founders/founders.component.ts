@@ -1,17 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthorService } from '../../services/authorService.service';
 
 @Component({
   standalone: true,
   selector: 'app-founders',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './founders.component.html',
   styleUrl: './founders.component.css'
 })
 export class FoundersComponent implements OnInit {
+  showEditPopup = false;
+  editMemberDetails: any = [];
+
   constructor(private authorService: AuthorService, private router: Router) { }
 
   public authors: any = [];
@@ -29,6 +32,16 @@ export class FoundersComponent implements OnInit {
   }
 
   editMember(member: any) {
-    console.log(member);
+    this.showEditPopup = true;
+    this.editMemberDetails = member;
+  }
+
+  closePopup() {
+    this.showEditPopup = false;
+  }
+
+  navigateEditMember() {
+    // [routerLink]="['/dashboard/update-members', slugify(author.name), author.guid]"
+    this.router.navigateByUrl(`/dashboard/update-members/${this.slugify(this.editMemberDetails.name)}/${this.editMemberDetails.guid}`);
   }
 }

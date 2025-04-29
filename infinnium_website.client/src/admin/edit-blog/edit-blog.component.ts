@@ -29,7 +29,7 @@ export class EditBlogComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private blogService: BlogsService, private newsService: NewsService, private route: ActivatedRoute, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.blogForm = this.fb.group({
       image: [null, Validators.required],
       title: ['', [Validators.required]],
@@ -41,7 +41,7 @@ export class EditBlogComponent implements OnInit {
 
     this.blogId = this.route.snapshot.paramMap.get('guid');
     const url = this.router.url;
-    if (url.startsWith('/Dashboard/edit-blog')) {
+    if (url.startsWith('/dashboard/edit-blog')) {
       this.category = 'blog';
       this.blogService.getBlogDetails(this.blogId).then((blog) => {
         const formattedDate = blog.publishedDate.split(' ')[0];
@@ -55,7 +55,7 @@ export class EditBlogComponent implements OnInit {
         });
         this.previewUrl = blog.image;
       });
-    } else if (url.startsWith('/Dashboard/edit-news')) {
+    } else if (url.startsWith('/dashboard/edit-news')) {
       this.category = 'news';
       this.newsService.getNewsDetails(this.blogId).then((blog) => {
         const formattedDate = blog.publishedDate.split(' ')[0];

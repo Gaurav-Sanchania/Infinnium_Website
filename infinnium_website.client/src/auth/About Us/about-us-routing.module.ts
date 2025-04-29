@@ -7,9 +7,10 @@ export const routes: Routes = [
   {
     path: 'aboutUs',
     children: [
-      { path: '', component: AboutUsLayoutComponent },
+      { path: '', component: AboutUsLayoutComponent,title: "About - Infinnium" },
       { path: 'member/:name/:guid', 
-        loadComponent: () => import('./Members/member-layout/member-layout.component').then( m => m.MemberLayoutComponent) }
+        loadComponent: () => import('./Members/member-layout/member-layout.component').then( m => m.MemberLayoutComponent),
+        title: "About - Infinnium" }
     ]
   }
 ];

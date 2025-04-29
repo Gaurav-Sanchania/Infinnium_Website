@@ -5,7 +5,7 @@ export { routes as contactUsRoutes } from './contact-us-routing.module';
 
 export const routes: Routes = [
   {
-    path: 'contactUs', component: ContactUsLayoutComponent
+    path: 'contactUs', component: ContactUsLayoutComponent, title: "Contact - Infinnium"
   }
 ];
 

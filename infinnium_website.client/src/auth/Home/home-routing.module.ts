@@ -5,7 +5,7 @@ export { routes as homeRoutingModule } from './home-routing.module';
 
 export const routes: Routes = [
   {
-    path: '', component: HomeLayoutComponent, pathMatch: 'full'
+    path: '', component: HomeLayoutComponent, pathMatch: 'full', title: "Infinnium"
   }
 ];
 

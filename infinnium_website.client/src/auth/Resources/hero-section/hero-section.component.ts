@@ -38,6 +38,14 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges{
     const heroSlideshow = this.el.nativeElement.querySelector("#heroslideshow");
     if (!heroSlideshow) return;
 
+    function slugify(str: string) {
+      return str
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')        // Remove special characters
+        .replace(/\s+/g, '-')            // Replace spaces with -
+        .replace(/--+/g, '-');           // Collapse multiple dashes
+    }
+    
     const top3 = (this.category == 'Blogs') ? this.top3Blogs.slice(0, 3) : this.top3News.slice(0, 3);
     //console.log(top3);
 
@@ -54,22 +62,16 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges{
       
       const maxLength = 90;
       let title = post.title;
-      this.renderer.setAttribute(slideLink, 'href', `/resources/${this.routePart}/${slugify(title)}/${post.guid}`);
+      const link = `/resources/${this.routePart}/${slugify(title)}/${post.guid}`;
+      this.renderer.setAttribute(slideLink, 'href', link);
 
         if (title.length > maxLength) {
           title = title.slice(0, maxLength) + '...';
         }
 
-        function slugify(str: string) {
-          return str
-            .toLowerCase()
-            .replace(/[^\w\s-]/g, '')        // Remove special characters
-            .replace(/\s+/g, '-')            // Replace spaces with -
-            .replace(/--+/g, '-');           // Collapse multiple dashes
-        }
-        slide.href = `/resources/${this.routePart}/${slugify(title)}/${post.guid}`;
-
-      slide.innerHTML = `
+        // slide.href = `/resources/${this.routePart}/${slugify(title)}/${post.guid}`;
+        
+        slide.innerHTML = `
         <div class="w-full md:w-1/3 h-60 overflow-hidden">
           <img src="${post.image}" alt="Blog Image" class="w-full h-full object-cover rounded-lg" />
         </div>
@@ -89,8 +91,8 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges{
           
         </div>`;
 
-      this.renderer.appendChild(slideLink, slide);
-      this.renderer.appendChild(heroSlideshow, slideLink);
+        this.renderer.appendChild(slideLink, slide);
+        this.renderer.appendChild(heroSlideshow, slideLink);
     });
   }
 
