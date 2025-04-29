@@ -5,6 +5,7 @@ using Infinnium_Website.Server.Models.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +52,14 @@ builder.Services.AddAuthorization();
 // Injecting EmailService
 builder.Services.AddTransient<IEmailSenderService, EmailSender>();
 
+// Add Logging Services
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("Logs/app-log-.txt", rollingInterval: RollingInterval.Day, shared: true)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+builder.Host.UseSerilog();
+
 // Add CORS
 builder.Services.AddCors(options =>
 {
@@ -75,6 +84,9 @@ builder.Services.AddSingleton<ConnectionStringService>();
 
 var app = builder.Build();
 
+// Example logging
+Log.Information("Application starting up");
+
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
@@ -96,3 +108,5 @@ app.MapControllers();
 app.MapFallbackToFile("/index.html");
 
 app.Run();
+
+Log.CloseAndFlush();

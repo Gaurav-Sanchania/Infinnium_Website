@@ -9,15 +9,18 @@ namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
     [Route("BlogsController")]
-    public class BlogController(ConnectionStringService connectionStringService) : Controller
+    public class BlogController(ConnectionStringService connectionStringService, ILogger<BlogController> logger) : Controller
     {
         private readonly ConnectionStringService config = connectionStringService;
+        private readonly ILogger<BlogController> log = logger;
 
         // GET: BlogController/GetAllBlogs
         [HttpGet]
         [Route("GetAllBlogs")]
         public List<BlogsModel> GetAllBlogs()
         {
+            log.LogInformation("GetAllBlogs endpoint was hit at {Time}", DateTime.UtcNow);
+
             List<BlogsModel> blogs = new List<BlogsModel>();
             string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
@@ -67,6 +70,8 @@ namespace Infinnium_Website.Server.Controllers
         [Route("GetBlogDetails/{id}")]
         public BlogsModel GetBlogDetails(string id)
         {
+            log.LogInformation("GetBlogDetails endpoint was hit at {Time}", DateTime.UtcNow);
+
             BlogsModel blog = new BlogsModel();
             string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
@@ -113,6 +118,8 @@ namespace Infinnium_Website.Server.Controllers
         [Route("Top3Blogs")]
         public List<BlogsModel> Top3Blogs()
         {
+            log.LogInformation("Top3Blogs endpoint was hit at {Time}", DateTime.UtcNow);
+
             List<BlogsModel> blogs = new List<BlogsModel>();
             string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
