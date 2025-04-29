@@ -1,13 +1,13 @@
-<section
-  class="earth relative text-center min-h-screen flex flex-col justify-center py-8 md:py-16 px-4 sm:px-6 bg-white bg-cover bg-center bg-no-repeat"
+<section  #sectionElement
+  class="earth earth_2 relative text-center min-h-screen flex flex-col justify-center py-8 md:py-16 px-4 sm:px-6 bg-white bg-cover bg-center bg-no-repeat"
   style="font-family: 'Manrope', 'Open Sans', sans-serif">
 
   <div class="relative z-10 max-w-3xl mx-auto">
-    <p class="uppercase text-xs sm:text-sm text-[#2A9D8E] font-semibold tracking-wide">INDUSTRIES</p>
-    <h2 class="text-4xl font-semibold mt-2 text-gray-900">
+    <p class="uppercase text-xs sm:text-sm text-[#2A9D8E] font-semibold tracking-wide" data-animate>INDUSTRIES</p>
+    <h2 class="text-4xl font-semibold mt-2 text-gray-900" data-animate>
       Our <span class="italic">Global</span> Impact
     </h2>
-    <p class="text-gray-600 mt-6 max-w-prose mx-auto text-sm sm:text-base px-4">
+    <p class="text-gray-600 mt-6 max-w-prose mx-auto text-sm sm:text-base px-4" data-animate>
       4iG® has become the go-to solution for Compliance Officers, IT Managers, CIOs, Data Protection Officers,
       Digital Transformation Strategists, Information Governance Managers, CISOs, and GCs offering unparalleled
       efficiency and significant cost reductions in managing their data and regulatory requirements.
@@ -17,7 +17,7 @@
   <span class="text-sm sm:text-base">Get In Touch <span class="text-lg ml-2">→</span></span>
 </button>-->
     <button [routerLink]="['/contactUs']"
-      class="common mt-4 sm:mt-[1rem] mx-auto items-center justify-center sm:w-[12rem] sm:h-[2.75rem] w-[12rem] h-[2.75rem] mt-[2rem]">
+      class="common sm:mt-[1rem] mx-auto items-center justify-center sm:w-[12rem] sm:h-[2.75rem] w-[12rem] h-[2.75rem] mt-[2rem]" data-animate>
       <span>Get In Touch <span class="text-lg ml-2">→</span></span>
     </button>
   </div>
@@ -26,85 +26,80 @@
     <!--Top Row-->
     <div class="flex flex-wrap justify-center gap-x-20 md:gap-x-40 pt-4">
       <!--Pharma-->
-      <div class="flex flex-col items-center mb-8 md:mb-0">
-        <div class="relative w-24 h-24 sm:w-32 sm:h-32">
+      <div class="flex flex-col items-center mb-8 md:mb-0" data-animate>
+        <div class="relative w-24 h-24 sm:w-32 sm:h-32 progress-ring" data-percent="22">
           <svg class="rotate-[-90deg] w-full h-full" viewBox="0 0 48 48">
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4" stroke-dasharray="138.2"
-              stroke-dashoffset="107.8" stroke-linecap="round" />
+            <circle class="progress-track" cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
+            <circle class="progress" cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4" />
           </svg>
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <p class="font-bold text-xl sm:text-2xl text-black">22%</p>
+            <p class="count-up absolute inset-0 flex items-center justify-center font-bold text-xl sm:text-2xl text-black">0<span>%</span></p>
           </div>
         </div>
-        <p class="text-gray-700 mt-2 text-sm sm:text-base">Pharma</p>
+        <p class="text-gray-700 mt-2 text-md md:text-xl" data-animate>Pharma</p>
       </div>
       <!--Legal-->
-      <div class="flex flex-col items-center mb-8 md:mb-0">
-        <div class="relative w-24 h-24 sm:w-32 sm:h-32">
+      <div class="flex flex-col items-center mb-8 md:mb-0" data-animate>
+        <div class="relative w-24 h-24 sm:w-32 sm:h-32 progress-ring" data-percent="28">
           <svg class="rotate-[-90deg] w-full h-full" viewBox="0 0 48 48">
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4" stroke-dasharray="138.2"
-              stroke-dashoffset="99.4" stroke-linecap="round" />
+            <circle class="progress-track" cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
+            <circle class="progress" cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4"  />
           </svg>
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <p class="absolute inset-0 flex items-center justify-center font-bold text-xl sm:text-2xl text-black">
-              28%
+            <p class="count-up absolute inset-0 flex items-center justify-center font-bold text-xl sm:text-2xl text-black">
+              0 <span>%</span>
             </p>
           </div>
         </div>
-        <p class="text-gray-700 mt-2 text-sm sm:text-base">Legal</p>
+        <p class="text-gray-700 mt-2 text-md md:text-xl" data-animate>Legal</p>
       </div>
       <!--Manufacturing-->
-      <div class="flex flex-col items-center">
-        <div class="relative w-24 h-24 sm:w-32 sm:h-32">
+      <div class="flex flex-col items-center" data-animate>
+        <div class="relative w-24 h-24 sm:w-32 sm:h-32 progress-ring" data-percent="14">
           <svg class="rotate-[-90deg] w-full h-full" viewBox="0 0 48 48">
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4" stroke-dasharray="138.2"
-              stroke-dashoffset="118.8" stroke-linecap="round" />
+            <circle class="progress-track" cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
+            <circle class="progress" cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4" />
           </svg>
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <p class="absolute inset-0 flex items-center justify-center font-bold text-xl sm:text-2xl text-black">
-              14%
+            <p class="count-up absolute inset-0 flex items-center justify-center font-bold text-xl sm:text-2xl text-black">
+              0 <span>%</span>
             </p>
           </div>
         </div>
-        <p class="text-gray-700 mt-2 text-sm sm:text-base">Manufacturing</p>
+        <p class="text-gray-700 mt-2 text-md md:text-xl" data-animate>Manufacturing</p>
       </div>
     </div>
     <!--Bottom Row-->
     <div class="flex flex-wrap justify-center gap-x-20 md:gap-x-40 pt-2">
       <!--Financial-->
-      <div class="flex flex-col items-center mb-8 md:mb-0">
-        <div class="relative w-24 h-24 sm:w-32 sm:h-32">
+      <div class="flex flex-col items-center mb-8 md:mb-0" data-animate>
+        <div class="relative w-24 h-24 sm:w-32 sm:h-32 progress-ring" data-percent="12">
           <svg class="rotate-[-90deg]  w-full h-full" viewBox="0 0 48 48">
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4" stroke-dasharray="138.2"
-              stroke-dashoffset="121.6" stroke-linecap="round" />
+            <circle class="progress-track" cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
+            <circle class="progress" cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4" />
           </svg>
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <p class="absolute inset-0 flex items-center justify-center font-bold text-xl sm:text-2xl text-black">
-              12%
+            <p class="count-up absolute inset-0 flex items-center justify-center font-bold text-xl sm:text-2xl text-black">
+              0 <span>%</span>
             </p>
           </div>
         </div>
-        <p class="text-gray-700 mt-2 text-sm sm:text-base">Financial</p>
+        <p class="text-gray-700 mt-2 text-md md:text-xl" data-animate>Financial</p>
       </div>
       <!--Insurance-->
-      <div class="flex flex-col items-center">
-        <div class="relative w-24 h-24 sm:w-32 sm:h-32">
+      <div class="flex flex-col items-center" data-animate>
+        <div class="relative w-24 h-24 sm:w-32 sm:h-32 progress-ring" data-percent="24">
           <svg class="rotate-[-90deg] w-full h-full" viewBox="0 0 48 48">
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
-            <circle cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4" stroke-dasharray="138.2"
-              stroke-dashoffset="105.4" stroke-linecap="round" />
+            <circle class="progress-track" cx="24" cy="24" r="22" fill="none" stroke="#BDE1DC" stroke-width="4" />
+            <circle class="progress" cx="24" cy="24" r="22" fill="none" stroke="#2A9D8E" stroke-width="4" />
           </svg>
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <p class="absolute inset-0 flex items-center justify-center font-bold text-xl sm:text-2xl text-black">
-              24%
+            <p class="count-up absolute inset-0 flex items-center justify-center font-bold text-xl sm:text-2xl text-black transition-all duration-500 ease-out">
+              0 <span>%</span>
             </p>
           </div>
         </div>
-        <p class="text-gray-700 mt-2 text-sm sm:text-base">Insurance</p>
+        <p class="text-gray-700 mt-2 text-md md:text-xl" data-animate>Insurance</p>
       </div>
     </div>
 

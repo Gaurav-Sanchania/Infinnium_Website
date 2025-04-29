@@ -71,18 +71,6 @@
   100% { background-position: 100px 100px; }
 }
 
-
-.shake-slow {
-  animation: shake 2s infinite ease-in-out;
-  transform-origin: center;
-}
-
-@keyframes shake {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(0.5px, -0.5px) rotate(-0.3deg); }
-  50% { transform: translate(-0.5px, 0.5px) rotate(0.3deg); }
-  75% { transform: translate(0.4px, -0.4px) rotate(-0.2deg); }
-}
 .shake-slow {
   animation: shake 2s infinite ease-in-out;
   transform-origin: center;
@@ -169,30 +157,79 @@
   }
 
   .shake-horizontal {
-    animation: shake-horizontal 1.2s infinite cubic-bezier(0.36, 0.07, 0.19, 0.97);
+    animation: shake-horizontal 5s infinite ease-in-out;
     transform-origin: center;
-    will-change: transform; /* Optimizes animation performance */
+    will-change: transform;
   }
   
   @keyframes shake-horizontal {
-    0%, 100% { 
-      transform: translateX(0) rotateZ(0deg); 
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-4px); }
+    20% { transform: translateX(4px); }
+    30% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    50% { transform: translateX(-6px); }
+    60% { transform: translateX(6px); }
+    70% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+    90% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+  }
+  
+  .virus-path {
+    animation: fadeOutDisappearLoop 4s infinite linear;
+    transform-origin: center;
+    will-change: opacity, transform;
+  }
+  
+  @keyframes fadeOutDisappearLoop {
+    0% {
+      opacity: 1;
+      transform: translateX(0) translateY(0) scale(1);
     }
-    10%, 30%, 50%, 70%, 90% { 
-      transform: translateX(-6px) rotateZ(-0.8deg); 
+    40% {
+      opacity: 1;
+      transform: translateX(-15px) translateY(15px) scale(0.9);
     }
-    20%, 40%, 60%, 80% { 
-      transform: translateX(6px) rotateZ(0.8deg); 
+    70% {
+      opacity: 0;
+      transform: translateX(-20px) translateY(20px) scale(0.85);
+    }
+    71% {
+      opacity: 0;
+      transform: translateX(0) translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(0) translateY(0) scale(1);
     }
   }
   
-  /* Optional enhancements */
-  .shake-horizontal {
-    transition: transform 0.15s ease-out; /* For smooth stops */
+  .folder-animation {
+    animation: smoothFloat 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-origin: center;
+    will-change: transform;
   }
   
-  .shake-horizontal:hover {
-    animation-play-state: paused;
-    transform: translateX(0) rotateZ(0deg);
-    filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+  @keyframes smoothFloat {
+    0% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    20% {
+      transform: translateY(-4px) rotate(-0.5deg) scale(1.01);
+    }
+    50% {
+      transform: translateY(2px) rotate(0.5deg) scale(1.005);
+    }
+    80% {
+      transform: translateY(-2px) rotate(-0.3deg) scale(1.01);
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
   }
+  
+  /* .rotate {
+    transform: rotate(75deg);
+  } */
+  
