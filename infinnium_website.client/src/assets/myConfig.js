@@ -1,6 +1,8 @@
-// src/assets/myConfig.js
 window['myAppConfig'] = {
-    apiBaseUrl: 'https://localhost:7046' // DEV URL
+    // DEV URL
+    apiBaseUrl: 'https://localhost:7046' 
+    
+    // PROD URL
     // apiBaseUrl: 'http://4igproduction:8082'
   };
   

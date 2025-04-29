@@ -10,9 +10,9 @@ namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
     [Route("NewsAndEventsController")]
-    public class NewsController(IConfiguration configuration) : Controller
+    public class NewsController(ConnectionStringService connectionStringService) : Controller
     {
-        private readonly IConfiguration config = configuration;
+        private readonly ConnectionStringService config = connectionStringService;
 
         // GET: NewsController/GetAllNews
         [HttpGet]
@@ -20,7 +20,7 @@ namespace Infinnium_Website.Server.Controllers
         public List<NewsModel> GetAllNews()
         {
             List<NewsModel> news = new List<NewsModel>();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -68,7 +68,7 @@ namespace Infinnium_Website.Server.Controllers
         public NewsModel GetNewsDetails(string id)
         {
             NewsModel news = new NewsModel();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -114,7 +114,7 @@ namespace Infinnium_Website.Server.Controllers
         public List<NewsModel> Top3News()
         {
             List<NewsModel> news = new List<NewsModel>();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -163,7 +163,7 @@ namespace Infinnium_Website.Server.Controllers
         public List<NewsModel> GetAllNewsAdmin()
         {
             List<NewsModel> news = new List<NewsModel>();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -226,7 +226,7 @@ namespace Infinnium_Website.Server.Controllers
 
             IFormFile image = Request.Form.Files["Image"];
 
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -283,7 +283,7 @@ namespace Infinnium_Website.Server.Controllers
 
             IFormFile Image = Request.Form.Files["Image"];
 
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();

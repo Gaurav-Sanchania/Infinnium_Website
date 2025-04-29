@@ -50,7 +50,7 @@
             <p class="text-gray-700 dark:text-gray-700">
               <i class="far fa-calendar-alt mr-1"></i> {{ blog.publishedDate | date: 'longDate' }}
             </p>
-            <a [routerLink]="['/Resources/Blogs/', slugify(blog.title), blog.guid]"
+            <a [routerLink]="['/resources/blogs/', slugify(blog.title), blog.guid]"
               class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-1 inline-block hover:underline cursor-pointer">
               Read More →
             </a>
@@ -121,7 +121,7 @@
             <p class="text-gray-700 dark:text-gray-700">
               <i class="far fa-calendar-alt mr-1"></i> {{ blog.publishedDate | date: 'longDate' }}
             </p>
-            <a [routerLink]="['/Resources/News-and-Events/', slugify(blog.title), blog.guid]"
+            <a [routerLink]="['/resources/news-and-events/', slugify(blog.title), blog.guid]"
               class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-1 inline-block hover:underline cursor-pointer">
               Read More →
             </a>
