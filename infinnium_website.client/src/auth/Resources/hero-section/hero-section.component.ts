@@ -64,9 +64,7 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges {
 
     top3.forEach((post: any, index: number) => {
       const slideLink = this.renderer.createElement('a');
-      this.renderer.addClass(slideLink, 'block');
 
-      const slide = this.renderer.createElement('div');
       const slideClasses = [
         'slide',
         'absolute',
@@ -79,9 +77,18 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges {
         'items-center',
         'space-x-0',
         'md:space-x-8',
+        'no-underline',
+        'text-inherit',
       ];
-      slideClasses.forEach((cls) => this.renderer.addClass(slide, cls));
-      this.renderer.addClass(slide, index === 0 ? 'opacity-100' : 'opacity-0');
+      slideClasses.forEach((cls) => this.renderer.addClass(slideLink, cls));
+
+      if (index === 0) {
+        this.renderer.addClass(slideLink, 'opacity-100');
+        this.renderer.removeClass(slideLink, 'pointer-events-none');
+      } else {
+        this.renderer.addClass(slideLink, 'opacity-0');
+        this.renderer.addClass(slideLink, 'pointer-events-none');
+      }
 
       const maxLength = 90;
       let title = post.title;
@@ -94,9 +101,7 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges {
         title = title.slice(0, maxLength) + '...';
       }
 
-      // slide.href = `/resources/${this.routePart}/${slugify(title)}/${post.guid}`;
-
-      slide.innerHTML = `
+      slideLink.innerHTML = `
         <div class="w-full md:w-1/3 h-60 overflow-hidden">
           <img src="${
             post.image
@@ -108,21 +113,19 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges {
               this.category
             }</p>
             <div class="flex items-center text-gray-400 text-sm mb-2">
-            <i class="far fa-calendar-alt mr-2"></i>${new Date(
-              post.publishedDate
-            ).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </div>
+              <i class="far fa-calendar-alt mr-2"></i>${new Date(
+                post.publishedDate
+              ).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </div>
             <h2 class="text-xl md:text-2xl font-semibold mb-3">${title}</h2>
             <p class="text-gray-200 text-sm mb-4 line-clamp-2">${post.brief}</p>
           </div>
-          
         </div>`;
 
-      this.renderer.appendChild(slideLink, slide);
       this.renderer.appendChild(heroSlideshow, slideLink);
     });
   }
@@ -132,14 +135,20 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges {
       '#heroslideshow .slide'
     );
     let currentIndex = 0;
-
+  
     if (slides.length > 0) {
       setInterval(() => {
-        this.renderer.removeClass(slides[currentIndex], 'opacity-100');
-        this.renderer.addClass(slides[currentIndex], 'opacity-0');
+        const prevSlide = slides[currentIndex];
+        this.renderer.removeClass(prevSlide, 'opacity-100');
+        this.renderer.addClass(prevSlide, 'opacity-0');
+        this.renderer.addClass(prevSlide, 'pointer-events-none');
+  
         currentIndex = (currentIndex + 1) % slides.length;
-        this.renderer.removeClass(slides[currentIndex], 'opacity-0');
-        this.renderer.addClass(slides[currentIndex], 'opacity-100');
+  
+        const nextSlide = slides[currentIndex];
+        this.renderer.removeClass(nextSlide, 'opacity-0');
+        this.renderer.removeClass(nextSlide, 'pointer-events-none');
+        this.renderer.addClass(nextSlide, 'opacity-100');
       }, 4000);
     }
   }
