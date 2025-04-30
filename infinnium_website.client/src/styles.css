@@ -1068,13 +1068,13 @@ a.relative.hidden.md\:flex:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #e66f51; /* Scrollbar thumb color */
+  background-color: #555; /* Scrollbar thumb color */
   border-radius: 4px; /* Round the thumb edges */
   border: 2px solid #f1f1f1; /* Optional: space around thumb */
 }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Thumb hover color */
+    background-color: #2A9D8F; /* Thumb hover color */
   }
 
 /* for solution pages */
