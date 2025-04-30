@@ -2489,3 +2489,419 @@
 2025-04-30 15:18:12.924 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server) in 33.7153ms
 2025-04-30 15:18:12.926 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
 2025-04-30 15:18:12.927 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - 200 null application/json; charset=utf-8 46.1698ms
+2025-04-30 15:43:01.238 +05:30 [INF] Application starting up
+2025-04-30 15:43:01.624 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 15:43:01.709 +05:30 [INF] User profile is available. Using 'C:\Users\Abcom\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 15:43:02.077 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 15:43:02.141 +05:30 [INF] Now listening on: http://localhost:5063
+2025-04-30 15:43:02.145 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 15:43:02.146 +05:30 [INF] Hosting environment: Development
+2025-04-30 15:43:02.146 +05:30 [INF] Content root path: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server
+2025-04-30 15:43:04.543 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/index.html - null null
+2025-04-30 15:43:04.976 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/index.html - 200 null text/html;charset=utf-8 457.7196ms
+2025-04-30 15:43:06.335 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 15:43:06.351 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_vs/browserLink - null null
+2025-04-30 15:43:06.400 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - 200 13800 application/javascript; charset=utf-8 75.5056ms
+2025-04-30 15:43:06.525 +05:30 [INF] No SPA development server running at https://localhost:57776 found.
+2025-04-30 15:43:07.772 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1421.3665ms
+2025-04-30 15:43:07.847 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - null null
+2025-04-30 15:43:08.068 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 220.7819ms
+2025-04-30 15:43:25.143 +05:30 [INF] SPA development server running at 'https://localhost:57776'
+2025-04-30 15:44:12.602 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 15:44:12.616 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:44:12.619 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:44:12.624 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-04-30 15:44:12.748 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:44:12.818 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 15:44:13.050 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:14:13.0462303Z"
+2025-04-30 15:44:14.979 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:44:15.166 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - null null
+2025-04-30 15:44:15.239 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:44:15.256 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:44:15.195 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 2354.369ms
+2025-04-30 15:44:15.260 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 15:44:15.265 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:44:15.290 +05:30 [INF] Route matched with {action = "Top3News", controller = "News"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.News.NewsModel] Top3News() on controller Infinnium_Website.Server.Controllers.NewsController (Infinnium_Website.Server).
+2025-04-30 15:44:15.324 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 2725.0506ms
+2025-04-30 15:44:15.690 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.News.NewsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:44:15.708 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server) in 374.3938ms
+2025-04-30 15:44:15.710 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 15:44:15.711 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - 200 null application/json; charset=utf-8 546.4228ms
+2025-04-30 15:44:15.829 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - null null
+2025-04-30 15:44:15.841 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:44:15.843 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:44:15.851 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 15:44:15.860 +05:30 [INF] Route matched with {action = "GetAllBlogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] GetAllBlogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 15:44:15.864 +05:30 [INF] GetAllBlogs endpoint was hit at "2025-04-30T10:14:15.8641952Z"
+2025-04-30 15:44:15.934 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:44:15.941 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server) in 78.0517ms
+2025-04-30 15:44:15.942 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 15:44:15.942 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 15:44:15.945 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:44:15.946 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - 200 null application/json; charset=utf-8 117.1402ms
+2025-04-30 15:44:15.946 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:44:15.952 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:44:15.954 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 15:44:15.956 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:14:15.9565837Z"
+2025-04-30 15:44:15.969 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:44:15.973 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 16.6737ms
+2025-04-30 15:44:15.974 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:44:15.975 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 32.4307ms
+2025-04-30 15:45:09.999 +05:30 [INF] Application starting up
+2025-04-30 15:45:10.331 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 15:45:10.389 +05:30 [INF] User profile is available. Using 'C:\Users\Abcom\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 15:45:10.712 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 15:45:10.807 +05:30 [INF] Now listening on: http://localhost:5063
+2025-04-30 15:45:10.810 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 15:45:10.811 +05:30 [INF] Hosting environment: Development
+2025-04-30 15:45:10.812 +05:30 [INF] Content root path: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server
+2025-04-30 15:45:12.994 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/index.html - null null
+2025-04-30 15:45:13.408 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/index.html - 200 null text/html;charset=utf-8 430.0798ms
+2025-04-30 15:45:13.436 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_vs/browserLink - null null
+2025-04-30 15:45:13.436 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 15:45:13.452 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - 200 13800 application/javascript; charset=utf-8 20.2893ms
+2025-04-30 15:45:13.565 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_vs/browserLink - 200 null text/javascript; charset=UTF-8 132.3766ms
+2025-04-30 15:45:13.633 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - null null
+2025-04-30 15:45:13.874 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 241.2009ms
+2025-04-30 15:45:14.761 +05:30 [INF] No SPA development server running at https://localhost:57776 found.
+2025-04-30 15:45:32.316 +05:30 [INF] SPA development server running at 'https://localhost:57776'
+2025-04-30 15:45:42.487 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 15:45:42.500 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:45:42.501 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:45:42.506 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-04-30 15:45:42.664 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:45:42.723 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 15:45:42.817 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:15:42.8167251Z"
+2025-04-30 15:45:43.645 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:45:43.782 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - null null
+2025-04-30 15:45:43.792 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:45:43.793 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:45:43.801 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 15:45:43.855 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 1088.0343ms
+2025-04-30 15:45:43.857 +05:30 [INF] Route matched with {action = "Top3News", controller = "News"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.News.NewsModel] Top3News() on controller Infinnium_Website.Server.Controllers.NewsController (Infinnium_Website.Server).
+2025-04-30 15:45:43.862 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:45:43.867 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 1380.5663ms
+2025-04-30 15:45:43.964 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.News.NewsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:45:43.985 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server) in 121.9512ms
+2025-04-30 15:45:43.994 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 15:45:43.996 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - 200 null application/json; charset=utf-8 213.6793ms
+2025-04-30 15:45:45.479 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - null null
+2025-04-30 15:45:45.505 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:45:45.508 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:45:45.513 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 15:45:45.516 +05:30 [INF] Route matched with {action = "GetAllBlogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] GetAllBlogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 15:45:45.517 +05:30 [INF] GetAllBlogs endpoint was hit at "2025-04-30T10:15:45.5178424Z"
+2025-04-30 15:45:45.534 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:45:45.543 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 15:45:45.543 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server) in 26.4655ms
+2025-04-30 15:45:45.545 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:45:45.545 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 15:45:45.546 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:45:45.547 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - 200 null application/json; charset=utf-8 67.8396ms
+2025-04-30 15:45:45.547 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:45:45.550 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 15:45:45.551 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:15:45.5517241Z"
+2025-04-30 15:45:45.557 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:45:45.565 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 13.618ms
+2025-04-30 15:45:45.566 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:45:45.568 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 24.8755ms
+2025-04-30 15:46:31.236 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/AuthorController/GetAllAuthors - null null
+2025-04-30 15:46:31.242 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:46:31.243 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:46:31.244 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.AuthorController.GetAllAuthors (Infinnium_Website.Server)'
+2025-04-30 15:46:31.247 +05:30 [INF] Route matched with {action = "GetAllAuthors", controller = "Author"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Authors.AuthorModel] GetAllAuthors() on controller Infinnium_Website.Server.Controllers.AuthorController (Infinnium_Website.Server).
+2025-04-30 15:46:31.451 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Authors.AuthorModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:46:31.559 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.AuthorController.GetAllAuthors (Infinnium_Website.Server) in 309.9937ms
+2025-04-30 15:46:31.562 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.AuthorController.GetAllAuthors (Infinnium_Website.Server)'
+2025-04-30 15:46:31.564 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/AuthorController/GetAllAuthors - 200 null application/json; charset=utf-8 328.3752ms
+2025-04-30 15:59:03.225 +05:30 [INF] Application starting up
+2025-04-30 15:59:03.550 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 15:59:03.605 +05:30 [INF] User profile is available. Using 'C:\Users\Abcom\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 15:59:03.853 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 15:59:03.908 +05:30 [INF] Now listening on: http://localhost:5063
+2025-04-30 15:59:03.912 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 15:59:03.913 +05:30 [INF] Hosting environment: Development
+2025-04-30 15:59:03.914 +05:30 [INF] Content root path: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server
+2025-04-30 15:59:06.231 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/index.html - null null
+2025-04-30 15:59:06.980 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/index.html - 200 null text/html;charset=utf-8 761.1996ms
+2025-04-30 15:59:07.017 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_vs/browserLink - null null
+2025-04-30 15:59:07.872 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 15:59:07.882 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - 200 13800 application/javascript; charset=utf-8 9.6512ms
+2025-04-30 15:59:07.965 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_vs/browserLink - 200 null text/javascript; charset=UTF-8 951.0646ms
+2025-04-30 15:59:08.071 +05:30 [INF] No SPA development server running at https://localhost:57776 found.
+2025-04-30 15:59:08.076 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - null null
+2025-04-30 15:59:08.646 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 569.4196ms
+2025-04-30 15:59:34.631 +05:30 [INF] SPA development server running at 'https://localhost:57776'
+2025-04-30 15:59:39.881 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 15:59:39.958 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:59:40.066 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:59:42.047 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - null null
+2025-04-30 15:59:42.060 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-04-30 15:59:42.066 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:59:42.113 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:59:42.282 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 15:59:42.283 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:59:42.332 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 15:59:42.332 +05:30 [INF] Route matched with {action = "GetAllBlogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] GetAllBlogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 15:59:42.404 +05:30 [INF] GetAllBlogs endpoint was hit at "2025-04-30T10:29:42.4041083Z"
+2025-04-30 15:59:42.404 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:29:42.4042533Z"
+2025-04-30 15:59:43.057 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:59:43.057 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:59:43.110 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 15:59:43.115 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:59:43.116 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:59:43.122 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:59:43.126 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 15:59:43.130 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - null null
+2025-04-30 15:59:43.131 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:29:43.1316435Z"
+2025-04-30 15:59:43.134 +05:30 [INF] CORS policy execution failed.
+2025-04-30 15:59:43.135 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 15:59:43.136 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 15:59:43.142 +05:30 [INF] Route matched with {action = "Top3News", controller = "News"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.News.NewsModel] Top3News() on controller Infinnium_Website.Server.Controllers.NewsController (Infinnium_Website.Server).
+2025-04-30 15:59:43.147 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server) in 805.8035ms
+2025-04-30 15:59:43.149 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:59:43.147 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 807.6896ms
+2025-04-30 15:59:43.150 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 15:59:43.153 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:59:43.158 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 26.6165ms
+2025-04-30 15:59:43.160 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 3279.4889ms
+2025-04-30 15:59:43.160 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - 200 null application/json; charset=utf-8 1113.4856ms
+2025-04-30 15:59:43.161 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 15:59:43.176 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 65.9652ms
+2025-04-30 15:59:43.327 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.News.NewsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 15:59:43.344 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server) in 200.1593ms
+2025-04-30 15:59:43.349 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 15:59:43.350 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - 200 null application/json; charset=utf-8 219.9023ms
+2025-04-30 16:07:45.043 +05:30 [INF] Application starting up
+2025-04-30 16:07:45.452 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 16:07:45.522 +05:30 [INF] User profile is available. Using 'C:\Users\Abcom\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 16:07:45.836 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 16:07:45.936 +05:30 [INF] Now listening on: http://localhost:5063
+2025-04-30 16:07:45.941 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 16:07:45.943 +05:30 [INF] Hosting environment: Development
+2025-04-30 16:07:45.944 +05:30 [INF] Content root path: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server
+2025-04-30 16:07:49.093 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/index.html - null null
+2025-04-30 16:07:49.452 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/index.html - 200 null text/html;charset=utf-8 376.2727ms
+2025-04-30 16:07:49.480 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 16:07:49.480 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_vs/browserLink - null null
+2025-04-30 16:07:49.496 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - 200 13800 application/javascript; charset=utf-8 17.8708ms
+2025-04-30 16:07:49.598 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_vs/browserLink - 200 null text/javascript; charset=UTF-8 119.3833ms
+2025-04-30 16:07:49.662 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - null null
+2025-04-30 16:07:49.975 +05:30 [INF] No SPA development server running at https://localhost:57776 found.
+2025-04-30 16:07:49.983 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 321.3401ms
+2025-04-30 16:08:12.877 +05:30 [INF] SPA development server running at 'https://localhost:57776'
+2025-04-30 16:08:30.876 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 16:08:30.903 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:08:30.912 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:08:30.944 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-04-30 16:08:31.138 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:08:31.352 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:08:31.581 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:38:31.5807715Z"
+2025-04-30 16:08:33.295 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:08:33.376 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - null null
+2025-04-30 16:08:33.396 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:08:33.397 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:08:33.399 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 16:08:33.403 +05:30 [INF] Route matched with {action = "GetAllBlogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] GetAllBlogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:08:33.410 +05:30 [INF] GetAllBlogs endpoint was hit at "2025-04-30T10:38:33.4108051Z"
+2025-04-30 16:08:33.462 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - null null
+2025-04-30 16:08:33.494 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 2074.482ms
+2025-04-30 16:08:33.503 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:08:33.503 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:08:33.511 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 2634.9695ms
+2025-04-30 16:08:33.514 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:08:33.530 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 16:08:33.536 +05:30 [INF] Route matched with {action = "Top3News", controller = "News"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.News.NewsModel] Top3News() on controller Infinnium_Website.Server.Controllers.NewsController (Infinnium_Website.Server).
+2025-04-30 16:08:33.562 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:08:33.577 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 16:08:33.581 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server) in 171.5933ms
+2025-04-30 16:08:33.583 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:08:33.584 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 16:08:33.584 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:08:33.586 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - 200 null application/json; charset=utf-8 209.7414ms
+2025-04-30 16:08:33.586 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:08:33.592 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:08:33.594 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:38:33.5941649Z"
+2025-04-30 16:08:33.600 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:08:33.607 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 13.2762ms
+2025-04-30 16:08:33.608 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:08:33.609 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 31.8319ms
+2025-04-30 16:08:33.772 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.News.NewsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:08:33.783 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server) in 237.8609ms
+2025-04-30 16:08:33.785 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 16:08:33.786 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - 200 null application/json; charset=utf-8 323.5263ms
+2025-04-30 16:10:23.087 +05:30 [INF] Application starting up
+2025-04-30 16:10:23.431 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 16:10:23.486 +05:30 [INF] User profile is available. Using 'C:\Users\Abcom\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 16:10:23.756 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 16:10:23.815 +05:30 [INF] Now listening on: http://localhost:5063
+2025-04-30 16:10:23.818 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 16:10:23.819 +05:30 [INF] Hosting environment: Development
+2025-04-30 16:10:23.820 +05:30 [INF] Content root path: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server
+2025-04-30 16:10:25.963 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/index.html - null null
+2025-04-30 16:10:26.284 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/index.html - 200 null text/html;charset=utf-8 332.8379ms
+2025-04-30 16:10:26.396 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 16:10:26.412 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - 200 13800 application/javascript; charset=utf-8 25.1665ms
+2025-04-30 16:10:26.983 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_vs/browserLink - null null
+2025-04-30 16:10:27.082 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_vs/browserLink - 200 null text/javascript; charset=UTF-8 99.7052ms
+2025-04-30 16:10:27.144 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - null null
+2025-04-30 16:10:27.299 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 154.8801ms
+2025-04-30 16:10:27.828 +05:30 [INF] No SPA development server running at https://localhost:57776 found.
+2025-04-30 16:10:45.970 +05:30 [INF] SPA development server running at 'https://localhost:57776'
+2025-04-30 16:10:49.119 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - null null
+2025-04-30 16:10:49.170 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:10:49.209 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:10:49.226 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-04-30 16:10:49.601 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 16:10:49.648 +05:30 [INF] Route matched with {action = "GetAllBlogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] GetAllBlogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:10:49.728 +05:30 [INF] GetAllBlogs endpoint was hit at "2025-04-30T10:40:49.7285935Z"
+2025-04-30 16:10:50.390 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:10:50.461 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 16:10:50.538 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:10:50.539 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:10:50.541 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:10:50.543 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server) in 888.3461ms
+2025-04-30 16:10:50.549 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:10:50.551 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 16:10:50.553 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - 200 null application/json; charset=utf-8 1434.0368ms
+2025-04-30 16:10:50.553 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:40:50.5535103Z"
+2025-04-30 16:10:50.815 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:10:50.846 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 292.5245ms
+2025-04-30 16:10:50.857 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:10:50.861 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 400.6996ms
+2025-04-30 16:19:16.412 +05:30 [INF] Application starting up
+2025-04-30 16:19:16.974 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 16:19:17.079 +05:30 [INF] User profile is available. Using 'C:\Users\Abcom\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 16:19:17.539 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 16:19:17.629 +05:30 [INF] Now listening on: http://localhost:5063
+2025-04-30 16:19:17.634 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 16:19:17.636 +05:30 [INF] Hosting environment: Development
+2025-04-30 16:19:17.637 +05:30 [INF] Content root path: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server
+2025-04-30 16:19:20.688 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/index.html - null null
+2025-04-30 16:19:21.329 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/index.html - 200 null text/html;charset=utf-8 725.421ms
+2025-04-30 16:19:21.835 +05:30 [INF] No SPA development server running at https://localhost:57776 found.
+2025-04-30 16:19:22.003 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_vs/browserLink - null null
+2025-04-30 16:19:22.003 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 16:19:22.105 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - 200 13800 application/javascript; charset=utf-8 116.7931ms
+2025-04-30 16:19:22.203 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_vs/browserLink - 200 null text/javascript; charset=UTF-8 201.0752ms
+2025-04-30 16:19:22.354 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - null null
+2025-04-30 16:19:23.461 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 1106.9771ms
+2025-04-30 16:19:45.639 +05:30 [INF] SPA development server running at 'https://localhost:57776'
+2025-04-30 16:20:08.690 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 16:20:08.812 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:20:08.814 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:20:08.853 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-04-30 16:20:09.886 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:20:10.003 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:20:10.158 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:50:10.1585748Z"
+2025-04-30 16:20:11.203 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:20:11.396 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - null null
+2025-04-30 16:20:11.430 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:20:11.438 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:20:11.441 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 16:20:11.448 +05:30 [INF] Route matched with {action = "Top3News", controller = "News"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.News.NewsModel] Top3News() on controller Infinnium_Website.Server.Controllers.NewsController (Infinnium_Website.Server).
+2025-04-30 16:20:11.459 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 1443.8874ms
+2025-04-30 16:20:11.461 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:20:11.470 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 2780.5048ms
+2025-04-30 16:20:11.608 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - null null
+2025-04-30 16:20:11.641 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:20:11.642 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:20:11.655 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 16:20:11.658 +05:30 [INF] Route matched with {action = "GetAllBlogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] GetAllBlogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:20:11.660 +05:30 [INF] GetAllBlogs endpoint was hit at "2025-04-30T10:50:11.6608139Z"
+2025-04-30 16:20:11.693 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:20:11.702 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 16:20:11.704 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server) in 44.0228ms
+2025-04-30 16:20:11.705 +05:30 [INF] CORS policy execution failed.
+2025-04-30 16:20:11.705 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 16:20:11.706 +05:30 [INF] Request origin https://localhost:57776 does not have permission to access the resource.
+2025-04-30 16:20:11.707 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - 200 null application/json; charset=utf-8 98.4172ms
+2025-04-30 16:20:11.707 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:20:11.710 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:20:11.711 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:50:11.7116172Z"
+2025-04-30 16:20:11.718 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:20:11.731 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 19.496ms
+2025-04-30 16:20:11.733 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:20:11.735 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 32.7624ms
+2025-04-30 16:20:11.841 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.News.NewsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:20:11.858 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server) in 399.7343ms
+2025-04-30 16:20:11.860 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 16:20:11.861 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - 200 null application/json; charset=utf-8 464.9752ms
+2025-04-30 16:24:45.938 +05:30 [INF] Application starting up
+2025-04-30 16:24:46.314 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 16:24:46.393 +05:30 [INF] User profile is available. Using 'C:\Users\Abcom\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-30 16:24:46.856 +05:30 [WRN] The WebRootPath was not found: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\wwwroot. Static files may be unavailable.
+2025-04-30 16:24:46.956 +05:30 [INF] Now listening on: http://localhost:5063
+2025-04-30 16:24:46.962 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-30 16:24:46.967 +05:30 [INF] Hosting environment: Development
+2025-04-30 16:24:46.970 +05:30 [INF] Content root path: C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server
+2025-04-30 16:24:51.959 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/index.html - null null
+2025-04-30 16:24:51.972 +05:30 [INF] No SPA development server running at https://localhost:57776 found.
+2025-04-30 16:24:52.798 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/index.html - 200 null text/html;charset=utf-8 1222.2636ms
+2025-04-30 16:24:53.112 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-30 16:24:53.124 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/_vs/browserLink - null null
+2025-04-30 16:24:53.872 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_framework/aspnetcore-browser-refresh.js - 200 13800 application/javascript; charset=utf-8 762.1047ms
+2025-04-30 16:24:54.020 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/_vs/browserLink - 200 null text/javascript; charset=UTF-8 895.5769ms
+2025-04-30 16:24:54.098 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - null null
+2025-04-30 16:24:54.535 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 437.5704ms
+2025-04-30 16:25:15.050 +05:30 [INF] SPA development server running at 'https://localhost:57776'
+2025-04-30 16:25:19.787 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 16:25:19.806 +05:30 [INF] CORS policy execution successful.
+2025-04-30 16:25:19.814 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-04-30 16:25:20.008 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:25:20.206 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:25:21.107 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:55:21.1068229Z"
+2025-04-30 16:25:21.549 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - null null
+2025-04-30 16:25:21.596 +05:30 [INF] CORS policy execution successful.
+2025-04-30 16:25:21.599 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 16:25:21.607 +05:30 [INF] Route matched with {action = "GetAllBlogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] GetAllBlogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:25:21.609 +05:30 [INF] GetAllBlogs endpoint was hit at "2025-04-30T10:55:21.6096769Z"
+2025-04-30 16:25:21.980 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:25:21.980 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:25:22.079 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server) in 466.3938ms
+2025-04-30 16:25:22.079 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 1059.5692ms
+2025-04-30 16:25:22.082 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.GetAllBlogs (Infinnium_Website.Server)'
+2025-04-30 16:25:22.083 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:25:22.088 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/GetAllBlogs - 200 null application/json; charset=utf-8 539.1928ms
+2025-04-30 16:25:22.088 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 2300.8283ms
+2025-04-30 16:25:22.093 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - null null
+2025-04-30 16:25:22.095 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - null null
+2025-04-30 16:25:22.099 +05:30 [INF] CORS policy execution successful.
+2025-04-30 16:25:22.102 +05:30 [INF] CORS policy execution successful.
+2025-04-30 16:25:22.105 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:25:22.105 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 16:25:22.107 +05:30 [INF] Route matched with {action = "Top3Blogs", controller = "Blog"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Blogs.BlogsModel] Top3Blogs() on controller Infinnium_Website.Server.Controllers.BlogController (Infinnium_Website.Server).
+2025-04-30 16:25:22.109 +05:30 [INF] Top3Blogs endpoint was hit at "2025-04-30T10:55:22.1091351Z"
+2025-04-30 16:25:22.109 +05:30 [INF] Route matched with {action = "Top3News", controller = "News"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.News.NewsModel] Top3News() on controller Infinnium_Website.Server.Controllers.NewsController (Infinnium_Website.Server).
+2025-04-30 16:25:22.128 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Blogs.BlogsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:25:22.136 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server) in 27.5ms
+2025-04-30 16:25:22.139 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.BlogController.Top3Blogs (Infinnium_Website.Server)'
+2025-04-30 16:25:22.140 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/BlogsController/Top3Blogs - 200 null application/json; charset=utf-8 44.3392ms
+2025-04-30 16:25:24.247 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.News.NewsModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:25:24.264 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server) in 2149.2046ms
+2025-04-30 16:25:24.271 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.NewsController.Top3News (Infinnium_Website.Server)'
+2025-04-30 16:25:24.272 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/NewsAndEventsController/Top3News - 200 null application/json; charset=utf-8 2179.5223ms
+2025-04-30 16:25:24.386 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/AuthorController/GetAllAuthors - null null
+2025-04-30 16:25:24.391 +05:30 [INF] CORS policy execution successful.
+2025-04-30 16:25:24.392 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.AuthorController.GetAllAuthors (Infinnium_Website.Server)'
+2025-04-30 16:25:24.395 +05:30 [INF] Route matched with {action = "GetAllAuthors", controller = "Author"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Authors.AuthorModel] GetAllAuthors() on controller Infinnium_Website.Server.Controllers.AuthorController (Infinnium_Website.Server).
+2025-04-30 16:25:24.542 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Authors.AuthorModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:25:24.561 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.AuthorController.GetAllAuthors (Infinnium_Website.Server) in 164.5756ms
+2025-04-30 16:25:24.563 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.AuthorController.GetAllAuthors (Infinnium_Website.Server)'
+2025-04-30 16:25:24.564 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/AuthorController/GetAllAuthors - 200 null application/json; charset=utf-8 178.8021ms
+2025-04-30 16:25:36.917 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/AuthorController/AuthorDetails/967F8D2 - null null
+2025-04-30 16:25:36.930 +05:30 [INF] CORS policy execution successful.
+2025-04-30 16:25:36.931 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.AuthorController.AuthorDetails (Infinnium_Website.Server)'
+2025-04-30 16:25:36.947 +05:30 [INF] Route matched with {action = "AuthorDetails", controller = "Author"}. Executing controller action with signature Infinnium_Website.Server.Models.Authors.AuthorModel AuthorDetails(System.String) on controller Infinnium_Website.Server.Controllers.AuthorController (Infinnium_Website.Server).
+2025-04-30 16:25:37.033 +05:30 [INF] Executing ObjectResult, writing value of type 'Infinnium_Website.Server.Models.Authors.AuthorModel'.
+2025-04-30 16:25:37.044 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.AuthorController.AuthorDetails (Infinnium_Website.Server) in 80.7688ms
+2025-04-30 16:25:37.045 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.AuthorController.AuthorDetails (Infinnium_Website.Server)'
+2025-04-30 16:25:37.045 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/AuthorController/AuthorDetails/967F8D2 - 200 null application/json; charset=utf-8 128.8506ms
+2025-04-30 16:25:44.089 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5063/AuthorController/GetAllAuthors - null null
+2025-04-30 16:25:44.096 +05:30 [INF] CORS policy execution successful.
+2025-04-30 16:25:44.098 +05:30 [INF] Executing endpoint 'Infinnium_Website.Server.Controllers.AuthorController.GetAllAuthors (Infinnium_Website.Server)'
+2025-04-30 16:25:44.100 +05:30 [INF] Route matched with {action = "GetAllAuthors", controller = "Author"}. Executing controller action with signature System.Collections.Generic.List`1[Infinnium_Website.Server.Models.Authors.AuthorModel] GetAllAuthors() on controller Infinnium_Website.Server.Controllers.AuthorController (Infinnium_Website.Server).
+2025-04-30 16:25:44.222 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Infinnium_Website.Server.Models.Authors.AuthorModel, Infinnium_Website.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-30 16:25:44.232 +05:30 [INF] Executed action Infinnium_Website.Server.Controllers.AuthorController.GetAllAuthors (Infinnium_Website.Server) in 130.1455ms
+2025-04-30 16:25:44.234 +05:30 [INF] Executed endpoint 'Infinnium_Website.Server.Controllers.AuthorController.GetAllAuthors (Infinnium_Website.Server)'
+2025-04-30 16:25:44.238 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5063/AuthorController/GetAllAuthors - 200 null application/json; charset=utf-8 148.8526ms

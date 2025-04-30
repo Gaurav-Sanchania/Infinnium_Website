@@ -61,15 +61,17 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 // Add CORS
+var corsSettings = new CorsSettings();
+builder.Configuration.GetSection("CorsSettings").Bind(corsSettings);
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularApp",
-        builder =>
+        policy =>
         {
-            builder
-                   .AllowAnyOrigin()
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
+            policy.WithOrigins(corsSettings.AllowedOrigins)
+                   .WithMethods(corsSettings.AllowedMethods)
+                   .WithHeaders(corsSettings.AllowedHeaders);
         });
 });
 
@@ -97,6 +99,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Use CORS
 app.UseCors("AngularApp");
 
 app.UseHttpsRedirection();
