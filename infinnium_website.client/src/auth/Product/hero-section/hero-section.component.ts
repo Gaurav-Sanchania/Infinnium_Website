@@ -8,17 +8,19 @@ import { RouterLink } from '@angular/router';
   selector: 'app-products-hero-section',
   imports: [CommonModule, RouterLink],
   templateUrl: './hero-section.component.html',
-  styleUrl: './hero-section.component.css'
+  styleUrl: './hero-section.component.css',
 })
 export class HeroSectionComponent implements AfterViewInit {
-  @Input() product: string = "";
+  @Input() product: string = '';
 
   ngAfterViewInit(): void {
     this.startTypingAnimation();
   }
 
   startTypingAnimation() {
-    const textElement = document.getElementById('search-text') as unknown as SVGTextElement;
+    const textElement = document.getElementById(
+      'search-text'
+    ) as unknown as SVGTextElement;
     const fullText = 'Breach Profiler';
     let index = 0;
     let isDeleting = false;

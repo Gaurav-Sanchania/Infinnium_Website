@@ -1,4 +1,10 @@
-import { Component, ElementRef, HostListener, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
 import { RouterLink } from '@angular/router';
 
@@ -7,7 +13,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-terms',
   imports: [FooterComponent, RouterLink],
   templateUrl: './terms.component.html',
-  styleUrl: './terms.component.css'
+  styleUrl: './terms.component.css',
 })
 export class TermsComponent implements AfterViewInit {
   @ViewChild('mobileMenuBtn', { static: false }) mobileMenuBtn!: ElementRef;
@@ -26,15 +32,17 @@ export class TermsComponent implements AfterViewInit {
       this.mobileSidebar.nativeElement.classList.remove('active');
     });
 
-    document.querySelectorAll<HTMLElement>('.dropdown-toggle').forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const dropdownMenu = toggle.nextElementSibling as HTMLElement;
-        if (dropdownMenu) {
-          dropdownMenu.classList.toggle('hidden');
-        }
+    document
+      .querySelectorAll<HTMLElement>('.dropdown-toggle')
+      .forEach((toggle) => {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const dropdownMenu = toggle.nextElementSibling as HTMLElement;
+          if (dropdownMenu) {
+            dropdownMenu.classList.toggle('hidden');
+          }
+        });
       });
-    });
   }
 
   @HostListener('window:scroll', [])

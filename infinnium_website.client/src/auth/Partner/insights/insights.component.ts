@@ -1,20 +1,25 @@
-import { Component, ElementRef, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+  AfterViewInit,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
-// import AOS from 'aos';
 
 @Component({
   standalone: true,
   selector: 'app-insights',
   imports: [RouterLink],
   templateUrl: './insights.component.html',
-  styleUrl: './insights.component.css'
+  styleUrl: './insights.component.css',
 })
 export class InsightsComponent implements AfterViewInit {
   @ViewChildren('countUp') countUpElements!: QueryList<ElementRef>;
   private hasAnimated = false;
 
   ngAfterViewInit() {
-    import('aos').then(AOS => {
+    import('aos').then((AOS) => {
       if (!this.hasAnimated) {
         AOS.default.init({ duration: 1200, once: true });
         this.initCountUpAnimations();
@@ -34,33 +39,36 @@ export class InsightsComponent implements AfterViewInit {
       const totalFrames = Math.round(animationDuration / frameDuration);
 
       setTimeout(() => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              let currentFrame = 0;
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                let currentFrame = 0;
 
-              const counterAnimation = setInterval(() => {
-                currentFrame++;
-                const progress = currentFrame / totalFrames;
-                const currentValue = Math.round(target * progress);
+                const counterAnimation = setInterval(() => {
+                  currentFrame++;
+                  const progress = currentFrame / totalFrames;
+                  const currentValue = Math.round(target * progress);
 
-                if (currentValue >= target) {
-                  clearInterval(counterAnimation);
-                  element.textContent = `${target}${suffix}`;
-                } else {
-                  element.textContent = `${currentValue}${suffix}`;
-                }
-              }, frameDuration);
+                  if (currentValue >= target) {
+                    clearInterval(counterAnimation);
+                    element.textContent = `${target}${suffix}`;
+                  } else {
+                    element.textContent = `${currentValue}${suffix}`;
+                  }
+                }, frameDuration);
 
-              observer.unobserve(element);
-            }
-          });
-        }, {
-          rootMargin: '0px',
-          threshold: 0.1
-        });
+                observer.unobserve(element);
+              }
+            });
+          },
+          {
+            rootMargin: '0px',
+            threshold: 0.1,
+          }
+        );
         observer.observe(element);
-      }, );
+      });
     });
 
     this.hasAnimated = true;

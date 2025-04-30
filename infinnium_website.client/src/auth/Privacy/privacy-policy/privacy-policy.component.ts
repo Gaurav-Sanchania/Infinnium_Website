@@ -1,5 +1,11 @@
-import { Component, ElementRef, HostListener, ViewChild, AfterViewInit } from '@angular/core';
-import { FooterComponent } from "../../../shared/components/footer/footer.component";
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,7 +13,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-privacy-policy',
   imports: [FooterComponent, RouterLink],
   templateUrl: './privacy-policy.component.html',
-  styleUrl: './privacy-policy.component.css'
+  styleUrl: './privacy-policy.component.css',
 })
 export class PrivacyPolicyComponent implements AfterViewInit {
   @ViewChild('mobileMenuBtn', { static: false }) mobileMenuBtn!: ElementRef;
@@ -26,15 +32,17 @@ export class PrivacyPolicyComponent implements AfterViewInit {
       this.mobileSidebar.nativeElement.classList.remove('active');
     });
 
-    document.querySelectorAll<HTMLElement>('.dropdown-toggle').forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const dropdownMenu = toggle.nextElementSibling as HTMLElement;
-        if (dropdownMenu) {
-          dropdownMenu.classList.toggle('hidden');
-        }
+    document
+      .querySelectorAll<HTMLElement>('.dropdown-toggle')
+      .forEach((toggle) => {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const dropdownMenu = toggle.nextElementSibling as HTMLElement;
+          if (dropdownMenu) {
+            dropdownMenu.classList.toggle('hidden');
+          }
+        });
       });
-    });
   }
 
   @HostListener('window:scroll', [])

@@ -5,12 +5,14 @@ import { Component } from '@angular/core';
   selector: 'app-products-4ig-features',
   imports: [],
   templateUrl: './features.component.html',
-  styleUrl: './features.component.css'
+  styleUrl: './features.component.css',
 })
 export class FeaturesComponent {
   toggleDescription(id: number): void {
     const desc = document.getElementById(`desc-${id}`);
-    const button = document.querySelector(`[data-id="${id}"]`) as HTMLButtonElement;
+    const button = document.querySelector(
+      `[data-id="${id}"]`
+    ) as HTMLButtonElement;
 
     if (desc && button) {
       const isExpanded = desc.classList.contains('slide-toggle');
@@ -32,7 +34,6 @@ export class FeaturesComponent {
           desc.classList.add('truncate-text');
           desc.style.maxHeight = '';
         }, 400);
-
       } else {
         // EXPANDING
         desc.classList.remove('truncate-text');
@@ -51,5 +52,4 @@ export class FeaturesComponent {
       }
     }
   }
-
 }

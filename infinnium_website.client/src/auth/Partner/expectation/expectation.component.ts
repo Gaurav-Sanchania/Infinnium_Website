@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   selector: 'app-expectation',
   imports: [],
   templateUrl: './expectation.component.html',
-  styleUrl: './expectation.component.css'
+  styleUrl: './expectation.component.css',
 })
-export class ExpectationComponent {
-
-}
+export class ExpectationComponent {}

@@ -13,29 +13,30 @@ declare global {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ConfigService {
   private configSubject = new BehaviorSubject<AppConfig | null>(null);
   public config$ = this.configSubject.asObservable();
-  
+
   private readonly CONFIG_URL = './assets/myConfig.js';
-  
+
   constructor(private http: HttpClient) {}
 
   loadConfig(): Observable<AppConfig> {
     return this.http.get(this.CONFIG_URL, { responseType: 'text' }).pipe(
-      map(configText => {
+      map((configText) => {
         // Remove the window assignment part and extract the config object
-        const configJson = configText.replace("window['myAppConfig'] = ", "").trim();
+        const configJson = configText
+          .replace("window['myAppConfig'] = ", '')
+          .trim();
         // Remove any trailing semicolons
-        const cleanConfigJson = configJson.replace(/;$/, "");
+        const cleanConfigJson = configJson.replace(/;$/, '');
         // Parse the JSON
         const config = JSON.parse(cleanConfigJson);
         return config as AppConfig;
       }),
-      tap(config => {
+      tap((config) => {
         // Update the global config
         window.myAppConfig = config;
         // Update the behavior subject
@@ -51,7 +52,7 @@ export class ConfigService {
       return this.loadConfig();
     }
   }
-  
+
   refreshConfig(): Observable<AppConfig> {
     return this.loadConfig();
   }

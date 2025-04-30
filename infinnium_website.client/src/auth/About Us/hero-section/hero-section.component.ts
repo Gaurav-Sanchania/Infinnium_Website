@@ -6,8 +6,6 @@ import { RouterLink } from '@angular/router';
   selector: 'app-about-us-hero-section',
   imports: [RouterLink],
   templateUrl: './hero-section.component.html',
-  styleUrl: './hero-section.component.css'
+  styleUrl: './hero-section.component.css',
 })
-export class HeroSectionComponent {
-
-}
+export class HeroSectionComponent {}

@@ -71,18 +71,6 @@
       <div
         class="h-[29rem] bg-black border-gray-700 rounded-lg shadow-sm bg-white dark:border-gray-700 max-w-sm relative group shadow-md"
         *ngFor="let blog of news; let i = index;">
-        <!-- Red exclamation icon if blog is not active -->
-        <!--<div *ngIf="blog.isActive === false"
-             class="absolute bottom-2 right-[4rem] text-red-600 text-xl"
-             title="Inactive blog">
-          <i class="fa-solid fa-ban"></i>
-        </div>
-        <div *ngIf="blog.isActive === true"
-             class="absolute bottom-2 right-[4rem] text-green-600 text-xl"
-             title="Inactive blog">-->
-        <!--<i class="fa-solid fa-check-double"></i>-->
-        <!--<i class="fa-solid fa-check"></i>
-        </div>-->
 
         <label class="absolute bottom-2 right-[4rem] inline-flex items-center cursor-pointer" title="Status">
           <input type="checkbox" id="isActive" [checked]="blog.isActive" class="sr-only peer"
@@ -101,9 +89,6 @@
             class="border-[1.5px] border-[#E76F51] text-white text-sm px-2 py-1 rounded overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
             Edit
           </button>
-          <!--<button class="bg-red-500 text-white text-sm px-2 py-1 rounded hover:bg-red-600" (click)="deleteBlog(blog.id)">
-      Delete
-    </button>-->
         </div>
         <a class="w-80">
           <img class="rounded-t-lg h-40 w-80 object-cover" [src]="blog.image" alt="blog_image" />
@@ -126,7 +111,6 @@
               Read More →
             </a>
           </div>
-          <!--[routerLink]="['/Resources/Blogs/', blog.title, blog.guid]"-->
         </div>
       </div>
     </div>

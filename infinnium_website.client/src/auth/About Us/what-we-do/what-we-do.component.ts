@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   selector: 'app-about-us-what-we-do',
   imports: [],
   templateUrl: './what-we-do.component.html',
-  styleUrl: './what-we-do.component.css'
+  styleUrl: './what-we-do.component.css',
 })
-export class WhatWeDoComponent {
-
-}
+export class WhatWeDoComponent {}

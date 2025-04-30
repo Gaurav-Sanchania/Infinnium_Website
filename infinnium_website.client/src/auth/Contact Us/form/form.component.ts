@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -51,11 +52,11 @@ export class FormComponent {
 
       this.contactUsService.sendEmail(email, subject, body).subscribe({
         next: (res) => {
-          console.log('Email sent successfully:', res);
+          // console.log('Email sent successfully:', res);
           this.show('Email sent successfully!');
         },
         error: (err) => {
-          console.error('Error sending email:', err);
+          // console.error('Error sending email:', err);
           this.show('Failed to send email.');
         }
       });

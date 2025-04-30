@@ -1,9 +1,9 @@
 .truncate-text {
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Show only 3 lines */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-  }
-  
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show only 3 lines */
+  line-clamp: 3; /* Standard property for compatibility */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}

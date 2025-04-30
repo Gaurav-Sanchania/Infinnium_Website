@@ -1,9 +1,8 @@
 <form [formGroup]="imageForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-    <div>
-      <label for="image">Select Author Image:</label>
-      <input type="file" id="image" (change)="onFileSelected($event)" />
-    </div>
-  
-    <button type="submit" [disabled]="!imageForm.valid || !selectedFile">Upload Image</button>
-  </form>
-  
+  <div>
+    <label for="image">Select Author Image:</label>
+    <input type="file" id="image" (change)="onFileSelected($event)" />
+  </div>
+
+  <button type="submit" [disabled]="!imageForm.valid || !selectedFile">Upload Image</button>
+</form>

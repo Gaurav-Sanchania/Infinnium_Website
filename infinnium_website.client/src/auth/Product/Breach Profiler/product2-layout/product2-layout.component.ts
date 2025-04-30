@@ -11,10 +11,17 @@ import { ProductComponent } from '../product/product.component';
 @Component({
   standalone: true,
   selector: 'app-product2-layout',
-  imports: [HeaderComponent, HeroSectionComponent, ProductComponent, ListComponent, AdvantagesComponent, FeaturesComponent, TrustedLeadersComponent, FooterComponent],
+  imports: [
+    HeaderComponent,
+    HeroSectionComponent,
+    ProductComponent,
+    ListComponent,
+    AdvantagesComponent,
+    FeaturesComponent,
+    TrustedLeadersComponent,
+    FooterComponent,
+  ],
   templateUrl: './product2-layout.component.html',
-  styleUrl: './product2-layout.component.css'
+  styleUrl: './product2-layout.component.css',
 })
-export class Product2LayoutComponent {
-
-}
+export class Product2LayoutComponent {}

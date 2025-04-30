@@ -13,12 +13,19 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
 @Component({
   standalone: true,
   selector: 'app-home-layout',
-  imports: [HeaderComponent, HeroSectionComponent, WhatWeDoComponent, AreaOfExpertiseComponent,
-    OurProductsComponent, AboutUsComponent, GlobalImpactComponent, TrustedLeadersComponent,
-    RecentBlogsComponent, FooterComponent],
+  imports: [
+    HeaderComponent,
+    HeroSectionComponent,
+    WhatWeDoComponent,
+    AreaOfExpertiseComponent,
+    OurProductsComponent,
+    AboutUsComponent,
+    GlobalImpactComponent,
+    TrustedLeadersComponent,
+    RecentBlogsComponent,
+    FooterComponent,
+  ],
   templateUrl: './home-layout.component.html',
-  styleUrl: './home-layout.component.css'
+  styleUrl: './home-layout.component.css',
 })
-export class HomeLayoutComponent {
-
-}
+export class HomeLayoutComponent {}

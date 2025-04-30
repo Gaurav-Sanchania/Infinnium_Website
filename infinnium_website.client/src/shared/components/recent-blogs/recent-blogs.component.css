@@ -1,14 +1,14 @@
 /* Recent Blogs */
 /* Image Hover Zoom-In/Zoom-Out Effect */
 .blog-img {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .blog-img:hover {
-    transform: scale(1.05); /* Zoom in the image */
-  }
-  
-  /* Underline Effect for View All Link */
-  .view-all {
-    text-decoration: underline;
-  }
+  transition: transform 0.3s ease-in-out;
+}
+
+.blog-img:hover {
+  transform: scale(1.05); /* Zoom in the image */
+}
+
+/* Underline Effect for View All Link */
+.view-all {
+  text-decoration: underline;
+}

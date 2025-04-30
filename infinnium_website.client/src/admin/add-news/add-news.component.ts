@@ -1,23 +1,34 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FooterComponent } from "../../shared/components/footer/footer.component";
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NewsService } from '../../services/newsService.service';
 import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-add-news',
-  imports: [NavbarComponent, FooterComponent, ReactiveFormsModule, CommonModule, QuillModule],
+  imports: [
+    NavbarComponent,
+    FooterComponent,
+    ReactiveFormsModule,
+    CommonModule,
+    QuillModule,
+  ],
   templateUrl: './add-news.component.html',
-  styleUrl: './add-news.component.css'
+  styleUrl: './add-news.component.css',
 })
 export class AddNewsComponent implements OnInit {
   blogForm!: FormGroup;
   showPopup = false;
 
-  constructor(private fb: FormBuilder, private newsService: NewsService) { }
+  constructor(private fb: FormBuilder, private newsService: NewsService) {}
 
   ngOnInit(): void {
     this.blogForm = this.fb.group({
@@ -46,7 +57,7 @@ export class AddNewsComponent implements OnInit {
       brief: formValue.brief,
       description: formValue.description,
       publishedDate: formValue.publishedDate,
-      authorId: 1
+      authorId: 1,
     };
 
     if (this.blogForm.valid) {

@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-footer',
   imports: [RouterLink, CommonModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  styleUrl: './footer.component.css',
 })
 export class FooterComponent {
   showPopup = false;
@@ -20,11 +20,12 @@ export class FooterComponent {
   };
 
   // Explicitly typed array to avoid TS errors in template
-  settingKeys: Array<Exclude<keyof typeof this.settings, 'necessary'>> = ['preferences', 'statistics'];
+  settingKeys: Array<Exclude<keyof typeof this.settings, 'necessary'>> = [
+    'preferences',
+    'statistics',
+  ];
 
   openPopup() {
-    // document.body.style.overflow = 'hidden';
-    // document.documentElement.style.overflow = 'hidden';
     this.showPopup = true;
   }
 

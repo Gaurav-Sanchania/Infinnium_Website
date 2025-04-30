@@ -9,45 +9,27 @@
           <label class="block text-[#12423C] text-sm mb-1">
             Full Name<span class="text-red-600">*</span>
           </label>
-          <input
-            type="text"
-            id="firstName"
-            formControlName="name"
+          <input type="text" id="firstName" formControlName="name"
             [ngClass]="submitted && contactUsForm.get('name')?.invalid ? invalidStyle : baseStyle"
-            placeholder="Full Name"
-            required
-          />
+            placeholder="Full Name" required />
         </div>
 
-        <!-- <div>
-            <label class="block text-[#12423C] text-sm mb-1">Last Name <span
-                    class="text-red-600">*</span></label>
-            <input type="text" id="lastName"
-                class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                placeholder="Last Name" required />
-        </div> -->
       </div>
       <!-- Email & Phone -->
       <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
         <div>
           <label class="block text-[#12423C] text-sm mb-1">Email <span class="text-red-600">*</span></label>
-          <input type="email" id="email" formControlName="email" placeholder="Email" required 
-          [ngClass]="submitted && contactUsForm.get('email')?.invalid ? invalidStyle : baseStyle"/>
+          <input type="email" id="email" formControlName="email" placeholder="Email" required
+            [ngClass]="submitted && contactUsForm.get('email')?.invalid ? invalidStyle : baseStyle" />
           <!-- <div *ngIf="isInValid" class="text-[red]">This is required !</div> -->
         </div>
-        <!-- <div>
-            <label class="block text-[#12423C] text-sm mb-1">Phone Number <span
-                    class="text-red-600">*</span></label>
-            <input type="tel" id="phone"
-                class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                placeholder="Phone" required />
-        </div> -->
+
       </div>
       <!-- Description -->
       <div>
         <label class="block text-[#12423C] text-sm mb-1">Description <span class="text-red-600">*</span></label>
-        <textarea id="message" rows="4" formControlName="description" placeholder="Write Message . . ." 
-        [ngClass]="submitted && contactUsForm.get('description')?.invalid ? invalidStyle : baseStyle"
+        <textarea id="message" rows="4" formControlName="description" placeholder="Write Message . . ."
+          [ngClass]="submitted && contactUsForm.get('description')?.invalid ? invalidStyle : baseStyle"
           required></textarea>
         <!-- <div *ngIf="isInValid" class="text-[red]">This is required !</div> -->
       </div>
@@ -60,9 +42,6 @@
         Submit
       </button>
 
-      <!-- <button type="submit" class="contact-common w-[52rem] py-2">
-        <p class="mx-auto text-lg font-normal">Submit</p>
-      </button>-->
     </form>
   </div>
 

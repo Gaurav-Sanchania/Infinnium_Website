@@ -4,12 +4,12 @@
   transition: max-height 0.5s ease;
 }
 
-    .toggleBtn {
-      cursor: pointer;
-      width: fit-content;
-    }
+.toggleBtn {
+  cursor: pointer;
+  width: fit-content;
+}
 
-    .slide-toggle {
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
+.slide-toggle {
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}

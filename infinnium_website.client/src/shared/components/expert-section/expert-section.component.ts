@@ -7,8 +7,8 @@ import { RouterLink } from '@angular/router';
   selector: 'app-expert-section',
   imports: [RouterLink],
   templateUrl: './expert-section.component.html',
-  styleUrl: './expert-section.component.css'
+  styleUrl: './expert-section.component.css',
 })
 export class ExpertSectionComponent {
-  @Input() headingText: string = "Talk to our Experts";
+  @Input() headingText: string = 'Talk to our Experts';
 }

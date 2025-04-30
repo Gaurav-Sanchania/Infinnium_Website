@@ -10,11 +10,16 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
 @Component({
   standalone: true,
   selector: 'app-about-us-layout',
-  imports: [HeroSectionComponent, HeaderComponent, AboutUsComponent, WhatWeDoComponent,
-    AboutUsSectionComponent, TeamComponent, FooterComponent],
+  imports: [
+    HeroSectionComponent,
+    HeaderComponent,
+    AboutUsComponent,
+    WhatWeDoComponent,
+    AboutUsSectionComponent,
+    TeamComponent,
+    FooterComponent,
+  ],
   templateUrl: './about-us-layout.component.html',
-  styleUrl: './about-us-layout.component.css'
+  styleUrl: './about-us-layout.component.css',
 })
-export class AboutUsLayoutComponent {
-
-}
+export class AboutUsLayoutComponent {}

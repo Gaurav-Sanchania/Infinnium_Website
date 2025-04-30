@@ -3,31 +3,47 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { BlogsService } from '../../services/blogsService.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from '../../services/newsService.service';
 import { QuillModule } from 'ngx-quill';
 
-
 @Component({
   standalone: true,
   selector: 'app-edit-blog',
-  imports: [CommonModule, NavbarComponent, FooterComponent, ReactiveFormsModule, QuillModule],
+  imports: [
+    CommonModule,
+    NavbarComponent,
+    FooterComponent,
+    ReactiveFormsModule,
+    QuillModule,
+  ],
   providers: [],
   templateUrl: './edit-blog.component.html',
-  styleUrl: './edit-blog.component.css'
+  styleUrl: './edit-blog.component.css',
 })
 export class EditBlogComponent implements OnInit {
   blogForm!: FormGroup;
   showPopup = false;
   showNewsPopup = false;
-  blogId: any = "";
+  blogId: any = '';
   previewUrl: string | ArrayBuffer | null = null;
   originalFile: File | null = null;
   category!: string;
 
-  constructor(private fb: FormBuilder, private blogService: BlogsService, private newsService: NewsService, private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private blogService: BlogsService,
+    private newsService: NewsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.blogForm = this.fb.group({
@@ -84,7 +100,7 @@ export class EditBlogComponent implements OnInit {
       reader.readAsDataURL(file);
 
       this.blogForm.patchValue({
-        image: file 
+        image: file,
       });
       this.blogForm.get('image')?.markAsTouched();
     }
@@ -101,7 +117,7 @@ export class EditBlogComponent implements OnInit {
       publishedDate: formValue.publishedDate,
       authorId: 1,
       isActive: formValue.isActive,
-      id : this.blogId,
+      id: this.blogId,
     };
     //console.log(blog);
 
@@ -119,7 +135,7 @@ export class EditBlogComponent implements OnInit {
       this.blogForm.markAllAsTouched();
     }
   }
-  
+
   closePopup(): void {
     this.showPopup = false;
     this.showNewsPopup = false;

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterOutlet,
+} from '@angular/router';
 import { CookieComponent } from '../auth/Cookies/cookie/cookie.component';
 import { ScrollToTopComponent } from '../shared/components/scroll-top/scroll-to-top.component';
 import { Title } from '@angular/platform-browser';

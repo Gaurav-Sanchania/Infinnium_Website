@@ -10,10 +10,17 @@ import { ProductComponent } from '../product/product.component';
 
 @Component({
   selector: 'app-product3-layout',
-  imports: [HeaderComponent, HeroSectionComponent, ProductComponent, ListComponent, AdvantagesComponent, FeaturesComponent, TrustedLeadersComponent, FooterComponent],
+  imports: [
+    HeaderComponent,
+    HeroSectionComponent,
+    ProductComponent,
+    ListComponent,
+    AdvantagesComponent,
+    FeaturesComponent,
+    TrustedLeadersComponent,
+    FooterComponent,
+  ],
   templateUrl: './product3-layout.component.html',
-  styleUrl: './product3-layout.component.css'
+  styleUrl: './product3-layout.component.css',
 })
-export class Product3LayoutComponent {
-
-}
+export class Product3LayoutComponent {}

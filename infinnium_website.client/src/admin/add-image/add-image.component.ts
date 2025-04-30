@@ -8,7 +8,7 @@ import { AuthorService } from '../../services/authorService.service';
   selector: 'app-add-image',
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-image.component.html',
-  styleUrl: './add-image.component.css'
+  styleUrl: './add-image.component.css',
 })
 export class AddImageComponent {
   imageForm: FormGroup;
@@ -36,7 +36,7 @@ export class AddImageComponent {
         error: (err) => {
           console.error('Upload failed', err);
           alert('Upload failed');
-        }
+        },
       });
     }
   }

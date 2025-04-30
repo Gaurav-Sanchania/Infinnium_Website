@@ -10,10 +10,10 @@ import { AuthorService } from '../../../services/authorService.service';
   imports: [RouterLink, CommonModule],
   providers: [AuthorService],
   templateUrl: './team.component.html',
-  styleUrl: './team.component.css'
+  styleUrl: './team.component.css',
 })
 export class TeamComponent implements OnInit {
-  constructor(private authorService: AuthorService, private router: Router) { }
+  constructor(private authorService: AuthorService, private router: Router) {}
 
   public authors: any = [];
 

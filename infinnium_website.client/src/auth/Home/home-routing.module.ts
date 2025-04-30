@@ -5,12 +5,15 @@ export { routes as homeRoutingModule } from './home-routing.module';
 
 export const routes: Routes = [
   {
-    path: '', component: HomeLayoutComponent, pathMatch: 'full', title: "Infinnium"
-  }
+    path: '',
+    component: HomeLayoutComponent,
+    pathMatch: 'full',
+    title: 'Infinnium',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HomeRoutingModule { }
+export class HomeRoutingModule {}

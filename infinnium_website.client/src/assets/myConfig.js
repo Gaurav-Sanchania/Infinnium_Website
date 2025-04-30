@@ -1,3 +1,3 @@
 window['myAppConfig'] = {
-    "apiBaseUrl": "http://localhost:5063"
-  };
+  "apiBaseUrl": "http://localhost:5063"
+};

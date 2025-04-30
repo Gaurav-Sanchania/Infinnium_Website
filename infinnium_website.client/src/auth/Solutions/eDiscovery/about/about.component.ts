@@ -5,12 +5,14 @@ import { Component } from '@angular/core';
   selector: 'app-ediscovery-about',
   imports: [],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrl: './about.component.css',
 })
 export class AboutComponent {
   toggleDescription(id: number): void {
     const desc = document.getElementById(`desc-${id}`);
-    const button = document.querySelector(`[data-id="${id}"]`) as HTMLButtonElement;
+    const button = document.querySelector(
+      `[data-id="${id}"]`
+    ) as HTMLButtonElement;
 
     if (desc && button) {
       desc.classList.toggle('truncate-text');

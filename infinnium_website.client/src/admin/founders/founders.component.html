@@ -10,16 +10,12 @@
             <!-- Card 1 - Elie Francis -->
             <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative group"
                 *ngFor="let author of authors;">
-                <!--<div class="transform transition duration-300 hover:scale-105">
-                    </div>-->
                 <div class="absolute top-3 right-3 flex opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                     [attr.aria-hidden]="false" (click)="editMember(author)" title="Edit">
-                    <i class="fa-solid fa-pen-to-square transition-transform duration-200 hover:scale-125 cursor-pointer"></i>
+                    <i
+                        class="fa-solid fa-pen-to-square transition-transform duration-200 hover:scale-125 cursor-pointer"></i>
                 </div>
 
-                <!-- <a [routerLink]="['/Dashboard/Update-members', slugify(author.name), author.guid]"
-                    class="absolute inset-0 z-10 cursor-pointer">
-                </a> -->
                 <img [src]="author.image" alt="Elie Francis" class="w-36 h-auto object-cover rounded-l-xl">
                 <div class="p-4 flex flex-col justify-between flex-1">
                     <div>
@@ -40,13 +36,6 @@
                             <p class="ms-1 text-sm">{{ author.email }}</p>
                         </div>
                     </div>
-                    <!-- <div class="flex items-center space-x-3 mt-4 relative z-20 pointer-events-auto">
-                        <a *ngIf="author.socialMediaLink" [href]="author.socialMediaLink"
-                            (click)="$event.stopPropagation()" target="_blank"
-                            class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
-                            <i class="fa-brands fa-linkedin-in text-lg"></i>
-                        </a>
-                    </div> -->
                 </div>
             </div>
         </div>

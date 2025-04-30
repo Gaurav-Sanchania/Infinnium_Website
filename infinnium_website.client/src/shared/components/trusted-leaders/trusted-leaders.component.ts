@@ -1,4 +1,12 @@
-import { Component, Input, OnChanges, SimpleChanges, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  AfterViewInit,
+  ElementRef,
+  Renderer2,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,30 +14,33 @@ import { CommonModule } from '@angular/common';
   selector: 'app-trusted-leaders',
   templateUrl: './trusted-leaders.component.html',
   styleUrls: ['./trusted-leaders.component.css'],
-  imports: [CommonModule] // Add this import here
+  imports: [CommonModule],
 })
 export class TrustedLeadersComponent implements OnChanges, AfterViewInit {
-  @Input() bgColor = "#12423C";
-  textColor = "white";
+  @Input() bgColor = '#12423C';
+  textColor = 'white';
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['bgColor']) {
-      this.textColor = this.bgColor === "#12423C" ? "white" : "black";
+      this.textColor = this.bgColor === '#12423C' ? 'white' : 'black';
     }
   }
 
   ngAfterViewInit(): void {
     const elements = this.el.nativeElement.querySelectorAll('[data-animate]');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.renderer.addClass(entry.target, 'animate-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.renderer.addClass(entry.target, 'animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
     elements.forEach((el: HTMLElement, index: number) => {
       // Add initial hidden state

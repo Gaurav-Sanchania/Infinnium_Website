@@ -1,4 +1,10 @@
-import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  OnDestroy,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -6,7 +12,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-global-impact',
   imports: [RouterLink],
   templateUrl: './global-impact.component.html',
-  styleUrls: ['./global-impact.component.css']
+  styleUrls: ['./global-impact.component.css'],
 })
 export class GlobalImpactComponent implements AfterViewInit, OnDestroy {
   @ViewChild('sectionElement') sectionElement!: ElementRef;
@@ -23,7 +29,8 @@ export class GlobalImpactComponent implements AfterViewInit, OnDestroy {
   }
 
   private initializeRings() {
-    const rings = this.sectionElement.nativeElement.querySelectorAll('.progress-ring');
+    const rings =
+      this.sectionElement.nativeElement.querySelectorAll('.progress-ring');
     rings.forEach((ring: HTMLElement) => {
       const progress = ring.querySelector('.progress') as SVGCircleElement;
       if (progress) {
@@ -39,24 +46,28 @@ export class GlobalImpactComponent implements AfterViewInit, OnDestroy {
   }
 
   private setupIntersectionObserver() {
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          this.animateElements();
-          this.observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.25,
-      rootMargin: '0px 0px -100px 0px'
-    });
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            this.animateElements();
+            this.observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+        rootMargin: '0px 0px -100px 0px',
+      }
+    );
 
     this.observer.observe(this.sectionElement.nativeElement);
   }
 
   private animateElements() {
-    const rings = this.sectionElement.nativeElement.querySelectorAll('.progress-ring');
+    const rings =
+      this.sectionElement.nativeElement.querySelectorAll('.progress-ring');
 
     rings.forEach((ring: HTMLElement) => {
       const percent = parseFloat(ring.getAttribute('data-percent') ?? '0');
@@ -64,10 +75,10 @@ export class GlobalImpactComponent implements AfterViewInit, OnDestroy {
       const numberElement = ring.querySelector('.count-up') as HTMLElement;
 
       if (progress && numberElement) {
-        const radius       = progress.r.baseVal.value;
+        const radius = progress.r.baseVal.value;
         const circumference = 2 * Math.PI * radius;
-        const fullOffset    = circumference;
-        const targetOffset  = circumference * (1 - percent / 100);
+        const fullOffset = circumference;
+        const targetOffset = circumference * (1 - percent / 100);
 
         // 1. make sure it's visible
         progress.style.opacity = '1';
@@ -78,13 +89,13 @@ export class GlobalImpactComponent implements AfterViewInit, OnDestroy {
         progress.animate(
           [
             { strokeDashoffset: fullOffset, offset: 0 },
-            { strokeDashoffset: 0,          offset: 0.6 },
-            { strokeDashoffset: targetOffset, offset: 1 }
+            { strokeDashoffset: 0, offset: 0.6 },
+            { strokeDashoffset: targetOffset, offset: 1 },
           ],
           {
-            duration: 3000,               // a bit slower overall
-            easing:   'ease-out',         // smooth deceleration
-            fill:     'forwards'
+            duration: 3000, // a bit slower overall
+            easing: 'ease-out', // smooth deceleration
+            fill: 'forwards',
           }
         );
 
@@ -93,8 +104,6 @@ export class GlobalImpactComponent implements AfterViewInit, OnDestroy {
       }
     });
   }
-
-
 
   private animateNumber(element: HTMLElement, target: number) {
     const numberSpan = element.childNodes[0] as Text; // get only the number text node
@@ -118,11 +127,8 @@ export class GlobalImpactComponent implements AfterViewInit, OnDestroy {
     }, 1000 / frameRate);
   }
 
-
-
-
   private cleanup() {
     this.observer?.disconnect();
-    this.animationFrameIds.forEach(id => cancelAnimationFrame(id));
+    this.animationFrameIds.forEach((id) => cancelAnimationFrame(id));
   }
 }

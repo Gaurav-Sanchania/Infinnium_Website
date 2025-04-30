@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-our-products',
   imports: [RouterLink],
   templateUrl: './our-products.component.html',
-  styleUrl: './our-products.component.css'
+  styleUrl: './our-products.component.css',
 })
 export class OurProductsComponent implements AfterViewInit {
   @ViewChild('productGrid', { static: true }) productGrid!: ElementRef;
@@ -23,10 +23,11 @@ export class OurProductsComponent implements AfterViewInit {
       productGrid.style.opacity = '1';
     }
 
-    const productItems = this.elementRef.nativeElement.querySelectorAll('.product-item');
+    const productItems =
+      this.elementRef.nativeElement.querySelectorAll('.product-item');
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px'
+      rootMargin: '0px',
     };
 
     const productObserver = new IntersectionObserver((entries, obs) => {
@@ -45,7 +46,8 @@ export class OurProductsComponent implements AfterViewInit {
       productObserver.observe(item);
     });
 
-    const headerElements = this.elementRef.nativeElement.querySelectorAll('.animate-product');
+    const headerElements =
+      this.elementRef.nativeElement.querySelectorAll('.animate-product');
     headerElements.forEach((el: HTMLElement) => {
       //el.style.opacity = '0';
       setTimeout(() => {

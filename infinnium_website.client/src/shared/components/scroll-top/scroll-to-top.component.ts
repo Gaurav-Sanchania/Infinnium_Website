@@ -7,7 +7,7 @@ import { Component, HostListener } from '@angular/core';
   imports: [CommonModule],
   selector: 'app-scroll-to-top',
   templateUrl: './scroll-to-top.component.html',
-  styleUrls: ['./scroll-to-top.component.css']
+  styleUrls: ['./scroll-to-top.component.css'],
 })
 export class ScrollToTopComponent {
   isVisible = false;

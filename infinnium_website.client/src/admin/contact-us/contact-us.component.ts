@@ -10,14 +10,14 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   providers: [ContactUsService],
   templateUrl: './contact-us.component.html',
-  styleUrl: './contact-us.component.css'
+  styleUrl: './contact-us.component.css',
 })
 export class ContactUsComponent implements OnInit {
   contactRecords: any = [];
   showEditPopup = false;
   recordEdit: any = [];
 
-  constructor(private contactUsService: ContactUsService) { }
+  constructor(private contactUsService: ContactUsService) {}
 
   async ngOnInit() {
     this.contactRecords = await this.contactUsService.getAllContactUs();
@@ -32,6 +32,6 @@ export class ContactUsComponent implements OnInit {
   openPopUp(record: any) {
     this.showEditPopup = true;
     this.recordEdit = record;
-    console.log(this.recordEdit);
+    // console.log(this.recordEdit);
   }
 }

@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-member',
   imports: [RouterLink],
   templateUrl: './member.component.html',
-  styleUrl: './member.component.css'
+  styleUrl: './member.component.css',
 })
 export class MemberComponent {
   @Input() member: any = [];

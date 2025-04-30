@@ -9,7 +9,7 @@ import { LoginService } from '../../services/loginService.service';
   imports: [RouterLink, RouterOutlet, CommonModule, RouterLinkActive],
   providers: [LoginService],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements AfterViewInit {
   constructor(private loginService: LoginService) {}
@@ -34,15 +34,17 @@ export class NavbarComponent implements AfterViewInit {
       this.mobileSidebar.nativeElement.classList.remove('active');
     });
 
-    document.querySelectorAll<HTMLElement>('.dropdown-toggle').forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const dropdownMenu = toggle.nextElementSibling as HTMLElement;
-        if (dropdownMenu) {
-          dropdownMenu.classList.toggle('hidden');
-        }
+    document
+      .querySelectorAll<HTMLElement>('.dropdown-toggle')
+      .forEach((toggle) => {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const dropdownMenu = toggle.nextElementSibling as HTMLElement;
+          if (dropdownMenu) {
+            dropdownMenu.classList.toggle('hidden');
+          }
+        });
       });
-    });
 
     const headerEl = this.header.nativeElement;
     const logoPath = this.logoSvg.nativeElement.querySelector('.cls-1');

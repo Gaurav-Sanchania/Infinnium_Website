@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   selector: 'app-products-breach-advantages',
   imports: [],
   templateUrl: './advantages.component.html',
-  styleUrl: './advantages.component.css'
+  styleUrl: './advantages.component.css',
 })
-export class AdvantagesComponent {
-
-}
+export class AdvantagesComponent {}

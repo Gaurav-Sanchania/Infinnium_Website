@@ -1,10 +1,18 @@
-import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  OnDestroy,
+  ElementRef,
+  ViewChild,
+  ViewChildren,
+  QueryList,
+} from '@angular/core';
 
 @Component({
   standalone: true,
   selector: 'app-home-what-we-do',
   templateUrl: './what-we-do.component.html',
-  styleUrls: ['./what-we-do.component.css']
+  styleUrls: ['./what-we-do.component.css'],
 })
 export class WhatWeDoComponent implements AfterViewInit, OnDestroy {
   @ViewChild('animatedSection', { static: true }) animatedSection!: ElementRef;
@@ -22,24 +30,28 @@ export class WhatWeDoComponent implements AfterViewInit, OnDestroy {
   }
 
   private setupIntersectionObserver() {
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.handleIntersection();
-          this.observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.25,
-      rootMargin: '0px 0px -100px 0px'
-    });
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.handleIntersection();
+            this.observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+        rootMargin: '0px 0px -100px 0px',
+      }
+    );
 
     this.observer.observe(this.animatedSection.nativeElement);
   }
 
   private handleIntersection() {
     // Animate headers
-    const headers = this.animatedSection.nativeElement.querySelectorAll('.scroll-animation');
+    const headers =
+      this.animatedSection.nativeElement.querySelectorAll('.scroll-animation');
     headers.forEach((el: HTMLElement) => el.classList.add('visible'));
 
     // Animate dividers

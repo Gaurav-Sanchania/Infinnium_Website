@@ -9,7 +9,7 @@ import { NewsService } from '../../services/newsService.service';
   selector: 'app-admin-blog-list',
   imports: [CommonModule, RouterLink],
   templateUrl: './blog-list.component.html',
-  styleUrl: './blog-list.component.css'
+  styleUrl: './blog-list.component.css',
 })
 export class BlogListComponent implements OnInit {
   public blogs: any = [];
@@ -23,8 +23,12 @@ export class BlogListComponent implements OnInit {
 
   public news_edit: any = [];
   public news_delete!: number;
-  
-  constructor(private blogService: BlogsService, private newsService: NewsService, private route: Router) { }
+
+  constructor(
+    private blogService: BlogsService,
+    private newsService: NewsService,
+    private route: Router
+  ) {}
 
   async ngOnInit() {
     this.blogs = await this.blogService.getAllBlogsAdmin();
@@ -46,13 +50,13 @@ export class BlogListComponent implements OnInit {
     this.closePopup();
     this.route.navigateByUrl(`dashboard/edit-blog/${this.blog_edit.guid}`);
   }
-  
+
   toggleEditNews(event: Event, blog: any) {
     event.preventDefault();
     this.showEditNewsPopup = true;
     this.news_edit = blog;
   }
-  editNews(blog: any){
+  editNews(blog: any) {
     this.showEditNewsPopup = true;
     this.news_edit = blog;
   }
@@ -60,12 +64,6 @@ export class BlogListComponent implements OnInit {
     this.closePopup();
     this.route.navigateByUrl(`dashboard/edit-news/${this.news_edit.guid}`);
   }
-
-  //deleteBlog(id: number) {
-  //  this.showDeletePopup = true;
-  //  this.blog_delete = id;
-  //  console.log(this.blog_delete);
-  //}
 
   closePopup(): void {
     this.showDeletePopup = false;
@@ -76,8 +74,8 @@ export class BlogListComponent implements OnInit {
   slugify(str: string) {
     return str
       .toLowerCase()
-      .replace(/[^\w\s-]/g, '')        // Remove special characters
-      .replace(/\s+/g, '-')            // Replace spaces with -
-      .replace(/--+/g, '-');           // Collapse multiple dashes
+      .replace(/[^\w\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with -
+      .replace(/--+/g, '-'); // Collapse multiple dashes
   }
 }

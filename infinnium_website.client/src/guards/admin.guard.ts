@@ -4,10 +4,9 @@ import { AdminDashboardComponent } from '../admin/admin-dashboard/admin-dashboar
 import { AuthSessionService } from './authSession';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminGuard implements CanActivate {
-
   constructor(private router: Router, private auth: AuthSessionService) {}
 
   canActivate(): boolean {

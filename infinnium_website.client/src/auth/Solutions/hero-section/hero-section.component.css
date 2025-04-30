@@ -1,15 +1,15 @@
 .zoom-static {
-    transform-box: fill-box; /* Super important */
-    transform-origin: center;
-    animation: pulseZoom 2s ease-in-out infinite;
+  transform-box: fill-box; /* Super important */
+  transform-origin: center;
+  animation: pulseZoom 2s ease-in-out infinite;
+}
+
+@keyframes pulseZoom {
+  0%,
+  100% {
+    transform: scale(1);
   }
-  
-  @keyframes pulseZoom {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.2);
-    }
+  50% {
+    transform: scale(1.2);
   }
+}

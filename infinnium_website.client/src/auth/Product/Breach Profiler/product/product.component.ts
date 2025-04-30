@@ -5,15 +5,19 @@ import { Component } from '@angular/core';
   selector: 'app-products-breach-product',
   imports: [],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+  styleUrl: './product.component.css',
 })
 export class ProductComponent {
   toggleDescription(id: number): void {
     const desc = document.getElementById(`desc-${id}`);
-    const button = document.querySelector(`[data-id="${id}"]`) as HTMLButtonElement;
+    const button = document.querySelector(
+      `[data-id="${id}"]`
+    ) as HTMLButtonElement;
 
     if (desc && button) {
-      const isExpanded = desc.classList.contains('slide-toggle') && !desc.classList.contains('collapsing');
+      const isExpanded =
+        desc.classList.contains('slide-toggle') &&
+        !desc.classList.contains('collapsing');
 
       if (isExpanded) {
         // Start collapse
@@ -33,6 +37,4 @@ export class ProductComponent {
       }
     }
   }
-
-
 }

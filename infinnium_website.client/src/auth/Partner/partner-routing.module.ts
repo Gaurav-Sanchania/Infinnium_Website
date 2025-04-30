@@ -5,12 +5,14 @@ export { routes as partnerRoutes } from './partner-routing.module';
 
 export const routes: Routes = [
   {
-    path: 'partner', component: PartnerLayoutComponent, title: "Partner - Infinnium"
-  }
+    path: 'partner',
+    component: PartnerLayoutComponent,
+    title: 'Partner - Infinnium',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PartnerRoutingModule { }
+export class PartnerRoutingModule {}

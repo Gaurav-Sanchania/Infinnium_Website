@@ -1,17 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FooterComponent } from "../../shared/components/footer/footer.component";
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { BlogsService } from '../../services/blogsService.service';
 import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-add-blog',
-  imports: [NavbarComponent, FooterComponent, CommonModule, ReactiveFormsModule, QuillModule],
+  imports: [
+    NavbarComponent,
+    FooterComponent,
+    CommonModule,
+    ReactiveFormsModule,
+    QuillModule,
+  ],
   templateUrl: './add-blog.component.html',
-  styleUrl: './add-blog.component.css'
+  styleUrl: './add-blog.component.css',
 })
 export class AddBlogComponent implements OnInit {
   blogForm!: FormGroup;
@@ -46,7 +57,7 @@ export class AddBlogComponent implements OnInit {
       brief: formValue.brief,
       description: formValue.description,
       publishedDate: formValue.publishedDate,
-      authorId: 1
+      authorId: 1,
     };
 
     if (this.blogForm.valid) {

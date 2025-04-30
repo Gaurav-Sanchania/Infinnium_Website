@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-area-of-expertise',
   imports: [RouterLink],
   templateUrl: './area-of-expertise.component.html',
-  styleUrl: './area-of-expertise.component.css'
+  styleUrl: './area-of-expertise.component.css',
 })
 export class AreaOfExpertiseComponent implements AfterViewInit {
   @ViewChild('servicesGrid', { static: true }) servicesGrid!: ElementRef;
@@ -27,13 +27,15 @@ export class AreaOfExpertiseComponent implements AfterViewInit {
     const cards = this.elementRef.nativeElement.querySelectorAll('.card-item');
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px'
+      rootMargin: '0px',
     };
 
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-          (entry.target as HTMLElement).style.animationDelay = `${index * 0.1}s`;
+          (entry.target as HTMLElement).style.animationDelay = `${
+            index * 0.1
+          }s`;
           entry.target.classList.add('animate-card');
           obs.unobserve(entry.target);
         }
@@ -45,14 +47,17 @@ export class AreaOfExpertiseComponent implements AfterViewInit {
       observer.observe(card);
     });
 
-    const gridObserver = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          (entry.target as HTMLElement).style.opacity = '1';
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    const gridObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).style.opacity = '1';
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
     if (grid) {
       gridObserver.observe(grid);

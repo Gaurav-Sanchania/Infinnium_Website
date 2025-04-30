@@ -5,12 +5,14 @@ export { routes as contactUsRoutes } from './contact-us-routing.module';
 
 export const routes: Routes = [
   {
-    path: 'contactUs', component: ContactUsLayoutComponent, title: "Contact - Infinnium"
-  }
+    path: 'contactUs',
+    component: ContactUsLayoutComponent,
+    title: 'Contact - Infinnium',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ContactUsRoutingModule { }
+export class ContactUsRoutingModule {}

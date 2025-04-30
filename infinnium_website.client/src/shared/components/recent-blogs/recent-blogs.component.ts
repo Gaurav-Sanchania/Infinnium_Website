@@ -11,10 +11,13 @@ import { CommonModule } from '@angular/common';
   imports: [RouterLink, CommonModule],
   providers: [BlogsService],
   templateUrl: './recent-blogs.component.html',
-  styleUrl: './recent-blogs.component.css'
+  styleUrl: './recent-blogs.component.css',
 })
 export class RecentBlogsComponent implements OnInit {
-  constructor(private blogsService: BlogsService, private newsService: NewsService) { }
+  constructor(
+    private blogsService: BlogsService,
+    private newsService: NewsService
+  ) {}
 
   public recentBlogs: any = [];
   public recentNews: any = [];
@@ -27,8 +30,8 @@ export class RecentBlogsComponent implements OnInit {
   slugify(str: string) {
     return str
       .toLowerCase()
-      .replace(/[^\w\s-]/g, '')        // Remove special characters
-      .replace(/\s+/g, '-')            // Replace spaces with -
-      .replace(/--+/g, '-');           // Collapse multiple dashes
+      .replace(/[^\w\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with -
+      .replace(/--+/g, '-'); // Collapse multiple dashes
   }
 }

@@ -1,9 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FooterComponent } from "../../shared/components/footer/footer.component";
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { AuthorService } from '../../services/authorService.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuillModule } from 'ngx-quill';
@@ -11,19 +16,30 @@ import { QuillModule } from 'ngx-quill';
 @Component({
   standalone: true,
   selector: 'app-edit-founders',
-  imports: [NavbarComponent, FooterComponent, CommonModule, ReactiveFormsModule, QuillModule],
-  providers:[AuthorService],
+  imports: [
+    NavbarComponent,
+    FooterComponent,
+    CommonModule,
+    ReactiveFormsModule,
+    QuillModule,
+  ],
+  providers: [AuthorService],
   templateUrl: './edit-founders.component.html',
-  styleUrl: './edit-founders.component.css'
+  styleUrl: './edit-founders.component.css',
 })
 export class EditFoundersComponent implements OnInit {
   memberForm!: FormGroup;
   previewUrl: string | ArrayBuffer | null = null;
   originalFile: File | null = null;
   showPopup = false;
-  authorId: any ="";
+  authorId: any = '';
 
-  constructor(private fb: FormBuilder, private authorService: AuthorService, private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private fb: FormBuilder,
+    private authorService: AuthorService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.memberForm = this.fb.group({
@@ -36,8 +52,8 @@ export class EditFoundersComponent implements OnInit {
     });
 
     this.authorId = this.route.snapshot.paramMap.get('guid');
-    
-    if(this.authorId) {
+
+    if (this.authorId) {
       this.authorService.getAuthorDetails(this.authorId).then((author) => {
         this.memberForm.patchValue({
           image: author.image,
@@ -48,7 +64,7 @@ export class EditFoundersComponent implements OnInit {
           linkedin: author.socialMediaLink,
         });
         this.previewUrl = author.image;
-      })
+      });
     }
   }
 
@@ -64,7 +80,7 @@ export class EditFoundersComponent implements OnInit {
       reader.readAsDataURL(file);
 
       this.memberForm.patchValue({
-        image: file 
+        image: file,
       });
       this.memberForm.get('image')?.markAsTouched();
     }
@@ -83,7 +99,7 @@ export class EditFoundersComponent implements OnInit {
       id: this.authorId,
     };
 
-    if(this.memberForm.valid) {
+    if (this.memberForm.valid) {
       //console.log(member);
       this.authorService.editAuthorDetails(member);
       //console.log("onSubmit - service method call");
