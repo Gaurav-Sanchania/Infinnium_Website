@@ -35,9 +35,9 @@ export class AdminLoginComponent {
   
       if (loginValid) {
         // this.auth.setToken('true');
-        this.route.navigate(["Dashboard"]);
+        this.route.navigate(["dashboard"]);
       } else {
-        this.route.navigate(["Login"]);
+        this.route.navigate(["login"]);
         alert("Invalid User");
       }
     } catch (error) {

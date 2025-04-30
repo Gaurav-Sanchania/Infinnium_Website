@@ -3,7 +3,9 @@ using Infinnium_Website.Server;
 using Infinnium_Website.Server.Interfaces;
 using Infinnium_Website.Server.Models.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Add login credentials
-builder.Services.Configure<LoginConfig>(builder.Configuration.GetSection("LoginCredentials"));
+builder.Services.Configure<LoginConfig>(builder.Configuration.GetSection("EmailLoginCredentials"));
 builder.Services.AddSingleton<LoginConfig>();
 
 // Add Encryption Settings
@@ -50,13 +52,21 @@ builder.Services.AddAuthorization();
 // Injecting EmailService
 builder.Services.AddTransient<IEmailSenderService, EmailSender>();
 
+// Add Logging Services
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("Logs/app-log-.txt", rollingInterval: RollingInterval.Day, shared: true)
+    .Enrich.FromLogContext()
+    .CreateLogger();
+builder.Host.UseSerilog();
+
 // Add CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularApp",
         builder =>
         {
-            builder.WithOrigins("http://localhost:57776")
+            builder
                    .AllowAnyOrigin()
                    .AllowAnyMethod()
                    .AllowAnyHeader();
@@ -68,9 +78,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add connection string
-builder.Configuration.GetConnectionString("InfinniumDB");
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
+builder.Services.AddSingleton<DatabaseSettings>(sp => sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+builder.Services.AddSingleton<ConnectionStringService>();
 
 var app = builder.Build();
+
+// Example logging
+Log.Information("Application starting up");
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
@@ -93,3 +108,5 @@ app.MapControllers();
 app.MapFallbackToFile("/index.html");
 
 app.Run();
+
+Log.CloseAndFlush();

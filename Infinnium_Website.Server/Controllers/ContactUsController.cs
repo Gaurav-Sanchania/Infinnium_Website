@@ -12,12 +12,12 @@ namespace Infinnium_Website.Server.Controllers
     [Route("ContactUsController")]
     public class ContactUsController : Controller
     {
-        private readonly IConfiguration config;
+        private readonly ConnectionStringService config;
         private readonly IEmailSenderService emailSender;
 
-        public ContactUsController(IConfiguration configuration, IEmailSenderService emailSenderService)
+        public ContactUsController(ConnectionStringService connectionStringService, IEmailSenderService emailSenderService)
         {
-            this.config = configuration;
+            this.config = connectionStringService;
             this.emailSender = emailSenderService;
         }
 
@@ -28,7 +28,7 @@ namespace Infinnium_Website.Server.Controllers
         public List<ContactUsModel> GetAllContactUs()
         {
             List<ContactUsModel> allRecords = new List<ContactUsModel>();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -101,7 +101,7 @@ namespace Infinnium_Website.Server.Controllers
         [Route("CreateContactUs")]
         public void CreateContactUs([FromBody] AddContactUsModel record)
         {
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -135,7 +135,7 @@ namespace Infinnium_Website.Server.Controllers
                 Id = Request.Form["Id"]
             };
 
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();

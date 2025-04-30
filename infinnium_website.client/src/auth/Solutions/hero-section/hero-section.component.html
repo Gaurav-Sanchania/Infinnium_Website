@@ -18,12 +18,12 @@
           </div>
 
           <!-- Small DSAR -->
-          <div *ngIf="solution === 'Data Protection / DSAR'" class="svg-container" width="20" height="22">
+          <div *ngIf="solution === 'Data Protection / DSAR'" class="svg-container zoom-static" width="20" height="22">
             <!-- <img src="dsar_icon.svg" alt="dsar_icon"> -->
           </div>
 
           <!-- Small eDiscovery -->
-          <div *ngIf="solution === 'eDiscovery'" class="svg-container" width="20" height="22">
+          <div *ngIf="solution === 'eDiscovery'" class="svg-container zoom-static" width="20" height="22">
             <!-- <img src="eDiscovery_icon.svg" alt="eDiscovery_icon"> -->
           </div>
 
@@ -33,27 +33,27 @@
           </div>
 
           <!-- Small Data mapping -->
-          <div *ngIf="solution === 'Data mapping'" class="svg-container" width="20" height="22">
+          <div *ngIf="solution === 'Data mapping'" class="svg-container zoom-static" width="20" height="22">
             <!-- <img src="data_mapping_icon.svg" alt="data_mapping_icon"> -->
           </div>
 
           <!-- Small Data retention -->
-          <div *ngIf="solution === 'Data retention'" class="svg-container" width="20" height="22">
+          <div *ngIf="solution === 'Data retention'" class="svg-container zoom-static" width="20" height="22">
             <!-- <img src="data_retention_icon.svg" alt="data_retention_icon"> -->
           </div>
 
           <!-- Small Unified archival -->
-          <div *ngIf="solution === 'Unified archival'" class="svg-container" width="20" height="22">
+          <div *ngIf="solution === 'Unified archival'" class="svg-container zoom-static" width="20" height="22">
             <!-- <img src="unified_archival_icon.svg" alt="unified_archival_icon"> -->
           </div>
 
           <!-- Small Data disposition -->
-          <div *ngIf="solution === 'Data disposition'" class="svg-container" width="20" height="22">
+          <div *ngIf="solution === 'Data disposition'" class="svg-container zoom-static" width="20" height="22">
             <!-- <img src="data_disposition_icon.svg" alt="data_disposition_icon"> -->
           </div>
 
           <!-- Small Legal hold -->
-          <div *ngIf="solution === 'Legal hold'" class="svg-container" width="20" height="22">
+          <div *ngIf="solution === 'Legal hold'" class="svg-container zoom-static" width="20" height="22">
             <!-- <img src="legal_hold_icon.svg" alt="legal_hold_icon"> -->
           </div>
         </span>
@@ -68,7 +68,7 @@
       </p>
       <!-- <span class="block font-light text-3xl pl-1 mt-4">Where Power</span>
                     <span class="block font-light text-3xl pl-1 mt-0">Meets Purpose</span> -->
-      <a [routerLink]="['/ContactUs']">
+      <a [routerLink]="['/contactUs']">
         <button class="learn-more pt-6">
           <span class="circle" aria-hidden="true">
             <span class="icon arrow"></span>
@@ -2092,7 +2092,7 @@
       </svg>
 
       <!-- Legal hold -->
-      <svg *ngIf="solution === 'Legal hold'" xmlns="http://www.w3.org/2000/svg" width="400" height="400"
+      <svg *ngIf="solution === 'Legal hold'" xmlns="http://www.w3.org/2000/svg" class="w-[350px] h-[350px] md:w-[500px] md:h-[500px]"
         viewBox="0 0 500 500" fill="none">
         <g transform="translate(0,0)">
           <path

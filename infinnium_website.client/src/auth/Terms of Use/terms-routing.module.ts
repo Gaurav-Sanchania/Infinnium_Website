@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 export { routes as termsRoutes } from './terms-routing.module';
 
 export const routes: Routes = [
-  { path: 'Terms-of-use', loadComponent: () => import('./terms/terms.component').then( m => m.TermsComponent ) }
+  { path: 'terms-of-use', loadComponent: () => import('./terms/terms.component').then( m => m.TermsComponent ),
+    title: "ToU - Infinnium"
+   }
 ];
 
 @NgModule({

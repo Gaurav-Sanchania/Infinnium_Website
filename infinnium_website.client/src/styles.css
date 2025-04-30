@@ -1,37 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-  font-family: 'Manrope';
-  src: url('/assets/fonts/manrope/Manrope-Regular.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("/assets/fonts/manrope/Manrope-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('/assets/fonts/manrope/Manrope-Medium.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("/assets/fonts/manrope/Manrope-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('/assets/fonts/manrope/Manrope-SemiBold.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("/assets/fonts/manrope/Manrope-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('/assets/fonts/manrope/Manrope-Bold.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("/assets/fonts/manrope/Manrope-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @import "tailwindcss";
 
-html, body {
+html,
+body {
   overflow-x: hidden;
-  font-family: 'Manrope', 'Open Sans', sans-serif;
+  font-family: "Manrope", "Open Sans", sans-serif;
 }
 
 body {
@@ -40,6 +41,8 @@ body {
   scroll-behavior: smooth;
 }
 
+/* -------------------------------------------------------------------- */
+/* Expert section - NOT USED */
 #particles-js {
   position: absolute;
   top: 0;
@@ -57,98 +60,6 @@ body {
   height: 100vh;
   z-index: 0;
 }
-.header-bg-scrolled span after_scroll,
-.active23link {
-  color: #000;
-  background-color: #EAF5F4;
-  display: block;
-  padding-left: 1.25rem;   /* px-5 */
-  padding-right: 1.25rem;
-  padding-top: 0.75rem;    /* py-3 */
-  padding-bottom: 0.75rem;
-  transition: background-color 0.3s, color 0.3s; /* transition duration-300 *//* Highlight active link */
-}
-.mobileActiveLink {
-  color: #000;
-  background-color: #EAF5F4;
-}
-
-.header-bg {
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
-
-.header-bg-scrolled {
-  background-color: white !important; /* White background when scrolled */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for visibility */
-}
-
-  .header-bg-scrolled svg path[fill="white"] {
-    fill: #000 !important;
-  }
-
-  /* Change text color for all header elements when scrolled */
-  .header-bg-scrolled,
-  .header-bg-scrolled a {
-    color: #444444 !important; /* Dark green color for text */
-  }
-
-    .header-bg-scrolled span after_scroll {
-      color: #444444;
-    }
-
-    /* Change hover states when scrolled */
-    .header-bg-scrolled a:hover {
-      color: #000000 !important; /* Use your brand's orange color for hover */
-    }
-
-#header {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.heading_wrap {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  min-width: 10rem; /* Adjust this based on the longest word */
-}
-
-/* #phrase-container {
-  text-align: left;
-  font-size: 4rem;
-  color: #e65a4e;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-} */
-
-/* Custom font styles */
-.custom-heading {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-}
-
-.custom-subheading {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-}
-
-/* Image Hover Zoom-In/Zoom-Out Effect */
-.blog-img {
-  transition: transform 0.3s ease-in-out;
-}
-
-  .blog-img:hover {
-    transform: scale(1.05); /* Zoom in the image */
-  }
-
-/* Underline Effect for View All Link */
-.view-all {
-  text-decoration: underline;
-}
 
 /* Background Animation */
 #particles {
@@ -160,6 +71,85 @@ body {
   z-index: 0;
 }
 
+/* Expert section button */
+.expert {
+  background: transparent;
+  position: relative;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: #ffffff;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
+
+.expert::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: "";
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  left: -5em;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+
+.expert:hover {
+  color: #000;
+  border: 1px solid #ffffff;
+}
+
+.expert:hover::before {
+  box-shadow: inset 0 0 0 10em #ffffff;
+}
+
+.expert:hover::before {
+  box-shadow: inset 0 0 0 10em #ffffff;
+}
+/* -------------------------------------------------------------------- */
+
+/* Hero Section - Home Page */
+/* #phrase-container {
+  text-align: left;
+  font-size: 4rem;
+  color: #e65a4e;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+} */
+
+/* -------------------------------------------------------------------- */
+/* NOT USED */
+/* Custom font styles */
+.custom-heading {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+.custom-subheading {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+/* -------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------- */
+/* NOT USED */
 /* Button styling hero section button 1*/
 .circle-button {
   display: flex;
@@ -175,16 +165,17 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-  .circle-button:hover {
-    transform: scale(1.1);
-    background-color: #d54a40; /* Slightly darker on hover */
-  }
+.circle-button:hover {
+  transform: scale(1.1);
+  background-color: #d54a40; /* Slightly darker on hover */
+}
 
 /* Arrow Rotation (↗) */
 .arrow-icon {
   transform: rotate(-45deg); /* Rotating right arrow to upper-right */
   display: inline-block;
 }
+/* -------------------------------------------------------------------- */
 
 /* From Uiverse.io by cssbuttons-io 1*/
 /*button {
@@ -201,6 +192,7 @@ body {
   font-family: inherit;
 }*/
 
+/* Mobile view - Hamburger button */
 .unique_btn {
   position: relative;
   cursor: pointer;
@@ -214,9 +206,10 @@ body {
   font-family: inherit;
 }
 
+/* Hero section All - Contact US button */
 button.learn-more {
   position: relative;
-/*  display: inline-block;
+  /*  display: inline-block;
   cursor: pointer;
   outline: none;
   border: 0;
@@ -230,36 +223,36 @@ button.learn-more {
   height: auto;
 }
 
-    button.learn-more .circle {
-      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-      position: relative;
-      display: block;
-      margin: 0;
-      width: 3rem;
-      height: 3rem;
-      background: transparent;
-      border: 2px solid #e66f51;
-      border-radius: 1.625rem;
-    }
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  border: 2px solid #e66f51;
+  border-radius: 1.625rem;
+}
 
-      button.learn-more .circle .icon {
-        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        background: #fff;
-      }
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
 
-        button.learn-more .circle .icon.arrow {
-          transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-          left: 0.525rem;
-          width: 1.125rem;
-          height: 0.125rem;
-          background: none;
-        }
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.525rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
 
-          /* button.learn-more .circle .icon.arrow::before {
+/* button.learn-more .circle .icon.arrow::before {
 position: absolute;
 content: "";
 top: -0.29rem;
@@ -270,48 +263,50 @@ border-top: 0.125rem solid #fff;
 border-right: 0.125rem solid #fff;
 transform: rotate(45deg);
 } */
-          button.learn-more .circle .icon.arrow::before {
-            position: absolute;
-            content: "";
-            top: -0.29rem;
-            right: 0.0625rem;
-            width: 0.625rem;
-            height: 0.625rem;
-            border-top: 0.125rem solid #fff;
-            border-right: 0.125rem solid #fff;
-            transform: rotate(45deg);
-          }
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
 
-    button.learn-more .button-text {
-      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 2rem 0;
-      margin: 0 0 0 1.85rem;
-      color: #ffffff;
-      font-weight: 700;
-      line-height: 1.6;
-      text-align: center;
-      /* text-transform: uppercase; */
-    }
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  /* text-transform: uppercase; */
+}
 
-  button:hover .circle {
-    width: 100%;
-  }
+button:hover .circle {
+  width: 100%;
+}
 
-    button:hover .circle .icon.arrow {
-      background: #fff;
-      transform: translate(1rem, 0);
-    }
+button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+}
 
-  button:hover .button-text {
-    color: #fff;
-    border: #e65a4e;
-  }
+button:hover .button-text {
+  color: #fff;
+  border: #e65a4e;
+}
 
+/* -------------------------------------------------------------------- */
+/* NOT USED */
 /* .socket {
 width: 400px;
 height: 400px;
@@ -321,7 +316,388 @@ margin-left: -200px;
 top: 50%;
 margin-top: -200px;
 } */
+/* -------------------------------------------------------------------- */
 
+/* !! May cause styling mistakes !! */
+/* for product pages */
+/* Fade-in Up Animation for Content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Add these CSS animations for area of experties */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  /* opacity: 0; */
+}
+
+/* Hover Effects */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2a9d8e;
+  transition: width 0.3s ease-in-out;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover::before {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-card {
+    animation: none;
+    opacity: 1;
+  }
+
+  .service-card {
+    transition: none;
+  }
+}
+/* Products Page - 4ig and Obscure Pi */
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2a9d8e;
+  transition: width 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover::before {
+  width: 100%;
+}
+
+/* Products page - 4ig and Obscure Pi card animation */
+/* Hover Effects */
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-card {
+    animation: none;
+    opacity: 1;
+  }
+
+  .feature-card {
+    transition: none;
+  }
+}
+
+/* Add page load animation styles for our product section */
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-product {
+  animation: slideUpFadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  /* opacity: 0; */
+}
+
+.product-grid {
+  /* opacity: 0; */
+  transition: opacity 0.6s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-product {
+    animation: none;
+    opacity: 1;
+  }
+
+  .product-grid {
+    opacity: 1;
+  }
+}
+
+/* Add page load animation styles for about us section, features, insights */
+.count-up {
+  visibility: visible;
+}
+
+.count-up.visible {
+  visibility: visible;
+}
+
+/* -------------------------------------------------------------------- */
+/* NOT USED */
+/* Add page load animation styles for what we do section */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Divider Animation */
+.divider-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s ease-out;
+}
+
+.divider-line.animated {
+  transform: scaleX(1);
+}
+/* -------------------------------------------------------------------- */
+
+/* Common Button */
+/* From Uiverse.io by JaydipPrajapati1910 */
+.common {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #e76f51;
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: #000000;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
+
+.common span {
+  margin: 10px;
+}
+
+.common::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: "";
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  left: -5em;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+
+.common:hover {
+  color: #ffffff;
+  border: 2px solid #e76f51;
+}
+
+.common:hover::before {
+  box-shadow: inset 0 0 0 10em #e76f51;
+}
+
+/* ContactUs Page */
+/* contactus common button  */
+.contact-common {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #e76f51;
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: #000000;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
+
+.contact-common span {
+  margin: 10px;
+}
+
+.contact-common::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: "";
+  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: 20em;
+  /* left: -5em; */
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+
+.contact-common:hover {
+  color: #ffffff;
+  border: 2px solid #e76f51;
+}
+
+.contact-common:hover::before {
+  box-shadow: inset 0 0 0 10em #e76f51;
+}
+
+/* -------------------------------------------------------------------- */
+/* Unknown Element - May be Footer links */
+a.relative.hidden.md\:flex:hover {
+  color: #fff;
+}
+
+a.relative.hidden.md\:flex:hover::before {
+  box-shadow: inset 0 0 0 10em #e66f51;
+}
+/* -------------------------------------------------------------------- */
+
+/* WebKit-based browsers */
+::-webkit-scrollbar {
+  width: 7px;
+  display: hidden; /* Adjust width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e66f51; /* Scrollbar thumb color */
+  border-radius: 4px; /* Round the thumb edges */
+  border: 2px solid #f1f1f1; /* Optional: space around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Thumb hover color */
+}
+
+/* -------------------------------------------------------------------- */
+/* NOT USED */
+/* for solution pages */
+.truncate_text {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+/* Improve column layout */
+.columns-1 {
+  column-count: 1;
+}
+.md\:columns-2 {
+  column-count: 2;
+}
+/* -------------------------------------------------------------------- */
+
+/* Read more card text - Common style */
+.break-inside-avoid {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* !! May cause styling mistakes !! */
+/* Smooth transition for card height */
+.bg-white {
+  transition: height 0.3s ease;
+}
+
+/* Better spacing between columns */
+@media (min-width: 768px) {
+  .gap-8 {
+    column-gap: 2rem;
+  }
+}
+
+/* Common truncate text */
+.truncate-text {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+/* Ensure text container takes full width */
+.feature-text-container {
+  width: 100%;
+}
+
+/* Hero section - Home page */
+/* Hero section - Home Page */
 .hex-brick {
   background: #000000;
   width: 60px;
@@ -363,35 +739,35 @@ margin-top: -200px;
   animation: none !important;
   transform: scale(1) !important;
   /* height: 10rem;
-width: 10rem; */
+  width: 10rem; */
 }
 
-  /* .center-gel {
-background: white !important;
-} */
+/* .center-gel {
+  background: white !important;
+  } */
 
-  .center-gel .hex-brick {
-    animation: none !important;
-    background: #ffffff !important; /* Set static color matching animation start color */
-  }
+.center-gel .hex-brick {
+  animation: none !important;
+  background: #ffffff !important; /* Set static color matching animation start color */
+}
 
-  .center-gel i {
-    display: none !important;
-  }
+.center-gel i {
+  display: none !important;
+}
 
-  /* Add this CSS to style the SVG */
-  /* Style your SVG */
-  .center-gel svg {
-    pointer-events: none;
-    width: 250px;
-    height: 250px;
-  }
+/* Add this CSS to style the SVG */
+/* Style your SVG */
+.center-gel svg {
+  pointer-events: none;
+  width: 250px;
+  height: 250px;
+}
 
 /* .center-gel svg {
-pointer-events: none;
-width: 80px;
-height: 80px;
-} */
+  pointer-events: none;
+  width: 80px;
+  height: 80px;
+  } */
 
 .r1,
 .r2,
@@ -1068,13 +1444,13 @@ a.relative.hidden.md\:flex:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #555; /* Scrollbar thumb color */
+  background-color: #e66f51; /* Scrollbar thumb color */
   border-radius: 4px; /* Round the thumb edges */
   border: 2px solid #f1f1f1; /* Optional: space around thumb */
 }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #2A9D8F; /* Thumb hover color */
+    background-color: #555; /* Thumb hover color */
   }
 
 /* for solution pages */

@@ -1,4 +1,6 @@
-<section class="bg-[#EAF5F4] py-10 px-4 sm:px-6 lg:px-20 mt-[3.25rem]"
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<section class="bg-gray-100 py-10 px-4 sm:px-6 lg:px-20 mt-[3.25rem]"
     style="font-family: 'Manrope', 'Open Sans', sans-serif;">
     <div class="max-w-6xl mx-auto">
 
@@ -6,11 +8,13 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             <!-- Card 1 - Elie Francis -->
-            <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative group" *ngFor="let author of authors;">
+            <div class="bg-white flex rounded-xl shadow-md overflow-hidden relative group"
+                *ngFor="let author of authors;">
                 <!--<div class="transform transition duration-300 hover:scale-105">
                     </div>-->
-                <div class="absolute top-3 right-3 flex opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <i class="fa-solid fa-pen-clip transition-transform duration-200 hover:scale-125 cursor-pointer" [routerLink]="['/Dashboard/Update-members', slugify(author.name), author.guid]"></i>
+                <div class="absolute top-3 right-3 flex opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    [attr.aria-hidden]="false" (click)="editMember(author)" title="Edit">
+                    <i class="fa-solid fa-pen-to-square transition-transform duration-200 hover:scale-125 cursor-pointer"></i>
                 </div>
 
                 <!-- <a [routerLink]="['/Dashboard/Update-members', slugify(author.name), author.guid]"
@@ -25,11 +29,15 @@
                             {{ author.description }}
                         </p>
                         <div class="flex items-center mt-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 30 30" fill="none">
-                                <path d="M3.75 8.75C3.75 8.08696 4.01339 7.45107 4.48223 6.98223C4.95107 6.51339 5.58696 6.25 6.25 6.25H23.75C24.413 6.25 25.0489 6.51339 25.5178 6.98223C25.9866 7.45107 26.25 8.08696 26.25 8.75V21.25C26.25 21.913 25.9866 22.5489 25.5178 23.0178C25.0489 23.4866 24.413 23.75 23.75 23.75H6.25C5.58696 23.75 4.95107 23.4866 4.48223 23.0178C4.01339 22.5489 3.75 21.913 3.75 21.25V8.75Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M3.75 8.75L15 16.25L26.25 8.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                              </svg>
-                              <p class="ms-1 text-sm">{{ author.email }}</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 30 30"
+                                fill="none">
+                                <path
+                                    d="M3.75 8.75C3.75 8.08696 4.01339 7.45107 4.48223 6.98223C4.95107 6.51339 5.58696 6.25 6.25 6.25H23.75C24.413 6.25 25.0489 6.51339 25.5178 6.98223C25.9866 7.45107 26.25 8.08696 26.25 8.75V21.25C26.25 21.913 25.9866 22.5489 25.5178 23.0178C25.0489 23.4866 24.413 23.75 23.75 23.75H6.25C5.58696 23.75 4.95107 23.4866 4.48223 23.0178C4.01339 22.5489 3.75 21.913 3.75 21.25V8.75Z"
+                                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3.75 8.75L15 16.25L26.25 8.75" stroke="black" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <p class="ms-1 text-sm">{{ author.email }}</p>
                         </div>
                     </div>
                     <!-- <div class="flex items-center space-x-3 mt-4 relative z-20 pointer-events-auto">
@@ -44,3 +52,24 @@
         </div>
     </div>
 </section>
+
+<div *ngIf="showEditPopup"
+    class="fixed inset-0 bg-transparent bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+    <div class="relative bg-white p-6 rounded-2xl shadow-xl text-center max-w-sm">
+        <!-- Close Button -->
+        <button
+            class="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl sm:text-2xl font-bold focus:outline-none"
+            (click)="closePopup()" aria-label="Close">
+            &times;
+        </button>
+        <h3 class="text-xl font-semibold mb-4">Please cofirm before Edit!</h3>
+        <p class="mb-6">
+            You are going to edit the member's detail from the website <a
+                class="text-blue-600 hover:underline hover:text-blue-800 cursor-pointer">infinnium.com</a>
+        </p>
+        <button (click)="navigateEditMember()"
+            class="border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
+            Confirm EDIT
+        </button>
+    </div>
+</div>

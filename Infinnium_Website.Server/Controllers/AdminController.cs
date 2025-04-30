@@ -9,9 +9,9 @@ namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
     [Route("AdminController")]
-    public class AdminController(IConfiguration configuration, EncryptionHelper encryptionHelper, ITokenBlacklistService blacklistService) : Controller
+    public class AdminController(ConnectionStringService connectionStringService, EncryptionHelper encryptionHelper, ITokenBlacklistService blacklistService) : Controller
     {
-        private readonly IConfiguration config = configuration;
+        private readonly ConnectionStringService config = connectionStringService;
         private readonly EncryptionHelper encryptionHelper = encryptionHelper;
         private readonly ITokenBlacklistService jwtBlacklist = blacklistService;
 
@@ -27,7 +27,7 @@ namespace Infinnium_Website.Server.Controllers
                 isUserValid = true;
             } else
             {
-                string cs = config.GetConnectionString("InfinniumDB");
+                string cs = config.GenerateConnection();
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     con.Open();

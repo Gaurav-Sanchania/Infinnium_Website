@@ -1,3 +1,5 @@
-<app-cookie></app-cookie>
-<router-outlet></router-outlet>
-<app-scroll-to-top></app-scroll-to-top>
+<div *ngIf="configLoaded">
+    <app-cookie></app-cookie>
+    <router-outlet></router-outlet>
+    <app-scroll-to-top></app-scroll-to-top>
+</div>

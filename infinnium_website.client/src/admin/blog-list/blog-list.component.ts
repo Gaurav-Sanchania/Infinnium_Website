@@ -32,6 +32,11 @@ export class BlogListComponent implements OnInit {
     this.news = await this.newsService.getAllNewsAdmin();
   }
 
+  toggleEditBlog(event: Event, blog: any) {
+    event.preventDefault();
+    this.showEditPopup = true;
+    this.blog_edit = blog;
+  }
   editBlog(blog: any) {
     this.showEditPopup = true;
     this.blog_edit = blog;
@@ -39,16 +44,21 @@ export class BlogListComponent implements OnInit {
   }
   navigateEditBlog() {
     this.closePopup();
-    this.route.navigateByUrl(`Dashboard/edit-blog/${this.blog_edit.guid}`);
+    this.route.navigateByUrl(`dashboard/edit-blog/${this.blog_edit.guid}`);
   }
-
+  
+  toggleEditNews(event: Event, blog: any) {
+    event.preventDefault();
+    this.showEditNewsPopup = true;
+    this.news_edit = blog;
+  }
   editNews(blog: any){
     this.showEditNewsPopup = true;
     this.news_edit = blog;
   }
   navigateEditNewsBlog() {
     this.closePopup();
-    this.route.navigateByUrl(`Dashboard/edit-news/${this.news_edit.guid}`);
+    this.route.navigateByUrl(`dashboard/edit-news/${this.news_edit.guid}`);
   }
 
   //deleteBlog(id: number) {

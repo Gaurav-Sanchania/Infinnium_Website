@@ -61,7 +61,7 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
       }      
 
       // console.log(encodeURIComponent(title));
-      cardLink.href = `/Resources/Blogs/${slugify(title)}/${post.guid}`;
+      cardLink.href = `/resources/blogs/${slugify(title)}/${post.guid}`;
       //console.log(cardLink.href);
 
       //console.log(post.image);
@@ -118,7 +118,7 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
             .replace(/\s+/g, '-')            // Replace spaces with -
             .replace(/--+/g, '-');           // Collapse multiple dashes
         }
-        cardLink.href = `/Resources/News-and-Events/${slugify(title)}/${post.guid}`;
+        cardLink.href = `/resources/news-and-events/${slugify(title)}/${post.guid}`;
         
 
         // cardLink.href = `/Resources/News-and-Events/${encodeURIComponent(title)}/${post.guid}`;

@@ -170,3 +170,27 @@ C:\Users\admin\OneDrive\Desktop\Infinnium Website\Infinnium_Website\Infinnium_We
 C:\Users\admin\OneDrive\Desktop\Infinnium Website\Infinnium_Website\Infinnium_Website.Server\obj\Debug\net8.0\ref\Infinnium_Website.Server.dll
 C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\web.config
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Serilog.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Serilog.Sinks.File.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Serilog.AspNetCore.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\System.IO.Pipelines.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\Abcom\Desktop\Infinnium_Website\Infinnium_Website.Server\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll

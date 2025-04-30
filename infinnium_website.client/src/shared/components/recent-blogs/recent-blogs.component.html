@@ -8,7 +8,7 @@
       Recent <span class="italic font-semibold">Blogs</span>
     </h2>
     <!-- View All with underline and arrow -->
-    <a [routerLink]="['/Resources/Blogs']"
+    <a [routerLink]="['/resources/blogs']"
        class="text-[#E76F51] hover:text-[#E65A4E] font-bold flex items-center view-all mt-[-34px] float-right justify-end h-[40px]">
       View All → <span class="ml-1"></span>
     </a>
@@ -18,7 +18,7 @@
       <!-- Blog 1 -->
       <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 w-full">
         <div class="w-full md:w-1/3">
-          <a [routerLink]="['/Resources/Blogs/', slugify(blog.title), blog.guid]">
+          <a [routerLink]="['/resources/blogs/', slugify(blog.title), blog.guid]">
             <img [src]="blog.image" alt="Blog Image 3"
                  class="w-full h-full object-cover blog-img cursor-pointer"/>
           </a>
@@ -32,7 +32,7 @@
             {{ blog.brief }}
           </p>
           <!-- Read More Button with Arrow -->
-          <a [routerLink]="['/Resources/Blogs/', slugify(blog.title), blog.guid]" class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-3 inline-block hover:underline cursor-pointer">
+          <a [routerLink]="['/resources/blogs/', slugify(blog.title), blog.guid]" class="text-[#E76F51] hover:text-[#E65A4E] font-normal mt-3 inline-block hover:underline cursor-pointer">
             Read More →
           </a>
           <p class="text-gray-500 text-sm mt-[4.5rem]">📅 October 24, 2023</p>

@@ -5,18 +5,20 @@
     <form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()" id="contactForm" class="space-y-4">
       <!-- First & Last Name -->
       <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
-        <div>
+        <div class="relative">
           <label class="block text-[#12423C] text-sm mb-1">
             Full Name<span class="text-red-600">*</span>
           </label>
-          <input type="text" id="firstName" formControlName="name"
-                 class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                 placeholder="Full Name" required />
-          @if(contactUsForm.controls['name'].touched &&
-          contactUsForm.controls['name'].errors?.['required']) {
-          <div class="text-[red]">This is required !</div>
-          }
+          <input
+            type="text"
+            id="firstName"
+            formControlName="name"
+            [ngClass]="submitted && contactUsForm.get('name')?.invalid ? invalidStyle : baseStyle"
+            placeholder="Full Name"
+            required
+          />
         </div>
+
         <!-- <div>
             <label class="block text-[#12423C] text-sm mb-1">Last Name <span
                     class="text-red-600">*</span></label>
@@ -29,13 +31,9 @@
       <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
         <div>
           <label class="block text-[#12423C] text-sm mb-1">Email <span class="text-red-600">*</span></label>
-          <input type="email" id="email" formControlName="email"
-                 class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                 placeholder="Email" required />
-          @if(contactUsForm.controls['email'].touched &&
-          contactUsForm.controls['email'].errors?.['required']) {
-          <div class="text-[red]">This is required !</div>
-          }
+          <input type="email" id="email" formControlName="email" placeholder="Email" required 
+          [ngClass]="submitted && contactUsForm.get('email')?.invalid ? invalidStyle : baseStyle"/>
+          <!-- <div *ngIf="isInValid" class="text-[red]">This is required !</div> -->
         </div>
         <!-- <div>
             <label class="block text-[#12423C] text-sm mb-1">Phone Number <span
@@ -48,18 +46,17 @@
       <!-- Description -->
       <div>
         <label class="block text-[#12423C] text-sm mb-1">Description <span class="text-red-600">*</span></label>
-        <textarea id="message" rows="4" formControlName="description"
-                  class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-900"
-                  placeholder="Write Message . . ." required></textarea>
-        @if(contactUsForm.controls['description'].touched &&
-        contactUsForm.controls['description'].errors?.['required']) {
-        <div class="text-[red]">This is required !</div>
-        }
+        <textarea id="message" rows="4" formControlName="description" placeholder="Write Message . . ." 
+        [ngClass]="submitted && contactUsForm.get('description')?.invalid ? invalidStyle : baseStyle"
+          required></textarea>
+        <!-- <div *ngIf="isInValid" class="text-[red]">This is required !</div> -->
       </div>
-      <p class="">By clicking submit, I agree to the <a [routerLink]="['/Privacy-Policy']" class="text-blue-600 underline hover:text-blue-800 transition-colors duration-200">privacy policy</a> and to receive communications from Infinnium.</p>
+      <p class="">By clicking submit, I agree to the <a [routerLink]="['/privacy-policy']"
+          class="text-blue-600 underline hover:text-blue-800 transition-colors duration-200">privacy policy</a> and to
+        receive communications from Infinnium.</p>
       <!-- Submit Button -->
       <button type="submit"
-              class="w-full bg-[#E76F51] text-[#ffffff] py-3 text-md font-normal rounded-3xl transition duration-300 ease-in-out hover:bg-[#D65C3D]">
+        class="w-full bg-[#E76F51] text-[#ffffff] py-3 text-md font-normal rounded-3xl transition duration-300 ease-in-out hover:bg-[#D65C3D]">
         Submit
       </button>
 
@@ -69,7 +66,8 @@
     </form>
   </div>
 
-  <div *ngIf="isVisible" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg z-50 w-auto max-w-sm text-center">
+  <div *ngIf="isVisible"
+    class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-xl shadow-lg z-50 w-auto max-w-sm text-center">
     <p class="text-sm">{{ message }}</p>
   </div>
 

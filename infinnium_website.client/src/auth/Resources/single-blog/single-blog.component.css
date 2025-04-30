@@ -1,0 +1,7 @@
+/* Blog description style in Single Blog page */
+.blog-content {
+    word-break: break-word; /* Break long words */
+    overflow-wrap: anywhere; /* Force wrapping if necessary */
+    white-space: normal; /* Allow wrapping */
+  }
+  

@@ -23,14 +23,14 @@ export class SingleBlogComponent implements OnInit {
 
   async ngOnInit() {
     const guidFromRoute = this.route.snapshot.paramMap.get('guid');
-    console.log(guidFromRoute);
+    // console.log(guidFromRoute);
     if (guidFromRoute) {
-    console.log("Inside If");
+    // console.log("Inside If");
       const url = this.router.url;
       this.guid = guidFromRoute;
       //console.log(url);
 
-      if (url.startsWith('/Resources/Blogs')) {
+      if (url.startsWith('/resources/blogs')) {
         this.blog = await this.blogService.getBlogDetails(this.guid);
         this.blog.description = this.blog.description.replace(/&nbsp;/g, ' ');
         this.blog.description = this.sanitizer.bypassSecurityTrustHtml(this.blog.description);

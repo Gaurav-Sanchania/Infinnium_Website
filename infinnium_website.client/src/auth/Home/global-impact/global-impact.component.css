@@ -1,4 +1,6 @@
-/* global-impact.component.css */
+.earth {
+    background-image: url("../../../assets/images/Earth1.png");
+  }/* global-impact.component.css */
 .earth_2 [data-animate] {
   opacity: 0;
   transform: translateY(20px);

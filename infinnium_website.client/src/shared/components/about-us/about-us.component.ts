@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import { AfterViewInit, Component, ElementRef, Input, QueryList, ViewChildren } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
 @Component({
   standalone: true,
   selector: 'app-about-us',
@@ -16,10 +15,12 @@ export class AboutUsComponent implements AfterViewInit {
   private hasAnimated = false;
 
   ngAfterViewInit() {
-    if (!this.hasAnimated) {
-      AOS.init({ duration: 1000, once: true, easing: 'ease-out-quad' });
-      this.initCountUpAnimations();
-    }
+    import('aos').then(AOS => {
+      if (!this.hasAnimated) {
+        AOS.default.init({ duration: 1000, once: true, easing: 'ease-out-quad' });
+        this.initCountUpAnimations();
+      }
+    });
   }
 
   initCountUpAnimations() {

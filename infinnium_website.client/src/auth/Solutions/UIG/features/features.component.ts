@@ -1,7 +1,5 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 // import AOS from 'aos';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -15,10 +13,12 @@ export class FeaturesComponent implements AfterViewInit {
   private hasAnimated = false;
 
   ngAfterViewInit() {
-    if (!this.hasAnimated) {
-      AOS.init({ duration: 1200, once: true });
-      this.initCountUpAnimations();
-    }
+    import('aos').then(AOS => {
+      if (!this.hasAnimated) {
+        AOS.default.init({ duration: 1200, once: true });
+        this.initCountUpAnimations();
+      }
+    });
   }
 
   initCountUpAnimations() {

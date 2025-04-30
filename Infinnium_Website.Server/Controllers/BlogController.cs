@@ -9,17 +9,20 @@ namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
     [Route("BlogsController")]
-    public class BlogController(IConfiguration configuration) : Controller
+    public class BlogController(ConnectionStringService connectionStringService, ILogger<BlogController> logger) : Controller
     {
-        private readonly IConfiguration config = configuration;
+        private readonly ConnectionStringService config = connectionStringService;
+        private readonly ILogger<BlogController> log = logger;
 
         // GET: BlogController/GetAllBlogs
         [HttpGet]
         [Route("GetAllBlogs")]
         public List<BlogsModel> GetAllBlogs()
         {
+            log.LogInformation("GetAllBlogs endpoint was hit at {Time}", DateTime.UtcNow);
+
             List<BlogsModel> blogs = new List<BlogsModel>();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -45,6 +48,7 @@ namespace Infinnium_Website.Server.Controllers
                     blog.AuthorEmail = reader["Email"].ToString();
                     blog.ImageName = reader["ImageName"].ToString();
                     blog.Guid = reader["ShortGuid"].ToString();
+                    blog.isActive = (bool)reader["isActive"];
 
                     // Image Reader function
                     byte[] imageData = reader["ImagePath"] as byte[];
@@ -66,8 +70,10 @@ namespace Infinnium_Website.Server.Controllers
         [Route("GetBlogDetails/{id}")]
         public BlogsModel GetBlogDetails(string id)
         {
+            log.LogInformation("GetBlogDetails endpoint was hit at {Time}", DateTime.UtcNow);
+
             BlogsModel blog = new BlogsModel();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -112,8 +118,10 @@ namespace Infinnium_Website.Server.Controllers
         [Route("Top3Blogs")]
         public List<BlogsModel> Top3Blogs()
         {
+            log.LogInformation("Top3Blogs endpoint was hit at {Time}", DateTime.UtcNow);
+
             List<BlogsModel> blogs = new List<BlogsModel>();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -163,7 +171,7 @@ namespace Infinnium_Website.Server.Controllers
         public List<BlogsModel> GetAllBlogsAdmin()
         {
             List<BlogsModel> blogs = new List<BlogsModel>();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -226,7 +234,7 @@ namespace Infinnium_Website.Server.Controllers
 
             IFormFile image = Request.Form.Files["Image"];
 
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using(SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -283,7 +291,7 @@ namespace Infinnium_Website.Server.Controllers
 
             IFormFile Image = Request.Form.Files["Image"];
 
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();

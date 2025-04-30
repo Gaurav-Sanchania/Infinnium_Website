@@ -11,9 +11,9 @@ namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
     [Route("AuthorController")]
-    public class AuthorController(IConfiguration configuration) : Controller
+    public class AuthorController(ConnectionStringService connectionStringService) : Controller
     {
-        private readonly IConfiguration config = configuration; 
+        private readonly ConnectionStringService config = connectionStringService; 
 
         // GET: AuthorController/GetAllAuthors
         [HttpGet]
@@ -21,7 +21,7 @@ namespace Infinnium_Website.Server.Controllers
         public List<AuthorModel> GetAllAuthors()
         {
             List<AuthorModel> authors = new List<AuthorModel>();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -68,7 +68,7 @@ namespace Infinnium_Website.Server.Controllers
         public AuthorModel AuthorDetails(string id)
         {
             var author = new AuthorModel();
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -126,7 +126,7 @@ namespace Infinnium_Website.Server.Controllers
 
             IFormFile Image = Request.Form.Files["Image"];
 
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
@@ -182,7 +182,7 @@ namespace Infinnium_Website.Server.Controllers
 
             IFormFile Image = Request.Form.Files["Image"];
 
-            string cs = config.GetConnectionString("InfinniumDB");
+            string cs = config.GenerateConnection();
             using (SqlConnection con = new SqlConnection(cs))
             {
                 con.Open();
