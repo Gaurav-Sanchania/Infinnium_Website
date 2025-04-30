@@ -32,147 +32,130 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
 
   ngOnChanges() {
     this.renderBlogListing();
+
+    // Only if re-rendering all blogs
+    const allAnimatables = this.el.nativeElement.querySelectorAll(
+      '[data-animate]:not(.animate)'
+    );
+    this.initScrollAnimations(allAnimatables);
   }
 
   ngAfterViewInit() {
-    this.renderBlogListing();
+    this.renderBlogListing(); // Renders the first 6 blogs
+
     this.loadMoreBtn = this.el.nativeElement.querySelector('#loadMoreBtn');
     this.setupLoadMoreButton();
+
+    // Animate only the initially rendered blog cards
+    const elements = this.el.nativeElement.querySelectorAll(
+      '[data-animate]:not(.animate)'
+    );
+    this.initScrollAnimations(elements);
+  }
+
+  private initScrollAnimations(
+    elements: Element[] | NodeListOf<Element>
+  ): void {
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            entry.target.setAttribute('data-animated', 'true'); 
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    elements.forEach((element) => {
+      if (!element.classList.contains('animate')) {
+        observer.observe(element);
+      }
+    });
   }
 
   appendBlogCards(startIndex: number, count: number): void {
-    if (this.category == 'Blogs') {
-      const blogGrid = document.getElementById(
-        'blog-grid'
-      ) as HTMLElement | null;
-      if (!blogGrid) return;
+    const blogGrid = document.getElementById('blog-grid') as HTMLElement | null;
+    if (!blogGrid) return;
 
-      const endIndex = Math.min(startIndex + count, this.blogs.length);
+    const isBlog = this.category === 'Blogs';
+    const data = isBlog ? this.blogs : this.news;
+    const endIndex = Math.min(startIndex + count, data.length);
+    const newBlogElements: HTMLElement[] = [];
 
-      for (let i = startIndex; i < endIndex; i++) {
-        const post = this.blogs[i];
-        const cardLink = document.createElement('a');
-        cardLink.classList.add('block');
+    for (let i = startIndex; i < endIndex; i++) {
+      const post = data[i];
+      const cardLink = document.createElement('a');
+      cardLink.classList.add('block');
+      cardLink.setAttribute('data-animate', ''); // Required for animation
 
-        const maxLength = 60;
-        let title = post.title;
+      // Truncate title if too long
+      const maxLength = 60;
+      const title =
+        post.title.length > maxLength
+          ? post.title.slice(0, maxLength) + '...'
+          : post.title;
 
-        if (title.length > maxLength) {
-          title = title.slice(0, maxLength) + '...';
-        }
-
-        function slugify(str: string) {
-          return str
-            .toLowerCase()
-            .replace(/[^\w\s-]/g, '') // Remove special characters
-            .replace(/\s+/g, '-') // Replace spaces with -
-            .replace(/--+/g, '-'); // Collapse multiple dashes
-        }
-
-        // console.log(encodeURIComponent(title));
-        cardLink.href = `/resources/blogs/${slugify(title)}/${post.guid}`;
-        //console.log(cardLink.href);
-
-        //console.log(post.image);
-        cardLink.innerHTML = `
-        <div class="bg-white rounded-lg overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
-  <div class="h-40 overflow-hidden">
-    <img src="${
-      post.image
-    }" alt="Blog Post" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"/>
-  </div>
-  <div class="p-4 flex flex-col flex-grow">
-    <p class="text-sm font-medium text-[#E76F51] uppercase mb-2">BLOGS</p>
-    <h3 class="text-lg font-semibold mb-2 hover:text-[#E76F51] transition-colors duration-300">${title}</h3>
-    <p class="text-gray-600 text-sm mb-3 flex-grow">${post.brief}</p>
-    <div class="flex items-center text-gray-400 text-sm">
-      <i class="far fa-calendar-alt mr-2"></i>${new Date(
-        post.publishedDate
-      ).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })}
-    </div>
-  </div>
-</div>
-      `;
-
-        blogGrid.appendChild(cardLink);
-
-        this.currentBlogIndex = endIndex;
-
-        if (this.currentBlogIndex >= this.blogs.length) {
-          this.renderer.addClass(this.loadMoreBtn, 'hidden');
-        }
+      // Create slug for the URL
+      function slugify(str: string) {
+        return str
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/--+/g, '-');
       }
-    } else {
-      const blogGrid = document.getElementById(
-        'blog-grid'
-      ) as HTMLElement | null;
-      if (!blogGrid) return;
 
-      const endIndex = Math.min(startIndex + count, this.news.length);
+      const slug = slugify(title);
+      const urlPath = isBlog
+        ? `/resources/blogs/${slug}/${post.guid}`
+        : `/resources/news-and-events/${slug}/${post.guid}`;
+      cardLink.href = urlPath;
 
-      for (let i = startIndex; i < endIndex; i++) {
-        const post = this.news[i];
-        const cardLink = document.createElement('a');
-        cardLink.classList.add('block');
+      const categoryLabel = isBlog ? 'BLOGS' : 'NEWS / EVENTS';
 
-        const maxLength = 60;
-        let title = post.title;
+      cardLink.innerHTML = `
+      <div class="bg-white rounded-lg overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+        <div class="h-40 overflow-hidden">
+          <img src="${post.image}" alt="Blog Post"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"/>
+        </div>
+        <div class="p-4 flex flex-col flex-grow">
+          <p class="text-sm font-medium text-[#E76F51] uppercase mb-2">${categoryLabel}</p>
+          <h3 class="text-lg font-semibold mb-2 hover:text-[#E76F51] transition-colors duration-300">${title}</h3>
+          <p class="text-gray-600 text-sm mb-3 flex-grow">${post.brief}</p>
+          <div class="flex items-center text-gray-400 text-sm">
+            <i class="far fa-calendar-alt mr-2"></i>
+            ${new Date(post.publishedDate).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </div>
+        </div>
+      </div>
+    `;
 
-        if (title.length > maxLength) {
-          title = title.slice(0, maxLength) + '...';
-        }
-
-        function slugify(str: string) {
-          return str
-            .toLowerCase()
-            .replace(/[^\w\s-]/g, '') // Remove special characters
-            .replace(/\s+/g, '-') // Replace spaces with -
-            .replace(/--+/g, '-'); // Collapse multiple dashes
-        }
-        cardLink.href = `/resources/news-and-events/${slugify(title)}/${
-          post.guid
-        }`;
-
-        // cardLink.href = `/Resources/News-and-Events/${encodeURIComponent(title)}/${post.guid}`;
-        //console.log(cardLink.href);
-
-        cardLink.innerHTML = `
-        <div class="bg-white rounded-lg overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
-  <div class="h-40 overflow-hidden">
-    <img src="${
-      post.image
-    }" alt="Blog Post" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"/>
-  </div>
-  <div class="p-4 flex flex-col flex-grow">
-    <p class="text-sm font-medium text-[#E76F51] uppercase mb-2">NEWS / EVENTS</p>
-    <h3 class="text-lg font-semibold mb-2 hover:text-[#E76F51] transition-colors duration-300">${title}</h3>
-    <p class="text-gray-600 text-sm mb-3 flex-grow">${post.brief}</p>
-    <div class="flex items-center text-gray-400 text-sm">
-      <i class="far fa-calendar-alt mr-2"></i>${new Date(
-        post.publishedDate
-      ).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })}
-    </div>
-  </div>
-</div>
-      `;
-
-        blogGrid.appendChild(cardLink);
-
-        this.currentBlogIndex = endIndex;
-
-        if (this.currentBlogIndex >= this.news.length) {
-          this.renderer.addClass(this.loadMoreBtn, 'hidden');
-        }
-      }
+      blogGrid.appendChild(cardLink);
+      newBlogElements.push(cardLink);
     }
+
+    // Update the current index
+    this.currentBlogIndex = endIndex;
+
+    // Hide the button if all items are shown
+    if (this.currentBlogIndex >= data.length && this.loadMoreBtn) {
+      this.renderer.addClass(this.loadMoreBtn, 'hidden');
+    }
+
+    // Trigger scroll animation for newly added cards
+    // this.initScrollAnimations(newBlogElements);
+
+
+    setTimeout(() => {
+      this.initScrollAnimations(newBlogElements);
+    }, 50);
   }
 
   renderBlogListing(): void {

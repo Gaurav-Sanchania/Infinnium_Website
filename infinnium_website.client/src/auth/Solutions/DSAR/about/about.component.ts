@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -7,7 +7,30 @@ import { Component } from '@angular/core';
   templateUrl: './about.component.html',
   styleUrl: './about.component.css',
 })
-export class AboutComponent {
+export class AboutComponent implements AfterViewInit {
+  constructor(private el: ElementRef) {}
+
+  ngAfterViewInit(): void {
+    const elements =
+      this.el.nativeElement.querySelectorAll('.fade-in-on-scroll');
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-up');
+            obs.unobserve(entry.target); // animate once
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    elements.forEach((el: Element) => observer.observe(el));
+  }
+  
   toggleDescription(id: number): void {
     const desc = document.getElementById(`desc-${id}`);
     const button = document.querySelector(

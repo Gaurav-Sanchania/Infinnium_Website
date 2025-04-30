@@ -3,7 +3,7 @@
     <!-- Flex Container for Text and Image -->
     <div class="flex flex-col md:flex-row items-center">
       <!-- Left Side: Text Content -->
-      <div class="w-full md:w-1/2">
+      <div class="w-full md:w-1/2 fade-in-left" #observeSection>
         <!-- Section Title -->
         <div class="text-left mb-12">
           <h2 class="text-4xl font-semibold text-[#12423C]">
@@ -29,12 +29,12 @@
       </div>
 
       <!-- Right Side: Image -->
-      <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+      <div class="w-full md:w-1/2 flex justify-center md:justify-end fade-in-right" #observeSection>
         <img src="illustration-icon-13.png" alt="Descriptive Alt Text" class="max-w-full h-auto">
       </div>
     </div>
     <!-- Divider spacing -->
-    <div class="mt-20 space-y-8">
+    <div class="mt-20 space-y-8" #animatedSection id="animated-section">
       <!-- ✅ Fixed Heading Centered -->
       <div class="text-center">
         <h3 class="text-4xl font-semibold text-[#12423C] relative">
@@ -43,7 +43,7 @@
       </div>
 
       <!-- Glassmorphism Image Container -->
-      <div
+      <div 
         class="relative group mt-12 rounded-3xl overflow-hidden border border-white/20 backdrop-blur-lg bg-white/10 shadow-2xl hover:shadow-emerald-100/30 transition-all duration-300">
         <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
         <img src="privacy_design.png" alt="How Data Should Work"
