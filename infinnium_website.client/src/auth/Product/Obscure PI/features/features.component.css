@@ -1,6 +1,7 @@
 .truncate-text {
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Show only 3 lines */
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -17,13 +18,4 @@
 [data-animate].animate {
   opacity: 1;
   transform: translateY(0);
-}
-
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* Show only 3 lines */
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
 }

@@ -45,7 +45,6 @@ export class TrustedLeadersComponent implements OnChanges, AfterViewInit {
     elements.forEach((el: HTMLElement, index: number) => {
       // Add initial hidden state
       this.renderer.addClass(el, 'opacity-0');
-      this.renderer.addClass(el, 'translate-y-8');
       this.renderer.setStyle(el, 'transition', `all 0.8s ease ${index * 0.2}s`);
       observer.observe(el);
     });
