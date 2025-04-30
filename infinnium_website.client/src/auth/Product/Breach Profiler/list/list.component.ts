@@ -14,6 +14,7 @@ import {
   styleUrl: './list.component.css',
 })
 export class ListComponent implements AfterViewInit {
+  @ViewChildren('observeSection') sections!: QueryList<ElementRef>; // For scroll-triggered animations
   @ViewChildren('countUp') countUpElements!: QueryList<ElementRef>;
   private hasAnimated = false;
 
@@ -26,6 +27,7 @@ export class ListComponent implements AfterViewInit {
           easing: 'ease-out-quad',
         });
         this.initCountUpAnimations();
+        this.initScrollAnimations(); // Initialize scroll animations
       }
     });
   }
@@ -76,4 +78,28 @@ export class ListComponent implements AfterViewInit {
 
     this.hasAnimated = true;
   }
+
+    // Scroll-triggered animation logic
+    initScrollAnimations() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const element = entry.target;
+              if (element.classList.contains('fade-in-left')) {
+                element.classList.add('in-view');
+              } else if (element.classList.contains('fade-in-right')) {
+                element.classList.add('in-view');
+              }
+              observer.unobserve(element);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      this.sections.forEach((section) => {
+        observer.observe(section.nativeElement);
+      });
+    }
 }

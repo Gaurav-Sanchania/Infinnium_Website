@@ -1,13 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 
 @Component({
   standalone: true,
   selector: 'app-products-breach-product',
-  imports: [],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })
-export class ProductComponent {
+export class ProductComponent implements AfterViewInit {
+
+  constructor(private el: ElementRef) {}
+
+  ngAfterViewInit(): void {
+    const elements = this.el.nativeElement.querySelectorAll('.fade-in-on-scroll');
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          obs.unobserve(entry.target); // animate once
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    elements.forEach((el: Element) => observer.observe(el));
+  }
+
   toggleDescription(id: number): void {
     const desc = document.getElementById(`desc-${id}`);
     const button = document.querySelector(
@@ -20,17 +39,13 @@ export class ProductComponent {
         !desc.classList.contains('collapsing');
 
       if (isExpanded) {
-        // Start collapse
         desc.classList.add('collapsing');
         button.textContent = 'Read More ↓';
-
-        // After animation ends, restore original truncate style
         setTimeout(() => {
           desc.classList.remove('slide-toggle', 'collapsing');
           desc.classList.add('truncate-text');
         }, 500);
       } else {
-        // Remove truncate and expand
         desc.classList.remove('truncate-text');
         desc.classList.add('slide-toggle');
         button.textContent = 'Read Less ↑';

@@ -15,10 +15,13 @@ import {
 })
 export class ListComponent implements AfterViewInit {
   @ViewChildren('countUp') countUpElements!: QueryList<ElementRef>;
+  @ViewChildren('observeSection') sections!: QueryList<ElementRef>; // For scroll-triggered animations
+
   private hasAnimated = false;
 
   ngAfterViewInit() {
-    import('aos').then((AOS) => {
+    // Initialize AOS for initial animations
+    import('aos').then(AOS => {
       if (!this.hasAnimated) {
         AOS.default.init({
           duration: 1000,
@@ -26,14 +29,15 @@ export class ListComponent implements AfterViewInit {
           easing: 'ease-out-quad',
         });
         this.initCountUpAnimations();
+        this.initScrollAnimations(); // Initialize scroll animations
       }
     });
   }
 
+  // Count-up animation logic
   initCountUpAnimations() {
     const animationDuration = 2200;
     const frameDuration = 1000 / 60;
-    //const delay = 500;
 
     this.countUpElements.forEach((el: ElementRef) => {
       const element = el.nativeElement;
@@ -75,5 +79,29 @@ export class ListComponent implements AfterViewInit {
     });
 
     this.hasAnimated = true;
+  }
+
+  // Scroll-triggered animation logic
+  initScrollAnimations() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            if (element.classList.contains('fade-in-left')) {
+              element.classList.add('in-view');
+            } else if (element.classList.contains('fade-in-right')) {
+              element.classList.add('in-view');
+            }
+            observer.unobserve(element);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    this.sections.forEach((section) => {
+      observer.observe(section.nativeElement);
+    });
   }
 }
