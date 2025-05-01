@@ -1,7 +1,7 @@
 <!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
 <!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <div style="font-family: 'Manrope', 'Open Sans', sans-serif;"
-  class="container fixed bottom-2 left-1/2 -translate-x-1/2 w-[calc(100%-30px)] sm:w-[calc(100%-60px)] md:w-[calc(100%-100px)] max-w-screen-xl bg-white text-gray-800 shadow-xl px-4 sm:px-8 md:px-12 py-6 border border-gray-200 z-50 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-10"
+  class="container fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-30px)] sm:w-[calc(100%-60px)] md:w-[calc(100%-100px)] max-w-screen-xl bg-white text-gray-800 shadow-xl px-4 sm:px-8 md:px-12 py-6 border border-gray-200 z-50 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-10"
   *ngIf="showPopup">
   <!-- Close Button -->
   <button
@@ -13,7 +13,7 @@
   <!-- Text Section -->
   <div class="flex-1 text-center sm:text-left">
     <h2 class="text-base sm:text-lg md:text-xl font-semibold mb-2">We value your privacy</h2>
-    <p class="text-sm sm:text-base leading-relaxed">
+    <p class="text-xs leading-relaxed">
       By clicking "Accept All", you consent to our use of cookies. <br />
       For more information, please visit our
       <a [routerLink]="['/privacy-policy']" (click)="closePopup()"
@@ -24,21 +24,26 @@
   </div>
 
   <!-- Button Section -->
-  <div class="flex flex-col sm:flex-row flex-wrap justify-center sm:justify-end items-center gap-3 w-full sm:w-auto">
-    <button (click)="acceptAll()"
-      class="w-full sm:w-auto text-sm sm:text-base border-[1.5px] border-[#E76F51] text-white px-5 py-2 rounded-3xl transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D]">
-      Accept
-    </button>
-    <button (click)="reject()"
-      class="w-full sm:w-auto text-sm sm:text-base border-[1.5px] border-[#E76F51] text-white px-5 py-2 rounded-3xl transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D]">
-      Reject
-    </button>
+  <div class="w-full sm:w-auto flex flex-col sm:flex-row sm:items-center sm:justify-end gap-3">
+    <!-- Accept + Reject (side-by-side on small, inline on larger) -->
+    <div class="w-full flex flex-row sm:flex-row gap-3 sm:w-auto">
+      <button (click)="acceptAll()"
+        class="w-1/2 sm:w-auto text-sm border-[1.5px] border-[#E76F51] text-white px-4 py-1 rounded-3xl transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D]">
+        Accept
+      </button>
+      <button (click)="reject()"
+        class="w-1/2 sm:w-auto text-sm border-[1.5px] border-[#E76F51] text-white px-4 py-1 rounded-3xl transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D]">
+        Reject
+      </button>
+    </div>
+
+    <!-- Customise -->
     <a (click)="customize()"
-      class="relative hidden md:flex border-[1.5px] border-[#E76F51] text-black px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer"
-      style="font-family: 'Manrope', 'Open Sans', sans-serif;">
-      <span class="relative z-10">Customise<span class="ml-2 mb-1">→</span></span>
+      class="w-full sm:w-auto text-sm text-center border-[1.5px] border-[#E76F51] text-white px-4 py-1 rounded-3xl transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D]">
+      Customise<span class="ml-2">→</span>
     </a>
   </div>
+
 </div>
 
 <div *ngIf="showCookieSettingsPopup" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
@@ -94,13 +99,13 @@
     <div class="pt-6 flex justify-end space-x-6">
       <!-- Cancel Button -->
       <button (click)="closePopup()" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
-        class="bg-gray-200 text-gray-800 px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-gray-300 transition">
+        class="bg-gray-200 text-gray-800 px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer hover:bg-gray-300">
         Cancel
       </button>
 
       <!-- Save Button -->
       <button (click)="saveSettings()" style="font-family: 'Manrope', 'Open Sans', sans-serif;"
-        class="border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D] transition">
+        class="border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out cursor-pointer bg-[#E76F51] hover:bg-[#D65C3D]">
         Save Settings
       </button>
     </div>
