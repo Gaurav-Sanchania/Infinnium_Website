@@ -1,0 +1,12 @@
+/* Initially, the element will be invisible and slightly moved down */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* When the element comes into view, the class 'animate' will be added */
+[data-animate].animate {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -28,7 +28,7 @@ export class ConfigService {
       map((configText) => {
         // Remove the window assignment part and extract the config object
         const configJson = configText
-          .replace("window['myAppConfig'] = ", '')
+          .replace("window['apiEndpointUrl'] = ", '')
           .trim();
         // Remove any trailing semicolons
         const cleanConfigJson = configJson.replace(/;$/, '');
