@@ -237,26 +237,23 @@
 
 @keyframes fadeOutDisappearLoop {
   0% {
-    opacity: 1;
-    transform: translateX(0) translateY(0) scale(1);
-  }
-  40% {
-    opacity: 1;
-    transform: translateX(-15px) translateY(15px) scale(0.9);
-  }
-  70% {
     opacity: 0;
-    transform: translateX(-20px) translateY(20px) scale(0.85);
+    transform: translateX(-20px) translateY(20px) scale(0.85); /* End point */
   }
-  71% {
+  30% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1); /* Moving to product */
+  }
+  60% {
     opacity: 0;
-    transform: translateX(0) translateY(0) scale(1);
+    transform: translateX(0) translateY(0) scale(1); /* Hold before disappearing */
   }
   100% {
     opacity: 0;
-    transform: translateX(0) translateY(0) scale(1);
+    transform: translateX(-20px) translateY(20px) scale(0.85); /* Reset to end point */
   }
 }
+
 
 .folder-animation {
   animation: smoothFloat 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;

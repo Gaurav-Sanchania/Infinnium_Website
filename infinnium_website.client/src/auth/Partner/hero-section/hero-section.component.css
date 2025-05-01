@@ -1,0 +1,65 @@
+.shake-horizontal {
+  animation: shake-horizontal 5s infinite ease-in-out;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes shake-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-4px);
+  }
+  20% {
+    transform: translateX(4px);
+  }
+  30% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+  60% {
+    transform: translateX(6px);
+  }
+  70% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+  90% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.shake-vertical {
+  animation: shake-up-down 6.5s infinite ease-in-out;
+  display: inline-block; /* For better animation containment */
+}
+
+@keyframes shake-up-down {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateY(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateY(5px);
+  }
+}
