@@ -1,0 +1,69 @@
+/* Grid initial state */
+#services-grid {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+#services-grid.grid-visible {
+  opacity: 1;
+}
+
+/* Card initial (offscreen) */
+.card-item.card-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animated-in state */
+.card-item.animate-card {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: popIn 0.6s ease-out forwards;
+}
+
+/* Keyframes */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover Effects (unchanged) */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #2a9d8e;
+  transition: width 0.3s ease-in-out;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+.service-card:hover::before {
+  width: 100%;
+}
+
+/* Reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  .card-item,
+  .service-card {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

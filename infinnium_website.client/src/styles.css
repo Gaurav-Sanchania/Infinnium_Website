@@ -356,44 +356,7 @@ margin-top: -200px;
   /* opacity: 0; */
 }
 
-/* Hover Effects */
-.service-card {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #2a9d8e;
-  transition: width 0.3s ease-in-out;
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}
-
-.service-card:hover::before {
-  width: 100%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-card {
-    animation: none;
-    opacity: 1;
-  }
-
-  .service-card {
-    transition: none;
-  }
-}
 /* Products Page - 4ig and Obscure Pi */
 .feature-card {
   position: relative;
@@ -453,26 +416,7 @@ margin-top: -200px;
   }
 }
 
-.animate-product {
-  animation: slideUpFadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-  /* opacity: 0; */
-}
 
-.product-grid {
-  /* opacity: 0; */
-  transition: opacity 0.6s ease-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-product {
-    animation: none;
-    opacity: 1;
-  }
-
-  .product-grid {
-    opacity: 1;
-  }
-}
 
 /* Add page load animation styles for about us section, features, insights */
 .count-up {
