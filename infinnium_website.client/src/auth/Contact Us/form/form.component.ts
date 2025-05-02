@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './form.component.css'
 })
 export class FormComponent {
+  isMailSent = false;
   isVisible = false;
   isInValid = false;
   submitted = false;
@@ -52,10 +53,12 @@ export class FormComponent {
 
       this.contactUsService.sendEmail(email, subject, body).subscribe({
         next: (res) => {
+          this.isMailSent = true;
           // console.log('Email sent successfully:', res);
           this.show('Email sent successfully!');
         },
         error: (err) => {
+          this.isMailSent = false;
           // console.error('Error sending email:', err);
           this.show('Failed to send email.');
         }
