@@ -35,6 +35,16 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.loadConfig();
+    this.initGlobalScrollBgTransitions();
+
+    // Re-initialize scroll effect on every route change
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        setTimeout(() => {
+          this.initGlobalScrollBgTransitions();
+        }, 100); // Delay ensures DOM is ready
+      });
   }
 
   loadConfig() {
@@ -42,10 +52,8 @@ export class AppComponent implements OnInit {
       next: (config) => {
         this.configLoaded = true;
         this.apiBaseUrl = config.apiBaseUrl;
-        // console.log('Configuration loaded:', config);
       },
       error: (err) => {
-        // console.error('Failed to load configuration:', err);
         throw err;
       },
     });
@@ -55,10 +63,8 @@ export class AppComponent implements OnInit {
     this.configService.refreshConfig().subscribe({
       next: (config) => {
         this.apiBaseUrl = config.apiBaseUrl;
-        // console.log('Configuration refreshed:', config);
       },
       error: (err) => {
-        // console.error('Failed to refresh configuration:', err);
         throw err;
       },
     });
@@ -80,5 +86,23 @@ export class AppComponent implements OnInit {
           this.titleService.setTitle(data['title']);
         }
       });
+  }
+
+  initGlobalScrollBgTransitions() {
+    const elements = document.querySelectorAll('.scroll-bg-transition');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('scroll-bg-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
   }
 }
