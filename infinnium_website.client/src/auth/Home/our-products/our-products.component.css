@@ -13,7 +13,7 @@
   transform: translateY(20px);
 }
 .section-header.animate-product {
-  animation: slideUpFadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation: slideUpFadeIn 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 /* Product items hidden/animated */
@@ -22,7 +22,7 @@
   transform: translateY(20px);
 }
 .product-item.animate-product {
-  animation: slideUpFadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation: slideUpFadeIn 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 /* Keyframes */
