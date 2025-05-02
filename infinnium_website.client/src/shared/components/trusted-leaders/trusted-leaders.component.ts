@@ -26,6 +26,7 @@ export class TrustedLeadersComponent implements OnChanges, AfterViewInit {
     if (changes['bgColor']) {
       this.textColor = this.bgColor === '#12423C' ? 'white' : 'black';
     }
+    // refresh logic
   }
 
   ngAfterViewInit(): void {
