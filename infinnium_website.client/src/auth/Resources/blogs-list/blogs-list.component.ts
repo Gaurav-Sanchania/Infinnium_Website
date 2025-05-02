@@ -34,10 +34,10 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
     this.renderBlogListing();
 
     // Only if re-rendering all blogs
-    const allAnimatables = this.el.nativeElement.querySelectorAll(
-      '[data-animate]:not(.animate)'
-    );
-    this.initScrollAnimations(allAnimatables);
+    // const allAnimatables = this.el.nativeElement.querySelectorAll(
+    //   '[data-animate]:not(.animate)'
+    // );
+    // this.initScrollAnimations(allAnimatables);
   }
 
   ngAfterViewInit() {
@@ -47,10 +47,10 @@ export class BlogsListComponent implements AfterViewInit, OnChanges {
     this.setupLoadMoreButton();
 
     // Animate only the initially rendered blog cards
-    const elements = this.el.nativeElement.querySelectorAll(
-      '[data-animate]:not(.animate)'
-    );
-    this.initScrollAnimations(elements);
+    // const elements = this.el.nativeElement.querySelectorAll(
+    //   '[data-animate]:not(.animate)'
+    // );
+     //this.initScrollAnimations(elements);
   }
 
   private initScrollAnimations(
