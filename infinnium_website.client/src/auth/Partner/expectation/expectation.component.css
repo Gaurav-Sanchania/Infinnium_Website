@@ -12,3 +12,16 @@
   opacity: 1;
   transform: translateX(0);
 }
+.bg-section-init {
+  background-color: #c8dad6; /* A darker shade of #EAF4F2 */
+  transition: background-color 1s ease-in-out;
+}
+
+.bg-section-visible {
+  background-color: #EAF4F2;
+}
+
+.transition-bg {
+  transition: background-color 1s ease-in-out;
+}
+

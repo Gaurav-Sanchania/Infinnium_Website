@@ -6,6 +6,7 @@ import { WhatWeDoComponent } from '../what-we-do/what-we-do.component';
 import { AboutUsSectionComponent } from '../about-us-section/about-us-section.component';
 import { TeamComponent } from '../team/team.component';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { WhoWeAreComponent } from "../who-we-are/who-we-are.component";
 
 @Component({
   standalone: true,
@@ -18,7 +19,8 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
     AboutUsSectionComponent,
     TeamComponent,
     FooterComponent,
-  ],
+    WhoWeAreComponent
+],
   templateUrl: './about-us-layout.component.html',
   styleUrl: './about-us-layout.component.css',
 })

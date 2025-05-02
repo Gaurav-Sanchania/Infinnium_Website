@@ -1011,3 +1011,12 @@ a.relative.hidden.md\:flex:hover::before {
   font-size: 28px;
   opacity: 0.9;
 }
+
+.scroll-bg-transition {
+  background-color: #c8dad6; /* dark initial */
+  transition: background-color 1s ease-in-out;
+}
+
+.scroll-bg-visible {
+  background-color: #EAF4F2; /* light final */
+}

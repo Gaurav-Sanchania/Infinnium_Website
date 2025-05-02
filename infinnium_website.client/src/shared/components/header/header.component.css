@@ -92,3 +92,9 @@ a.relative.hidden.md\:flex::before {
   transition: box-shadow 0.5s ease-out;
   z-index: -1;
 }
+
+.current-parent > a.header-without-bg {
+  color: #E76F51 !important;  /* your brand color */
+  font-weight: bold;          /* make the text bold */
+  text-decoration: none;      /* remove any underline */
+}
