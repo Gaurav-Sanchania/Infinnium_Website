@@ -20,7 +20,7 @@ export class AreaOfExpertiseComponent implements AfterViewInit {
 
   private initAnimations(): void {
     const grid = this.servicesGrid.nativeElement as HTMLElement;
-    console.log('Services grid:', grid);
+    // console.log('Services grid:', grid);
 
     // Fade in grid when it enters viewport
     const gridObserver = new IntersectionObserver((entries, obs) => {
@@ -35,7 +35,7 @@ export class AreaOfExpertiseComponent implements AfterViewInit {
 
     // Animate cards one by one
     const cards = this.elementRef.nativeElement.querySelectorAll('.card-item') as NodeListOf<HTMLElement>;
-    console.log('Found cards:', cards.length);
+    // console.log('Found cards:', cards.length);
     cards.forEach(card => card.classList.add('card-hidden'));
 
     const cardObserver = new IntersectionObserver((entries, obs) => {

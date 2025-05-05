@@ -1,5 +1,5 @@
 <!--header-->
-<header #header id="header" class="fixed top-0 left-0 w-full z-30 header-bg transition-all duration-300"
+<header #header id="header" class="fixed top-0 left-0 z-30 w-full transition-all duration-300 header-bg"
   style="font-family: 'Manrope', 'Open Sans', sans-serif">
   <div
     class="container mx-auto px-4 py-4 flex justify-between items-center max-w-[calc(100%-30px)] md:max-w-[calc(100%-100px)]">
@@ -56,10 +56,10 @@
 
     <!--Desktop Navigation Menu-->
     <nav #navMenu id="nav-menu"
-      class="hidden md:flex absolute md:relative top-16 md:top-auto left-0 w-full md:w-auto md:bg-transparent text-white md:flex-row flex-col items-center md:items-center md:space-x-12 md:p-0 p-4 transition-all duration-300 z-50"
+      class="absolute left-0 z-50 flex-col items-center hidden w-full p-4 text-white transition-all duration-300 md:flex md:relative top-16 md:top-auto md:w-auto md:bg-transparent md:flex-row md:items-center md:space-x-12 md:p-0"
       style="font-family: 'Manrope', 'Open Sans', sans-serif">
       <div class="relative group" [routerLinkActive]="['current-parent']" [routerLinkActiveOptions]="{ exact: false }">
-        <a class="header-without-bg flex items-left cursor-pointer">Products</a>
+        <a class="flex cursor-pointer header-without-bg items-left">Products</a>
         <div
           class="absolute left-1/2 transform -translate-x-1/2 mt-0 hidden group-hover:flex flex-col bg-[#ffffff] text-[#444444] shadow-lg w-72 py-2 text-left rounded transition-all duration-300 z-50"
           style="margin-left: 89px;">
@@ -74,7 +74,7 @@
       </div>
 
       <div class="relative group" [routerLinkActive]="['current-parent']" [routerLinkActiveOptions]="{ exact: false }">
-        <a class="header-without-bg flex items-center cursor-pointer">Solutions</a>
+        <a class="flex items-center cursor-pointer header-without-bg">Solutions</a>
         <div
           class="absolute left-1/2 transform -translate-x-1/2 mt-0 hidden group-hover:flex flex-col bg-[#ffffff] text-[#444444] shadow-lg w-60 py-2 text-left rounded transition-all duration-300 z-50"
           style="margin-left: 65px;">
@@ -108,7 +108,7 @@
       <a [routerLink]="['/partner']" class="header-without-bg">Become a partner</a>
     </div>
       <div class="relative group" [routerLinkActive]="['current-parent']" [routerLinkActiveOptions]="{ exact: false }">
-        <a class="header-without-bg flex items-center cursor-pointer">Resources</a>
+        <a class="flex items-center cursor-pointer header-without-bg">Resources</a>
         <div
           class="absolute left-1/2 transform -translate-x-1/2 mt-0 hidden group-hover:flex flex-col bg-[#ffffff] text-[#444444] shadow-lg w-72 py-2 text-left rounded transition-all duration-300 z-50"
           style="margin-left: 85px;">
@@ -127,101 +127,116 @@
     <a [routerLink]="['/contactUs']"
       class="relative hidden md:flex border-[1.5px] border-[#E76F51] text-white px-6 py-2 rounded-3xl overflow-hidden transition-all duration-300 ease-in-out"
       style="font-family: 'Manrope', 'Open Sans', sans-serif;">
-      <span class="relative z-10">Contact<span class="ml-2 mb-1">→</span></span>
+      <span class="relative z-10">Contact<span class="mb-1 ml-2">→</span></span>
     </a>
   </div>
 </header>
 
 <!--Mobile Sidebar Menu (opens from right)-->
 <div #mobileSidebar id="mobileSidebar"
-  class="mobile-sidebar fixed top-0 right-0 w-64 h-full bg-white shadow-lg transition-transform duration-300 z-50">
-  <button #mobileCloseBtn id="mobile-close-btn" class="md:hidden focus:outline-none p-4">
+  class="fixed top-0 right-0 z-50 w-64 h-full transition-transform duration-300 bg-white shadow-lg mobile-sidebar">
+
+  <button #mobileCloseBtn id="mobile-close-btn" class="p-4 md:hidden focus:outline-none">
     <svg class="w-8 h-8 text-[#E76F51]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
     </svg>
   </button>
-  <nav class="mobile-nav p-4">
+
+  <nav class="p-4 mobile-nav">
     <!--Dropdown: Products-->
     <div class="mb-4">
-      <a class="dropdown-togglISO 27001 Certificatione flex items-center justify-between py-2 text-gray-700 font-semibold">
+      <a class="flex items-center justify-between py-2 font-semibold text-gray-700 dropdown-toggle">
         <span>Products</span>
-        <svg class="ml-1 w-4 h-4 text-[xx-large]" fill="#E76F51" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ml-1 w-4 h-4 text-[xx-large] transition-transform duration-300" fill="#E76F51" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
             clip-rule="evenodd" />
         </svg>
       </a>
-      <div class="dropdown-menu ml-4 hidden">
-        <a [routerLink]="['/products/4ig']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">4iG®</a>
-        <a [routerLink]="['/products/breach-profiler']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Data Breach Profiler<sup>™</sup></a>
-        <a [routerLink]="['/products/obscure-pi']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">ObscurePI®</a>
+      <div class="hidden ml-4 dropdown-menu">
+        <div>
+
+          <a [routerLink]="['/products/4ig']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">4iG®</a>
+          <a [routerLink]="['/products/breach-profiler']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Data Breach Profiler<sup>™</sup></a>
+          <a [routerLink]="['/products/obscure-pi']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">ObscurePI®</a>
+        </div>
       </div>
     </div>
     <!--Dropdown: Solutions-->
     <div class="mb-4">
-      <a class="dropdown-toggle flex items-center justify-between py-2 text-gray-700 font-semibold">
+      <a class="flex items-center justify-between py-2 font-semibold text-gray-700 dropdown-toggle">
         <span>Solutions</span>
-        <svg class="ml-1 w-4 h-4" fill="#E76F51" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-4 h-4 ml-1" fill="#E76F51" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
             clip-rule="evenodd" />
         </svg>
       </a>
-      <div class="dropdown-menu ml-4 hidden">
-        <a [routerLink]="['/solutions/breach-response']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Breach Response</a>
-        <a [routerLink]="['/solutions/unified-information-governance']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Unified Information Governance</a>
-        <a [routerLink]="['/solutions/data-protection']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Data Protection/DSAR</a>
-        <a [routerLink]="['/solutions/eDiscovery']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">eDiscovery</a>
-        <a [routerLink]="['/solutions/automated-redaction']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Automated Redaction</a>
-        <a [routerLink]="['/solutions/data-mapping']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Data Mapping</a>
-        <a [routerLink]="['/solutions/data-retention']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Data Retention</a>
-        <a [routerLink]="['/solutions/unified-archival']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Unified Archival</a>
-        <a [routerLink]="['/solutions/data-disposition']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Data Disposition</a>
-        <a [routerLink]="['/solutions/legal-hold']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Legal Hold</a>
+      <div class="hidden ml-4 dropdown-menu">
+        <div>
+
+          <a [routerLink]="['/solutions/breach-response']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Breach Response</a>
+          <a [routerLink]="['/solutions/unified-information-governance']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Unified Information Governance</a>
+          <a [routerLink]="['/solutions/data-protection']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Data Protection/DSAR</a>
+          <a [routerLink]="['/solutions/eDiscovery']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">eDiscovery</a>
+          <a [routerLink]="['/solutions/automated-redaction']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Automated Redaction</a>
+          <a [routerLink]="['/solutions/data-mapping']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Data Mapping</a>
+          <a [routerLink]="['/solutions/data-retention']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Data Retention</a>
+          <a [routerLink]="['/solutions/unified-archival']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Unified Archival</a>
+          <a [routerLink]="['/solutions/data-disposition']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Data Disposition</a>
+          <a [routerLink]="['/solutions/legal-hold']" routerLinkActive="mobileActiveLink"
+            class="block py-1 text-gray-600">Legal Hold</a>
+        </div>
       </div>
     </div>
     <!--Become a partner (no dropdown)-->
     <div class="mb-4">
-      <a [routerLink]="['/partner']" class="block py-2 text-gray-700 font-semibold">Become a partner</a>
+      <a [routerLink]="['/partner']" class="block py-2 font-semibold text-gray-700">Become a partner</a>
     </div>
     <!--Dropdown: Resources-->
     <div class="mb-4">
-      <a class="dropdown-toggle flex items-center justify-between py-2 text-gray-700 font-semibold">
-        <span>Resources</span>
-        <svg class="ml-1 w-4 h-4" fill="#E76F51" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-            clip-rule="evenodd" />
-        </svg>
-      </a>
-      <div class="dropdown-menu ml-4 hidden">
-        <a [routerLink]="['/resources/news-and-events']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">News and Events</a>
-        <a [routerLink]="['/resources/blogs']" routerLinkActive="mobileActiveLink"
-          class="block py-1 text-gray-600">Blog</a>
+        <a class="flex items-center justify-between py-2 font-semibold text-gray-700 dropdown-toggle">
+
+          <span>Resources</span>
+          <svg class="w-4 h-4 ml-1" fill="#E76F51" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </a>
+        <div class="hidden ml-4 dropdown-menu">
+          <div>
+
+            <a [routerLink]="['/resources/news-and-events']" routerLinkActive="mobileActiveLink"
+              class="block py-1 text-gray-600">News and Events</a>
+            <a [routerLink]="['/resources/blogs']" routerLinkActive="mobileActiveLink"
+              class="block py-1 text-gray-600">Blog</a>
+          </div>
       </div>
+
     </div>
     <!--About us (no dropdown)-->
     <div class="mb-4">
-      <a [routerLink]="['/aboutUs/']" class="block py-2 text-gray-700 font-semibold">About us</a>
+      <a [routerLink]="['/aboutUs/']" class="block py-2 font-semibold text-gray-700">About us</a>
     </div>
     <div class="mb-4">
-      <a [routerLink]="['/contactUs']" class="block py-2 text-gray-700 font-semibold">Contact</a>
+      <a [routerLink]="['/contactUs']" class="block py-2 font-semibold text-gray-700">Contact</a>
     </div>
   </nav>
 </div>
+<!-- Overlay -->
+<div #sidebarOverlay id="sidebarOverlay" class="sidebar-overlay"></div>
 <router-outlet></router-outlet>
