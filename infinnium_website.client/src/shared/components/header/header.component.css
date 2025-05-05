@@ -68,12 +68,31 @@
 /* Mobile Sidebar styles */
 .mobile-sidebar {
   transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing function */
+  will-change: transform; /* Optimize for animations */
 }
 
 .mobile-sidebar.active {
   transform: translateX(0);
 }
+/* Add overlay for better UX */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 /* header button contactus */
 a.relative.hidden.md\:flex::before {
   position: absolute;
@@ -97,4 +116,39 @@ a.relative.hidden.md\:flex::before {
   color: #E76F51 !important;  /* your brand color */
   font-weight: bold;          /* make the text bold */
   text-decoration: none;      /* remove any underline */
+}
+/* Update your dropdown styles */
+.dropdown-toggle {
+  pointer-events: none; /* Let the click pass through to parent */
+}
+
+.dropdown-toggle > span,
+.dropdown-toggle > svg {
+  pointer-events: auto; /* But make the content clickable */
+}
+
+/* Then adjust your event listeners accordingly */
+/* Update dropdown menu styles */
+.dropdown-menu {
+  overflow: hidden;
+  display: grid; /* Using grid for smooth transitions */
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease, opacity 0.2s ease;
+  opacity: 0;
+}
+
+.dropdown-menu.show {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.dropdown-menu > div {
+  min-height: 0; /* Important for the transition to work */
+}
+/* Smooth arrow rotation */
+.dropdown-toggle svg {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.active svg {
+  transform: rotate(180deg);
 }

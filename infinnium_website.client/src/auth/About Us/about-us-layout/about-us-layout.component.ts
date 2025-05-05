@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HeroSectionComponent } from '../hero-section/hero-section.component';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
-import { AboutUsComponent } from '../../../shared/components/about-us/about-us.component';
 import { WhatWeDoComponent } from '../what-we-do/what-we-do.component';
 import { AboutUsSectionComponent } from '../about-us-section/about-us-section.component';
 import { TeamComponent } from '../team/team.component';
@@ -14,7 +13,6 @@ import { WhoWeAreComponent } from "../who-we-are/who-we-are.component";
   imports: [
     HeroSectionComponent,
     HeaderComponent,
-    AboutUsComponent,
     WhatWeDoComponent,
     AboutUsSectionComponent,
     TeamComponent,
