@@ -11,7 +11,7 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-24 md:gap-20 sm:gap-12">
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-x-12 gap-y-12">
       <!-- Feature Item 1 -->
       <div data-animate class="flex flex-col space-y-1">
         <!-- Icon & Title Row -->
@@ -53,10 +53,14 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-1" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-A1" class="text-[#12423C] mt-2 truncate-text">
             Access over 50 data connectors, including industry giants like M365, Google Workspace, Salesforce, and more,
             for comprehensive coverage across common business platforms. Analyze data wherever it resides effortlessly.
           </p>
+          <button (click)="toggleDescription('A1')" [attr.data-id]="'A1'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
 
@@ -109,11 +113,15 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-2" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-B2" class="text-[#12423C] mt-2 truncate-text">
             Utilize 4iG's advanced data examination capabilities, such as filesystem metadata analysis and full content
             indexing. Identify ROT data and sensitive information without disruptive data migrations, thanks to OCR and
             PxI identification.
           </p>
+          <button (click)="toggleDescription('B2')" [attr.data-id]="'B2'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
 
@@ -156,10 +164,14 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-3" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-C3" class="text-[#12423C] mt-2 truncate-text">
             Leverage 4iG's analytics suite, including data analytics, sentiment analysis, classification taxonomies,
             granular search, and GenAI analysis for actionable insights and informed decision-making.
           </p>
+          <button (click)="toggleDescription('C3')" [attr.data-id]="'C3'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
 
@@ -198,10 +210,14 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-4" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-D4" class="text-[#12423C] mt-2 truncate-text">
             Utilize 4iG's suite post-mapping for proactive data management. Move, duplicate, export, archive, or delete
             data based on user-defined rules while maintaining a comprehensive audit trail for every action.
           </p>
+          <button (click)="toggleDescription('D4')" [attr.data-id]="'D4'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
 
@@ -232,10 +248,14 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-5" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-E5" class="text-[#12423C] mt-2 truncate-text">
             Gain insights into data without disruptive transfers with 4iG's in-place indexing. Identify critical data
             elements directly within existing infrastructure, streamlining the data mapping process.
           </p>
+          <button (click)="toggleDescription('E5')" [attr.data-id]="'E5'"
+          class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+          Read More ↓
+        </button>
         </div>
       </div>
 
@@ -262,10 +282,14 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-6" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-F6" class="text-[#12423C] mt-2 truncate-text">
             Gain a true understanding of your data landscape with 4iG. Empower data governance, streamline compliance,
             and optimize operational processes for organizational growth.
           </p>
+          <button (click)="toggleDescription('F6')" [attr.data-id]="'F6'"
+          class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline cursor-pointer">
+          Read More ↓
+        </button>
         </div>
       </div>
 

@@ -9,7 +9,7 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-24 md:gap-20 sm:gap-12">
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-x-12 gap-y-12">
       <!-- Feature Item 1 -->
       <div data-animate class="flex flex-col space-y-1">
         <!-- Icon & Title Row -->
@@ -33,11 +33,15 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-1" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-A1" class="text-[#12423C] mt-2 truncate-text">
             4iG Legal Hold stands as the most comprehensive litigation solution,
             offering full control over on-premises and cloud-stored data across
             diverse platforms.
           </p>
+          <button (click)="toggleDescription('A1')" [attr.data-id]="'A1'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
 
@@ -64,11 +68,15 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-2" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-B2" class="text-[#12423C] mt-2 truncate-text">
             4iG Legal Hold stands as the most comprehensive litigation solution,
             offering full control over on-premises and cloud-stored data across
             diverse platforms.
           </p>
+          <button (click)="toggleDescription('B2')" [attr.data-id]="'B2'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
 
@@ -95,11 +103,15 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-3" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-C3" class="text-[#12423C] mt-2 truncate-text">
             4iG Legal Hold stands as the most comprehensive litigation solution,
             offering full control over on-premises and cloud-stored data across
             diverse platforms.
           </p>
+          <button (click)="toggleDescription('C3')" [attr.data-id]="'C3'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
 
@@ -129,13 +141,17 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-4" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-D4" class="text-[#12423C] mt-2 truncate-text">
             In-place data search using native functions in M365 and Google
             Workspace, providing quick access to platform-specific search
             capabilities Full index capabilities via 4iG’s engine offer advanced
             features like multi-lingual OCR, PxI identification, analytics, and
             more.
           </p>
+          <button (click)="toggleDescription('D4')" [attr.data-id]="'D4'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
 
@@ -162,13 +178,17 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-5" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-E5" class="text-[#12423C] mt-2 truncate-text">
             In-place data search using native functions in M365 and Google
             Workspace, providing quick access to platform-specific search
             capabilities Full index capabilities via 4iG’s engine offer advanced
             features like multi-lingual OCR, PxI identification, analytics, and
             more
           </p>
+          <button (click)="toggleDescription('E5')" [attr.data-id]="'E5'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
 
@@ -201,13 +221,17 @@
         </div>
         <!-- Description & Button -->
         <div class="feature-text-container">
-          <p id="desc-6" class="text-[#12423C] mt-2 truncate-text">
+          <p id="desc-F6" class="text-[#12423C] mt-2 truncate-text">
             In-place data search using native functions in M365 and Google
             Workspace, providing quick access to platform-specific search
             capabilities Full index capabilities via 4iG’s engine offer advanced
             features like multi-lingual OCR, PxI identification, analytics, and
             more
           </p>
+          <button (click)="toggleDescription('F6')" [attr.data-id]="'F6'"
+            class="text-[#2A9D8E] hover:text-[#21867B] font-medium mt-3 inline-block hover:underline">
+            Read More ↓
+          </button>
         </div>
       </div>
     </div>

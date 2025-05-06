@@ -1020,3 +1020,7 @@ a.relative.hidden.md\:flex:hover::before {
 .scroll-bg-visible {
   background-color: #EAF4F2; /* light final */
 }
+/* styles.css */
+button {
+  cursor: pointer;
+}
