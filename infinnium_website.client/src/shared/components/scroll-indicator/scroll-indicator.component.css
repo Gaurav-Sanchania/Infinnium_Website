@@ -1,0 +1,27 @@
+.scroll-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  animation: smoothBounce 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  will-change: transform;
+}
+
+@keyframes smoothBounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

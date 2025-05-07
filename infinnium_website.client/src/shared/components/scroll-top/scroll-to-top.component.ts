@@ -15,7 +15,7 @@ export class ScrollToTopComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const yOffset = window.pageYOffset || document.documentElement.scrollTop;
-    this.isVisible = yOffset > 300;
+    this.isVisible = yOffset > 100;
   }
 
   scrollToTop(): void {
