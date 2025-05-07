@@ -14,58 +14,65 @@ namespace Infinnium_Website.Server.Controllers
         private readonly ConnectionStringService config = connectionStringService;
         private readonly ILogger<BlogController> log = logger;
 
-        // GET: BlogController/GetAllBlogs
+        // GET: BlogsController/GetAllBlogs
         [HttpGet]
         [Route("GetAllBlogs")]
         public List<BlogsModel> GetAllBlogs()
         {
             log.LogInformation("GetAllBlogs endpoint was hit at {Time}", DateTime.UtcNow);
-
-            List<BlogsModel> blogs = new List<BlogsModel>();
-            string cs = config.GenerateConnection();
-            using (SqlConnection con = new SqlConnection(cs))
+            try
             {
-                con.Open();
-
-                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Blogs]", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@case", 1);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read()) 
+                List<BlogsModel> blogs = new List<BlogsModel>();
+                string cs = config.GenerateConnection();
+                using (SqlConnection con = new SqlConnection(cs))
                 {
-                    var blog = new BlogsModel();
+                    con.Open();
 
-                    blog.Id = Convert.ToInt32(reader["BlogId"]);
-                    blog.Title = reader["Title"].ToString();
-                    blog.Description = reader["Description"].ToString();
-                    blog.Brief = reader["Brief"].ToString();
-                    blog.PublishedDate = reader["PublishedDate"].ToString();
-                    blog.AuthorId = Convert.ToInt32(reader["AuthorId"]);
-                    blog.AuthorName = reader["Name"].ToString();
-                    blog.AuthorDesignation = reader["Designation"].ToString();
-                    blog.AuthorEmail = reader["Email"].ToString();
-                    blog.ImageName = reader["ImageName"].ToString();
-                    blog.Guid = reader["ShortGuid"].ToString();
-                    blog.isActive = (bool)reader["isActive"];
+                    SqlCommand cmd = new SqlCommand("[dbo].[CRUD_Blogs]", con);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    // Image Reader function
-                    byte[] imageData = reader["ImagePath"] as byte[];
-                    if (imageData != null)
+                    cmd.Parameters.AddWithValue("@case", 1);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
                     {
-                        blog.Image = Convert.ToBase64String((byte[])imageData);
+                        var blog = new BlogsModel();
+
+                        blog.Id = Convert.ToInt32(reader["BlogId"]);
+                        blog.Title = reader["Title"].ToString();
+                        blog.Description = reader["Description"].ToString();
+                        blog.Brief = reader["Brief"].ToString();
+                        blog.PublishedDate = reader["PublishedDate"].ToString();
+                        blog.AuthorId = Convert.ToInt32(reader["AuthorId"]);
+                        blog.AuthorName = reader["Name"].ToString();
+                        blog.AuthorDesignation = reader["Designation"].ToString();
+                        blog.AuthorEmail = reader["Email"].ToString();
+                        blog.ImageName = reader["ImageName"].ToString();
+                        blog.Guid = reader["ShortGuid"].ToString();
+                        //blog.isActive = (bool)reader["isActive"];
+
+                        // Image Reader function
+                        byte[] imageData = reader["ImagePath"] as byte[];
+                        if (imageData != null)
+                        {
+                            blog.Image = Convert.ToBase64String((byte[])imageData);
+                        }
+
+                        blogs.Add(blog);
                     }
 
-                    blogs.Add(blog);
+                    con.Close();
                 }
-
-                con.Close();
+                return blogs;
             }
-            return blogs;
+            catch (Exception ex)
+            {
+                log.LogError("An error occurred while getting all blogs: {Message}", ex.Message);
+                throw;
+            }
         }
 
-        // GET: BlogController/GetBlogDetails/{id}
+        // GET: BlogsController/GetBlogDetails/{id}
         [HttpGet]
         [Route("GetBlogDetails/{id}")]
         public BlogsModel GetBlogDetails(string id)

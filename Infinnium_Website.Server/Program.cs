@@ -61,19 +61,16 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 // Add CORS
-var corsSettings = new CorsSettings();
-builder.Configuration.GetSection("CorsSettings").Bind(corsSettings);
+//var corsSettings = new CorsSettings();
+//builder.Configuration.GetSection("CorsSettings").Bind(corsSettings);
 
 builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AngularApp",
-        policy =>
-        {
-            policy.WithOrigins(corsSettings.AllowedOrigins)
-                   .WithMethods(corsSettings.AllowedMethods)
-                   .WithHeaders(corsSettings.AllowedHeaders);
-        });
-});
+    options.AddPolicy("AngularApp", policy =>
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+    )
+);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

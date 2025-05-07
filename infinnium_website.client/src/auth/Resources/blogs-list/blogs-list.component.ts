@@ -74,6 +74,7 @@ clearBlogGrid(): void {
 
         const maxLength = 60;
         let title = post.title;
+        cardLink.href = `/resources/blogs/${slugify(title)}/${post.guid}`;
 
         if (title.length > maxLength) {
           title = title.slice(0, maxLength) + '...';
@@ -88,7 +89,6 @@ clearBlogGrid(): void {
         }
 
         // console.log(encodeURIComponent(title));
-        cardLink.href = `/resources/blogs/${slugify(title)}/${post.guid}`;
         //console.log(cardLink.href);
 
         //console.log(post.image);
@@ -139,6 +139,9 @@ clearBlogGrid(): void {
 
         const maxLength = 60;
         let title = post.title;
+        cardLink.href = `/resources/news-and-events/${slugify(title)}/${
+          post.guid
+        }`;
 
         if (title.length > maxLength) {
           title = title.slice(0, maxLength) + '...';
@@ -151,9 +154,6 @@ clearBlogGrid(): void {
             .replace(/\s+/g, '-') // Replace spaces with -
             .replace(/--+/g, '-'); // Collapse multiple dashes
         }
-        cardLink.href = `/resources/news-and-events/${slugify(title)}/${
-          post.guid
-        }`;
 
         // cardLink.href = `/Resources/News-and-Events/${encodeURIComponent(title)}/${post.guid}`;
         //console.log(cardLink.href);
