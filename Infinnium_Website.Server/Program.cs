@@ -65,7 +65,7 @@ builder.Host.UseSerilog();
 //builder.Configuration.GetSection("CorsSettings").Bind(corsSettings);
 
 builder.Services.AddCors(options =>
-    options.AddPolicy("AngularApp", policy =>
+    options.AddPolicy("AllowAllOrigins", policy =>
         policy.AllowAnyOrigin()
               .AllowAnyMethod()
               .AllowAnyHeader()
@@ -97,7 +97,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // Use CORS
-app.UseCors("AngularApp");
+app.UseCors("AllowAllOrigins");
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
