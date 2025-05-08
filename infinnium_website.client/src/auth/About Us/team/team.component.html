@@ -16,7 +16,7 @@
         class="bg-white flex rounded-xl shadow-md overflow-hidden relative transform transition duration-300 hover:scale-105"
         *ngFor="let author of authors;">
 
-        <a [routerLink]="['member', author.name, author.guid]" class="absolute inset-0 z-10 cursor-pointer">
+        <a [routerLink]="['member', slugify(author.name), author.guid]" class="absolute inset-0 z-10 cursor-pointer">
         </a>
         <img [src]="author.image" alt="Elie Francis" class="w-36 h-auto object-cover rounded-l-xl">
         <div class="p-4 flex flex-col justify-between flex-1">

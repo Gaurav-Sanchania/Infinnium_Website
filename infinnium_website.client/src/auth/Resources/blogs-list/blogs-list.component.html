@@ -8,12 +8,30 @@
     <!-- Posts Grid -->
     <div id="blog-grid" class="grid md:grid-cols-3 gap-8" #blogGrid>
       <!-- Blog cards will be dynamically injected here by JavaScript -->
-
+      <a [routerLink]="['/resources', category === 'Blogs' ? 'blogs' : 'news-and-events', slugify(post.title), post.guid]"
+        *ngFor="let post of displayedPosts" class="w-full h-full">
+        <div
+          class="bg-white rounded-lg overflow-hidden flex flex-col h-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+          <div class="h-40 overflow-hidden">
+            <img [src]="post.image" alt="Post"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <p class="text-sm font-medium text-[#E76F51] uppercase mb-2">{{ category.toUpperCase() }}</p>
+            <h3 class="text-lg font-semibold mb-2 hover:text-[#E76F51] transition-colors duration-300">{{ post.title }}
+            </h3>
+            <p class="text-gray-600 text-sm mb-3 flex-grow">{{ post.brief }}</p>
+            <div class="flex items-center text-gray-400 text-sm">
+              <i class="far fa-calendar-alt mr-2"></i>{{ post.publishedDate | date:'longDate' }}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
 
     <!-- Load More Button -->
-    <div class="flex justify-center mt-8">
-      <button id="loadMoreBtn" class="common w-[7rem] h-[2.75rem] mt-[2rem]" #loadMoreBtn>
+    <div class="flex justify-center mt-8" *ngIf="hasMore">
+      <button (click)="loadMore()" id="loadMoreBtn" class="common w-[7rem] h-[2.75rem] mt-[2rem]" #loadMoreBtn>
         Load More
       </button>
     </div>
