@@ -5,6 +5,8 @@ import { ExpectationComponent } from '../expectation/expectation.component';
 import { WeYouComponent } from '../we-you/we-you.component';
 import { InsightsComponent } from '../insights/insights.component';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { ScrollIndicatorComponent } from "../../../shared/components/scroll-indicator/scroll-indicator.component";
+import { ScrollToTopComponent } from "../../../shared/components/scroll-top/scroll-to-top.component";
 
 @Component({
   standalone: true,
@@ -16,7 +18,9 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
     WeYouComponent,
     InsightsComponent,
     FooterComponent,
-  ],
+    ScrollIndicatorComponent,
+    ScrollToTopComponent
+],
   templateUrl: './partner-layout.component.html',
   styleUrl: './partner-layout.component.css',
 })

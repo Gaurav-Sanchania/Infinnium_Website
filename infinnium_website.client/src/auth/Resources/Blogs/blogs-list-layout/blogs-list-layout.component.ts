@@ -5,6 +5,8 @@ import { FooterComponent } from '../../../../shared/components/footer/footer.com
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
 import { BlogsListComponent } from '../../blogs-list/blogs-list.component';
 import { BlogsService } from '../../../../services/blogsService.service';
+import { ScrollIndicatorComponent } from "../../../../shared/components/scroll-indicator/scroll-indicator.component";
+import { ScrollToTopComponent } from "../../../../shared/components/scroll-top/scroll-to-top.component";
 
 @Component({
   selector: 'app-resources-blogs-list-layout',
@@ -13,7 +15,9 @@ import { BlogsService } from '../../../../services/blogsService.service';
     HeroSectionComponent,
     BlogsListComponent,
     FooterComponent,
-  ],
+    ScrollIndicatorComponent,
+    ScrollToTopComponent
+],
   providers: [BlogsService],
   templateUrl: './blogs-list-layout.component.html',
   styleUrl: './blogs-list-layout.component.css',

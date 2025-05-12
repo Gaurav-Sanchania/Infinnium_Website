@@ -9,6 +9,8 @@ import { GlobalImpactComponent } from '../global-impact/global-impact.component'
 import { TrustedLeadersComponent } from '../../../shared/components/trusted-leaders/trusted-leaders.component';
 import { RecentBlogsComponent } from '../../../shared/components/recent-blogs/recent-blogs.component';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
+import { ScrollToTopComponent } from "../../../shared/components/scroll-top/scroll-to-top.component";
+import { ScrollIndicatorComponent } from "../../../shared/components/scroll-indicator/scroll-indicator.component";
 
 @Component({
   standalone: true,
@@ -24,7 +26,9 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
     TrustedLeadersComponent,
     RecentBlogsComponent,
     FooterComponent,
-  ],
+    ScrollToTopComponent,
+    ScrollIndicatorComponent
+],
   templateUrl: './home-layout.component.html',
   styleUrl: './home-layout.component.css',
 })

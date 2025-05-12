@@ -5,6 +5,8 @@ import { FooterComponent } from '../../../../shared/components/footer/footer.com
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
 import { AboutComponent } from '../about/about.component';
 import { FeaturesComponent } from '../features/features.component';
+import { ScrollToTopComponent } from "../../../../shared/components/scroll-top/scroll-to-top.component";
+import { ScrollIndicatorComponent } from "../../../../shared/components/scroll-indicator/scroll-indicator.component";
 
 @Component({
   standalone: true,
@@ -16,7 +18,9 @@ import { FeaturesComponent } from '../features/features.component';
     FeaturesComponent,
     TrustedLeadersComponent,
     FooterComponent,
-  ],
+    ScrollToTopComponent,
+    ScrollIndicatorComponent
+],
   templateUrl: './solution3-layout.component.html',
   styleUrl: './solution3-layout.component.css',
 })

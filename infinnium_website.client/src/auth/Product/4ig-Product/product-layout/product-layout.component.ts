@@ -7,6 +7,8 @@ import { FooterComponent } from '../../../../shared/components/footer/footer.com
 import { HeaderComponent } from '../../../../shared/components/header/header.component';
 import { TrustedLeadersComponent } from '../../../../shared/components/trusted-leaders/trusted-leaders.component';
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
+import { ScrollToTopComponent } from "../../../../shared/components/scroll-top/scroll-to-top.component";
+import { ScrollIndicatorComponent } from "../../../../shared/components/scroll-indicator/scroll-indicator.component";
 
 @Component({
   standalone: true,
@@ -20,7 +22,9 @@ import { HeroSectionComponent } from '../../hero-section/hero-section.component'
     FeaturesComponent,
     FooterComponent,
     TrustedLeadersComponent,
-  ],
+    ScrollToTopComponent,
+    ScrollIndicatorComponent
+],
   templateUrl: './product-layout.component.html',
   styleUrl: './product-layout.component.css',
 })

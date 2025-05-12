@@ -7,11 +7,12 @@ import {
 } from '@angular/core';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
 import { RouterLink } from '@angular/router';
+import { ScrollToTopComponent } from "../../../shared/components/scroll-top/scroll-to-top.component";
 
 @Component({
   standalone: true,
   selector: 'app-terms',
-  imports: [FooterComponent, RouterLink],
+  imports: [FooterComponent, RouterLink, ScrollToTopComponent],
   templateUrl: './terms.component.html',
   styleUrl: './terms.component.css',
 })

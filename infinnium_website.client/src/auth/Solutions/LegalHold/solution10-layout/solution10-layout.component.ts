@@ -5,6 +5,8 @@ import { FooterComponent } from '../../../../shared/components/footer/footer.com
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
 import { AboutComponent } from '../about/about.component';
 import { FeaturesComponent } from '../features/features.component';
+import { ScrollToTopComponent } from "../../../../shared/components/scroll-top/scroll-to-top.component";
+import { ScrollIndicatorComponent } from "../../../../shared/components/scroll-indicator/scroll-indicator.component";
 
 @Component({
   selector: 'app-solution10-layout',
@@ -15,7 +17,9 @@ import { FeaturesComponent } from '../features/features.component';
     FeaturesComponent,
     TrustedLeadersComponent,
     FooterComponent,
-  ],
+    ScrollToTopComponent,
+    ScrollIndicatorComponent
+],
   templateUrl: './solution10-layout.component.html',
   styleUrl: './solution10-layout.component.css',
 })

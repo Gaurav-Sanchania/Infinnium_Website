@@ -6,18 +6,16 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { CookieComponent } from '../auth/Cookies/cookie/cookie.component';
-import { ScrollToTopComponent } from '../shared/components/scroll-top/scroll-to-top.component';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ConfigService } from '../services/configService.service';
-import { ScrollIndicatorComponent } from '../shared/components/scroll-indicator/scroll-indicator.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [RouterOutlet, CookieComponent, ScrollToTopComponent, CommonModule, ScrollIndicatorComponent],
+  imports: [RouterOutlet, CookieComponent, CommonModule],
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {

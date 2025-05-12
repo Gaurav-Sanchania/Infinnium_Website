@@ -6,6 +6,8 @@ import { AboutUsSectionComponent } from '../about-us-section/about-us-section.co
 import { TeamComponent } from '../team/team.component';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
 import { WhoWeAreComponent } from "../who-we-are/who-we-are.component";
+import { ScrollToTopComponent } from "../../../shared/components/scroll-top/scroll-to-top.component";
+import { ScrollIndicatorComponent } from "../../../shared/components/scroll-indicator/scroll-indicator.component";
 
 @Component({
   standalone: true,
@@ -17,7 +19,9 @@ import { WhoWeAreComponent } from "../who-we-are/who-we-are.component";
     AboutUsSectionComponent,
     TeamComponent,
     FooterComponent,
-    WhoWeAreComponent
+    WhoWeAreComponent,
+    ScrollToTopComponent,
+    ScrollIndicatorComponent
 ],
   templateUrl: './about-us-layout.component.html',
   styleUrl: './about-us-layout.component.css',

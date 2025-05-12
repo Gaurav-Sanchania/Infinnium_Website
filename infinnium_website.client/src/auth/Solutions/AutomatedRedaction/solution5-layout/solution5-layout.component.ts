@@ -4,6 +4,8 @@ import { TrustedLeadersComponent } from '../../../../shared/components/trusted-l
 import { FooterComponent } from '../../../../shared/components/footer/footer.component';
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
 import { AboutComponent } from '../about/about.component';
+import { ScrollIndicatorComponent } from "../../../../shared/components/scroll-indicator/scroll-indicator.component";
+import { ScrollToTopComponent } from "../../../../shared/components/scroll-top/scroll-to-top.component";
 
 @Component({
   standalone: true,
@@ -14,7 +16,9 @@ import { AboutComponent } from '../about/about.component';
     AboutComponent,
     TrustedLeadersComponent,
     FooterComponent,
-  ],
+    ScrollIndicatorComponent,
+    ScrollToTopComponent
+],
   templateUrl: './solution5-layout.component.html',
   styleUrl: './solution5-layout.component.css',
 })

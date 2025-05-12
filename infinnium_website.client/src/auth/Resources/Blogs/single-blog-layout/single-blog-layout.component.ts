@@ -8,6 +8,8 @@ import { FooterComponent } from '../../../../shared/components/footer/footer.com
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
 import { BlogsService } from '../../../../services/blogsService.service';
 import { ActivatedRoute } from '@angular/router';
+import { ScrollToTopComponent } from "../../../../shared/components/scroll-top/scroll-to-top.component";
+import { ScrollIndicatorComponent } from "../../../../shared/components/scroll-indicator/scroll-indicator.component";
 
 @Component({
   standalone: true,
@@ -18,7 +20,9 @@ import { ActivatedRoute } from '@angular/router';
     RecentBlogsComponent,
     HeaderComponent,
     FooterComponent,
-  ],
+    ScrollToTopComponent,
+    ScrollIndicatorComponent
+],
   providers: [BlogsService],
   templateUrl: './single-blog-layout.component.html',
   styleUrl: './single-blog-layout.component.css',

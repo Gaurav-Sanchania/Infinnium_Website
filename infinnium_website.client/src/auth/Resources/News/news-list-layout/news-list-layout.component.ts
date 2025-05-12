@@ -5,6 +5,8 @@ import { FooterComponent } from '../../../../shared/components/footer/footer.com
 import { HeroSectionComponent } from '../../hero-section/hero-section.component';
 import { BlogsListComponent } from '../../blogs-list/blogs-list.component';
 import { NewsService } from '../../../../services/newsService.service';
+import { ScrollIndicatorComponent } from "../../../../shared/components/scroll-indicator/scroll-indicator.component";
+import { ScrollToTopComponent } from "../../../../shared/components/scroll-top/scroll-to-top.component";
 
 @Component({
   standalone: true,
@@ -14,7 +16,9 @@ import { NewsService } from '../../../../services/newsService.service';
     HeroSectionComponent,
     BlogsListComponent,
     FooterComponent,
-  ],
+    ScrollIndicatorComponent,
+    ScrollToTopComponent
+],
   providers: [NewsService],
   templateUrl: './news-list-layout.component.html',
   styleUrl: './news-list-layout.component.css',
