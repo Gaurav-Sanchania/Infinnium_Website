@@ -15,16 +15,49 @@ export class CookieComponent implements OnInit {
   showPopup = true;
   showCookieSettingsPopup = false;
 
+  settings = {
+    necessary: true,
+    preferences: false,
+    statistics: false,
+  };
+
+  settingKeys: Array<Exclude<keyof typeof this.settings, 'necessary'>> = [
+    'preferences',
+    'statistics',
+  ];
+
+  ngOnInit() {
+    const savedSettings = localStorage.getItem('cookieSettings');
+    if (savedSettings) {
+      this.settings = { ...this.settings, ...JSON.parse(savedSettings) };
+    }
+
+    let sessionId = localStorage.getItem('sessionId') || this.getCookie('sessionId');
+
+    if (!sessionId) {
+      this.showPopup = true;
+      sessionId = this.generateSessionId();
+      localStorage.setItem('sessionId', sessionId);
+      this.setCookie('sessionId', sessionId);
+    } else {
+      this.showPopup = false;
+    }
+  }
+
   acceptAll() {
-    this.closePopup();
+    this.settings.preferences = true;
+    this.settings.statistics = true;
+    this.saveSettings();
   }
 
   reject() {
-    this.closePopup();
+    this.settings.preferences = false;
+    this.settings.statistics = false;
+    this.saveSettings();
+
     setTimeout(() => {
       localStorage.removeItem('sessionId');
-      document.cookie =
-        'sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      this.deleteCookie('sessionId');
     }, 500);
   }
 
@@ -32,33 +65,34 @@ export class CookieComponent implements OnInit {
     this.showCookieSettingsPopup = true;
   }
 
+  closePopupUsingCross() {
+    setTimeout(() => {
+      localStorage.removeItem('sessionId');
+      this.deleteCookie('sessionId');
+    }, 500);
+
+    this.showPopup = false;
+    this.showCookieSettingsPopup = false;
+  }
+
   closePopup() {
     this.showPopup = false;
     this.showCookieSettingsPopup = false;
   }
 
-  ngOnInit() {
-    let sessionId = localStorage.getItem('sessionId');
-    //console.log(sessionId);
+  openPopup() {
+    this.showPopup = true;
+  }
 
-    if (!sessionId) {
-      // If not found in localStorage, check the cookie
-      sessionId = this.getCookie('sessionId');
-      // console.log('Session ID from cookie:', sessionId);
-
-      if (!sessionId) {
-        this.showPopup = true;
-        // If not found in cookie, generate a new session ID
-        sessionId = this.generateSessionId();
-        // Store the session ID in both localStorage and cookie
-        localStorage.setItem('sessionId', sessionId);
-        this.setCookie('sessionId', sessionId);
-      } else {
-        this.showPopup = false;
-      }
-    } else {
-      this.showPopup = false;
+  toggleSetting(key: keyof typeof this.settings) {
+    if (key !== 'necessary') {
+      this.settings[key] = !this.settings[key];
     }
+  }
+
+  saveSettings() {
+    localStorage.setItem('cookieSettings', JSON.stringify(this.settings));
+    this.closePopup();
   }
 
   generateSessionId(): string {
@@ -84,52 +118,21 @@ export class CookieComponent implements OnInit {
     return null;
   }
 
+  deleteCookie(name: string) {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  }
+
   manageSession(cookieName: string = 'sessionId'): string {
     let sessionId = localStorage.getItem(cookieName);
 
     if (!sessionId) {
-      // If not found in localStorage, check the cookie
       sessionId = this.getCookie(cookieName);
-      // console.log('Session ID from cookie:', sessionId);
-      console.log(document.cookie);
-
       if (!sessionId) {
-        // If not found in cookie, generate a new session ID
         sessionId = this.generateSessionId();
-        // Store the session ID in both localStorage and cookie
         localStorage.setItem(cookieName, sessionId);
         this.setCookie(cookieName, sessionId);
       }
     }
     return sessionId;
-  }
-
-  settings = {
-    necessary: true,
-    preferences: false,
-    statistics: false,
-  };
-
-  // Explicitly typed array to avoid TS errors in template
-  settingKeys: Array<Exclude<keyof typeof this.settings, 'necessary'>> = [
-    'preferences',
-    'statistics',
-  ];
-
-  openPopup() {
-    // document.body.style.overflow = 'hidden';
-    // document.documentElement.style.overflow = 'hidden';
-    this.showPopup = true;
-  }
-
-  toggleSetting(key: keyof typeof this.settings) {
-    if (key !== 'necessary') {
-      this.settings[key] = !this.settings[key];
-    }
-  }
-
-  saveSettings() {
-    // console.log('Saved Settings:', this.settings);
-    this.closePopup();
   }
 }

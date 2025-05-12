@@ -12,20 +12,32 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
   showPopup = false;
-
   settings = {
-    necessary: true,
-    preferences: false,
-    statistics: false,
+    "necessary": true,
+    "preferences": false,
+    "statistics": false,
   };
 
-  // Explicitly typed array to avoid TS errors in template
   settingKeys: Array<Exclude<keyof typeof this.settings, 'necessary'>> = [
-    'preferences',
+    'preferences', 
     'statistics',
-  ];
+   ];
+
+  loadStoredSettings() {
+    const savedSettings = localStorage.getItem('cookieSettings');
+    if (savedSettings) {
+      this.settings = { ...this.settings, ...JSON.parse(savedSettings) };
+    }
+  }  
+
+  toggleSetting(key: keyof typeof this.settings) {
+    if (key !== 'necessary') {
+      this.settings[key] = !this.settings[key];
+    }
+  }
 
   openPopup() {
+    this.loadStoredSettings();
     this.showPopup = true;
   }
 
@@ -35,14 +47,9 @@ export class FooterComponent {
     this.showPopup = false;
   }
 
-  toggleSetting(key: keyof typeof this.settings) {
-    if (key !== 'necessary') {
-      this.settings[key] = !this.settings[key];
-    }
-  }
-
   saveSettings() {
     // console.log('Saved Settings:', this.settings);
+    localStorage.setItem('cookieSettings', JSON.stringify(this.settings));
     this.closePopup();
   }
 }

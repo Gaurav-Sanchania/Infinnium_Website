@@ -4,14 +4,16 @@
     <div class="flex justify-between items-center" data-animate>
       <h2 class="uppercase text-xs sm:text-sm text-[#2A9D8E] font-semibold tracking-wide">News</h2>
     </div>
-    <h2 class="text-4xl font-semibold mt-2 text-gray-900" data-animate>
-      Recent <span class="italic font-semibold">Blogs</span>
-    </h2>
-    <!-- View All with underline and arrow -->
-    <a [routerLink]="['/resources/blogs']"
-      class="text-[#E76F51] hover:text-[#E65A4E] font-bold flex items-center view-all mt-[-34px] float-right justify-end h-[40px]">
-      View All → <span class="ml-1"></span>
-    </a>
+    <div class="flex justify-between items-center mt-2" data-animate>
+      <h2 class="text-4xl font-semibold mt-2 text-gray-900">
+        Recent <span class="italic font-semibold">Blogs</span>
+      </h2>
+      <!-- View All with underline and arrow -->
+      <a [routerLink]="['/resources/blogs']"
+        class="text-[#E76F51] hover:text-[#E65A4E] font-bold flex items-center view-all float-right justify-end h-[40px]">
+        View All →
+      </a>
+    </div>
 
     <!-- Blog Entries -->
     <div class="mt-8 space-y-8" *ngFor="let blog of recentBlogs; let i = index">
