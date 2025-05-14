@@ -2,18 +2,23 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { BlogsService } from '../../services/blogsService.service';
 import { NewsService } from '../../services/newsService.service';
 
 @Component({
   selector: 'app-admin-blog-list',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css',
 })
 export class BlogListComponent implements OnInit {
   public blogs: any = [];
+  public filteredBlogs: any = [];
   public news: any = [];
+  public filteredNews: any = [];
+  public selectedStatus = 'all'; // Default filter selection
+
   showDeletePopup = false;
   showEditPopup = false;
   showEditNewsPopup = false;
@@ -32,8 +37,30 @@ export class BlogListComponent implements OnInit {
 
   async ngOnInit() {
     this.blogs = await this.blogService.getAllBlogsAdmin();
-    // console.log(this.blogs);
     this.news = await this.newsService.getAllNewsAdmin();
+    this.filterBlogs(); // Apply default filter
+     this.filteredNews = this.news; // Initialize with all news
+  }
+
+  filterBlogs(): void {
+    if (this.selectedStatus === 'active') {
+      this.filteredBlogs = this.blogs.filter((blog: any) => blog.isActive);
+    } else if (this.selectedStatus === 'inactive') {
+      this.filteredBlogs = this.blogs.filter((blog: any) => !blog.isActive);
+    } else {
+      this.filteredBlogs = this.blogs;
+    }
+  }
+
+  // Method to filter the news based on the selected status
+  filterNews() {
+    if (this.selectedStatus === 'all') {
+      this.filteredNews = this.news;
+    } else if (this.selectedStatus === 'active') {
+      this.filteredNews = this.news.filter((newsItem: any) => newsItem.isActive);
+    } else if (this.selectedStatus === 'inactive') {
+      this.filteredNews = this.news.filter((newsItem: any) => !newsItem.isActive);
+    }
   }
 
   toggleEditBlog(event: Event, blog: any) {
@@ -41,11 +68,12 @@ export class BlogListComponent implements OnInit {
     this.showEditPopup = true;
     this.blog_edit = blog;
   }
+
   editBlog(blog: any) {
     this.showEditPopup = true;
     this.blog_edit = blog;
-    //console.log(this.blog_edit);
   }
+
   navigateEditBlog() {
     this.closePopup();
     this.route.navigateByUrl(`dashboard/edit-blog/${this.blog_edit.guid}`);
@@ -56,10 +84,12 @@ export class BlogListComponent implements OnInit {
     this.showEditNewsPopup = true;
     this.news_edit = blog;
   }
+
   editNews(blog: any) {
     this.showEditNewsPopup = true;
     this.news_edit = blog;
   }
+
   navigateEditNewsBlog() {
     this.closePopup();
     this.route.navigateByUrl(`dashboard/edit-news/${this.news_edit.guid}`);
