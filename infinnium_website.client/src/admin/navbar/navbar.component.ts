@@ -9,14 +9,12 @@ import { LoginService } from '../../services/loginService.service';
   imports: [RouterLink, RouterOutlet, CommonModule, RouterLinkActive],
   providers: [LoginService],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements AfterViewInit {
-  constructor(private loginService: LoginService) {}
+  showLogoutConfirm = false;
 
-  clearLocalStorage() {
-    this.loginService.logout();
-  }
+  constructor(private loginService: LoginService) {}
 
   @ViewChild('mobileMenuBtn', { static: false }) mobileMenuBtn!: ElementRef;
   @ViewChild('mobileSidebar', { static: false }) mobileSidebar!: ElementRef;
@@ -34,24 +32,39 @@ export class NavbarComponent implements AfterViewInit {
       this.mobileSidebar.nativeElement.classList.remove('active');
     });
 
-    document
-      .querySelectorAll<HTMLElement>('.dropdown-toggle')
-      .forEach((toggle) => {
-        toggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          const dropdownMenu = toggle.nextElementSibling as HTMLElement;
-          if (dropdownMenu) {
-            dropdownMenu.classList.toggle('hidden');
-          }
-        });
+    document.querySelectorAll<HTMLElement>('.dropdown-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dropdownMenu = toggle.nextElementSibling as HTMLElement;
+        if (dropdownMenu) {
+          dropdownMenu.classList.toggle('hidden');
+        }
       });
+    });
 
     const headerEl = this.header.nativeElement;
     const logoPath = this.logoSvg.nativeElement.querySelector('.cls-1');
-
     headerEl.classList.add('header-bg-scrolled');
     headerEl.classList.remove('header-bg');
     logoPath.style.fill = '#000000';
+  }
+
+  // Called when user clicks Logout (first time)
+  onLogoutClick() {
+    console.log('User clicked logout — showing confirmation popup.');
+    this.showLogoutConfirm = true;
+  }
+
+  // Confirm logout from popup
+  confirmLogout() {
+    console.log('Confirmed logout — clearing local storage.');
+    this.showLogoutConfirm = false;
+    this.loginService.logout();
+  }
+
+  // Cancel logout
+  cancelLogout() {
+    this.showLogoutConfirm = false;
   }
 
   toggleMobileMenu() {
