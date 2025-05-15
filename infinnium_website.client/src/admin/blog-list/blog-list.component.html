@@ -1,30 +1,26 @@
 <section class="bg-white py-20 px-4 sm:px-6 lg:px-20 mt-[3.25rem]"
   style="font-family: 'Manrope', 'Open Sans', sans-serif;">
   <div class="max-w-8xl mx-auto">
-   <div class="relative mb-6">
-  <!-- Centered Heading -->
-  <h1 class="text-3xl font-bold text-gray-800 text-center">BLOGS</h1>
+    <div class="relative mb-6 flex">
+      <!-- Centered Heading -->
+      <h1 class="text-3xl font-bold text-gray-800 text-center">BLOGS</h1>
 
-  <!-- Right-aligned Filter Dropdown -->
-  <div class="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center">
-    <label for="filter" class="mr-2 text-gray-700 font-medium whitespace-nowrap">Filter:</label>
-    <select
-      id="filter"
-      [(ngModel)]="selectedStatus"
-      (change)="filterBlogs()"
-      class="bg-white border border-gray-300 rounded-lg px-4 py-2 text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#E76F51] focus:border-transparent transition duration-200 ease-in-out hover:border-[#E76F51]">
-      <option value="all">All</option>
-      <option value="active">Active</option>
-      <option value="inactive">Inactive</option>
-    </select>
-  </div>
-</div>
+      <!-- Right-aligned Filter Dropdown -->
+      <div class="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center">
+        <label for="filter" class="mr-2 text-gray-700 font-medium whitespace-nowrap">Filter:</label>
+        <select id="filter" [(ngModel)]="selectedStatus" (change)="filterBlogs()"
+          class="bg-white border border-gray-300 rounded-lg px-4 py-2 text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#E76F51] focus:border-transparent transition duration-200 ease-in-out hover:border-[#E76F51]">
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+    </div>
 
 
     <!-- Container for all blogs in a row -->
     <div class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
-      <div
-        class="h-[29rem] rounded-lg bg-white  max-w-sm relative group [box-shadow:0_0_15px_rgba(0,0,0,0.15)]"
+      <div class="h-[29rem] rounded-lg bg-white  max-w-sm relative group [box-shadow:0_0_15px_rgba(0,0,0,0.15)]"
         *ngFor="let blog of filteredBlogs; let i = index;">
         <!-- Red exclamation icon if blog is not active -->
         <div class="absolute bottom-[1.9rem] right-[4rem] text-red-600 text-xs" title="Inactive blog">
@@ -82,16 +78,16 @@
 
 <section class="bg-gray-200 py-20 px-4 sm:px-6 lg:px-20" style="font-family: 'Manrope', 'Open Sans', sans-serif;">
   <div class="max-w-8xl mx-auto">
-    <div class="relative mb-8">
-      <h1 class="text-3xl font-bold text-gray-800 text-center">NEWS AND EVENTS</h1>
-
+    <div class="relative mb-8 flex">
+      <h1 class="text-3xl font-bold text-gray-800 text-left">
+        NEWS AND 
+        <span class="block md:inline">EVENTS</span>
+      </h1>
+      
       <!-- Right-aligned Filter Dropdown -->
       <div class="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center">
         <label for="filter" class="mr-2 text-gray-700 font-medium whitespace-nowrap">Filter:</label>
-        <select
-          id="filter"
-          [(ngModel)]="selectedStatus"
-          (change)="filterNews()"
+        <select id="filter" [(ngModel)]="selectedStatus" (change)="filterNews()"
           class="bg-white border border-gray-300 rounded-lg px-4 py-2 text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#E76F51] focus:border-transparent transition duration-200 ease-in-out hover:border-[#E76F51]">
           <option value="all">All</option>
           <option value="active">Active</option>
@@ -102,8 +98,7 @@
 
     <!-- Container for all blogs in a row -->
     <div class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
-      <div
-        class="h-[29rem] rounded-lg bg-white max-w-sm relative group [box-shadow:0_0_15px_rgba(0,0,0,0.15)] "
+      <div class="h-[29rem] rounded-lg bg-white max-w-sm relative group [box-shadow:0_0_15px_rgba(0,0,0,0.15)] "
         *ngFor="let blog of filteredNews; let i = index;">
 
         <label class="absolute bottom-2 right-[4rem] inline-flex items-center cursor-pointer" title="Status">

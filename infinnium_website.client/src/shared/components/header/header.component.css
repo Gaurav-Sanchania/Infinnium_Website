@@ -161,3 +161,20 @@ a.relative.hidden.md\:flex::before {
 .dropdown-toggle.active svg {
   transform: rotate(180deg);
 }
+/* Smoother dropdown animation */
+.dropdown-animate {
+  opacity: 0;
+  transform: translateY(30px); /* start lower for more dramatic slide */
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 400ms ease,
+    transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1); /* smooth + natural easing */
+}
+
+.group:hover .dropdown-animate {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
