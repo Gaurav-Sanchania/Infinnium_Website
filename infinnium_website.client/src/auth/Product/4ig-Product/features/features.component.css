@@ -1,5 +1,5 @@
 .truncate-text {
-  max-height: 4.5em; /* approx. 3 lines */
+  max-height: 3em; /* approx. 3 lines */
   overflow: hidden;
 }
 

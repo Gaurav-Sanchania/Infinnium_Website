@@ -5,10 +5,21 @@
   line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-.toggleBtn {
-  cursor: pointer;
-  width: fit-content;
+.fade-in-left, .fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
+.fade-in-left {
+  transform: translateX(-50px);
+}
+
+.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -23,3 +34,4 @@
 .fade-in {
   animation: fadeIn 2s ease-out forwards;
 }
+

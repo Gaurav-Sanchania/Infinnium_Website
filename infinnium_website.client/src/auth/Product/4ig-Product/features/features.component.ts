@@ -52,7 +52,7 @@ export class FeaturesComponent implements AfterViewInit {
         desc.classList.remove('truncate-text');
 
         requestAnimationFrame(() => {
-          desc.style.maxHeight = '4.5em'; // Collapse to truncated height
+          desc.style.maxHeight = '3em'; // Collapse to truncated height
         });
 
         button.textContent = 'Read More ↓';

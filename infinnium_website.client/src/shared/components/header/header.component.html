@@ -80,7 +80,7 @@
         <a class="flex items-center cursor-pointer header-without-bg">Solutions</a>
 
         <!-- Invisible hover bridge -->
-        <div class="absolute left-0 top-full w-full h-4 group-hover:block hidden"></div>
+        <div class="absolute left-0 top-full w-full h-4 group-hover:block hidden cursor-pointer"></div>
 
         <div
           class="dropdown-animate absolute left-1/2 ml-[6.35rem] transform -translate-x-1/2 mt-2 group-hover:flex flex-col bg-[#ffffff] text-[#444444] [box-shadow:0_0_15px_rgba(0,0,0,0.15)] w-69 text-left rounded transition-all duration-300 z-50">
@@ -117,23 +117,23 @@
       <a class="flex items-center cursor-pointer header-without-bg">Resources</a>
 
       <!-- Invisible hover bridge -->
-      <div class="absolute left-0 top-full w-full h-4 group-hover:block hidden"></div>
-    
+      <div class="absolute left-0 top-full w-full h-4 group-hover:block hidden cursor-pointer"></div>
+
       <div
         class="absolute ml-[6rem] left-1/2 transform -translate-x-1/2 mt-2 w-69 bg-white text-[#444444] text-left rounded z-50 flex-col dropdown-animate [box-shadow:0_0_15px_rgba(0,0,0,0.15)]">
-        
+
         <a [routerLink]="['/resources/news-and-events']" routerLinkActive="active23link"
            class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-black rounded transition duration-300">
           News and Events
         </a>
-    
+
         <a [routerLink]="['/resources/blogs']" routerLinkActive="active23link"
            class="block px-5 py-3 hover:bg-[#EAF5F4] hover:text-black rounded transition duration-300">
           Blog
         </a>
       </div>
     </div>
-    
+
 
       <div [routerLinkActive]="['current-parent']" [routerLinkActiveOptions]="{ exact: false }">
         <a [routerLink]="['/aboutUs/']" class="header-without-bg" >About us</a>
