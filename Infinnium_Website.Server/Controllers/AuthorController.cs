@@ -151,11 +151,11 @@ namespace Infinnium_Website.Server.Controllers
                     cmd.Parameters.AddWithValue("@Images", imageData);
                     cmd.Parameters.AddWithValue("@ImageName", member.ImageName);
                 }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@Images", null);
-                    cmd.Parameters.AddWithValue("@ImageName", null);
-                }
+                //else
+                //{
+                //    cmd.Parameters.AddWithValue("@Images", null);
+                //    cmd.Parameters.AddWithValue("@ImageName", null);
+                //}
 
                 cmd.ExecuteNonQuery();
 

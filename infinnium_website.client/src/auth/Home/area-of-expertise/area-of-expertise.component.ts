@@ -42,7 +42,7 @@ export class AreaOfExpertiseComponent implements AfterViewInit {
       entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
           const el = entry.target as HTMLElement;
-          el.style.animationDelay = `${idx * 0.3}s`;
+          el.style.animationDelay = `${idx * 2.3}s`;
           el.classList.add('animate-card');
           obs.unobserve(el);
         }

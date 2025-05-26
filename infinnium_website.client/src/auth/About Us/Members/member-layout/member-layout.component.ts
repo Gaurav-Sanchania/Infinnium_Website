@@ -6,7 +6,8 @@ import { HeroSectionComponent } from '../../hero-section/hero-section.component'
 import { FooterComponent } from '../../../../shared/components/footer/footer.component';
 import { MemberComponent } from '../member/member.component';
 import { AuthorService } from '../../../../services/authorService.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   standalone: true,
@@ -16,6 +17,8 @@ import { ActivatedRoute } from '@angular/router';
     HeroSectionComponent,
     FooterComponent,
     MemberComponent,
+    NgIf,
+    RouterLink
   ],
   providers: [AuthorService],
   templateUrl: './member-layout.component.html',
@@ -29,8 +32,10 @@ export class MemberLayoutComponent implements OnInit {
   ) {}
 
   public member: any = [];
+  public loading = true;
 
   async ngOnInit() {
+    this.loading = true;
     //console.log(memberName);
     const guidFromRoute = this.route.snapshot.paramMap.get('guid');
     //console.log(guidFromRoute);
@@ -41,5 +46,6 @@ export class MemberLayoutComponent implements OnInit {
     } else {
       console.error('GUID not found in route!');
     }
+    this.loading = false;
   }
 }

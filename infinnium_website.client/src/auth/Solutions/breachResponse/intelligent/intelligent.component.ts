@@ -32,28 +32,35 @@ export class IntelligentComponent implements AfterViewInit {
     }
 
   toggleDescription(id: number): void {
-    const desc = document.getElementById(`desc-${id}`);
-    const button = document.querySelector(
-      `[data-id="${id}"]`
-    ) as HTMLButtonElement;
+  const desc = document.getElementById(`desc-${id}`);
+  const button = document.querySelector(
+    `[data-id="${id}"]`
+  ) as HTMLButtonElement;
 
-    if (desc && button) {
-      const isExpanded =
-        desc.classList.contains('slide-toggle') &&
-        !desc.classList.contains('collapsing');
+  if (desc && button) {
+    const isExpanded =
+      desc.classList.contains('slide-toggle') &&
+      !desc.classList.contains('collapsing');
 
-      if (isExpanded) {
-        desc.classList.add('collapsing');
-        button.textContent = 'Read More ↓';
-        setTimeout(() => {
-          desc.classList.remove('slide-toggle', 'collapsing');
-          desc.classList.add('truncate-text');
-        }, 500);
-      } else {
-        desc.classList.remove('truncate-text');
-        desc.classList.add('slide-toggle');
+    // Collapse
+    if (isExpanded) {
+      desc.classList.add('collapsing');
+      // Don't change button text immediately
+      setTimeout(() => {
+        desc.classList.remove('slide-toggle', 'collapsing');
+        desc.classList.add('truncate-text');
+        button.textContent = 'Read More ↓'; // Text updates after animation
+      }, 500); // Match CSS transition duration
+    }
+    // Expand
+    else {
+      desc.classList.remove('truncate-text');
+      desc.classList.add('slide-toggle');
+      // Delay the button text update slightly for smooth visual experience
+      setTimeout(() => {
         button.textContent = 'Read Less ↑';
-      }
+      }, 100); // Optional delay to feel more natural
     }
   }
+}
 }

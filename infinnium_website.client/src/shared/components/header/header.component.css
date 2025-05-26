@@ -10,8 +10,8 @@
   transition: background-color 0.3s, color 0.3s; /* transition duration-300 */ /* Highlight active link */
 }
 .mobileActiveLink {
-  color: #000;
-  background-color: #eaf5f4;
+  color: #E76F51 !important;
+  font-weight: 600;
 }
 
 .header-bg {

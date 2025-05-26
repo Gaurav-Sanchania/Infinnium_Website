@@ -1,0 +1,91 @@
+<section class="bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
+  <div class="mt-[3rem] max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">Add New Member</h2>
+
+    <form [formGroup]="memberForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Left side -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+              <input type="text" formControlName="name"
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <div *ngIf="memberForm.get('name')?.touched && memberForm.get('name')?.invalid"
+                class="text-sm text-red-500 mt-1">Name is required.</div>
+            </div>
+
+            <!-- Designation -->
+            <div>
+              <label for="designation" class="block text-sm font-medium text-gray-700">Designation</label>
+              <input type="text" formControlName="designation"
+                class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <div *ngIf="memberForm.get('designation')?.touched && memberForm.get('designation')?.invalid"
+                class="text-sm text-red-500 mt-1">Designation is required.</div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <div
+              class="mt-1 flex items-center border border-gray-300 rounded-lg bg-white focus-within:ring-2 focus-within:ring-blue-500">
+              <span class="pl-3 text-black"><i class="fa-solid fa-envelope"></i></span>
+              <input type="email" formControlName="email"
+                class="flex-1 px-3 py-2 outline-none text-gray-800 bg-transparent" />
+            </div>
+            <div *ngIf="memberForm.get('email')?.touched && memberForm.get('email')?.invalid"
+              class="text-sm text-red-500 mt-1">Email is required.</div>
+          </div>
+
+          <!-- LinkedIn -->
+          <div>
+            <label for="linkedin" class="block text-sm font-medium text-gray-700">LinkedIn</label>
+            <div
+              class="mt-1 flex items-center border border-gray-300 rounded-lg bg-white focus-within:ring-2 focus-within:ring-blue-500">
+              <span class="pl-3 text-black"><i class="fa-brands fa-linkedin-in"></i></span>
+              <input type="url" formControlName="linkedin"
+                class="flex-1 px-3 py-2 outline-none text-gray-800 bg-transparent" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side: Profile Image -->
+        <div class="flex flex-col items-center justify-start space-y-4">
+          <div class="w-50 h-50 overflow-hidden border border-gray-300 rounded-lg">
+            <img [src]="previewUrl || 'assets/placeholder.jpg'" alt="Profile Photo" class="object-cover w-full h-full" />
+          </div>
+          <div class="w-50">
+            <label for="image" class="block text-sm font-medium text-gray-700">Upload Photo</label>
+            <input type="file" accept="image/*" (change)="onFileChange($event)"
+              class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:border-0 file:rounded-full file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" />
+            <div *ngIf="memberForm.get('image')?.touched && memberForm.get('image')?.invalid"
+              class="text-sm text-red-500 mt-1">Image is required.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div>
+            <label class="block text-sm font-medium text-gray-700" for="description">Description</label>
+            <textarea
+              id="description"
+              formControlName="description"
+              rows="6"
+              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none">
+            </textarea>
+        <div *ngIf="memberForm.get('description')?.touched && memberForm.get('description')?.invalid"
+          class="text-sm text-red-500 mt-1">Description is required.</div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="pt-4">
+        <button type="submit"
+          class="w-full bg-[#2A9D8F] border-[#2A9D8F] text-white py-2 px-4 rounded-lg hover:bg-[#238c7f] focus:outline-none focus:ring-2 focus:ring-blue-400 font-medium cursor-pointer">
+          Add Member
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

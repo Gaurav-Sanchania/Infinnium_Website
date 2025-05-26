@@ -9,11 +9,12 @@
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
+    transition: max-height 0.5s ease; /* Optional */
 }
 
 .slide-toggle {
   max-height: 1000px; /* Simulate slide down - should be larger than any actual content */
-  transition: max-height 0.5s ease;
+  transition: max-height 0.4s ease;
   overflow: hidden;
 }
 .slide-toggle.collapsing {

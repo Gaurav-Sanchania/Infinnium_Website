@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthorService } from '../../../services/authorService.service';
 
@@ -13,12 +13,21 @@ import { AuthorService } from '../../../services/authorService.service';
   styleUrl: './team.component.css',
 })
 export class TeamComponent implements OnInit, AfterViewInit, AfterViewChecked {
-  constructor(private authorService: AuthorService, private router: Router) {}
+  constructor(private authorService: AuthorService, private router: Router, private cdr: ChangeDetectorRef) {}
 
   public authors: any = [];
+  public loading = true;
 
-  async ngOnInit() {
+  ngOnInit() {
+    this.loadAuthorDetails();
+  }
+
+  async loadAuthorDetails() {
+    this.loading = true;
+    this.cdr.detectChanges();
     this.authors = await this.authorService.getAllAuthors();
+    this.loading = false;
+    this.cdr.detectChanges();
   }
 
   private hasInitializedAnimations = false;
@@ -58,7 +67,7 @@ export class TeamComponent implements OnInit, AfterViewInit, AfterViewChecked {
       observer.observe(element); // Observe each element with the 'data-animate' attribute
     });
   }
-  
+
   slugify(str: string) {
     return str
       .toLowerCase()

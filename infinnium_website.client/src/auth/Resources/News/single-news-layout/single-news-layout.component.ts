@@ -10,6 +10,7 @@ import { NewsService } from '../../../../services/newsService.service';
 import { ActivatedRoute } from '@angular/router';
 import { ScrollToTopComponent } from "../../../../shared/components/scroll-top/scroll-to-top.component";
 import { ScrollIndicatorComponent } from "../../../../shared/components/scroll-indicator/scroll-indicator.component";
+import { NgIf } from '@angular/common';
 
 @Component({
   standalone: true,
@@ -21,7 +22,8 @@ import { ScrollIndicatorComponent } from "../../../../shared/components/scroll-i
     RecentBlogsComponent,
     FooterComponent,
     ScrollToTopComponent,
-    ScrollIndicatorComponent
+    ScrollIndicatorComponent,
+    NgIf
 ],
   templateUrl: './single-news-layout.component.html',
   styleUrl: './single-news-layout.component.css',
@@ -36,24 +38,31 @@ export class SingleNewsLayoutComponent implements OnInit {
 
   public top3News: any = [];
   public news: any = [];
+  public loading = true;
 
-  async ngOnInit() {
-    this.top3News = await this.newsService.getTop3News();
+  ngOnInit() {
+    this.loadData();  
+  }
+  
+  async loadData() {
+this.loading = true;
+  this.top3News = await this.newsService.getTop3News();
 
-    const guidFromRoute = this.route.snapshot.paramMap.get('guid');
+  const guidFromRoute = this.route.snapshot.paramMap.get('guid');
 
-    if (guidFromRoute) {
-      this.guid = guidFromRoute;
-      this.news = await this.newsService.getNewsDetails(this.guid);
-      if (
-        this.news?.publishedDate &&
-        typeof this.news.publishedDate === 'string'
-      ) {
-        this.news.publishedDate = new Date(this.news.publishedDate);
-      }
-    } else {
-      // console.error('GUID not found in route!');
-      return;
+  if (guidFromRoute) {
+    this.guid = guidFromRoute;
+    // this.news = await this.newsService.getNewsDetails(this.guid);
+    if (
+      this.news?.publishedDate &&
+      typeof this.news.publishedDate === 'string'
+    ) {
+      this.news.publishedDate = new Date(this.news.publishedDate);
     }
+  } else {
+    // console.error('GUID not found in route!');
+    return;
+  }
+  this.loading = false;
   }
 }

@@ -5,9 +5,9 @@ import {
   ElementRef,
   Renderer2,
   Input,
-  AfterViewInit,
   OnChanges,
   SimpleChanges,
+  ChangeDetectorRef,
 } from '@angular/core';
 
 @Component({
@@ -17,7 +17,7 @@ import {
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css',
 })
-export class HeroSectionComponent implements AfterViewInit, OnChanges {
+export class HeroSectionComponent implements OnChanges {
   @Input() category: string = '';
   @Input() top3Blogs: any = [];
   @Input() top3News: any = [];
@@ -26,16 +26,19 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges {
   currentBlogIndex: number = 0;
   blogsPerPage: number = 6;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
-
-  ngAfterViewInit() {
-    //console.log(this.category);
-    //console.log(this.top3Blogs);
-    this.renderHeroSlides();
-    this.startSlideshow();
+  constructor(private el: ElementRef, private renderer: Renderer2, private cdr: ChangeDetectorRef) {
   }
 
+  // ngAfterViewInit() {
+  //   //console.log(this.category);
+  //   //console.log(this.top3Blogs);
+  //   // this.cdr.detectChanges();
+  //   this.renderHeroSlides();
+  //   this.startSlideshow();
+  // }
+  
   ngOnChanges(changes: SimpleChanges): void {
+    this.cdr.detectChanges();
     if (changes['top3Blogs'] || changes['top3News'] || changes['category']) {
       this.renderHeroSlides(); // Clear old ones first maybe
       this.startSlideshow();
@@ -135,16 +138,16 @@ export class HeroSectionComponent implements AfterViewInit, OnChanges {
       '#heroslideshow .slide'
     );
     let currentIndex = 0;
-  
+
     if (slides.length > 0) {
       setInterval(() => {
         const prevSlide = slides[currentIndex];
         this.renderer.removeClass(prevSlide, 'opacity-100');
         this.renderer.addClass(prevSlide, 'opacity-0');
         this.renderer.addClass(prevSlide, 'pointer-events-none');
-  
+
         currentIndex = (currentIndex + 1) % slides.length;
-  
+
         const nextSlide = slides[currentIndex];
         this.renderer.removeClass(nextSlide, 'opacity-0');
         this.renderer.removeClass(nextSlide, 'pointer-events-none');

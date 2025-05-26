@@ -1,0 +1,50 @@
+/* Loader for initial and dynamic data */
+ .loader-container {
+      position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* Optional: gives a background while loading */
+  z-index: 9999; /* Optional: ensures it stays on top */
+    }
+
+    .logo-loader {
+      width: 60px;
+      height: auto;
+    }
+
+    .logo-loader path {
+  fill: #E76F51;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+    /* .logo-loader path {
+      fill: none;
+      stroke: #E76F51;
+      stroke-width: 1;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 2s ease-in-out forwards infinite;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    } */

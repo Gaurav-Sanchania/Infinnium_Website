@@ -1,6 +1,11 @@
-<section class="bg-[#EAF4F2] text-black flex items-center justify-center min-h-screen py-16 px-6">
+<section
+  class="bg-[#EAF4F2] text-black flex items-center justify-center min-h-screen py-16 px-6"
+>
   <div class="max-w-6xl mx-auto">
-    <p class="text-[#198C7B] uppercase text-center text-sm font-semibold tracking-wide" data-animate>
+    <p
+      class="text-[#198C7B] uppercase text-center text-sm font-semibold tracking-wide"
+      data-animate
+    >
       WORK WITH US
     </p>
     <h1 class="text-4xl text-center font-semibold text-[#12423C]" data-animate>
@@ -8,29 +13,75 @@
       <span class="italic">Best</span> Team
     </h1>
 
+    <!-- Skeleton Grid -->
+    <div
+      *ngIf="loading"
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 animate-pulse"
+    >
+      <div
+        *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+        class="bg-white w-full flex flex-row rounded-xl shadow-md overflow-hidden relative"
+      >
+        <!-- Skeleton Image -->
+        <div
+          class="w-36 aspect-[3/4] bg-gray-300 flex-shrink-0 rounded-l-xl"
+        ></div>
+
+        <!-- Skeleton Content -->
+        <div
+          class="p-4 flex flex-col justify-between flex-1 md:w-[26rem] min-w-0"
+        >
+          <div class="space-y-2">
+            <div class="h-5 bg-gray-300 rounded w-1/2"></div>
+            <div class="h-4 bg-gray-300 rounded w-1/3"></div>
+            <div class="h-3 bg-gray-300 rounded w-full mt-2"></div>
+            <div class="h-3 bg-gray-300 rounded w-5/6"></div>
+          </div>
+          <div class="flex items-center space-x-3 mt-4">
+            <div class="w-9 h-9 bg-gray-300 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Team Members Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-
+    <div *ngIf="!loading" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
       <!-- Card 1 - Elie Francis -->
-      <div data-animate
-        class="bg-white flex rounded-xl shadow-md overflow-hidden relative transform transition duration-300 hover:scale-105"
-        *ngFor="let author of authors;">
-
-        <a [routerLink]="['member', slugify(author.name), author.guid]" class="absolute inset-0 z-10 cursor-pointer">
+      <div
+        data-animate
+        class="bg-white flex rounded-xl shadow-md overflow-hidden relative transform transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-[1.02] hover:shadow-xl hover:bg-[#f9f9f9] hover:ring-2 hover:ring-[#2A9D8F] hover:ring-opacity-50"
+        *ngFor="let author of authors"
+      >
+        <a
+          [routerLink]="['member', slugify(author.name), author.guid]"
+          class="absolute inset-0 z-10 cursor-pointer"
+        >
         </a>
-        <img [src]="author.image" alt="Elie Francis" class="w-36 h-auto object-cover rounded-l-xl">
+        <img
+          [src]="author.image"
+          alt="Elie Francis"
+          class="w-36 h-auto object-cover rounded-l-xl"
+        />
         <div class="p-4 flex flex-col justify-between flex-1">
           <div>
             <h2 class="text-lg font-semibold">{{ author.name }}</h2>
-            <p class="text-sm text-[#2A9D8F] font-medium">{{ author.designation }}</p>
+            <p class="text-sm text-[#2A9D8F] font-medium">
+              {{ author.designation }}
+            </p>
             <p class="text-gray-600 text-sm mt-2 truncate-text">
               {{ author.description }}
             </p>
           </div>
-          <div class="flex items-center space-x-3 mt-4 relative z-20 pointer-events-auto">
-            <a *ngIf="author.socialMediaLink" [href]="author.socialMediaLink" (click)="$event.stopPropagation()"
+          <div
+            class="flex items-center space-x-3 mt-4 relative z-20 pointer-events-auto"
+          >
+            <a
+              *ngIf="author.socialMediaLink"
+              [href]="author.socialMediaLink"
+              (click)="$event.stopPropagation()"
               target="_blank"
-              class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition">
+              class="border border-gray-600 rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-800 hover:text-white text-black transition"
+            >
               <i class="fa-brands fa-linkedin-in text-lg"></i>
             </a>
           </div>

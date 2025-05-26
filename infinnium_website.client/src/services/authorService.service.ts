@@ -100,6 +100,36 @@ export class AuthorService {
 
   //------------------------------------------------------------------------------------------------------------------------------------------
 
+  addAuthor(author: any) {
+    try {
+      //console.log("author service called");
+      const formData = new FormData();
+
+      formData.append('Image', author.image);
+      formData.append('Name', author.name);
+      formData.append('Email', author.email);
+      formData.append('Designation', author.designation);
+      formData.append('Description', author.description);
+      formData.append('LinkedInLink', author.linkedin);
+      if(author.image) {
+        formData.append('ImageName', author.image.name);
+      }
+
+      const token = this.auth.getToken();
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+      this.httpClient
+        .post(`${this.BASE_URL}/AuthorController/AddAuthor`, formData, {
+          headers,
+        })
+        .subscribe();
+      //console.log("Api called");
+      return 'Successfull';
+    } catch (error) {
+      throw error;
+    }
+  }
+
   editAuthorDetails(author: any) {
     try {
       //console.log("author service called");

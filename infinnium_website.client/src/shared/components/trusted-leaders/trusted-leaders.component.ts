@@ -1,8 +1,6 @@
 import {
   Component,
   Input,
-  OnChanges,
-  SimpleChanges,
   AfterViewInit,
   ElementRef,
   Renderer2,
@@ -16,18 +14,18 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./trusted-leaders.component.css'],
   imports: [CommonModule],
 })
-export class TrustedLeadersComponent implements OnChanges, AfterViewInit {
+export class TrustedLeadersComponent implements AfterViewInit {
   @Input() bgColor = '#12423C';
   textColor = 'white';
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['bgColor']) {
-      this.textColor = this.bgColor === '#12423C' ? 'white' : 'black';
-    }
-    // refresh logic
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   if (changes['bgColor']) {
+  //     this.textColor = this.bgColor === '#12423C' ? 'white' : 'black';
+  //   }
+
+  // }
 
   ngAfterViewInit(): void {
     const elements = this.el.nativeElement.querySelectorAll('[data-animate]');

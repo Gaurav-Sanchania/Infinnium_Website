@@ -7,7 +7,7 @@ import {
   Renderer2,
   OnDestroy
 } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -25,9 +25,15 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   @ViewChild('header', { static: false }) header!: ElementRef;
   @ViewChild('logoSvg', { static: false }) logoSvg!: ElementRef;
 
+  dropdownStates = {
+    products: false,
+    solutions: false,
+    resources: false,
+  };
+
   private unlisteners: (() => void)[] = [];
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private router: Router) {}
 
   ngAfterViewInit() {
     // Open sidebar
@@ -106,16 +112,49 @@ document.querySelectorAll<HTMLElement>('.dropdown-toggle').forEach((toggle) => {
   }
 
   toggleSidebar(open: boolean) {
-    if (open) {
-      this.renderer.addClass(this.mobileSidebar.nativeElement, 'active');
-      this.renderer.addClass(this.sidebarOverlay.nativeElement, 'active');
-      this.renderer.setStyle(document.body, 'overflow', 'hidden');
-    } else {
-      this.renderer.removeClass(this.mobileSidebar.nativeElement, 'active');
-      this.renderer.removeClass(this.sidebarOverlay.nativeElement, 'active');
-      this.renderer.removeStyle(document.body, 'overflow');
-    }
+  if (open) {
+    this.renderer.addClass(this.mobileSidebar.nativeElement, 'active');
+    this.renderer.addClass(this.sidebarOverlay.nativeElement, 'active');
+    this.renderer.setStyle(document.body, 'overflow', 'hidden');
+
+    const currentUrl = this.router.url;
+
+    // Auto-open matching dropdown
+    this.dropdownStates.products = currentUrl.includes('/products');
+    this.dropdownStates.solutions = currentUrl.includes('/solutions');
+    this.dropdownStates.resources = currentUrl.includes('/resources');
+
+    // Expand the dropdown visually
+    setTimeout(() => {
+      document.querySelectorAll<HTMLElement>('.dropdown-toggle').forEach(toggle => {
+        const dropdown = toggle.nextElementSibling as HTMLElement;
+        const text = toggle.textContent?.trim().toLowerCase();
+
+        const shouldOpen =
+          (text === 'products' && this.dropdownStates.products) ||
+          (text === 'solutions' && this.dropdownStates.solutions) ||
+          (text === 'resources' && this.dropdownStates.resources);
+
+        if (shouldOpen && dropdown && !dropdown.classList.contains('show')) {
+          dropdown.classList.remove('hidden');
+          dropdown.classList.add('show');
+          dropdown.style.display = 'grid';
+          toggle.classList.add('active');
+        }
+      });
+    }, 50); // Short delay ensures sidebar is rendered before manipulating
+  } else {
+    this.renderer.removeClass(this.mobileSidebar.nativeElement, 'active');
+    this.renderer.removeClass(this.sidebarOverlay.nativeElement, 'active');
+    this.renderer.removeStyle(document.body, 'overflow');
+
+    // Optionally collapse dropdowns
+    this.dropdownStates.products = false;
+    this.dropdownStates.solutions = false;
+    this.dropdownStates.resources = false;
   }
+}
+
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
