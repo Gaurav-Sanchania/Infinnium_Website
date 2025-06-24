@@ -24,6 +24,50 @@
 .product-item.animate-product {
   animation: slideUpFadeIn 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.slide-in-up {
+  animation: slideInUp 1s ease-out forwards;
+}
 
 /* Keyframes */
 @keyframes slideUpFadeIn {

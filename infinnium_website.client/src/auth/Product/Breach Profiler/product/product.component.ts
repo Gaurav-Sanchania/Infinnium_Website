@@ -8,7 +8,7 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements AfterViewInit {
-  
+
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
