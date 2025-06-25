@@ -13,7 +13,7 @@ namespace Infinnium_Website.Server
 
         public string GenerateConnection()
         {
-            return $"Server=localhost; Database=Infinnium; Trusted_Connection=True; TrustServerCertificate=Yes;";
+            return $"Server={db.Server};Database={db.Database};User Id={db.UserId};Password={db.Password};TrustServerCertificate=Yes;";
         }
     }
 }
