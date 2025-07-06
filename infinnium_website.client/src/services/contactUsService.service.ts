@@ -38,25 +38,20 @@ export class ContactUsService {
       );
       return response;
     } catch (error) {
-    //   console.log(error);
+      //   console.log(error);
       return [];
     }
   }
 
   addContactUs(FirstName: string, Email: string, Message: string) {
-    try {
-      this.httpClient
-        .post(`${this.BASE_URL}/ContactUsController/CreateContactUs`, {
-          FirstName,
-          Email,
-          Message,
-        })
-        .subscribe();
-      return 'Successful';
-    } catch (error) {
-    //   console.log(error);
-      return error;
-    }
+    return this.httpClient.post(
+      `${this.BASE_URL}/ContactUsController/CreateContactUs`,
+      {
+        FirstName,
+        Email,
+        Message,
+      }
+    );
   }
 
   updateContactUs(contactUs: any) {
@@ -76,7 +71,7 @@ export class ContactUsService {
         .subscribe();
       return 'Successful';
     } catch (error) {
-    //   console.log(error);
+      //   console.log(error);
       return error;
     }
   }

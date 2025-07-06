@@ -220,6 +220,11 @@ input[type="password"]:focus {
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
 }
 
+.input-invalid input {
+  border: 1px solid #dc3545 !important; /* Bootstrap's red */
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2); /* soft red glow */
+}
+
 .form-options {
   display: flex;
   align-items: center;
@@ -261,4 +266,11 @@ button:focus {
 button:disabled {
   opacity: 0.75;
   cursor: not-allowed;
+}
+
+.validation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
 }

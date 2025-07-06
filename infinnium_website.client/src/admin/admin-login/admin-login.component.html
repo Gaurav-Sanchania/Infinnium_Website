@@ -25,35 +25,25 @@
             <div class="form-container">
                 <form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
-                        <label for="email">User Id <span class="text-danger">*</span></label>
-                        <div class="input-group">
+                        <label for="email">User email <span class="text-danger">*</span></label>
+                        <div [ngClass]="isSubmitted && loginForm.get('email')?.invalid ? invalidStyle : baseStyle">
                             <div class="input-icon">
                                 <i class="fa-solid fa-user-tie"></i>
                             </div>
                             <input id="email" name="email" type="email" autocomplete="email" required
                                 placeholder="you@example.com" formControlName="email" />
                         </div>
-                        @if(loginForm.controls['email'].touched &&
-                        (loginForm.controls['email'].errors?.['required'] ||
-                        loginForm.controls['email'].errors?.['email']
-                        )) {
-                        <div class="text-red-500 text-xs">This is required.</div>
-                        }
                     </div>
 
                     <div class="form-group">
                         <label for="password">Password <span class="text-danger">*</span></label>
-                        <div class="input-group">
+                        <div [ngClass]="isSubmitted && loginForm.get('password')?.invalid ? invalidStyle : baseStyle">
                             <div class="input-icon">
                                 <i class="fa-solid fa-lock"></i>
                             </div>
                             <input id="password" name="password" type="password" autocomplete="current-password"
                                 required placeholder="••••••••" formControlName="password" />
                         </div>
-                        @if(loginForm.controls['password'].touched &&
-                        loginForm.controls['password'].errors?.['required']) {
-                        <div class="text-red-500 text-xs">This is required.</div>
-                        }
                     </div>
 
                     <div class="form-submit">
@@ -63,6 +53,12 @@
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+    <div *ngIf="isVisible" class="validation-container">
+        <div *ngIf="isLogin === false"
+            class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-3 rounded-xl shadow-lg z-50 inline-block text-center">
+            <p class="text-sm">{{ message }}</p>
         </div>
     </div>
 </div>

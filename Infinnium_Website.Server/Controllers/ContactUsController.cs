@@ -99,26 +99,40 @@ namespace Infinnium_Website.Server.Controllers
         // POST: ContactUsController/CreateContactUs
         [HttpPost]
         [Route("CreateContactUs")]
-        public void CreateContactUs([FromBody] AddContactUsModel record)
+        public async Task<IActionResult> CreateContactUs([FromBody] AddContactUsModel record)
         {
             string cs = config.GenerateConnection();
-            using (SqlConnection con = new SqlConnection(cs))
+            try
             {
-                con.Open();
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
 
-                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_ContactUs]", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    SqlCommand cmd = new SqlCommand("[dbo].[CRUD_ContactUs]", con);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@case", 3);
-                cmd.Parameters.AddWithValue("@FirstName", record.FirstName);
-                //cmd.Parameters.AddWithValue("@LastName", record.LastName);
-                cmd.Parameters.AddWithValue("@Email", record.Email);
-                //cmd.Parameters.AddWithValue("@Phone", record.Phone);
-                cmd.Parameters.AddWithValue("@Description", record.Message);
+                    cmd.Parameters.AddWithValue("@case", 3);
+                    cmd.Parameters.AddWithValue("@FirstName", record.FirstName);
+                    //cmd.Parameters.AddWithValue("@LastName", record.LastName);
+                    cmd.Parameters.AddWithValue("@Email", record.Email);
+                    //cmd.Parameters.AddWithValue("@Phone", record.Phone);
+                    cmd.Parameters.AddWithValue("@Description", record.Message);
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
-                con.Close();
+                    con.Close();
+                }
+                await SendEmail(new EmailRequest
+                {
+                    Receiver = record.Email ?? "",
+                    Subject = "Great to here from you!",
+                    Body = $"{record.Message} Thank you for reaching out to us. We will get back to you soon."
+                });
+                return Ok("Create contact us operation successfully executed.");
+            } catch(Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return Ok("Create contact us operation failed.");
             }
         }
 

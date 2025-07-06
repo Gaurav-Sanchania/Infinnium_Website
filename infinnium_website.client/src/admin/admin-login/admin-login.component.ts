@@ -20,6 +20,15 @@ import { AuthSessionService } from '../../guards/authSession';
   styleUrl: './admin-login.component.css',
 })
 export class AdminLoginComponent {
+  isVisible = false;
+  isLogin = false;
+  message = "Invalid admin username or password. Please try again.";
+  isSubmitted = false;
+  baseStyle = 'input-group';
+  invalidStyle = 'input-group input-invalid';
+
+
+
   constructor(
     private loginService: LoginService,
     private route: Router,
@@ -31,9 +40,19 @@ export class AdminLoginComponent {
     password: new FormControl(''),
   });
 
+  showValidationPopup() {
+    this.isVisible = true;
+    setTimeout(() => {
+      this.isVisible = false;
+    }, 3000);
+  }
+
   async onSubmit() {
+    this.isSubmitted = true;
     if (this.loginForm.invalid) {
       //console.log("Form is invalid! Fix the errors before submitting.");
+      this.showValidationPopup();
+      this.loginForm.markAllAsTouched();
       return;
     }
 
@@ -46,8 +65,9 @@ export class AdminLoginComponent {
         // this.auth.setToken('true');
         this.route.navigate(['dashboard']);
       } else {
-        this.route.navigate(['login']);
-        alert('Invalid User');
+        // this.route.navigate(['login']);
+        // alert('Invalid User');
+        this.showValidationPopup();
       }
     } catch (error) {
       // console.log(error);

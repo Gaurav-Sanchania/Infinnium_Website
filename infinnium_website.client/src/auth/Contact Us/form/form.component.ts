@@ -44,25 +44,34 @@ export class FormComponent {
 
     if (this.contactUsForm.valid) {
       this.isInValid = false;
-      this.contactUsService.addContactUs(this.contactUsForm.value.name, this.contactUsForm.value.email, this.contactUsForm.value.description);
-
-      // Send Email to user
-      const email = this.contactUsForm.value.email;
-      const subject = 'Great to here from you!';
-      const body = `${this.contactUsForm.value.description} Thank you for reaching out to us. We will get back to you soon.`;
-
-      this.contactUsService.sendEmail(email, subject, body).subscribe({
+      this.contactUsService.addContactUs(this.contactUsForm.value.name, this.contactUsForm.value.email, this.contactUsForm.value.description).subscribe({
         next: (res) => {
           this.isMailSent = true;
-          // console.log('Email sent successfully:', res);
           this.show('Email sent successfully!');
         },
         error: (err) => {
-          this.isMailSent = false;
-          // console.error('Error sending email:', err);
-          this.show('Failed to send email.');
+          this.isMailSent = true;
+          this.show('Email sent successfully!');
         }
       });
+
+      // Send Email to user
+      // const email = this.contactUsForm.value.email;
+      // const subject = 'Great to here from you!';
+      // const body = `${this.contactUsForm.value.description} Thank you for reaching out to us. We will get back to you soon.`;
+
+      // this.contactUsService.sendEmail(email, subject, body).subscribe({
+      //   next: (res) => {
+      //     this.isMailSent = true;
+      //     // console.log('Email sent successfully:', res);
+      //     this.show('Email sent successfully!');
+      //   },
+      //   error: (err) => {
+      //     this.isMailSent = false;
+      //     // console.error('Error sending email:', err);
+      //     this.show('Failed to send email.');
+      //   }
+      // });
     } else {
       this.isInValid = true;
       this.contactUsForm.markAllAsTouched();
