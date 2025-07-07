@@ -8,6 +8,13 @@
     <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:57776</SpaProxyServerUrl>
   </PropertyGroup>
+	
+    <!-- Publish Angular during Web API publish -->
+	<Target Name="PublishAngular" AfterTargets="ComputeFilesToPublish">
+		<Exec Command="npm install" WorkingDirectory="..\Infinnium_Website.Client" />
+		<Exec Command="npm run build -- --configuration production --output-path=wwwroot"
+			  WorkingDirectory="..\Infinnium_Website.Client" />
+	</Target>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.15" />
