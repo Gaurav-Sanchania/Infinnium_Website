@@ -12,9 +12,11 @@ namespace Infinnium_Website.Server.Controllers
     public class AuthController : Controller
     {
         private readonly JwtSettings _jwtSettings;
-        public AuthController(JwtSettings jwtSettings)
+        private readonly EncryptionHelper en;
+        public AuthController(JwtSettings jwtSettings, EncryptionHelper en)
         {
             _jwtSettings = jwtSettings;
+            this.en = en;
         }
 
         // POST: AuthController/GenerateToken
@@ -28,12 +30,12 @@ namespace Infinnium_Website.Server.Controllers
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.SecretKey));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(en.Decrypt(_jwtSettings.SecretKey)));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: _jwtSettings.Issuer,
-                audience: _jwtSettings.Audience,
+                issuer: en.Decrypt(_jwtSettings.Issuer),
+                audience: en.Decrypt(_jwtSettings.Audience),
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(_jwtSettings.ExpiryMinutes),
                 signingCredentials: creds

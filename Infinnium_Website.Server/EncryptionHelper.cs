@@ -1,7 +1,6 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using Infinnium_Website.Server.Models.Config;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Options;
 
 namespace Infinnium_Website.Server
@@ -18,6 +17,20 @@ namespace Infinnium_Website.Server
         }
 
         public string Encrypt(string plainText)
+        {
+            if (string.IsNullOrEmpty(plainText))
+            {
+                return "Empty string!!";
+            }
+            else if(Encoding.UTF8.GetBytes(Key).Length != 16)
+            {
+                return "Invalid AES key size.";
+            }
+            else if(Encoding.UTF8.GetBytes(IV).Length != 16)
+            {
+                return "Invalid AES IV size.";
+            }
+            try
             {
                 using (Aes aes = Aes.Create())
                 {
@@ -35,8 +48,29 @@ namespace Infinnium_Website.Server
                     return Convert.ToBase64String(ms.ToArray());
                 }
             }
+            catch
+            {
+                // already encrypted
+                return plainText;
+            }
 
-            public string Decrypt(string cipherText)
+        }
+
+        public string Decrypt(string cipherText)
+        {
+            if (string.IsNullOrEmpty(cipherText))
+            {
+                return "Empty string!!";
+            }
+            else if (Encoding.UTF8.GetBytes(Key).Length != 16)
+            {
+                return "Invalid AES key size.";
+            }
+            else if (Encoding.UTF8.GetBytes(IV).Length != 16)
+            {
+                return "Invalid AES IV size.";
+            }
+            try
             {
                 using (Aes aes = Aes.Create())
                 {
@@ -52,5 +86,11 @@ namespace Infinnium_Website.Server
                     return sr.ReadToEnd();
                 }
             }
+            catch
+            {
+                // already decrypted
+                return cipherText;
+            }
+        }
     }
 }

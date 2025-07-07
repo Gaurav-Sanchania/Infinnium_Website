@@ -8,19 +8,19 @@ namespace Infinnium_Website.Server
 {
     public class EmailSender : IEmailSenderService
     {
-        private readonly IConfiguration config;
         private readonly LoginConfig loginConfig;
+        private readonly EncryptionHelper en;
 
-        public EmailSender(IConfiguration configuration, IOptions<LoginConfig> options)
+        public EmailSender(IOptions<LoginConfig> options, EncryptionHelper encryptionHelper)
         {
-            this.config = configuration;
             this.loginConfig = options.Value;
+            this.en = encryptionHelper;
         }
 
         public void PrintCredentials()
         {
-            Console.WriteLine("Email: " + loginConfig.Username);
-            Console.WriteLine("Password: " + loginConfig.Password);
+            Console.WriteLine("Email: " + en.Decrypt(loginConfig.Username));
+            Console.WriteLine("Password: " + en.Decrypt(loginConfig.Password));
         }
 
         public async Task<bool> SendEmailAsync(string emailTo, string subject, string body)
@@ -28,14 +28,14 @@ namespace Infinnium_Website.Server
             bool isEmailSend = false;
             try
             {
-                var mail = loginConfig.Username;
+                var mail = en.Decrypt(loginConfig.Username);
                 if (string.IsNullOrEmpty(mail))
                 {
                     throw new ArgumentNullException(nameof(mail), "Email address cannot be null or empty.");
                 }
                 Console.WriteLine(mail);
 
-                var pwd = loginConfig.Password;
+                var pwd = en.Decrypt(loginConfig.Password);
                 if (string.IsNullOrEmpty(pwd))
                 {
                     throw new ArgumentNullException(nameof(pwd), "Password cannot be null or empty.");

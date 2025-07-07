@@ -5,15 +5,17 @@ namespace Infinnium_Website.Server
     public class ConnectionStringService
     {
         private readonly DatabaseSettings db;
+        private readonly EncryptionHelper en;
 
-        public ConnectionStringService(DatabaseSettings dbSettings)
+        public ConnectionStringService(DatabaseSettings dbSettings, EncryptionHelper encryptionHelper)
         {
-            db = dbSettings;
+            this.db = dbSettings;
+            this.en = encryptionHelper;
         }
 
         public string GenerateConnection()
         {
-            return $"Server={db.Server};Database={db.Database};User Id={db.UserId};Password={db.Password};TrustServerCertificate=Yes;";
+            return $"Server={en.Decrypt(db.Server)};Database={en.Decrypt(db.Database)};User Id={en.Decrypt(db.UserId)};Password={en.Decrypt(db.Password)};TrustServerCertificate=Yes;";
         }
     }
 }
