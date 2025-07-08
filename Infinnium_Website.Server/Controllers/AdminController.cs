@@ -8,7 +8,7 @@ using Microsoft.Data.SqlClient;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("AdminController")]
+    [Route("api/AdminController")]
     public class AdminController(ConnectionStringService connectionStringService, EncryptionHelper encryptionHelper, ITokenBlacklistService blacklistService) : Controller
     {
         private readonly ConnectionStringService config = connectionStringService;
@@ -22,34 +22,28 @@ namespace Infinnium_Website.Server.Controllers
         {
             var isUserValid = false;
 
-            if(adminModel.Email == "Admin123@gmail.com")
+            string cs = config.GenerateConnection();
+            using (SqlConnection con = new SqlConnection(cs))
             {
-                isUserValid = true;
-            } else
-            {
-                string cs = config.GenerateConnection();
-                using (SqlConnection con = new SqlConnection(cs))
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("[dbo].[CRUD_UserMaster]", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@case", 7);
+                cmd.Parameters.AddWithValue("@Email", adminModel.Email);
+                var encryptedPasswordFromDb = cmd.ExecuteScalar()?.ToString();
+
+                if (!string.IsNullOrEmpty(encryptedPasswordFromDb))
                 {
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand("[dbo].[CRUD_UserMaster]", con);
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    cmd.Parameters.AddWithValue("@case", 7);
-                    cmd.Parameters.AddWithValue("@Email", adminModel.Email);
-                    var encryptedPasswordFromDb = cmd.ExecuteScalar()?.ToString();
-
-                    if (!string.IsNullOrEmpty(encryptedPasswordFromDb))
+                    string decryptedPassword = encryptionHelper.Decrypt(encryptedPasswordFromDb);
+                    if (decryptedPassword == adminModel.Password)
                     {
-                        string decryptedPassword = encryptionHelper.Decrypt(encryptedPasswordFromDb);
-                        if (decryptedPassword == adminModel.Password)
-                        {
-                            isUserValid = true;
-                        }
+                        isUserValid = true;
                     }
-
-                    con.Close();
                 }
+
+                con.Close();
             }
             return isUserValid;
         }
@@ -122,7 +116,7 @@ namespace Infinnium_Website.Server.Controllers
         //    using(SqlConnection con = new SqlConnection(cs))
         //    {
         //        con.Open();
-                
+
         //        SqlCommand cmd = new SqlCommand("SELECT Id, Password FROM UserMaster", con);
 
         //        List<(int Id, string EncryptedPassword)> encryptedList = new();

@@ -9,7 +9,7 @@ using Microsoft.Data.SqlClient;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("NewsAndEventsController")]
+    [Route("api/NewsAndEventsController")]
     public class NewsController(ConnectionStringService connectionStringService) : Controller
     {
         private readonly ConnectionStringService config = connectionStringService;

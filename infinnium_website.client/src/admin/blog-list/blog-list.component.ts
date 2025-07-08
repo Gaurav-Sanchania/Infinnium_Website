@@ -22,6 +22,7 @@ export class BlogListComponent implements OnInit {
   showDeletePopup = false;
   showEditPopup = false;
   showEditNewsPopup = false;
+  isContentLoaded = false;
 
   public blog_edit: any = [];
   public blog_delete!: number;
@@ -36,10 +37,12 @@ export class BlogListComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
+    this.isContentLoaded = false;
     this.blogs = await this.blogService.getAllBlogsAdmin();
     this.news = await this.newsService.getAllNewsAdmin();
     this.filterBlogs(); // Apply default filter
-     this.filteredNews = this.news; // Initialize with all news
+    this.filteredNews = this.news; // Initialize with all news
+    this.isContentLoaded = true;
   }
 
   filterBlogs(): void {

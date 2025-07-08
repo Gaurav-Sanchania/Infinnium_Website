@@ -17,9 +17,27 @@
       </div>
     </div>
 
+    <!-- Show skeleton only when data is loading -->
+    <div *ngIf="!isContentLoaded" class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
+      <div class="h-[29rem] rounded-lg bg-white max-w-sm relative animate-pulse" *ngFor="let skel of [1,2,3,4]">
+        <div class="w-80 h-40 bg-gray-300 rounded-t-lg"></div>
+        <div class="p-4 w-80 space-y-3">
+          <div class="h-5 bg-gray-300 rounded w-3/4"></div>
+          <div class="h-4 bg-gray-200 rounded w-full"></div>
+          <div class="h-4 bg-gray-200 rounded w-5/6"></div>
+          <div class="absolute bottom-2 space-y-2">
+            <div class="h-4 bg-gray-200 rounded w-1/2"></div>
+            <div class="h-4 bg-gray-300 rounded w-24"></div>
+          </div>
+        </div>
+        <div class="absolute bottom-2 right-2 flex gap-2">
+          <div class="h-8 w-16 bg-gray-300 rounded"></div>
+        </div>
+      </div>
+    </div>
 
     <!-- Container for all blogs in a row -->
-    <div class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
+    <div *ngIf="isContentLoaded" class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
       <div class="h-[29rem] rounded-lg bg-white  max-w-sm relative group [box-shadow:0_0_15px_rgba(0,0,0,0.15)]"
         *ngFor="let blog of filteredBlogs; let i = index;">
         <!-- Red exclamation icon if blog is not active -->
@@ -80,10 +98,10 @@
   <div class="max-w-8xl mx-auto">
     <div class="relative mb-8 flex">
       <h1 class="text-3xl font-bold text-gray-800 text-left">
-        NEWS AND 
+        NEWS AND
         <span class="block md:inline">EVENTS</span>
       </h1>
-      
+
       <!-- Right-aligned Filter Dropdown -->
       <div class="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center">
         <label for="filter" class="mr-2 text-gray-700 font-medium whitespace-nowrap">Filter:</label>
@@ -96,8 +114,27 @@
       </div>
     </div>
 
+    <!-- Show skeleton only when data is loading -->
+    <div *ngIf="!isContentLoaded" class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
+      <div class="h-[29rem] rounded-lg bg-white max-w-sm relative animate-pulse" *ngFor="let skel of [1,2,3,4]">
+        <div class="w-80 h-40 bg-gray-300 rounded-t-lg"></div>
+        <div class="p-4 w-80 space-y-3">
+          <div class="h-5 bg-gray-300 rounded w-3/4"></div>
+          <div class="h-4 bg-gray-200 rounded w-full"></div>
+          <div class="h-4 bg-gray-200 rounded w-5/6"></div>
+          <div class="absolute bottom-2 space-y-2">
+            <div class="h-4 bg-gray-200 rounded w-1/2"></div>
+            <div class="h-4 bg-gray-300 rounded w-24"></div>
+          </div>
+        </div>
+        <div class="absolute bottom-2 right-2 flex gap-2">
+          <div class="h-8 w-16 bg-gray-300 rounded"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Container for all blogs in a row -->
-    <div class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
+    <div *ngIf="isContentLoaded" class="flex flex-row flex-wrap lg:gap-6 gap-2 lg:justify-start justify-center">
       <div class="h-[29rem] rounded-lg bg-white max-w-sm relative group [box-shadow:0_0_15px_rgba(0,0,0,0.15)] "
         *ngFor="let blog of filteredNews; let i = index;">
 

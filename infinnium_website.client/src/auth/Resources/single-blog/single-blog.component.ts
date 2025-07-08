@@ -18,6 +18,7 @@ export class SingleBlogComponent implements OnInit {
   blog: any = [];
   news: any = [];
   public guid = '';
+  isContentLoaded = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,6 +29,7 @@ export class SingleBlogComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
+    this.isContentLoaded = false;
     const guidFromRoute = this.route.snapshot.paramMap.get('guid');
     // console.log(guidFromRoute);
     if (guidFromRoute) {
@@ -52,6 +54,7 @@ export class SingleBlogComponent implements OnInit {
         );
         //console.log(this.news);
       }
+      this.isContentLoaded = true;
     } else {
       //console.error('GUID not found in route!');
       return;

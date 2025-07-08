@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("AuthController")]
+    [Route("api/AuthController")]
     public class AuthController : Controller
     {
         private readonly JwtSettings _jwtSettings;

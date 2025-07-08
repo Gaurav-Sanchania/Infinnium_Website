@@ -17,7 +17,7 @@ export class ContactUsService {
     private auth: AuthSessionService,
     private config: ConfigService
   ) {
-    this.BASE_URL = this.config.apiBaseUrl;
+    this.BASE_URL = this.config.enApiUrl;
   }
 
   async getAllContactUs(): Promise<

@@ -19,7 +19,7 @@ export class LoginService {
     private router: Router,
     private config: ConfigService
   ) {
-    this.BASE_URL = this.config.apiBaseUrl;
+    this.BASE_URL = this.config.enApiUrl;
   }
 
   async loginValidation(loginCredentials: any): Promise<boolean> {

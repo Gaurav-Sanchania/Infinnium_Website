@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadConfig();
+    this.getConfig();
     this.initGlobalScrollBgTransitions();
 
     // Re-initialize scroll effect on every route change
@@ -46,6 +46,14 @@ export class AppComponent implements OnInit {
       });
   }
 
+  // Used to get config from environment.ts
+  getConfig() {
+    this.apiBaseUrl = this.configService.getApiUrl();
+    // console.log(this.apiBaseUrl);
+    this.configLoaded = true;
+  }
+
+  // Used to get config from myConfig.js
   loadConfig() {
     this.configService.loadConfig().subscribe({
       next: (config) => {

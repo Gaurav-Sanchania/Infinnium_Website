@@ -8,7 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("BlogsController")]
+    [Route("api/BlogsController")]
     public class BlogController(ConnectionStringService connectionStringService, ILogger<BlogController> logger) : Controller
     {
         private readonly ConnectionStringService config = connectionStringService;

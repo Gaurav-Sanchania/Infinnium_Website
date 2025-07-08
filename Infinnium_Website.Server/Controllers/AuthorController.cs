@@ -10,7 +10,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("AuthorController")]
+    [Route("api/AuthorController")]
     public class AuthorController(ConnectionStringService connectionStringService) : Controller
     {
         private readonly ConnectionStringService config = connectionStringService; 

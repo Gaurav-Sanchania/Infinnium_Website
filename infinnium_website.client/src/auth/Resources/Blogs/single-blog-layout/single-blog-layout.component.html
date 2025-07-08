@@ -45,44 +45,7 @@
     [category]="'Blogs'"
     [top3Blogs]="top3Blogs"
   ></app-resources-hero-section>
-  <!-- Skeleton Loader for Blog/News Detail -->
-   <div *ngIf="loading">
-     <div  class="max-w-2xl mx-auto mt-12 p-4 animate-pulse">
-   
-     <!-- Back Button Skeleton -->
-     <div class="flex items-center mb-4 space-x-2">
-       <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
-       <div class="h-4 w-40 bg-gray-300 rounded"></div>
-     </div>
-   
-     <!-- Label Skeleton -->
-     <div class="h-3 w-24 bg-gray-300 rounded mb-2"></div>
-   
-     <!-- Title Skeleton -->
-     <div class="h-6 w-3/4 bg-gray-300 rounded mb-3"></div>
-   
-     <!-- Subtitle Skeleton -->
-     <div class="h-4 w-full bg-gray-300 rounded mb-2"></div>
-     <div class="h-4 w-5/6 bg-gray-300 rounded mb-3"></div>
-   
-     <!-- Date Skeleton -->
-     <div class="h-4 w-32 bg-gray-300 rounded mb-4"></div>
-   
-     <!-- Image Skeleton -->
-     <div class="w-full h-64 bg-gray-300 rounded-lg shadow mb-6"></div>
-   
-     <!-- Paragraph Skeleton (Simulating Blog Content) -->
-     <div class="space-y-4">
-       <div class="h-4 w-full bg-gray-300 rounded"></div>
-       <div class="h-4 w-5/6 bg-gray-300 rounded"></div>
-       <div class="h-4 w-4/5 bg-gray-300 rounded"></div>
-       <div class="h-4 w-2/3 bg-gray-300 rounded"></div>
-       <div class="h-4 w-3/4 bg-gray-300 rounded"></div>
-     </div>
-   
-     </div>
-   </div>
-  <app-single-blog *ngIf="!loading"></app-single-blog>
+  <app-single-blog></app-single-blog>
   <app-recent-blogs></app-recent-blogs>
   <app-footer></app-footer>
   <app-scroll-to-top></app-scroll-to-top>
