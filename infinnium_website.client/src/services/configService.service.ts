@@ -25,11 +25,8 @@ export class ConfigService {
   public enApiUrl = "";
 
   constructor(private http: HttpClient) {
-    if(environment.production) {
-      this.enApiUrl = `${window.location.origin}`;
-    } else {
-      this.enApiUrl = environment.base_api_Url;
-    }
+    this.enApiUrl = environment.base_api_Url;
+    console.log(this.enApiUrl);
   }
 
   loadConfig(): Observable<AppConfig> {
