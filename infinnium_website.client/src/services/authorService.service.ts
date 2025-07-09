@@ -46,7 +46,7 @@ export class AuthorService {
             image: string;
             socialMediaLink: string;
           }[]
-        >(`${this.BASE_URL}/AuthorController/GetAllAuthors`)
+        >(`${this.BASE_URL}/Author/GetAllAuthors`)
       );
       const updatedResponse = response.map((item) => {
         if (item.image) {
@@ -86,7 +86,7 @@ export class AuthorService {
           image: string;
           socialMediaLink: string;
           isActive: boolean;
-        }>(`${this.BASE_URL}/AuthorController/AuthorDetails/${guid}`)
+        }>(`${this.BASE_URL}/Author/AuthorDetails/${guid}`)
       );
       if (response.image) {
         response.image = `data:image/jpeg;base64,${response.image}`;
@@ -119,7 +119,7 @@ export class AuthorService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
       this.httpClient
-        .post(`${this.BASE_URL}/AuthorController/AddAuthor`, formData, {
+        .post(`${this.BASE_URL}/Author/AddAuthor`, formData, {
           headers,
         })
         .subscribe();
@@ -148,7 +148,7 @@ export class AuthorService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
       this.httpClient
-        .post(`${this.BASE_URL}/AuthorController/EditAuthorDetails`, formData, {
+        .post(`${this.BASE_URL}/Author/EditAuthorDetails`, formData, {
           headers,
         })
         .subscribe();
@@ -167,7 +167,7 @@ export class AuthorService {
     formData.append('Image', Image.image);
 
     return this.httpClient.post(
-      `${this.BASE_URL}/AuthorController/AddImage`,
+      `${this.BASE_URL}/Author/AddImage`,
       formData,
       { headers }
     );

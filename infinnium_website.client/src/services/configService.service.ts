@@ -71,4 +71,8 @@ export class ConfigService {
   getApiUrl(): string {
     return this.enApiUrl;
   }
+
+  test() {
+    this.http.get(`${this.enApiUrl}/ConnectionTest/apiDbTest`).subscribe();
+  }
 }

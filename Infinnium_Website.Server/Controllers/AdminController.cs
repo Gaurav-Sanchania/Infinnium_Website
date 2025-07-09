@@ -8,14 +8,14 @@ using Microsoft.Data.SqlClient;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("api/AdminController")]
+    [Route("api/Admin")]
     public class AdminController(ConnectionStringService connectionStringService, EncryptionHelper encryptionHelper, ITokenBlacklistService blacklistService) : Controller
     {
         private readonly ConnectionStringService config = connectionStringService;
         private readonly EncryptionHelper encryptionHelper = encryptionHelper;
         private readonly ITokenBlacklistService jwtBlacklist = blacklistService;
 
-        // POST: AdminController/CheckUser
+        // POST: Admin/CheckUser
         [HttpPost]
         [Route("CheckUser")]
         public bool CheckUser(AdminModel adminModel)
@@ -48,7 +48,7 @@ namespace Infinnium_Website.Server.Controllers
             return isUserValid;
         }
 
-        // POST: AdminController/Logout
+        // POST: Admin/Logout
         [HttpPost]
         [Route("Logout")]
         public IActionResult Logout()
@@ -75,7 +75,7 @@ namespace Infinnium_Website.Server.Controllers
 
 
         // NOT TO BE USED : DEVELOPMENT PURPOSE
-        // GET: AdminController/GetAllUserMaster
+        // GET: Admin/GetAllUserMaster
         //[HttpGet]
         //[Route("GetAllUserMaster/NotApplicable")]
         //public List<AdminModel> GetAllUserMaster()
@@ -107,7 +107,7 @@ namespace Infinnium_Website.Server.Controllers
         //}
 
         // NOT TO BE USED : DEVELOPMENT PURPOSE
-        // GET: AdminController/ConvertPassword
+        // GET: Admin/ConvertPassword
         //[HttpGet]
         //[Route("ConvertPassword")]
         //public void ConvertPassword()

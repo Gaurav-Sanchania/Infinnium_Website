@@ -29,7 +29,7 @@ export class LoginService {
     try {
       const response: boolean = await firstValueFrom(
         this.httpClient.post<boolean>(
-          `${this.BASE_URL}/AdminController/CheckUser`,
+          `${this.BASE_URL}/Admin/CheckUser`,
           { email, password }
         )
       );
@@ -51,7 +51,7 @@ export class LoginService {
     try {
       const response = await firstValueFrom(
         this.httpClient.post(
-          `${this.BASE_URL}/AuthController/GenerateToken`,
+          `${this.BASE_URL}/Auth/GenerateToken`,
           null,
           { responseType: 'text' }
         )
@@ -88,7 +88,7 @@ export class LoginService {
 
     try {
       // const response = await firstValueFrom(
-      //   this.httpClient.post(`${this.BASE_URL}/AdminController/Logout`, null, { responseType: 'text' })
+      //   this.httpClient.post(`${this.BASE_URL}/Admin/Logout`, null, { responseType: 'text' })
       // );
 
       // if(response) {
@@ -110,7 +110,7 @@ export class LoginService {
     try {
       listUserMaster = await firstValueFrom(
         this.httpClient.get<object[]>(
-          `${this.BASE_URL}/AdminController/GetAllUserMaster....`
+          `${this.BASE_URL}/Admin/GetAllUserMaster....`
         )
       );
       return listUserMaster;

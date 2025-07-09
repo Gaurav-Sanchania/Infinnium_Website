@@ -34,7 +34,7 @@ export class ContactUsService {
             message: string;
             isActive: boolean;
           }[]
-        >(`${this.BASE_URL}/ContactUsController/GetAllContactUs`, { headers })
+        >(`${this.BASE_URL}/ContactUs/GetAllContactUs`, { headers })
       );
       return response;
     } catch (error) {
@@ -45,7 +45,7 @@ export class ContactUsService {
 
   addContactUs(FirstName: string, Email: string, Message: string) {
     return this.httpClient.post(
-      `${this.BASE_URL}/ContactUsController/CreateContactUs`,
+      `${this.BASE_URL}/ContactUs/CreateContactUs`,
       {
         FirstName,
         Email,
@@ -64,7 +64,7 @@ export class ContactUsService {
     try {
       this.httpClient
         .post(
-          `${this.BASE_URL}/ContactUsController/UpdateContactUs`,
+          `${this.BASE_URL}/ContactUs/UpdateContactUs`,
           formData,
           { headers }
         )
@@ -79,7 +79,7 @@ export class ContactUsService {
   sendEmail(receiver: string, subject: string, body: string): Observable<any> {
     //console.log(receiver, subject, body);
     return this.httpClient.post(
-      `${this.BASE_URL}/ContactUsController/SendEmail`,
+      `${this.BASE_URL}/ContactUs/SendEmail`,
       { receiver, subject, body },
       { responseType: 'text' }
     );

@@ -53,7 +53,7 @@ export class NewsService {
             authorDepartment: string;
             guid: string;
           }[]
-        >(`${this.BASE_URL}/NewsAndEventsController/GetAllNews`)
+        >(`${this.BASE_URL}/NewsAndEvents/GetAllNews`)
       );
 
       const updatedResponse = response.map((item) => {
@@ -102,7 +102,7 @@ export class NewsService {
           authorDepartment: string;
           guid: string;
           isActive: boolean;
-        }>(`${this.BASE_URL}/NewsAndEventsController/GetNewsDetails/${guid}`)
+        }>(`${this.BASE_URL}/NewsAndEvents/GetNewsDetails/${guid}`)
       );
       if (response.image) {
         response.image = `data:image/jpeg;base64,${response.image}`;
@@ -147,7 +147,7 @@ export class NewsService {
             authorDepartment: string;
             guid: string;
           }[]
-        >(`${this.BASE_URL}/NewsAndEventsController/Top3News`)
+        >(`${this.BASE_URL}/NewsAndEvents/Top3News`)
       );
       const updatedResponse = response.map((item) => {
         if (item.image) {
@@ -199,7 +199,7 @@ export class NewsService {
             guid: string;
             isActive: boolean;
           }[]
-        >(`${this.BASE_URL}/NewsAndEventsController/GetAllNewsAdmin`, {
+        >(`${this.BASE_URL}/NewsAndEvents/GetAllNewsAdmin`, {
           headers,
         })
       );
@@ -235,7 +235,7 @@ export class NewsService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
       this.httpClient
-        .post(`${this.BASE_URL}/NewsAndEventsController/AddNews`, formData, {
+        .post(`${this.BASE_URL}/NewsAndEvents/AddNews`, formData, {
           headers,
         })
         .subscribe();
@@ -264,7 +264,7 @@ export class NewsService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
       this.httpClient
-        .post(`${this.BASE_URL}/NewsAndEventsController/EditNews`, formData, {
+        .post(`${this.BASE_URL}/NewsAndEvents/EditNews`, formData, {
           headers,
         })
         .subscribe();
@@ -281,7 +281,7 @@ export class NewsService {
   deleteNewsAndEvents(id: number) {
     try {
       this.httpClient
-        .post(`${this.BASE_URL}/NewsAndEventsController/DeleteNews/${id}`, id)
+        .post(`${this.BASE_URL}/NewsAndEvents/DeleteNews/${id}`, id)
         .subscribe();
       return 'Successful';
     } catch (error) {

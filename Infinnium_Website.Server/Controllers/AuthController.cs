@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("api/AuthController")]
+    [Route("api/Auth")]
     public class AuthController : Controller
     {
         private readonly JwtSettings _jwtSettings;
@@ -19,7 +19,7 @@ namespace Infinnium_Website.Server.Controllers
             this.en = en;
         }
 
-        // POST: AuthController/GenerateToken
+        // POST: Auth/GenerateToken
         [HttpPost]
         [Route("GenerateToken")]
         public string GenerateToken()

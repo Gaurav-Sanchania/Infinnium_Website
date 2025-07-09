@@ -44,6 +44,9 @@ export class AppComponent implements OnInit {
           this.initGlobalScrollBgTransitions();
         }, 100); // Delay ensures DOM is ready
       });
+
+    // test connection
+    this.testConnection();
   }
 
   // Used to get config from environment.ts
@@ -111,5 +114,9 @@ export class AppComponent implements OnInit {
     );
 
     elements.forEach((el) => observer.observe(el));
+  }
+
+  testConnection() {
+    this.configService.test();
   }
 }

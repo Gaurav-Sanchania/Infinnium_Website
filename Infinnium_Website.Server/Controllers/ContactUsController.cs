@@ -9,7 +9,7 @@ using Microsoft.Data.SqlClient;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("api/ContactUsController")]
+    [Route("api/ContactUs")]
     public class ContactUsController : Controller
     {
         private readonly ConnectionStringService config;
@@ -21,7 +21,7 @@ namespace Infinnium_Website.Server.Controllers
             this.emailSender = emailSenderService;
         }
 
-        // GET: ContactUsController/GetAllContactUs
+        // GET: ContactUs/GetAllContactUs
         [HttpGet]
         [Authorize]
         [Route("GetAllContactUs")]
@@ -96,7 +96,7 @@ namespace Infinnium_Website.Server.Controllers
 
         //--------------------------------------------------------------------------------------------------------------------------------
 
-        // POST: ContactUsController/CreateContactUs
+        // POST: ContactUs/CreateContactUs
         [HttpPost]
         [Route("CreateContactUs")]
         public async Task<IActionResult> CreateContactUs([FromBody] AddContactUsModel record)
@@ -137,7 +137,7 @@ namespace Infinnium_Website.Server.Controllers
         }
 
         // Set Contact Us record Active/inActive
-        // POST: ContactUsController/UpdateContactUs
+        // POST: ContactUs/UpdateContactUs
         [HttpPost]
         [Authorize]
         [Route("UpdateContactUs")]
@@ -190,7 +190,7 @@ namespace Infinnium_Website.Server.Controllers
         //    }
         //}
 
-        // POST: ContactUsController/SendEmail
+        // POST: ContactUs/SendEmail
         [HttpPost]
         [Route("SendEmail")]
         public async Task<IActionResult> SendEmail(EmailRequest user)

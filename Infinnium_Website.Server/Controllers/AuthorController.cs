@@ -10,12 +10,12 @@ using static System.Net.Mime.MediaTypeNames;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("api/AuthorController")]
+    [Route("api/Author")]
     public class AuthorController(ConnectionStringService connectionStringService) : Controller
     {
         private readonly ConnectionStringService config = connectionStringService; 
 
-        // GET: AuthorController/GetAllAuthors
+        // GET: Author/GetAllAuthors
         [HttpGet]
         [Route("GetAllAuthors")]
         public List<AuthorModel> GetAllAuthors()
@@ -62,7 +62,7 @@ namespace Infinnium_Website.Server.Controllers
             return authors;
         }
 
-        // GET: AuthorController/AuthorDetails/{id}
+        // GET: Author/AuthorDetails/{id}
         [HttpGet]
         [Route("AuthorDetails/{id}")]
         public AuthorModel AuthorDetails(string id)
@@ -108,7 +108,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // -----------------------------------------------------------------------------------------------------------------------
 
-        // POST: AuthorController/AddAuthor
+        // POST: Author/AddAuthor
         [HttpPost]
         [Authorize]
         [Route("AddAuthor")]
@@ -163,7 +163,7 @@ namespace Infinnium_Website.Server.Controllers
             }
         }
 
-        // POST: AuthorController/EditAuthorDetails
+        // POST: Author/EditAuthorDetails
         [HttpPost]
         [Authorize]
         [Route("EditAuthorDetails")]
@@ -219,7 +219,7 @@ namespace Infinnium_Website.Server.Controllers
 
         // ONLY FOR DEVELOPMENT PURPOSE
 
-        // POST: AuthorController/AddImage
+        // POST: Author/AddImage
         //[HttpPost]
         //[Authorize]
         //[Route("AddImage")]

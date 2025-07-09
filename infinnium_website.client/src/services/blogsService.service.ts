@@ -37,7 +37,7 @@ export class BlogsService {
       guid: string;
     }[]
   > {
-    // https://localhost:7046/BlogsController/GetAllBlogs
+    // https://localhost:7046/Blogs/GetAllBlogs
     try {
       const response = await firstValueFrom(
         this.httpClient.get<
@@ -55,7 +55,7 @@ export class BlogsService {
             authorDepartment: string;
             guid: string;
           }[]
-        >(`${this.BASE_URL}/BlogsController/GetAllBlogs`)
+        >(`${this.BASE_URL}/Blogs/GetAllBlogs`)
       );
       const updatedResponse = response.map((item) => {
         if (item.image) {
@@ -87,7 +87,7 @@ export class BlogsService {
     guid: string;
     isActive: boolean;
   }> {
-    // https://localhost:7046/BlogsController/GetBlogDetails/{id}
+    // https://localhost:7046/Blogs/GetBlogDetails/{id}
     try {
       const response = await firstValueFrom(
         this.httpClient.get<{
@@ -104,7 +104,7 @@ export class BlogsService {
           authorDepartment: string;
           guid: string;
           isActive: boolean;
-        }>(`${this.BASE_URL}/BlogsController/GetBlogDetails/${guid}`)
+        }>(`${this.BASE_URL}/Blogs/GetBlogDetails/${guid}`)
       );
       if (response.image) {
         response.image = `data:image/jpeg;base64,${response.image}`;
@@ -132,7 +132,7 @@ export class BlogsService {
       guid: string;
     }[]
   > {
-    // https://localhost:7046/BlogsController/Top3Blogs
+    // https://localhost:7046/Blogs/Top3Blogs
     try {
       const response = await firstValueFrom(
         this.httpClient.get<
@@ -150,7 +150,7 @@ export class BlogsService {
             authorDepartment: string;
             guid: string;
           }[]
-        >(`${this.BASE_URL}/BlogsController/Top3Blogs`)
+        >(`${this.BASE_URL}/Blogs/Top3Blogs`)
       );
       const updatedResponse = response.map((item) => {
         if (item.image) {
@@ -183,7 +183,7 @@ export class BlogsService {
       isActive: boolean;
     }[]
   > {
-    // https://localhost:7046/BlogsController/GetAllBlogs
+    // https://localhost:7046/Blogs/GetAllBlogs
     try {
       const token = this.auth.getToken();
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -204,7 +204,7 @@ export class BlogsService {
             guid: string;
             isActive: boolean;
           }[]
-        >(`${this.BASE_URL}/BlogsController/GetAllBlogsAdmin`, { headers })
+        >(`${this.BASE_URL}/Blogs/GetAllBlogsAdmin`, { headers })
       );
       const updatedResponse = response.map((item) => {
         if (item.image) {
@@ -237,7 +237,7 @@ export class BlogsService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
       this.httpClient
-        .post(`${this.BASE_URL}/BlogsController/AddBlog`, formData, { headers })
+        .post(`${this.BASE_URL}/Blogs/AddBlog`, formData, { headers })
         .subscribe();
       return 'Successful';
     } catch (error) {
@@ -264,7 +264,7 @@ export class BlogsService {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
       this.httpClient
-        .post(`${this.BASE_URL}/BlogsController/EditBlog`, formData, {
+        .post(`${this.BASE_URL}/Blogs/EditBlog`, formData, {
           headers,
         })
         .subscribe();
@@ -280,7 +280,7 @@ export class BlogsService {
       const token = this.auth.getToken();
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       this.httpClient
-        .post(`${this.BASE_URL}/BlogsController/DeleteBlog/${id}`, id, {
+        .post(`${this.BASE_URL}/Blogs/DeleteBlog/${id}`, id, {
           headers,
         })
         .subscribe();
@@ -296,7 +296,7 @@ export class BlogsService {
       const token = this.auth.getToken();
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       this.httpClient
-        .post(`${this.BASE_URL}/BlogsController/SetisActive`, data, { headers })
+        .post(`${this.BASE_URL}/Blogs/SetisActive`, data, { headers })
         .subscribe();
       return 'Successful';
     } catch (error) {

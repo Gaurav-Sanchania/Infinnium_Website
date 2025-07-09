@@ -8,13 +8,13 @@ using static System.Net.Mime.MediaTypeNames;
 namespace Infinnium_Website.Server.Controllers
 {
     [ApiController]
-    [Route("api/BlogsController")]
+    [Route("api/Blogs")]
     public class BlogController(ConnectionStringService connectionStringService, ILogger<BlogController> logger) : Controller
     {
         private readonly ConnectionStringService config = connectionStringService;
         private readonly ILogger<BlogController> log = logger;
 
-        // GET: BlogsController/GetAllBlogs
+        // GET: Blogs/GetAllBlogs
         [HttpGet]
         [Route("GetAllBlogs")]
         public List<BlogsModel> GetAllBlogs()
@@ -72,7 +72,7 @@ namespace Infinnium_Website.Server.Controllers
             }
         }
 
-        // GET: BlogsController/GetBlogDetails/{id}
+        // GET: Blogs/GetBlogDetails/{id}
         [HttpGet]
         [Route("GetBlogDetails/{id}")]
         public BlogsModel GetBlogDetails(string id)
