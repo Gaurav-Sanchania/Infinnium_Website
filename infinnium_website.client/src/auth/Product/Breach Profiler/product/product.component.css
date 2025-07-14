@@ -1,24 +1,9 @@
-.truncate-text {
-  max-height: 4.5em; /* Approx 3 lines */
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
-.slide-toggle {
-  max-height: 1000px; /* Simulate slide down - should be larger than any actual content */
-  transition: max-height 0.5s ease;
-  overflow: hidden;
-}
-.slide-toggle.collapsing {
-  max-height: 4.5em;
-}
 .fade-in-on-scroll {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 0.6s ease;
+  position: relative;
+  z-index: 10;
 }
 
 .animate-fade-in-up {
@@ -34,5 +19,45 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.snap-y {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+
+.scroll-item {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.scroll-item.active {
+  transform: scale(1.02);
+  opacity: 1;
+}
+
+.heading-item.active h3 {
+  color: #E76F51;
+  font-weight: bold;
+  font-size: 1.25rem; /* Larger size for active heading (20px) */
+}
+
+@media (max-width: 767px) {
+  .heading-item.active h3 {
+    color: #E76F51;
+    font-weight: bold;
+    font-size: 0.875rem; /* Active heading size for mobile (14px) */
   }
 }
