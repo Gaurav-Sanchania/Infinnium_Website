@@ -1,75 +1,92 @@
-<section class="scroll-bg-transition py-16 px-6 md:px-12 lg:px-24" style="font-family: 'Manrope', 'Open Sans', sans-serif"
-  style="font-family: 'Manrope', 'Open Sans', sans-serif">
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<section class="scroll-bg-transition py-16 px-6 md:px-12 lg:px-24"
+  style="font-family: 'Manrope', 'Open Sans', sans-serif" style="font-family: 'Manrope', 'Open Sans', sans-serif">
   <div class="max-w-6xl mx-auto">
     <!-- Section Title -->
-    <div class="text-center mb-12 fade-in-on-scroll">
+    <div class="text-center mb-12 fade-in-on-scroll" id="section-header">
       <h2 class="text-4xl font-semibold text-[#12423C]">
         Data Protection/DSAR
       </h2>
       <p class="mt-4 text-lg text-[#1E2D2F]"></p>
     </div>
 
-    <!-- Columns Layout -->
-    <div class="flex flex-wrap gap-8">
-      <div class="w-full md:w-[calc(50%-1rem)] fade-in-on-scroll">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-lg shadow p-8 flex flex-col break-inside-avoid">
-          <h3 class="text-xl font-semibold text-[#12423C] border-b border-gray-200 pb-2 mb-4">
-            Smart, Secure & Seamless Data Access Management
-          </h3>
-          <p id="desc-2" class="text-[#1E2D2F] text-md mb-4 truncate-text">
-            4iG® DSAR allows you to securely retrieve, verify, and respond to dSARs. It centralizes data management by
-            natively connecting to various disparate systems of your digital landscape, facilitating efficient search
-            and retrieval across various data sources within the organization. By centralizing and streamlining these
-            procedures, it minimizes the time and resources required to fulfill requests, thereby improving operational
-            efficiency with higher confidence levels.
-          </p>
-          <button [attr.data-id]="2" (click)="toggleDescription(2)"
-            class="text-left mt-auto text-[#E76F51] hover:text-[#E65A4E] font-medium inline-block hover:underline">
-            Read More ↓
-          </button>
+    <!-- Desktop Layout: Static Headings and Scrollable Descriptions -->
+    <div class="hidden md:flex flex-row items-start gap-10 h-[18rem] relative z-10">
+      <!-- Left Side: Scrollable Descriptions -->
+      <div class="w-[65%] h-full">
+        <div id="description-container" class="h-full overflow-y-auto snap-y snap-mandatory no-scrollbar">
+          <div class="space-y-8">
+            <div *ngFor="let item of items; let i = index"
+              class="snap-center min-h-[18rem] fade-in-on-scroll scroll-item flex items-top justify-center"
+              [attr.data-id]="i + 1">
+              <p class="text-[#1E2D2F] text-base font-light text-left">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="w-full md:w-[calc(50%-1rem)] fade-in-on-scroll">
-        <!-- Card 2 -->
-        <div class="bg-white rounded-lg shadow p-8 flex flex-col break-inside-avoid">
-          <h3 class="text-xl font-semibold text-[#12423C] border-b border-gray-200 pb-2 mb-4">
-            Automate & Simplify Compliance with Global Privacy Laws
-          </h3>
-          <p id="desc-1" class="text-[#1E2D2F] text-md mb-4 truncate-text">
-            4iG® DSAR (Data Subject Access Request) module is a vital tool for organizations handling requests from your
-            organization’s DSAR ticketing system and help individuals to access their personal data. It simplifies and
-            automates the entire process, ensuring compliance with stringent privacy regulations such as GDPR, HIPAA,
-            CCPA, Gramm-Leach-Bliley Act, CPRA, COPPA, VCDPA, CDPA, Nevada SB220, PDPA, NY S5642, NH HB 1680-FN, DPDP
-            Act of India, LGPD Brazil, PIPEDA Canada, POPIA South Africa, etc.
-          </p>
-          <button [attr.data-id]="1" (click)="toggleDescription(1)"
-            class="text-left mt-auto text-[#E76F51] hover:text-[#E65A4E] font-medium inline-block hover:underline">
-            Read More ↓
-          </button>
+      <!-- Vertical Divider -->
+      <div class="h-[100%] w-px bg-gray-300"></div>
+
+      <!-- Right Side: Static Headings -->
+      <div class="w-[35%] h-full flex items-top">
+        <div class="w-full">
+          <div class="space-y-4">
+            <div *ngFor="let item of items; let i = index" class="heading-item cursor-pointer" [attr.data-id]="i + 1">
+              <h3 class="text-sm font-semibold text-[#12423C] transition-all duration-300">
+                {{ item.heading }}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Layout: Single Heading, Divider, Description with Dot Pagination -->
+    <div class="md:hidden">
+      <!-- Mobile Headings Carousel -->
+      <div id="heading-container" class="relative overflow-hidden">
+        <div class="flex transition-transform duration-300 ease-in-out"
+          [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+          <div *ngFor="let item of items; let i = index"
+            class="heading-item cursor-pointer flex-shrink-0 w-full text-center" [attr.data-id]="i + 1">
+            <h3 class="text-lg font-semibold text-[#e76f51] transition-all duration-300">
+              {{ item.heading }}
+            </h3>
+          </div>
         </div>
       </div>
 
-      <div class="w-full fade-in-on-scroll">
-        <!-- Card 3 -->
-        <div class="bg-white rounded-lg shadow p-8 flex flex-col break-inside-avoid">
-          <h3 class="text-xl font-semibold text-[#12423C] border-b border-gray-200 pb-2 mb-4">
-            AI-Powered Data Access & Redaction Compliance
-          </h3>
-          <p id="desc-3" class="text-[#1E2D2F] text-md mb-4 truncate-text">
-            4iG® DSAR addresses “Right to be forgotten and Right To data Access” needs using AI Based PXI identification
-            and redaction. 4iG® DSAR enhances transparency and accountability by maintaining detailed audit trails of
-            request processing. It enables organizations to demonstrate compliance with regulatory requirements and
-            uphold individuals’ rights to access and control their personal information.
-          </p>
-          <button [attr.data-id]="3" (click)="toggleDescription(3)"
-            class="text-left mt-auto text-[#E76F51] hover:text-[#E65A4E] font-medium inline-block hover:underline">
-            Read More ↓
-          </button>
+      <!-- Horizontal Divider -->
+      <div class="border-t border-gray-300 my-4"></div>
+
+      <!-- Mobile Description Carousel -->
+      <div class="relative">
+        <div id="mobile-description" class="min-h-[300px] overflow-hidden">
+          <div class="flex transition-transform duration-300 ease-in-out"
+            [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+            <div *ngFor="let item of items; let i = index"
+              class="scroll-item flex-shrink-0 w-full flex justify-start fade-in-on-scroll">
+              <p class="text-[#1E2D2F] text-base font-light text-left leading-relaxed px-8">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
+      <!-- Dot Pagination -->
+      <div class="flex justify-center mt-4 gap-2">
+        <div *ngFor="let item of items; let i = index"
+          class="w-2 h-2 rounded-full cursor-pointer transition-all duration-300" [ngClass]="{
+               'bg-[#12423C]': i === currentIndex,
+               'bg-gray-300': i !== currentIndex
+             }" (click)="onDotClick(i)">
+        </div>
+      </div>
     </div>
   </div>
 </section>
